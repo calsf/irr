@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://player/player_controller.gd" type="Script" id=1]
+[ext_resource path="res://player/player.png" type="Texture" id=2]
+[ext_resource path="res://weapons/dagger/Dagger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://weapons/shortbow/Shortbow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://weapons/wand/Wand.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player/player_hurtbox.gd" type="Script" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="Animation" id=2]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 2.5
+height = 4.0
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 0
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -14 )
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, -3 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 2 )
+anims/Walk = SubResource( 3 )
+
+[node name="Dagger" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 0, -6 )
+
+[node name="Shortbow" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 0, -6 )
+
+[node name="Wand" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, -6 )
+
+[node name="PlayerHurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 28
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
+position = Vector2( -0.5, -3 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="HurtTimer" type="Timer" parent="PlayerHurtbox"]
+[connection signal="timeout" from="PlayerHurtbox/HurtTimer" to="PlayerHurtbox" method="_on_HurtTimer_timeout"]

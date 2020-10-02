@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://weapons/base_dmg_enemy/DamageEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://weapons/base_dmg_enemy/default_ranged.gd" type="Script" id=2]
+[ext_resource path="res://weapons/dagger/dagger_projectile.png" type="Texture" id=3]
+[ext_resource path="res://weapons/dagger/dagger_projectile_props.tres" type="Resource" id=4]
+
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.0
+
+[node name="DaggerProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+damage_props = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+hframes = 3
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 1 )
