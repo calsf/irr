@@ -62,7 +62,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="rogueProto"
+config/name="The Irregularity"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
