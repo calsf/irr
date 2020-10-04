@@ -29,10 +29,11 @@ func _process(delta):
 			_sprite.scale.x *= -1
 	
 	# Weapon z rendering, should always be child of player
-	if (mouse_dir.y > 0):
-		show_behind_parent = false
+	# Need to set parent, all weapons are children of a Weapons node in Player
+	if mouse_dir.y > 0:
+		get_parent().show_behind_parent = false
 	else:
-		show_behind_parent = true
+		get_parent().show_behind_parent = true
 
 # Play normal attack animation
 func normal_attack():

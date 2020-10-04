@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://weapons/base_weapon/weapon_props.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+weapon_id = 0
+weapon_name = "Dagger"
+normal_desc = "Casts a pathetic ball of water."
+empow_desc = "Casts a less pathetic ball of water."

@@ -21,7 +21,3 @@ func _physics_process(delta):
 # other is the entering area or entering body to this object
 func _on_hit(other):
 	print("Default on hit")
-
-# Destroy this object
-func destroy():
-	queue_free()
