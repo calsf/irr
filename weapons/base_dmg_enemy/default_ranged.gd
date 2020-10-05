@@ -6,6 +6,7 @@ class_name DefaultRanged
 func _on_hit(other):
 	if other.get_owner().is_in_group("enemies"):
 		print("hit enemy")
+		_add_meter()
 		queue_free()
 	else:
 		queue_free()

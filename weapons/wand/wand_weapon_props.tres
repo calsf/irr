@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-weapon_id = 0
-weapon_name = "Dagger"
-normal_desc = "Casts a pathetic ball of water."
-empow_desc = "Casts a less pathetic ball of water."
+weapon_id = 1
+weapon_name = "Wand"
+normal_desc = "Throws a pathetic wand."
+empow_desc = "Throws a less pathetic wand."
 empow_cost = 20

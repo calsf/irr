@@ -78,6 +78,11 @@ config/name="The Irregularity"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerMeter="*res://player/player_meter.gd"
+PlayerHealth="*res://player/player_health.gd"
+
 [display]
 
 window/size/width=640

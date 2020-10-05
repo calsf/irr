@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://player/player.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://weapons/shortbow/Shortbow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://weapons/wand/Wand.tscn" type="PackedScene" id=5]
 [ext_resource path="res://player/player_hurtbox.gd" type="Script" id=6]
+[ext_resource path="res://player/player_hud/PlayerHUD.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
@@ -74,11 +75,11 @@ anims/Walk = SubResource( 3 )
 visible = false
 position = Vector2( 0, -6 )
 
-[node name="Shortbow" parent="Weapons" instance=ExtResource( 4 )]
+[node name="Wand" parent="Weapons" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 0, -6 )
 
-[node name="Wand" parent="Weapons" instance=ExtResource( 5 )]
+[node name="Shortbow" parent="Weapons" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 0, -6 )
 
@@ -102,4 +103,6 @@ collision_mask = 32
 position = Vector2( -0.5, -3 )
 rotation = 1.5708
 shape = SubResource( 5 )
+
+[node name="PlayerHUD" parent="." instance=ExtResource( 7 )]
 [connection signal="timeout" from="PlayerHurtbox/HurtTimer" to="PlayerHurtbox" method="_on_HurtTimer_timeout"]

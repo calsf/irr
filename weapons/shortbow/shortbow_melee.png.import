@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shortbow_slash.png-8ff720451c8e9d307add8274cedc6e60.stex"
+path="res://.import/shortbow_melee.png-017e377d694a83e3177a1ad8ec547718.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapons/shortbow/shortbow_slash.png"
-dest_files=[ "res://.import/shortbow_slash.png-8ff720451c8e9d307add8274cedc6e60.stex" ]
+source_file="res://weapons/shortbow/shortbow_melee.png"
+dest_files=[ "res://.import/shortbow_melee.png-017e377d694a83e3177a1ad8ec547718.stex" ]
 
 [params]
 

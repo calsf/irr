@@ -1,7 +1,7 @@
 extends Weapon
 class_name Shortbow
 
-var Melee = preload("res://weapons/shortbow/ShortbowSlash.tscn")
+var Melee = preload("res://weapons/shortbow/ShortbowMelee.tscn")
 
 # Spawn normal damage object in attack animation
 # Attack speed is based on animation

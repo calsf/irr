@@ -1,11 +1,9 @@
 extends Area2D
 
-const MAX_HP = 3
 const INVULN_TIME = 1
 
 onready var hurt_timer = $HurtTimer
 
-var curr_hp = MAX_HP
 var is_invuln = false
 
 func _physics_process(delta):
@@ -17,7 +15,7 @@ func _physics_process(delta):
 		
 		if overlapping_areas:
 			is_invuln = true
-			curr_hp -= 1
+			PlayerHealth.lose_health(1)
 			hurt_timer.start(INVULN_TIME)
 
 # When hurt timer runs out, player can take damage again

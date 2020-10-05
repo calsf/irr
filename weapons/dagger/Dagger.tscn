@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://weapons/base_weapon/BaseWeapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/dagger/dagger.png" type="Texture" id=2]
 [ext_resource path="res://weapons/dagger/dagger.gd" type="Script" id=3]
+[ext_resource path="res://weapons/dagger/dagger_weapon_props.tres" type="Resource" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "normal_attack"
@@ -36,6 +37,7 @@ tracks/1/keys = {
 
 [node name="Dagger" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+_weapon_props = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )

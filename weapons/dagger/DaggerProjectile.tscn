@@ -5,13 +5,12 @@
 [ext_resource path="res://weapons/dagger/dagger_projectile.png" type="Texture" id=3]
 [ext_resource path="res://weapons/dagger/dagger_projectile_props.tres" type="Resource" id=4]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
 
 [node name="DaggerProjectile" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-damage_props = ExtResource( 4 )
+_damage_props = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )

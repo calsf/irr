@@ -2,13 +2,14 @@
 extends Node2D
 class_name Weapon
 
+export var _weapon_props : Resource
 onready var _spawn_pos = $Sprite/SpawnPos
 onready var _anim = $AnimationPlayer
 onready var _sprite = $Sprite
 
-var mouse_dir = Vector2()
-var rot = 0
-var is_attacking = false
+var _mouse_dir = Vector2()
+var _rot = 0
+var _is_attacking = false
 
 func _ready():
 	_sprite.frame = 0
@@ -16,12 +17,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Mouse facing direction
-	mouse_dir = get_global_mouse_position() - global_position
-	rot = rad2deg(atan2(mouse_dir.y, mouse_dir.x))
+	_mouse_dir = get_global_mouse_position() - global_position
+	_rot = rad2deg(atan2(_mouse_dir.y, _mouse_dir.x))
 	
 	# Weapon rotation
-	_sprite.rotation_degrees = rot + 90
-	if rot > -90 and rot < 90:
+	_sprite.rotation_degrees = _rot + 90
+	if _rot > -90 and _rot < 90:
 		if (_sprite.scale.x < 0):
 			_sprite.scale.x *= -1
 	else:
@@ -30,7 +31,7 @@ func _process(delta):
 	
 	# Weapon z rendering, should always be child of player
 	# Need to set parent, all weapons are children of a Weapons node in Player
-	if mouse_dir.y > 0:
+	if _mouse_dir.y > 0:
 		get_parent().show_behind_parent = false
 	else:
 		get_parent().show_behind_parent = true
@@ -41,7 +42,11 @@ func normal_attack():
 
 # Play empowered attack animation
 func empowered_attack():
-	_anim.play("empowered_attack")
+	# Only trigger attack if enough meter
+	if (PlayerMeter.curr_meter >= _weapon_props.empow_cost):
+		PlayerMeter.lose_meter(_weapon_props.empow_cost)
+		print("empowered attack")
+		#_anim.play("empowered_attack")
 
 # Default behaviour for a normal ranged attack
 # Shoot projectile in direction of mouse
@@ -50,7 +55,7 @@ func spawn_range_normal(Projectile):
 	proj.scale = get_owner().scale
 	get_tree().get_root().add_child(proj)
 	proj.global_position = _spawn_pos.global_position
-	proj.dir = mouse_dir.normalized()
+	proj.dir = _mouse_dir.normalized()
 
 # Default behaviour for a normal melee attack
 # Melee attack in direciton of mouse
@@ -58,4 +63,4 @@ func spawn_melee_normal(Melee):
 	var melee = Melee.instance()
 	add_child(melee)
 	melee.global_position = _spawn_pos.global_position
-	melee.rotation_degrees = rot + 90
+	melee.rotation_degrees = _rot + 90

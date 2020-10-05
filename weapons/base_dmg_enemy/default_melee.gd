@@ -14,4 +14,5 @@ func _physics_process(delta):
 func _on_hit(other):
 	if not _obj_hit.has(other) and other.get_owner().is_in_group("enemies"):
 		_obj_hit.append(other)
+		_add_meter()
 		print("meleed enemy, knockback")
