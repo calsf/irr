@@ -4,11 +4,6 @@
 [ext_resource path="res://fonts/VT323-Regular_16.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://fonts/VT323-Regular_8.tres" type="DynamicFontData" id=3]
 
-
-
-
-
-
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
 
@@ -25,7 +20,7 @@ script = ExtResource( 1 )
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_layer = 32
-collision_mask = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 
