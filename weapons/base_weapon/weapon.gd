@@ -42,24 +42,24 @@ func normal_attack():
 
 # Play empowered attack animation
 func empowered_attack():
-	# Only trigger attack if enough meter
-	if (PlayerMeter.curr_meter >= _weapon_props.empow_cost):
+	# Only trigger attack if enough meter and not already in middle of emp attack
+	if (PlayerMeter.curr_meter >= _weapon_props.empow_cost and \
+	(not _anim.is_playing() or _anim.assigned_animation != "empowered_attack")):
 		PlayerMeter.lose_meter(_weapon_props.empow_cost)
-		print("empowered attack")
-		#_anim.play("empowered_attack")
+		_anim.play("empowered_attack")
 
-# Default behaviour for a normal ranged attack
+# Default behaviour for a basic ranged attack
 # Shoot projectile in direction of mouse
-func spawn_range_normal(Projectile):
+func spawn_range_basic(Projectile):
 	var proj = Projectile.instance()
 	proj.scale = get_owner().scale
 	get_tree().get_root().add_child(proj)
 	proj.global_position = _spawn_pos.global_position
 	proj.dir = _mouse_dir.normalized()
 
-# Default behaviour for a normal melee attack
+# Default behaviour for a basic melee attack
 # Melee attack in direciton of mouse
-func spawn_melee_normal(Melee):
+func spawn_melee_basic(Melee):
 	var melee = Melee.instance()
 	add_child(melee)
 	melee.global_position = _spawn_pos.global_position

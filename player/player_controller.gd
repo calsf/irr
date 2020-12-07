@@ -2,9 +2,14 @@ extends KinematicBody2D
 
 const BASE_SPEED = 32 * 5
 
+# Player sprite textures with lighting on opposite sides for when player flips
+var PlayerTextureDefault = preload("res://player/player.png")
+var PlayerTextureFlipped = preload("res://player/player_flipped.png")
+
 var move_speed = BASE_SPEED
 var input_vector = Vector2()
 var curr_interactable = null
+var is_emp_attacking = false
 
 onready var _sprite = $Sprite
 onready var _anim = $AnimationPlayer
@@ -42,10 +47,13 @@ func _process(delta):
 	var rot = rad2deg(atan2(mouse_dir.y, mouse_dir.x))
 		
 	# Player facing direction to match mouse facing direction
+	# Sprite texture changed depending on facing direction to maintain lighting
 	if mouse_dir.x < 0:
+		_sprite.texture = PlayerTextureDefault
 		if (_sprite.scale.x < 0):
 			_sprite.scale.x *= -1
 	else:
+		_sprite.texture = PlayerTextureFlipped
 		if (_sprite.scale.x > 0):
 			_sprite.scale.x *= -1
 
