@@ -9,3 +9,4 @@ weapon_name = "Wand"
 normal_desc = "Throws a pathetic wand."
 empow_desc = "Throws a less pathetic wand."
 empow_cost = 20
+icon_path = "res://player/player_hud/weapon_icons/wand_ic.png"

@@ -66,7 +66,7 @@ tracks/1/keys = {
 
 [node name="Wand" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-_weapon_props = ExtResource( 4 )
+weapon_props = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -2 )

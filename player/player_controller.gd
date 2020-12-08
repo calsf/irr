@@ -9,7 +9,6 @@ var PlayerTextureFlipped = preload("res://player/player_flipped.png")
 var move_speed = BASE_SPEED
 var input_vector = Vector2()
 var curr_interactable = null
-var is_emp_attacking = false
 
 onready var _sprite = $Sprite
 onready var _anim = $AnimationPlayer
@@ -18,6 +17,12 @@ onready var weapons = $Weapons.get_children()
 onready var weapon_primary : Weapon
 onready var weapon_secondary : Weapon
 onready var weapon_curr : Weapon
+
+# Signals to update HUD
+signal primary_selected()
+signal secondary_selected()
+signal primary_swapped()
+signal secondary_swapped()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +33,11 @@ func _ready():
 	weapon_secondary = weapons[1]
 	weapon_curr = weapon_primary
 	weapon_curr.visible = true
+	
+	emit_signal("primary_selected")
+	# Make sure to emit swapped signals with swapped weapon's icon path
+	emit_signal("primary_swapped", weapon_primary.weapon_props.icon_path)
+	emit_signal("secondary_swapped", weapon_secondary.weapon_props.icon_path)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -70,8 +80,10 @@ func _input(event):
 		weapon_curr.visible = false
 		if (weapon_curr == weapon_primary):
 			weapon_curr = weapon_secondary
+			emit_signal("secondary_selected")
 		else:
 			weapon_curr = weapon_primary
+			emit_signal("primary_selected")
 		weapon_curr.visible = true
 	
 	# If in interactable area, listen for player input
@@ -89,8 +101,10 @@ func _input(event):
 				
 				if weapon_curr == weapon_primary:
 					weapon_primary = new_weapon
+					emit_signal("primary_swapped", weapon_primary.weapon_props.icon_path)
 				else:
 					weapon_secondary = new_weapon
+					emit_signal("secondary_swapped", weapon_secondary.weapon_props.icon_path)
 				weapon_curr = new_weapon
 				
 				weapon_curr.visible = true

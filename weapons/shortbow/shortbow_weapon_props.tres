@@ -9,3 +9,4 @@ weapon_name = "Shortbow"
 normal_desc = "Swings pathetically."
 empow_desc = "Swings less pathetically."
 empow_cost = 20
+icon_path = "res://player/player_hud/weapon_icons/shortbow_ic.png"

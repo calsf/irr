@@ -9,3 +9,4 @@ weapon_name = "Dagger"
 normal_desc = "Casts a pathetic ball of water."
 empow_desc = "Casts a less pathetic ball of water."
 empow_cost = 20
+icon_path = "res://player/player_hud/weapon_icons/dagger_ic.png"

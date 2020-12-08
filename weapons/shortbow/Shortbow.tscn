@@ -5,7 +5,7 @@
 [ext_resource path="res://weapons/shortbow/shortbow.png" type="Texture" id=3]
 [ext_resource path="res://weapons/shortbow/shortbow_weapon_props.tres" type="Resource" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "empowered_attack"
 length = 0.4
 tracks/0/type = "value"
@@ -35,8 +35,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "normal_attack"
+[sub_resource type="Animation" id=2]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -67,7 +66,7 @@ tracks/1/keys = {
 
 [node name="Shortbow" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-_weapon_props = ExtResource( 4 )
+weapon_props = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
@@ -75,5 +74,5 @@ hframes = 9
 frame = 5
 
 [node name="AnimationPlayer" parent="." index="1"]
-anims/empowered_attack = SubResource( 2 )
-anims/normal_attack = SubResource( 1 )
+anims/empowered_attack = SubResource( 1 )
+anims/normal_attack = SubResource( 2 )

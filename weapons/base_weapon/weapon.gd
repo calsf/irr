@@ -2,7 +2,7 @@
 extends Node2D
 class_name Weapon
 
-export var _weapon_props : Resource
+export var weapon_props : Resource
 onready var _spawn_pos = $Sprite/SpawnPos
 onready var _anim = $AnimationPlayer
 onready var _sprite = $Sprite
@@ -43,9 +43,9 @@ func normal_attack():
 # Play empowered attack animation
 func empowered_attack():
 	# Only trigger attack if enough meter and not already in middle of emp attack
-	if (PlayerMeter.curr_meter >= _weapon_props.empow_cost and \
+	if (PlayerMeter.curr_meter >= weapon_props.empow_cost and \
 	(not _anim.is_playing() or _anim.assigned_animation != "empowered_attack")):
-		PlayerMeter.lose_meter(_weapon_props.empow_cost)
+		PlayerMeter.lose_meter(weapon_props.empow_cost)
 		_anim.play("empowered_attack")
 
 # Default behaviour for a basic ranged attack
