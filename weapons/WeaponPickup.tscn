@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://weapons/weapon_pickup.gd" type="Script" id=1]
 [ext_resource path="res://fonts/VT323-Regular_16.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://fonts/VT323-Regular_8.tres" type="DynamicFontData" id=3]
+[ext_resource path="res://weapons/dagger/dagger_pickup.png" type="Texture" id=4]
+[ext_resource path="res://weapons/pickup_shadow.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 8.0
+height = 16.0
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -11,24 +17,52 @@ font_data = ExtResource( 2 )
 size = 8
 font_data = ExtResource( 3 )
 
+[sub_resource type="Animation" id=3]
+resource_name = "pickup"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
 [node name="WeaponPickup" type="Node2D" groups=[
 "pickups",
 ]]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
+texture = ExtResource( 4 )
+hframes = 2
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
+z_index = -1
+texture = ExtResource( 5 )
 
 [node name="InteractArea" type="Area2D" parent="."]
+position = Vector2( 0, -16 )
 collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2( 0, 8 )
+shape = SubResource( 4 )
 
 [node name="DisplayBG" type="ColorRect" parent="."]
 margin_left = -80.0
-margin_top = -72.0
+margin_top = -88.0
 margin_right = 80.0
-margin_bottom = -24.0
+margin_bottom = -40.0
 color = Color( 0.203922, 0.203922, 0.203922, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -36,9 +70,9 @@ __meta__ = {
 
 [node name="InfoDisplay" type="VBoxContainer" parent="."]
 margin_left = -72.0
-margin_top = -72.0
+margin_top = -88.0
 margin_right = 72.0
-margin_bottom = 2.0
+margin_bottom = -14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -65,3 +99,7 @@ margin_right = 144.0
 margin_bottom = 43.0
 custom_fonts/font = SubResource( 2 )
 text = "Casts a less pathetic ball of water at enemies"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "pickup"
+anims/pickup = SubResource( 3 )

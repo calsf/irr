@@ -3,7 +3,7 @@ class_name WeaponPickup
 
 export var _weapon_props : Resource
 
-# weapon_id is used to refer to weapon in Player's Weapons
+# weapon_id is used to refer to weapon in Player's Weapons children
 onready var weapon_id = _weapon_props.weapon_id
 onready var _interact_area = $InteractArea
 onready var _info_display = $InfoDisplay

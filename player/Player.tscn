@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://player/player.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://weapons/wand/Wand.tscn" type="PackedScene" id=5]
 [ext_resource path="res://player/player_hurtbox.gd" type="Script" id=6]
 [ext_resource path="res://player/player_hud/PlayerHUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://weapons/base_weapon/EmptyWeapon.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
@@ -70,6 +71,12 @@ anims/Idle = SubResource( 2 )
 anims/Walk = SubResource( 3 )
 
 [node name="Weapons" type="Node2D" parent="."]
+
+[node name="EmptyWeapon1" parent="Weapons" instance=ExtResource( 8 )]
+visible = false
+
+[node name="EmptyWeapon2" parent="Weapons" instance=ExtResource( 8 )]
+visible = false
 
 [node name="Dagger" parent="Weapons" instance=ExtResource( 3 )]
 visible = false

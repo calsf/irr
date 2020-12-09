@@ -4,9 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-weapon_id = 2
+weapon_id = 4
 weapon_name = "Shortbow"
 normal_desc = "Swings pathetically."
 empow_desc = "Swings less pathetically."
 empow_cost = 20
 icon_path = "res://player/player_hud/weapon_icons/shortbow_ic.png"
+pickup_path = "res://weapons/shortbow/ShortbowPickup.tscn"

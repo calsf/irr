@@ -29,7 +29,7 @@ func _ready():
 	_interact_area.connect("area_entered", self, "_enter_interact")
 	_interact_area.connect("area_exited", self, "_exit_interact")
 	
-	weapon_primary = weapons[2]
+	weapon_primary = weapons[0]
 	weapon_secondary = weapons[1]
 	weapon_curr = weapon_primary
 	weapon_curr.visible = true
@@ -90,14 +90,22 @@ func _input(event):
 	if curr_interactable and event.is_action_pressed("interact"):
 		if curr_interactable.is_in_group("pickups"):
 			# weapon_id should match the object's index in Weapons children
+			# NOTE: Empty weapon takes up index 0 and 1, weapons start at index 2
 			var new_weapon = weapons[curr_interactable.weapon_id]
 			
 			# Do not replace weapon if already used in primary or secondary slot
 			if new_weapon == weapon_primary || new_weapon == weapon_secondary:
-				print("ALREADY OWNED")
+				# Already owned, should not be happening since no duplicate pickups
 				return
 			else:	# Replace current weapon
 				weapon_curr.visible = false
+				
+				# If curr is not empty, replace pickup with curr weapon's pickup
+				if weapon_curr.weapon_props.pickup_path != "":
+					# Replace pickup with the replaced weapon's pickup
+					var replaced_pickup = load(weapon_curr.weapon_props.pickup_path).instance()
+					get_tree().get_root().add_child(replaced_pickup)
+					replaced_pickup.global_position = curr_interactable.global_position
 				
 				if weapon_curr == weapon_primary:
 					weapon_primary = new_weapon
@@ -108,6 +116,9 @@ func _input(event):
 				weapon_curr = new_weapon
 				
 				weapon_curr.visible = true
+				
+				# Remove pickup
+				curr_interactable.queue_free()
 			
 
 # Sets curr_interactable when entering an interactable area
@@ -116,4 +127,6 @@ func _enter_interact(area):
 
 # Resets curr_interactable when leaving an interactable area
 func _exit_interact(area):
-	curr_interactable = null
+	# Only set to null if exiting the same interactable area as the curr
+	if area == curr_interactable:
+		curr_interactable = null
