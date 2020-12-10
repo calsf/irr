@@ -6,8 +6,8 @@
 script = ExtResource( 1 )
 weapon_id = 2
 weapon_name = "Dagger"
-normal_desc = "Casts a pathetic ball of water."
-empow_desc = "Casts a less pathetic ball of water."
+normal_desc = "Cast a ball of water at enemies"
+empow_desc = "Cast a stronger ball of water"
 empow_cost = 20
 icon_path = "res://player/player_hud/weapon_icons/dagger_ic.png"
 pickup_path = "res://weapons/dagger/DaggerPickup.tscn"

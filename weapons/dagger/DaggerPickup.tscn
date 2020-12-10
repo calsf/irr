@@ -2,21 +2,8 @@
 
 [ext_resource path="res://weapons/WeaponPickup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/dagger/dagger_weapon_props.tres" type="Resource" id=2]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 8.0
-height = 16.0
+[ext_resource path="res://weapons/dagger/dagger_projectile_props.tres" type="Resource" id=3]
 
 [node name="DaggerPickup" instance=ExtResource( 1 )]
 _weapon_props = ExtResource( 2 )
-
-[node name="CollisionShape2D" parent="InteractArea" index="0"]
-shape = SubResource( 1 )
-
-[node name="DisplayBG" parent="." index="3"]
-margin_top = -96.0
-margin_bottom = -48.0
-
-[node name="InfoDisplay" parent="." index="4"]
-margin_top = -96.0
-margin_bottom = -22.0
+_normal_damage_props = ExtResource( 3 )

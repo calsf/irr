@@ -1,24 +1,36 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://weapons/weapon_pickup.gd" type="Script" id=1]
 [ext_resource path="res://fonts/VT323-Regular_16.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://fonts/VT323-Regular_8.tres" type="DynamicFontData" id=3]
 [ext_resource path="res://weapons/dagger/dagger_pickup.png" type="Texture" id=4]
 [ext_resource path="res://weapons/pickup_shadow.png" type="Texture" id=5]
+[ext_resource path="res://weapons/pickup_btn.png" type="Texture" id=6]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
 height = 16.0
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 8
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "pickup"
+[sub_resource type="DynamicFont" id=6]
+size = 10
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 10
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=4]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -56,50 +68,110 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 position = Vector2( 0, 8 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
+
+[node name="OutlineBG" type="ColorRect" parent="."]
+margin_left = -89.0
+margin_top = 15.0
+margin_right = 89.0
+margin_bottom = 71.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameBG" type="ColorRect" parent="."]
+margin_left = -88.0
+margin_top = 16.0
+margin_right = 88.0
+margin_bottom = 37.0
+color = Color( 0.286275, 0.231373, 0.317647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeaponName" type="Label" parent="NameBG"]
+margin_left = 8.0
+margin_right = 168.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 2 )
+text = "Dagger"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PickupBtn" type="TextureRect" parent="NameBG"]
+margin_left = 128.0
+margin_top = 2.0
+margin_right = 144.0
+margin_bottom = 18.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PickupTxt" type="Label" parent="NameBG"]
+margin_left = 8.0
+margin_top = 5.0
+margin_right = 168.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 5 )
+text = "Pickup"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DisplayBG" type="ColorRect" parent="."]
-margin_left = -80.0
-margin_top = -88.0
-margin_right = 80.0
-margin_bottom = -40.0
-color = Color( 0.203922, 0.203922, 0.203922, 1 )
+margin_left = -88.0
+margin_top = 37.0
+margin_right = 88.0
+margin_bottom = 72.0
+color = Color( 0.188235, 0.133333, 0.2, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="InfoDisplay" type="VBoxContainer" parent="."]
-margin_left = -72.0
-margin_top = -88.0
-margin_right = 72.0
-margin_bottom = -14.0
+margin_left = -80.0
+margin_top = 39.0
+margin_right = 80.0
+margin_bottom = 89.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WeaponName" type="Label" parent="InfoDisplay"]
-margin_right = 144.0
-margin_bottom = 17.0
-custom_fonts/font = SubResource( 1 )
-text = "Dagger"
+[node name="NormalAttack" type="Label" parent="InfoDisplay"]
+margin_right = 160.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 6 )
+text = "Normal"
 
 [node name="WeaponNormal" type="Label" parent="InfoDisplay"]
-margin_top = 21.0
-margin_right = 144.0
-margin_bottom = 30.0
-custom_fonts/font = SubResource( 2 )
+margin_top = 14.0
+margin_right = 160.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 3 )
 text = "Casts a pathetic ball of water at enemies"
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="EmpoweredAttack" type="Label" parent="InfoDisplay"]
+margin_top = 27.0
+margin_right = 160.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 7 )
+text = "Empowered"
+
 [node name="WeaponEmpowered" type="Label" parent="InfoDisplay"]
-margin_top = 34.0
-margin_right = 144.0
-margin_bottom = 43.0
-custom_fonts/font = SubResource( 2 )
+margin_top = 41.0
+margin_right = 160.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 3 )
 text = "Casts a less pathetic ball of water at enemies"
+autowrap = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "pickup"
-anims/pickup = SubResource( 3 )
+anims/pickup = SubResource( 4 )
