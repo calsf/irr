@@ -53,7 +53,7 @@ func empowered_attack():
 func spawn_range_basic(Projectile):
 	var proj = Projectile.instance()
 	proj.scale = get_owner().scale
-	get_tree().get_root().add_child(proj)
+	get_tree().current_scene.add_child(proj)
 	proj.global_position = _spawn_pos.global_position
 	proj.dir = _mouse_dir.normalized()
 

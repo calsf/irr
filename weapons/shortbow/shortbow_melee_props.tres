@@ -6,5 +6,5 @@
 script = ExtResource( 1 )
 base_speed = 0
 base_damage = 10
-knockback = 0
+knockback = 180
 meter_gain = 10

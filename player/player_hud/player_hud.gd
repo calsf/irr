@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 const HEART_SIZE = 16	# Size of one heart
-const METER_MULT = .46	# Meter amount to filled bar ratio of 1 : 0.46
+const METER_RATIO = .46	# Meter amount to filled bar ratio of 1 : 0.46
 
 onready var meter_label = $HUD/Meter
 onready var health_label = $HUD/Health
@@ -32,7 +32,7 @@ func _process(delta):
 	# Update meter bar, could use signal but will likely be updated frequently
 	if PlayerMeter.curr_meter > 0:
 		meter_fill.visible = true
-		meter_fill.rect_size.x = PlayerMeter.curr_meter * METER_MULT
+		meter_fill.rect_size.x = PlayerMeter.curr_meter * METER_RATIO
 	else:
 		meter_fill.visible = false
 	

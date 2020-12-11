@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pickup_shadow.png-153b184c1bc72e9db24062af242ac8ca.stex"
+path="res://.import/pickup_shadow.png-f7b039eb8f77ac7afabb0d553f606669.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapons/pickup_shadow.png"
-dest_files=[ "res://.import/pickup_shadow.png-153b184c1bc72e9db24062af242ac8ca.stex" ]
+source_file="res://weapons/base_pickup/pickup_shadow.png"
+dest_files=[ "res://.import/pickup_shadow.png-f7b039eb8f77ac7afabb0d553f606669.stex" ]
 
 [params]
 

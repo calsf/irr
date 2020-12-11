@@ -10,6 +10,7 @@ func _physics_process(delta):
 	# If not invulnerable, check for overlapping areas
 	# If has any overlapping areas, deal damage to player and start invuln time
 	# Must make sure collision mask is set to layers that will damage player
+	# EnemyProjectile, DamagePlayer layers will hurt player
 	if not is_invuln:
 		var overlapping_areas = get_overlapping_areas()
 		

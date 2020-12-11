@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pickup_btn.png-32e57ef84c202f16dada7a7a47b39a50.stex"
+path="res://.import/eyeball_eye.png-cd5e548348e7494298d7c0527d8b09c0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapons/pickup_btn.png"
-dest_files=[ "res://.import/pickup_btn.png-32e57ef84c202f16dada7a7a47b39a50.stex" ]
+source_file="res://enemies/eyeball/eyeball_eye.png"
+dest_files=[ "res://.import/eyeball_eye.png-cd5e548348e7494298d7c0527d8b09c0.stex" ]
 
 [params]
 
