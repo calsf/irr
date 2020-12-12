@@ -1,3 +1,4 @@
+# Base properties of an enemy
 extends Resource
 class_name EnemyProps
 

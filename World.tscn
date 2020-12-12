@@ -12,6 +12,7 @@ extents = Vector2( 136, 10 )
 [node name="World" type="YSort"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 236, 35 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -32,5 +33,7 @@ position = Vector2( 135.764, 18.0312 )
 [node name="WandPickup" parent="." instance=ExtResource( 5 )]
 position = Vector2( 168.645, 18.0312 )
 
-[node name="Eyeball" parent="." instance=ExtResource( 2 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Eyeball" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 217.563, 30.6759 )

@@ -1,6 +1,6 @@
-# Properties of a damage object
+# Properties of a damage enemy object
 extends Resource
-class_name DamageProps
+class_name DmgEnemyProps
 
 export var base_speed : int
 export var base_damage : int

@@ -1,13 +1,10 @@
-# Object that deals damage to enemies
-# Base class for object that deals damage to enemies
 extends Node2D
-class_name DamageEnemy
+class_name DamagePlayer
 
 export var _damage_props : Resource
+
 onready var _speed = _damage_props.base_speed
-onready var _damage = _damage_props.base_damage
-onready var _knockback = _damage_props.knockback
-onready var _meter_gain = _damage_props.meter_gain
+onready var _anim = $AnimationPlayer
 
 var dir = Vector2()
 
@@ -17,15 +14,11 @@ func _ready():
 
 func _process(delta):
 	_move(delta)
-
+	
 # Do something when damage object enters an area2d
 # other is the entering area or entering body to this object
 func _on_hit(other):
 	print("Default on hit")
-
-# Increase player meter when damage object hits an enemy
-func _add_meter():
-	PlayerMeter.add_meter(_meter_gain)
 
 func _move(delta):
 	position += (dir * _speed) * delta

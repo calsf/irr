@@ -104,7 +104,7 @@ func _input(event):
 				if weapon_curr.weapon_props.pickup_path != "":
 					# Replace pickup with the replaced weapon's pickup
 					var replaced_pickup = load(weapon_curr.weapon_props.pickup_path).instance()
-					get_tree().get_root().add_child(replaced_pickup)
+					get_tree().current_scene.add_child(replaced_pickup)
 					replaced_pickup.global_position = curr_interactable.global_position
 				
 				if weapon_curr == weapon_primary:
