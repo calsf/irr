@@ -38,6 +38,10 @@ func _ready():
 	# Make sure to emit swapped signals with swapped weapon's icon path
 	emit_signal("primary_swapped", weapon_primary.weapon_props.icon_path)
 	emit_signal("secondary_swapped", weapon_secondary.weapon_props.icon_path)
+	
+	# Create a ref to player in all enemies
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy.player_obj = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -46,7 +50,7 @@ func _process(delta):
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	input_vector = input_vector.normalized()
-	move_and_slide(input_vector.normalized() * move_speed)
+	input_vector = move_and_slide(input_vector.normalized() * move_speed)
 	if input_vector == Vector2.ZERO:
 		_anim.play("Idle")
 	else:

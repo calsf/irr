@@ -4,9 +4,10 @@ class_name MoveToPoints
 
 export var is_cycle = false
 
+# Enemy MUST have a child Positions node!!
 onready var positions_par = $Positions
 
-var next_pos = 1	# Index of next position, index 0 will always be the starting position so use index 1
+var next_pos = 0	# Index of next position
 var positions = []	# Array of positions to move to based on positions_par children
 
 # Called when the node enters the scene tree for the first time.
@@ -16,9 +17,13 @@ func _ready():
 		positions.append(node.global_position)
 
 # Move to points, movement handled in physics process by Enemy class
-func _move(delta):
-	global_position = global_position.move_toward(positions[next_pos], _move_speed * delta)
-	if (global_position.distance_to(positions[next_pos]) <= 0.1):
+func _move(delta, other):
+	# Move to next position
+	velocity = (positions[next_pos] - global_position).normalized() * _move_speed
+	velocity = move_and_slide(velocity)
+	
+	# Check if within dist of next position
+	if (global_position.distance_to(positions[next_pos]) <= 1):
 		next_pos += 1
 		
 		# If next_pos is outside array, wrap back to beginning

@@ -3,11 +3,12 @@
 [ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/eyeball/eyeball_props.tres" type="Resource" id=2]
 [ext_resource path="res://enemies/base_enemy/move_to_points.gd" type="Script" id=3]
-[ext_resource path="res://enemies/base_enemy/shoot.gd" type="Script" id=4]
+[ext_resource path="res://enemies/base_enemy/attack.gd" type="Script" id=4]
+[ext_resource path="res://enemies/eyeball/eyeball_eye.png" type="Texture" id=5]
 
-[sub_resource type="Animation" id=6]
-resource_name = "shoot"
-loop = true
+[sub_resource type="Animation" id=1]
+resource_name = "attack"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -30,25 +31,24 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ Vector2( 1, 0 ) ],
-"method": "_shoot"
+"args": [  ],
+"method": "_attack_player"
 } ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 6.0
 height = 10.0
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 5.0
-height = 10.0
-
 [sub_resource type="CapsuleShape2D" id=3]
+radius = 5.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 6.99997
 height = 14.0001
 
-[sub_resource type="Animation" id=4]
-resource_name = "move"
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
@@ -63,8 +63,6 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -16 ), Vector2( 0, -13 ), Vector2( 0, -16 ) ]
 }
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
-
 [node name="Eyeball" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 _enemy_props = ExtResource( 2 )
@@ -73,33 +71,34 @@ _death_path = "res://enemies/eyeball/EyeballDeath.tscn"
 [node name="Body" parent="." index="0"]
 position = Vector2( 0, -16 )
 
-[node name="Shoot" parent="Body" index="0"]
+[node name="Attack" parent="Body" index="0"]
+texture = ExtResource( 5 )
 hframes = 4
 script = ExtResource( 4 )
 proj_path = "res://enemies/eyeball/EyeballProjectile.tscn"
+atk_rate = 2.0
 
-[node name="SpawnPos" parent="Body/Shoot" index="0"]
+[node name="SpawnPos" parent="Body/Attack" index="0"]
 position = Vector2( 0, -4 )
 
-[node name="ShootAnimation" parent="Body/Shoot" index="1"]
-autoplay = "shoot"
-anims/shoot = SubResource( 6 )
+[node name="AttackAnimation" parent="Body/Attack" index="1"]
+anims/attack = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0, -5 )
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -5 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 9 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
-[node name="HealthDisplay" parent="." index="5"]
+[node name="HealthDisplay" parent="." index="6"]
 margin_left = -15.0
 margin_right = 15.0
 
@@ -109,15 +108,6 @@ margin_right = 30.0
 [node name="HealthFill" parent="HealthDisplay" index="1"]
 margin_right = 30.0
 
-[node name="AnimationPlayer" parent="." index="7"]
+[node name="AnimationPlayer" parent="." index="8"]
 autoplay = "move"
-anims/move = SubResource( 4 )
-
-[node name="AnimationTree" parent="." index="8"]
-parameters/playback = SubResource( 5 )
-
-[node name="A" type="Node2D" parent="Positions" index="0"]
-position = Vector2( -48, 0 )
-
-[node name="B" type="Node2D" parent="Positions" index="1"]
-position = Vector2( 40, 0 )
+anims/move = SubResource( 5 )
