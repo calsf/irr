@@ -2,19 +2,13 @@
 extends Enemy
 class_name MoveToPlayer
 
-var _is_activated = false
-
 func _ready():
-	# Start in idle
+	# Start and remain in idle until aggro
 	enter_idle_state()
-
-# Check for aggro and play activation anim if aggro'd
-func _process(delta):
-	if PlayerHealth.curr_hp < 3 and not _is_activated:
-		_is_activated = true
-		
-		# Activate anim should enter call enter_move_state() once finished
-		enter_activate_state()
+	
+	# Enter activate state/play activate anim upon aggro
+	# Activate anim should enter_move_state() once finished
+	connect("aggro_started", self, "enter_activate_state")
 
 func _move(delta, other):
 	velocity = (player_obj.global_position - global_position).normalized() * _move_speed

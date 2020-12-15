@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://weapons/shortbow/shortbow_pickup.png" type="Texture" id=1]
 [ext_resource path="res://weapons/base_pickup/WeaponPickup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://weapons/shortbow/shortbow_weapon_props.tres" type="Resource" id=3]
 [ext_resource path="res://weapons/shortbow/shortbow_melee_props.tres" type="Resource" id=4]
-
+[ext_resource path="res://weapons/shortbow/shortbow_emp_props.tres" type="Resource" id=5]
 
 [node name="ShortbowPickup" instance=ExtResource( 2 )]
 _weapon_props = ExtResource( 3 )
 _normal_damage_props = ExtResource( 4 )
+_emp_damage_props = ExtResource( 5 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )

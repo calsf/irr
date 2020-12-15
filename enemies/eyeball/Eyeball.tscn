@@ -77,6 +77,7 @@ hframes = 4
 script = ExtResource( 4 )
 proj_path = "res://enemies/eyeball/EyeballProjectile.tscn"
 atk_rate = 2.0
+first_atk_delay = 1.0
 
 [node name="SpawnPos" parent="Body/Attack" index="0"]
 position = Vector2( 0, -4 )

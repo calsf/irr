@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player_flipped.png-94988da7de5e678e5c0d2f86c1ca6e13.stex"
+path="res://.import/gorge_right.png-10a5ddbe79ca8835f884b67eb70ce3ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/player_flipped.png"
-dest_files=[ "res://.import/player_flipped.png-94988da7de5e678e5c0d2f86c1ca6e13.stex" ]
+source_file="res://enemies/gorge/gorge_right.png"
+dest_files=[ "res://.import/gorge_right.png-10a5ddbe79ca8835f884b67eb70ce3ce.stex" ]
 
 [params]
 

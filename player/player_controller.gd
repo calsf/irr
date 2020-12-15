@@ -3,8 +3,8 @@ extends KinematicBody2D
 const BASE_SPEED = 32 * 5
 
 # Player sprite textures with lighting on opposite sides for when player flips
-var PlayerTextureDefault = preload("res://player/player.png")
-var PlayerTextureFlipped = preload("res://player/player_flipped.png")
+var Texture_Left = preload("res://player/player_left.png")
+var Texture_Right = preload("res://player/player_right.png")
 
 var move_speed = BASE_SPEED
 var input_vector = Vector2()
@@ -63,11 +63,11 @@ func _process(delta):
 	# Player facing direction to match mouse facing direction
 	# Sprite texture changed depending on facing direction to maintain lighting
 	if mouse_dir.x < 0:
-		_sprite.texture = PlayerTextureDefault
+		_sprite.texture = Texture_Left
 		if (_sprite.scale.x < 0):
 			_sprite.scale.x *= -1
 	else:
-		_sprite.texture = PlayerTextureFlipped
+		_sprite.texture = Texture_Right
 		if (_sprite.scale.x > 0):
 			_sprite.scale.x *= -1
 

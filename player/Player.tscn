@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player/player_controller.gd" type="Script" id=1]
-[ext_resource path="res://player/player.png" type="Texture" id=2]
+[ext_resource path="res://player/player_left.png" type="Texture" id=2]
 [ext_resource path="res://weapons/dagger/Dagger.tscn" type="PackedScene" id=3]
 [ext_resource path="res://weapons/shortbow/Shortbow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://weapons/wand/Wand.tscn" type="PackedScene" id=5]
@@ -9,6 +9,7 @@
 [ext_resource path="res://player/player_hud/PlayerHUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://weapons/base_weapon/EmptyWeapon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player/player_shadow.png" type="Texture" id=9]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0

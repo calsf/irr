@@ -12,6 +12,9 @@ var positions = []	# Array of positions to move to based on positions_par childr
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Start in move state
+	enter_move_state()
+	
 	# Get all starting global positions of nodes in Positions children as the points to move to
 	for node in positions_par.get_children():
 		positions.append(node.global_position)

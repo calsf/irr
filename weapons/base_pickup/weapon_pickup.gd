@@ -6,6 +6,7 @@ const BG_PADDING = 8
 
 export var _weapon_props : Resource
 export var _normal_damage_props : Resource
+export var _emp_damage_props : Resource
 
 # weapon_id is used to refer to weapon in Player's Weapons children
 onready var weapon_id = _weapon_props.weapon_id
@@ -20,8 +21,10 @@ func _ready():
 	_name_bg.get_node("WeaponName").text = _weapon_props.weapon_name
 	_info_display.get_node("WeaponNormal").text = _weapon_props.normal_desc
 	_info_display.get_node("WeaponEmpowered").text = _weapon_props.empow_desc
-	_info_display.get_node("NormalAttack").text += "(Meter +" + str(_normal_damage_props.meter_gain) + ")"
-	_info_display.get_node("EmpoweredAttack").text += "(Meter -" + str(_weapon_props.empow_cost) + ")"
+	_info_display.get_node("NormalAttack").text += " / DMG " + str(_normal_damage_props.base_damage) +  \
+			" / METER +" + str(_normal_damage_props.meter_gain)
+	_info_display.get_node("EmpoweredAttack").text += " / DMG " + str(_emp_damage_props.base_damage) +  \
+			" / METER -" + str(_weapon_props.empow_cost)
 	
 	_interact_area.connect("area_entered", self, "_show_info")
 	_interact_area.connect("area_exited", self, "_hide_info")

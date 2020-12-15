@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://weapons/base_pickup/WeaponPickup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/dagger/dagger_weapon_props.tres" type="Resource" id=2]
 [ext_resource path="res://weapons/dagger/dagger_projectile_props.tres" type="Resource" id=3]
-
+[ext_resource path="res://weapons/dagger/dagger_emp_props.tres" type="Resource" id=4]
 
 [node name="DaggerPickup" instance=ExtResource( 1 )]
 _weapon_props = ExtResource( 2 )
 _normal_damage_props = ExtResource( 3 )
+_emp_damage_props = ExtResource( 4 )
