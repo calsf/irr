@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/eyeball/Eyeball.tscn" type="PackedScene" id=2]
@@ -8,19 +8,25 @@
 [ext_resource path="res://enemies/base_enemy/Positions.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemies/jaws/Jaws.tscn" type="PackedScene" id=7]
 [ext_resource path="res://enemies/gorge/Gorge.tscn" type="PackedScene" id=8]
+[ext_resource path="res://test_room.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 136, 10 )
 
 [node name="World" type="YSort"]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 236, 35 )
+[node name="Sprite" type="Sprite" parent="."]
+z_index = -2
+texture = ExtResource( 9 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1, 0 )
+
 [node name="TERRAINTEST" type="StaticBody2D" parent="."]
+position = Vector2( -237, -35 )
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TERRAINTEST"]
@@ -28,15 +34,16 @@ position = Vector2( 144, 146 )
 shape = SubResource( 1 )
 
 [node name="DaggerPickup" parent="." instance=ExtResource( 3 )]
-position = Vector2( 105.913, 18.0901 )
+position = Vector2( -131.087, -16.9099 )
 
 [node name="ShortbowPickup" parent="." instance=ExtResource( 4 )]
-position = Vector2( 135.764, 18.0312 )
+position = Vector2( -101.236, -16.9688 )
 
 [node name="WandPickup" parent="." instance=ExtResource( 5 )]
-position = Vector2( 168.645, 18.0312 )
+position = Vector2( -68.355, -16.9688 )
 
 [node name="YSort" type="YSort" parent="."]
+position = Vector2( -237, -35 )
 
 [node name="Jaws" parent="YSort" instance=ExtResource( 7 )]
 

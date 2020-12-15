@@ -1,0 +1,129 @@
+extends Node2D
+
+const UP = Vector2(0, 480)
+const DOWN = Vector2(0, -480)
+const LEFT = Vector2(640, 0)
+const RIGHT = Vector2(-640, 0)
+
+var starting_room = preload("res://Room.tscn")
+var room = preload("res://Room.tscn")
+var path_marker = preload("res://enemies/jaws/Jaws.tscn")
+
+var closed_loc = []	# Closed locations that already have a room
+var open_loc = []	# Open locations to choose from to add next room
+var curr_longest_path = 0	# Number of rooms currently in longest path
+var target_longest_path = 5	# Target number of rooms for longest path
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# Init starting room
+	_add_new_room(Vector2.ZERO)
+	curr_longest_path += 1	# Longest path includes start room
+	
+	#### TESTING
+	var pathmarker = path_marker.instance()
+	get_tree().get_root().call_deferred("add_child", pathmarker)
+	pathmarker.global_position = Vector2.ZERO
+	#####
+	
+	# Add 4 new open locations from the starting room's origin
+	open_loc = _add_open_loc(Vector2.ZERO, open_loc)
+	
+	# Init last open locations to be the 4 locations from origin
+	var last_open_loc = _add_open_loc(Vector2.ZERO, [])
+	
+	# Populate map until target longest path reached
+	while curr_longest_path < target_longest_path and not open_loc.empty():
+		var loc = open_loc[0]
+		
+		# If more than 1 loc in open_loc, pick a random open location to use
+		if open_loc.size() > 1:
+			randomize()
+			loc = open_loc[randi() % open_loc.size()]
+		
+		 # Add new room to scene at loc
+		_add_new_room(loc)
+		curr_longest_path += 1	# Increment path since this new room is part of the main path
+		
+		##### TESTING
+		pathmarker = path_marker.instance()
+		get_tree().get_root().call_deferred("add_child", pathmarker)
+		pathmarker.global_position = loc
+		#####
+		
+		# Remove the newly added room location from open_loc
+		open_loc.erase(loc)
+		
+		# Remove the open locs from last origin from open_loc so that we keep building a main path
+		# This way we ensure one longest main path for player to follow/minimal backtracking
+		# _remove_open_loc will handle adding any extra dead end rooms
+		if last_open_loc.has(loc):		# First remove loc if it exists to avoid dupe remove
+			last_open_loc.erase(loc)
+		open_loc = _remove_open_loc(last_open_loc, open_loc)
+		
+		# Reset to be 4 locations from this new origin loc (this new room is new origin) 
+		last_open_loc = _add_open_loc(loc, [])
+		
+		# Add the 4 new open locations from the new room's origin loc
+		open_loc = _add_open_loc(loc, open_loc)
+
+# Adds locations left, right, up, down from origin vector to arr only if they are open
+# Returns modified arr
+func _add_open_loc(origin, arr):
+	if not closed_loc.has(origin + UP):
+		arr.append(origin + UP)
+	if not closed_loc.has(origin + DOWN):
+		arr.append(origin + DOWN)
+	if not closed_loc.has(origin + LEFT):
+		arr.append(origin + LEFT)
+	if not closed_loc.has(origin + RIGHT):
+		arr.append(origin + RIGHT)
+	
+	return arr
+
+# Removes all last_open from curr_open
+# ALSO: Picks random # of rooms from 0 to last_open size
+	# Will add that many new dead end rooms using random locations from last_open
+	# THESE ROOMS ARE NOT PART OF LONGEST PATH AND SHOULD NOT INCREMENT LONGEST_PATH COUNT
+# last_open - should be an arr of locations left, right, up, down from last origin vector
+# curr_open - ALL open locations from all origins
+# Returns the modified curr_open
+func _remove_open_loc(last_open, curr_open):
+	var num_to_remove = last_open.size()	# Remove all open loc from last origin
+	
+	# Get random # between 1 - all of items in last_open
+	# Will be the # of rooms to add, but these rooms are not part of main path
+	# Will not be added to curr_open as these new rooms are intended to be dead ends
+	randomize()
+	var num_to_add = randi() % last_open.size()
+	
+	# Remove num_to_remove items from curr_open
+	while num_to_remove > 0:
+		var loc = last_open[0]
+		
+		# If more than 1 item in last_open, pick a random item to remove
+		if last_open.size() > 1:
+			randomize()
+			loc = last_open[randi() % (last_open.size() - 1)]
+			
+			# If we need to add rooms, add room at this random loc
+			if num_to_add > 0:
+				_add_new_room(loc)
+		
+		# We remove from last_open to make sure we don't remove dupes
+		last_open.erase(loc)
+		
+		# Remove from curr_open
+		curr_open.erase(loc)
+		num_to_remove -= 1
+	
+	return curr_open
+
+# Add new room to scene
+func _add_new_room(loc):
+	var new_room = room.instance()
+	get_tree().get_root().call_deferred("add_child", new_room)
+	new_room.global_position = loc
+	
+	# Close off loc so cannot add another room to this loc
+	closed_loc.append(loc)

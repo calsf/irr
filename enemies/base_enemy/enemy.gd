@@ -86,7 +86,7 @@ func apply_knockback(knockback_vector, knockback_strength):
 
 # Check for aggro onto player
 func _check_aggro():
-	if not is_aggro and PlayerHealth.curr_hp < 3:
+	if not is_aggro and PlayerHealth.curr_hp < 1:
 		is_aggro = true
 		emit_signal("aggro_started")
 

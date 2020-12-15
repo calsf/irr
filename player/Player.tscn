@@ -10,7 +10,6 @@
 [ext_resource path="res://weapons/base_weapon/EmptyWeapon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player/player_shadow.png" type="Texture" id=9]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
 height = 6.0
