@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-const BASE_SPEED = 32 * 20
-#const BASE_SPEED = 32 * 5
+#const BASE_SPEED = 32 * 20
+const BASE_SPEED = 32 * 5
 
 # Player sprite textures with lighting on opposite sides for when player flips
 var Texture_Left = preload("res://player/player_left.png")
@@ -10,6 +10,7 @@ var Texture_Right = preload("res://player/player_right.png")
 var move_speed = BASE_SPEED
 var input_vector = Vector2()
 var curr_interactable = null
+var curr_room_id = 0	# rooom id player is currently in, starts in room 0
 
 onready var _sprite = $Sprite
 onready var _anim = $AnimationPlayer
@@ -39,10 +40,6 @@ func _ready():
 	# Make sure to emit swapped signals with swapped weapon's icon path
 	emit_signal("primary_swapped", weapon_primary.weapon_props.icon_path)
 	emit_signal("secondary_swapped", weapon_secondary.weapon_props.icon_path)
-	
-	# Create a ref to player in all enemies
-	for enemy in get_tree().get_nodes_in_group("enemies"):
-		enemy.player_obj = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
