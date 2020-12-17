@@ -103,10 +103,13 @@ shape = SubResource( 4 )
 margin_left = -15.0
 margin_right = 15.0
 
-[node name="HealthBG" parent="HealthDisplay" index="0"]
+[node name="Outline" parent="HealthDisplay" index="0"]
+margin_right = 31.0
+
+[node name="HealthBG" parent="HealthDisplay" index="1"]
 margin_right = 30.0
 
-[node name="HealthFill" parent="HealthDisplay" index="1"]
+[node name="HealthFill" parent="HealthDisplay" index="2"]
 margin_right = 30.0
 
 [node name="AnimationPlayer" parent="." index="8"]

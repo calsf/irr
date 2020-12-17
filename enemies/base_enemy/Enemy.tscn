@@ -60,6 +60,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Outline" type="ColorRect" parent="HealthDisplay"]
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 33.0
+margin_bottom = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="HealthBG" type="ColorRect" parent="HealthDisplay"]
 margin_right = 32.0
 margin_bottom = 3.0
@@ -68,7 +77,7 @@ color = Color( 0.207843, 0.207843, 0.207843, 1 )
 [node name="HealthFill" type="ColorRect" parent="HealthDisplay"]
 margin_right = 32.0
 margin_bottom = 3.0
-color = Color( 0.701961, 0.176471, 0.176471, 1 )
+color = Color( 0.996078, 0.0156863, 0.0156863, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -38,7 +38,9 @@ func _process(delta):
 
 # Play normal attack animation
 func normal_attack():
-	_anim.play("normal_attack")
+	# Avoid canceling an empowered attack
+	if not _anim.is_playing() or _anim.assigned_animation != "empowered_attack":
+		_anim.play("normal_attack")
 
 # Play empowered attack animation
 func empowered_attack():

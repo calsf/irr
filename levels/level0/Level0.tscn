@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://levels/components/Level.tscn" type="PackedScene" id=1]
+
+[node name="Level0" instance=ExtResource( 1 )]
+normal_rooms_path = [ "res://levels/level0/Room01.tscn", "res://levels/level0/Room02.tscn" ]

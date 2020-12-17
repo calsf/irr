@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/player_hud/player_hud.gd" type="Script" id=1]
 [ext_resource path="res://player/player_hud/heart_off.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://player/player_hud/meter_fill.png" type="Texture" id=5]
 [ext_resource path="res://player/player_hud/weapon_icons/dagger_ic.png" type="Texture" id=6]
 [ext_resource path="res://player/player_hud/selected_highlight.png" type="Texture" id=7]
+[ext_resource path="res://fonts/VT323-Regular_8.tres" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 8 )
 
 [node name="PlayerHUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -18,30 +23,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Health" type="Label" parent="HUD"]
-margin_left = 3.0
-margin_top = 71.0
-margin_right = 45.0
-margin_bottom = 85.0
-text = "Health"
-
-[node name="Meter" type="Label" parent="HUD"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -632.0
-margin_top = 89.0
-margin_right = -592.0
-margin_bottom = 103.0
-text = "Meter"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="LostHearts" type="TextureRect" parent="HUD"]
-margin_left = 30.0
-margin_top = 11.0
-margin_right = 78.0
-margin_bottom = 27.0
+margin_left = 56.0
+margin_top = 4.0
+margin_right = 104.0
+margin_bottom = 20.0
 texture = ExtResource( 2 )
 stretch_mode = 2
 __meta__ = {
@@ -49,10 +35,10 @@ __meta__ = {
 }
 
 [node name="CurrHearts" type="TextureRect" parent="HUD"]
-margin_left = 30.0
-margin_top = 11.0
-margin_right = 78.0
-margin_bottom = 27.0
+margin_left = 56.0
+margin_top = 4.0
+margin_right = 104.0
+margin_bottom = 20.0
 texture = ExtResource( 3 )
 stretch_mode = 2
 __meta__ = {
@@ -60,18 +46,18 @@ __meta__ = {
 }
 
 [node name="MeterBG" type="TextureRect" parent="HUD"]
-margin_left = 9.0
-margin_top = 58.0
-margin_right = 57.0
-margin_bottom = 74.0
+margin_left = 2.0
+margin_top = 80.0
+margin_right = 50.0
+margin_bottom = 96.0
 rect_rotation = -90.0
 texture = ExtResource( 4 )
 
 [node name="MeterFill" type="TextureRect" parent="HUD"]
-margin_left = 10.0
-margin_top = 57.0
-margin_right = 56.0
-margin_bottom = 71.0
+margin_left = 3.0
+margin_top = 79.0
+margin_right = 49.0
+margin_bottom = 93.0
 rect_rotation = -90.0
 texture = ExtResource( 5 )
 stretch_mode = 2
@@ -79,11 +65,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MeterLabel" type="Label" parent="HUD"]
+margin_top = 81.0
+margin_right = 20.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 1 )
+text = "METER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PrimaryWeapon" type="TextureRect" parent="HUD"]
-margin_left = 28.0
-margin_top = 32.0
-margin_right = 54.0
-margin_bottom = 58.0
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 27.0
+margin_bottom = 29.0
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -95,10 +93,10 @@ margin_bottom = 24.0
 texture = ExtResource( 7 )
 
 [node name="SecondaryWeapon" type="TextureRect" parent="HUD"]
-margin_left = 54.0
-margin_top = 32.0
-margin_right = 80.0
-margin_bottom = 58.0
+margin_left = 27.0
+margin_top = 3.0
+margin_right = 53.0
+margin_bottom = 29.0
 texture = ExtResource( 6 )
 
 [node name="Selected" type="TextureRect" parent="HUD/SecondaryWeapon"]

@@ -7,7 +7,7 @@ export var is_cycle = false
 # Enemy MUST have a child Positions node!!
 onready var positions_par = $Positions
 
-var next_pos = 0	# Index of next position
+var next_pos = 1	# Index of next position, 0 should be starting point
 var positions = []	# Array of positions to move to based on positions_par children
 
 # Called when the node enters the scene tree for the first time.

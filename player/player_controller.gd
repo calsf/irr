@@ -7,6 +7,8 @@ const BASE_SPEED = 32 * 5
 var Texture_Left = preload("res://player/player_left.png")
 var Texture_Right = preload("res://player/player_right.png")
 
+var Damaged = preload("res://player/player_damaged_shader.tres")
+
 var move_speed = BASE_SPEED
 var input_vector = Vector2()
 var curr_interactable = null
@@ -15,6 +17,7 @@ var curr_room_id = 0	# rooom id player is currently in, starts in room 0
 onready var _sprite = $Sprite
 onready var _anim = $AnimationPlayer
 onready var _interact_area = $InteractArea
+onready var _hurtbox = $PlayerHurtbox
 onready var weapons = $Weapons.get_children()
 onready var weapon_primary : Weapon
 onready var weapon_secondary : Weapon
@@ -30,6 +33,12 @@ signal secondary_swapped()
 func _ready():
 	_interact_area.connect("area_entered", self, "_enter_interact")
 	_interact_area.connect("area_exited", self, "_exit_interact")
+	
+	# Player hurtbox should send signal when player loses health
+	_hurtbox.connect("player_hurt", self, "_flash_damaged")
+	
+	# Player hurtbox should send signal when player invuln time is over
+	_hurtbox.connect("invuln_finished", self, "_reset_alpha")
 	
 	weapon_primary = weapons[0]
 	weapon_secondary = weapons[1]
@@ -68,12 +77,14 @@ func _process(delta):
 		_sprite.texture = Texture_Right
 		if (_sprite.scale.x > 0):
 			_sprite.scale.x *= -1
-
-# Get input events
-func _input(event):
-	# Attack inputs for current weapon
-	if event.is_action_pressed("normal_attack"):
+	
+	# Normal attack input for current weapon, can be held down
+	if Input.is_action_pressed("normal_attack"):
 		weapon_curr.normal_attack()
+
+# Check input events when they are dispatched
+func _input(event):
+	# Empowered attack inputs CANNOT be held down
 	if event.is_action_pressed("empowered_attack"):
 		weapon_curr.empowered_attack()
 	
@@ -132,3 +143,19 @@ func _exit_interact(area):
 	# Only set to null if exiting the same interactable area as the curr
 	if area == curr_interactable:
 		curr_interactable = null
+
+# Create flash effect by swapping material on sprites
+# Will also make player transparent to indicate invuln after being damaged
+func _flash_damaged():
+	_sprite.material = Damaged
+	yield(get_tree().create_timer(.05), "timeout")
+	_sprite.material = null
+	yield(get_tree().create_timer(.05), "timeout")
+	_sprite.set_modulate(Color(1, 1, 1, .3))
+	_sprite.material = Damaged
+	yield(get_tree().create_timer(.1), "timeout")
+	_sprite.material = null
+
+# Reset transparency
+func _reset_alpha():
+	_sprite.set_modulate(Color(1, 1, 1, 1))

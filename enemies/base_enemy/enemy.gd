@@ -5,6 +5,8 @@ class_name Enemy
 const DECEL = 500
 const DISPLAY_TIME = 3
 
+var Damaged = preload("res://enemies/base_enemy/enemy_damaged_shader.tres")
+
 export var _enemy_props : Resource
 export var _death_path : String	# Death scene
 export var _left_path : String	# Left facing sprite path
@@ -13,7 +15,8 @@ export var _face_player : bool	# Face player if true
 
 onready var _curr_hp = _enemy_props.max_hp
 onready var _move_speed = _enemy_props.move_speed
-onready var _sprite = $Body
+onready var _body_sprite = $Body
+onready var _attack_sprite = $Body/Attack
 onready var _pushbox = $Pushbox
 onready var _health_display = $HealthDisplay
 onready var _health_fill = $HealthDisplay/HealthFill
@@ -72,13 +75,13 @@ func _physics_process(delta):
 			# Face player if needed
 			if _face_player:
 				if global_position.x > player_obj.global_position.x:
-					_sprite.texture = Texture_Left
-					if (_sprite.scale.x < 0):
-						_sprite.scale.x *= -1
+					_body_sprite.texture = Texture_Left
+					if (_body_sprite.scale.x < 0):
+						_body_sprite.scale.x *= -1
 				else:
-					_sprite.texture = Texture_Right
-					if (_sprite.scale.x > 0):
-						_sprite.scale.x *= -1
+					_body_sprite.texture = Texture_Right
+					if (_body_sprite.scale.x > 0):
+						_body_sprite.scale.x *= -1
 	else:
 		# knockback and curr_knockback_strength should be equal/decreasing at same rate
 		# Prioritize knockback (if knockback is not zero, enemy should not move)
@@ -107,6 +110,10 @@ func _move(delta, other):
 func update_health(change):
 	_curr_hp += change
 	
+	# If change was negative, then enemy was damaged
+	if change < 0 and _curr_hp > 0:	# Flash only if still has health
+		_damaged_flash()
+	
 	# Update health fill
 	_health_fill.rect_size.x += change / _health_ratio
 	
@@ -122,6 +129,14 @@ func update_health(change):
 		death.global_position = global_position
 		
 		queue_free()
+
+# Create flash effect by swapping material on sprites
+func _damaged_flash():
+	_body_sprite.material = Damaged
+	_attack_sprite.material = Damaged
+	yield(get_tree().create_timer(.1), "timeout")
+	_body_sprite.material = null
+	_attack_sprite.material = null
 
 # When _health_timer times out, hide health display
 func _hide_health():
