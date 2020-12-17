@@ -7,22 +7,28 @@ const DOWN = Vector2(0, 480)
 const LEFT = Vector2(-640, 0)
 const RIGHT = Vector2(640, 0)
 
-var starting_room = preload("res://Room.tscn")
-var room = preload("res://Room.tscn")
-var path_marker = preload("res://enemies/jaws/Jaws.tscn")
-
 var closed_loc = []	# Closed locations that already have a room
 var open_loc = []	# Open locations to choose from to add next room
 var curr_longest_path = 0	# Number of rooms currently in longest path
 var target_longest_path = 5	# Target number of rooms for longest path
 var next_room_id = 0 # id of next room, should be incremented after
 
+var created_rooms = [] # All created rooms
 var last_room = null	# Room that was previously added
+
+# Path of starting room scene
+export var start_room_path : String
+
+# Path of end room scene
+export var end_room_path : String
+
+# Paths of all intermediate room scenes to be randomly picked from
+export var normal_rooms_path : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Init starting room, should have id of 0
-	last_room = _add_new_room(Vector2.ZERO)
+	last_room = _add_new_room(Vector2.ZERO, start_room_path)
 	curr_longest_path += 1	# Longest path includes start room
 	
 	# Add 4 new open locations from the starting room's origin
@@ -40,8 +46,14 @@ func _ready():
 			randomize()
 			loc = open_loc[randi() % open_loc.size()]
 		
-		 # Add new room to scene at loc
-		var next_room = _add_new_room(loc)
+		# If this is last room to add before hitting target path length, add end room
+		# Else add a new normal room to scene at loc, picks randomly from normal_rooms_path
+		var next_room = null
+		if curr_longest_path == target_longest_path - 1:
+			next_room = _add_new_room(loc, end_room_path)
+		else:
+			next_room = _add_new_room(loc, normal_rooms_path[randi() % normal_rooms_path.size()])
+		
 		curr_longest_path += 1	# Increment path since this new room is part of the main path
 		
 		# Init last and next rooms next portals based on loc of next room
@@ -65,6 +77,10 @@ func _ready():
 		
 		# Add the 4 new open locations from the new room's origin loc
 		open_loc = _add_open_loc(loc, open_loc)
+	
+	# Have room finalize portal properties for all created rooms
+	for room in created_rooms:
+		room.call_deferred("assign_portals")
 
 # Adds locations left, right, up, down from origin vector to arr only if they are open
 # Returns modified arr
@@ -107,7 +123,7 @@ func _remove_open_loc(last_open, curr_open):
 			
 			# If we need to add rooms, add room at this random loc
 			if num_to_add > 0:
-				var next_room = _add_new_room(loc)
+				var next_room = _add_new_room(loc, normal_rooms_path[randi() % normal_rooms_path.size()])
 				
 				# Init last and next rooms next portals based on loc of new room
 				call_deferred("_init_room_portals", last_room, next_room, loc)
@@ -122,13 +138,17 @@ func _remove_open_loc(last_open, curr_open):
 	return curr_open
 
 # Add new room to scene, returns the new room scene
-func _add_new_room(loc):
+func _add_new_room(loc, room_path):
+	var room = load(room_path)
 	var new_room = room.instance()
 	get_tree().current_scene.call_deferred("add_child", new_room)
 	new_room.global_position = loc
 	
 	# Close off loc so cannot add another room to this loc
 	closed_loc.append(loc)
+	
+	# Add new room to created rooms
+	created_rooms.append(new_room)
 	
 	# Assign id to new room and return new room
 	new_room.room_id = next_room_id
@@ -138,7 +158,7 @@ func _add_new_room(loc):
 # Inits valid portals and store their target destination location and room ids
 func _init_room_portals(last_room, next_room, loc):
 	# Last rooms position + some direction should be equal to the loc of new room
-	# Init portal based on the direction
+	# Assign portal based on the direction
 	if last_room.global_position + UP == loc:
 		# Set valid portals
 		last_room.has_up = true

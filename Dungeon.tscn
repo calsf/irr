@@ -5,8 +5,13 @@
 
 [node name="Level" type="YSort"]
 script = ExtResource( 1 )
+start_room_path = "res://StartingRoom.tscn"
+end_room_path = "res://Room.tscn"
+normal_rooms_path = [ "res://Room.tscn", "res://Room.tscn" ]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+smoothing_speed = 4.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true

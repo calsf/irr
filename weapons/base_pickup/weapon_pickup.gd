@@ -41,6 +41,9 @@ func _ready():
 	_name_bg.rect_position.y -= y_offset
 	_outline_bg.rect_position.y -= y_offset
 	
+	# Info hidden at start
+	_hide_info(null)
+	
 func _show_info(area):
 	_info_display.visible = true
 	_display_bg.visible = true

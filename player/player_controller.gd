@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-#const BASE_SPEED = 32 * 20
+#const BASE_SPEED = 32 * 10
 const BASE_SPEED = 32 * 5
 
 # Player sprite textures with lighting on opposite sides for when player flips
