@@ -36,6 +36,9 @@ var Texture_Right = null
 # Reference to player should be set by player
 var player_obj = null
 
+# The room id this enemy belongs to
+var room_id
+
 # Emit signal when enemy first aggros onto player
 signal aggro_started()
 
@@ -49,6 +52,12 @@ func _ready():
 	if _face_player:
 		Texture_Left = load(_left_path)
 		Texture_Right = load(_right_path)
+	
+	# Owner should be the room this enemy belongs to
+	room_id = get_owner().room_id
+	
+	# Get reference to player object
+	player_obj = get_tree().get_nodes_in_group("player")[0]
 
 func _physics_process(delta):
 	_check_aggro()
@@ -86,7 +95,7 @@ func apply_knockback(knockback_vector, knockback_strength):
 
 # Check for aggro onto player
 func _check_aggro():
-	if not is_aggro and PlayerHealth.curr_hp < 3:
+	if not is_aggro and room_id == player_obj.curr_room_id:
 		is_aggro = true
 		emit_signal("aggro_started")
 

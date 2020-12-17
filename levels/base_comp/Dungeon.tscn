@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/base_comp/map_generator.gd" type="Script" id=1]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
+
+[node name="Level" type="YSort"]
+script = ExtResource( 1 )
+start_room_path = "res://levels/level0/StartingRoom.tscn"
+end_room_path = "res://levels/level0/StartingRoom.tscn"
+normal_rooms_path = [ "res://levels/level0/StartingRoom.tscn", "res://levels/level0/StartingRoom.tscn" ]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+smoothing_speed = 4.0
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
