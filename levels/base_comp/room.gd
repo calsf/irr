@@ -2,7 +2,7 @@ extends YSort
 
 const STARTING_ID = 0 # Starting room id should be 0
 
-var Portal = preload("res://Portal.tscn")
+var Portal = preload("res://levels/base_comp/portal/Portal.tscn")
 
 # This rooms room id as assigned by map gen, init to -1
 var room_id = -1
