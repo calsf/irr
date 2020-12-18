@@ -45,8 +45,8 @@ radius = 5.0
 height = 8.0
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 6.99997
-height = 14.0001
+radius = 11.0
+height = 6.00003
 
 [sub_resource type="Animation" id=5]
 loop = true
@@ -96,7 +96,7 @@ rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 0, 9 )
+position = Vector2( 0, 5 )
 shape = SubResource( 4 )
 
 [node name="HealthDisplay" parent="." index="6"]

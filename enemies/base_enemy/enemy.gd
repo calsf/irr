@@ -4,6 +4,7 @@ class_name Enemy
 
 const DECEL = 500
 const DISPLAY_TIME = 3
+const FLASH_TIME = .1
 
 var Damaged = preload("res://enemies/base_enemy/enemy_damaged_shader.tres")
 
@@ -23,6 +24,7 @@ onready var _health_fill = $HealthDisplay/HealthFill
 onready var _health_bg = $HealthDisplay/HealthBG
 onready var _health_timer = $HealthDisplayTimer
 onready var _anim = $AnimationPlayer
+onready var _flash_timer = $FlashTimer
 
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
@@ -46,6 +48,8 @@ var room_id
 signal aggro_started()
 
 func _ready():
+	_flash_timer.connect("timeout", self, "_reset_material")
+	
 	# Set health amount to health fill ratio
 	_health_ratio = _curr_hp / _health_bg.rect_size.x
 	_health_timer.connect("timeout", self, "_hide_health")
@@ -111,7 +115,7 @@ func update_health(change):
 	_curr_hp += change
 	
 	# If change was negative, then enemy was damaged
-	if change < 0 and _curr_hp > 0:	# Flash only if still has health
+	if change < 0:
 		_damaged_flash()
 	
 	# Update health fill
@@ -134,7 +138,10 @@ func update_health(change):
 func _damaged_flash():
 	_body_sprite.material = Damaged
 	_attack_sprite.material = Damaged
-	yield(get_tree().create_timer(.1), "timeout")
+	_flash_timer.start(FLASH_TIME)
+
+# Reset material after timer finishes
+func _reset_material():
 	_body_sprite.material = null
 	_attack_sprite.material = null
 

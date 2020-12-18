@@ -85,3 +85,5 @@ __meta__ = {
 [node name="HealthDisplayTimer" type="Timer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="FlashTimer" type="Timer" parent="."]

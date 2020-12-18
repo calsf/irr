@@ -35,10 +35,15 @@ func _on_EnterArea_area_entered(area):
 	player.global_position = dest_loc + dest_offset
 	player.curr_room_id = dest_room.room_id
 	
+	# Disable the destination room portals upon entering if they should be locked
+	# The room should handle unlocking portals once a condition is met
+	if dest_room.is_locked:
+		dest_room.lock_portals()
+	
 	# Move camera to destination room position
 	camera.global_position = dest_room.global_position
 
-# Disables self
+# Disables self, NO ANIMATION
 func disable_portal():
 	self.visible = false
 	enter_area.disabled = true
@@ -52,4 +57,9 @@ func enable_portal():
 	dest_portal.visible = true
 	dest_portal.enter_area.disabled = false
 	dest_portal.anim.play("start")
+
+# Disables and plays lock animation
+func disable_with_anim():
+	enter_area.call_deferred("set_disabled", true)
+	anim.play("lock")
 	

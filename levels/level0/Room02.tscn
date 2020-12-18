@@ -6,42 +6,42 @@
 
 [node name="Room02" instance=ExtResource( 1 )]
 
-[node name="Eyeball" parent="." index="3" instance=ExtResource( 2 )]
+[node name="Eyeball" parent="Enemies" index="0" instance=ExtResource( 2 )]
 position = Vector2( 32, -64 )
 
-[node name="Positions" parent="Eyeball" index="9" instance=ExtResource( 3 )]
+[node name="Positions" parent="Enemies/Eyeball" index="9" instance=ExtResource( 3 )]
 
-[node name="A" type="Node2D" parent="Eyeball/Positions" index="0"]
+[node name="A" type="Node2D" parent="Enemies/Eyeball/Positions" index="0"]
 
-[node name="B" type="Node2D" parent="Eyeball/Positions" index="1"]
+[node name="B" type="Node2D" parent="Enemies/Eyeball/Positions" index="1"]
 position = Vector2( 150, 0 )
 
-[node name="Eyeball2" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Eyeball2" parent="Enemies" index="1" instance=ExtResource( 2 )]
 position = Vector2( -32, 64 )
 
-[node name="Positions" parent="Eyeball2" index="9" instance=ExtResource( 3 )]
+[node name="Positions" parent="Enemies/Eyeball2" index="9" instance=ExtResource( 3 )]
 
-[node name="A" type="Node2D" parent="Eyeball2/Positions" index="0"]
+[node name="A" type="Node2D" parent="Enemies/Eyeball2/Positions" index="0"]
 
-[node name="B" type="Node2D" parent="Eyeball2/Positions" index="1"]
+[node name="B" type="Node2D" parent="Enemies/Eyeball2/Positions" index="1"]
 position = Vector2( -150, 0 )
 
-[node name="Eyeball3" parent="." index="5" instance=ExtResource( 2 )]
+[node name="Eyeball3" parent="Enemies" index="2" instance=ExtResource( 2 )]
 position = Vector2( -192, -128 )
 
-[node name="Positions" parent="Eyeball3" index="9" instance=ExtResource( 3 )]
+[node name="Positions" parent="Enemies/Eyeball3" index="9" instance=ExtResource( 3 )]
 
-[node name="A" type="Node2D" parent="Eyeball3/Positions" index="0"]
+[node name="A" type="Node2D" parent="Enemies/Eyeball3/Positions" index="0"]
 
-[node name="B" type="Node2D" parent="Eyeball3/Positions" index="1"]
+[node name="B" type="Node2D" parent="Enemies/Eyeball3/Positions" index="1"]
 position = Vector2( 160, 96 )
 
-[node name="Eyeball4" parent="." index="6" instance=ExtResource( 2 )]
+[node name="Eyeball4" parent="Enemies" index="3" instance=ExtResource( 2 )]
 position = Vector2( 192, 128 )
 
-[node name="Positions" parent="Eyeball4" index="9" instance=ExtResource( 3 )]
+[node name="Positions" parent="Enemies/Eyeball4" index="9" instance=ExtResource( 3 )]
 
-[node name="A" type="Node2D" parent="Eyeball4/Positions" index="0"]
+[node name="A" type="Node2D" parent="Enemies/Eyeball4/Positions" index="0"]
 
-[node name="B" type="Node2D" parent="Eyeball4/Positions" index="1"]
+[node name="B" type="Node2D" parent="Enemies/Eyeball4/Positions" index="1"]
 position = Vector2( -160, -96 )

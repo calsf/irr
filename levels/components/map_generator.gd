@@ -1,5 +1,7 @@
 # Generates a map layout using pre-made rooms
 # Creates one main path of rooms, each room in main path may spawn dead end rooms
+# Whenever new room is added, checks the new room position relative to the last room
+# Using the position, assign navigation properties to the portal in the last room
 extends YSort
 
 const UP = Vector2(0, -480)

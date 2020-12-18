@@ -4,6 +4,8 @@ const STARTING_ID = 0 # Starting room id should be 0
 
 var Portal = preload("res://levels/components/portal/Portal.tscn")
 
+onready var enemies = $Enemies
+
 # This rooms room id as assigned by map gen, init to -1
 var room_id = -1
 
@@ -37,6 +39,9 @@ var room_cleared = false
 # Condition for solving any puzzles in this room
 var room_solved = false
 
+# If room is locked or not
+var is_locked = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	up_loc = $PortalLoc/Up.global_position
@@ -47,10 +52,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#if not room_cleared:
-		#room_cleared = true
-		#activate_portals()
-	pass
+	# If no enemies, unlock room, else room should be locked
+	if enemies.get_child_count() <= 0:
+		room_cleared = true
+	else:
+		is_locked = true
+		room_cleared = false
+	
+	# Unlock room portals once condition is met
+	if is_locked and room_cleared:
+		unlock_portals()
 
 # Assigns all valid portal properties based on map gen
 func assign_portals():
@@ -95,7 +106,7 @@ func assign_portals():
 		if room_id == STARTING_ID:
 			right.enable_portal()
 
-# Creates portals and disables them
+# Creates portals and disables them immediately
 func _create_portals():
 	up = Portal.instance()
 	add_child(up)
@@ -116,3 +127,23 @@ func _create_portals():
 	add_child(right)
 	right.global_position = right_loc
 	right.disable_portal()
+
+# Enables all valid portals in this room
+func unlock_portals():
+	is_locked = false
+	if has_up:
+		up.enable_portal()
+	if has_down:
+		down.enable_portal()
+	if has_left:
+		left.enable_portal()
+	if has_right:
+		right.enable_portal()
+
+# Disables all portals in this room, plays their lock animation
+func lock_portals():
+	up.disable_with_anim()
+	down.disable_with_anim()
+	left.disable_with_anim()
+	right.disable_with_anim()
+	is_locked = true

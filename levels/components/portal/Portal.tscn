@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/components/portal/portal_shadow.png" type="Texture" id=1]
 [ext_resource path="res://levels/components/portal/portal.png" type="Texture" id=2]
@@ -8,6 +8,46 @@
 radius = 6.0
 
 [sub_resource type="Animation" id=2]
+resource_name = "lock"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.4, 1 ), Vector2( 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 0.6
 loop = true
 step = 0.15
@@ -24,7 +64,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 1.2
 step = 0.15
 tracks/0/type = "value"
@@ -51,26 +91,38 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
 }
-
-[sub_resource type="AnimationNodeAnimation" id=4]
-animation = "loop"
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4, 1 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=5]
+animation = "loop"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "start"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=7]
-states/loop/node = SubResource( 4 )
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/loop/node = SubResource( 5 )
 states/loop/position = Vector2( 549, 71 )
-states/start/node = SubResource( 5 )
+states/start/node = SubResource( 6 )
 states/start/position = Vector2( 368, 71 )
-transitions = [ "start", "loop", SubResource( 6 ) ]
+transitions = [ "start", "loop", SubResource( 7 ) ]
 start_node = "start"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
 
 [node name="Portal" type="Node2D"]
 script = ExtResource( 3 )
@@ -79,7 +131,6 @@ script = ExtResource( 3 )
 position = Vector2( 0, -31 )
 texture = ExtResource( 2 )
 hframes = 4
-frame = 1
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, -31 )
@@ -98,12 +149,13 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "start"
-anims/loop = SubResource( 2 )
-anims/start = SubResource( 3 )
+anims/lock = SubResource( 2 )
+anims/loop = SubResource( 3 )
+anims/start = SubResource( 4 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 7 )
+tree_root = SubResource( 8 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 8 )
+parameters/playback = SubResource( 9 )
 [connection signal="area_entered" from="EnterArea" to="." method="_on_EnterArea_area_entered"]
