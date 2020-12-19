@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://weapons/base_dmg_enemy/default_ranged.gd"
 }, {
+"base": "Control",
+"class": "DialogBox",
+"language": "GDScript",
+"path": "res://dialog_box.gd"
+}, {
 "base": "Resource",
 "class": "DmgEnemyProps",
 "language": "GDScript",
@@ -101,6 +106,7 @@ _global_script_class_icons={
 "DefaultMelee": "",
 "DefaultProjectile": "",
 "DefaultRanged": "",
+"DialogBox": "",
 "DmgEnemyProps": "",
 "DmgPlayerProps": "",
 "Enemy": "",
@@ -124,6 +130,7 @@ config/icon="res://icon.png"
 
 PlayerMeter="*res://player/player_meter.gd"
 PlayerHealth="*res://player/player_health.gd"
+SaveLoadManager="*res://save_load/save_load_manager.gd"
 
 [display]
 

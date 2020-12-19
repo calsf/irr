@@ -25,11 +25,19 @@ onready var weapon_primary : Weapon
 onready var weapon_secondary : Weapon
 onready var weapon_curr : Weapon
 
+# Load saved data - need for equipped weapons
+# MAY NEED TO RELOAD IN CASE SOMETHING ELSE UPDATES SAVE_DATA
+# weapons should be ordered such that the index of child is same as the weapon's id
+onready var save_data = SaveLoadManager.load_data()
+
 # Signals to update HUD
 signal primary_selected()
 signal secondary_selected()
 signal primary_swapped()
 signal secondary_swapped()
+
+# Signal emitted after player's entrance animation
+signal has_started()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,8 +52,8 @@ func _ready():
 	
 	_anim.connect("animation_finished", self, "_has_started")
 	
-	weapon_primary = weapons[0]
-	weapon_secondary = weapons[1]
+	weapon_primary = weapons[save_data["primary_weapon_id"]]
+	weapon_secondary = weapons[save_data["secondary_weapon_id"]]
 	weapon_curr = weapon_primary
 	
 	emit_signal("primary_selected")
@@ -135,9 +143,17 @@ func _input(event):
 				if weapon_curr == weapon_primary:
 					weapon_primary = new_weapon
 					emit_signal("primary_swapped", weapon_primary.weapon_props.icon_path)
+					
+					# Update current save data and save new equipped weapon
+					save_data["primary_weapon_id"] = new_weapon.weapon_props.weapon_id
+					SaveLoadManager.save_data(save_data)
 				else:
 					weapon_secondary = new_weapon
 					emit_signal("secondary_swapped", weapon_secondary.weapon_props.icon_path)
+					
+					# Update current save data and save new equipped weapon
+					save_data["secondary_weapon_id"] = new_weapon.weapon_props.weapon_id
+					SaveLoadManager.save_data(save_data)
 				weapon_curr = new_weapon
 				
 				weapon_curr.visible = true
@@ -177,3 +193,4 @@ func _has_started(anim):
 	if anim == "Start":
 		weapon_curr.visible = true
 		can_act = true
+		emit_signal("has_started")

@@ -30,7 +30,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "Start"
 length = 2.9
 tracks/0/type = "value"
@@ -82,7 +82,7 @@ tracks/3/keys = {
 "values": [ Vector2( 2, -14.5 ), Vector2( 2, -14.5 ), Vector2( 0, -14.5 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -98,11 +98,11 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 2.5
 height = 4.0
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 4.0
 height = 8.0
 
@@ -131,8 +131,8 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Start"
 anims/Idle = SubResource( 2 )
-anims/Start = SubResource( 6 )
-anims/Walk = SubResource( 3 )
+anims/Start = SubResource( 3 )
+anims/Walk = SubResource( 4 )
 
 [node name="Weapons" type="Node2D" parent="."]
 
@@ -162,7 +162,7 @@ script = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
 position = Vector2( -0.5, -3 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="HurtTimer" type="Timer" parent="PlayerHurtbox"]
 
@@ -173,7 +173,7 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 position = Vector2( -0.5, -3 )
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="PlayerHUD" parent="." instance=ExtResource( 7 )]
 

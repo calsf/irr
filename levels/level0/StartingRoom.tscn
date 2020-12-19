@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/wand/WandPickup.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://levels/level0/table_shadow.png" type="Texture" id=6]
 [ext_resource path="res://levels/level0/yoak_shadow.png" type="Texture" id=7]
 [ext_resource path="res://levels/level0/yoak.png" type="Texture" id=8]
+[ext_resource path="res://DialogBox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/level0/tutorial_manager.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 21 )
@@ -71,3 +73,18 @@ texture = ExtResource( 7 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ProfessorYoak" index="2"]
 autoplay = "idle"
 anims/idle = SubResource( 2 )
+
+[node name="TutorialManager" type="Node" parent="." index="6"]
+script = ExtResource( 10 )
+
+[node name="DialogContainer" type="Control" parent="TutorialManager" index="0"]
+margin_left = -160.0
+margin_top = 96.0
+margin_right = -120.0
+margin_bottom = 136.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogBox" parent="TutorialManager/DialogContainer" index="0" instance=ExtResource( 9 )]
+img_path = "res://weapons/base_pickup/pickup_shadow.png"

@@ -36,8 +36,9 @@ var right_loc
 # Condition for clearing all enemies in this room
 var room_cleared = false
 
-# Condition for solving any puzzles in this room
-var room_solved = false
+# Condition for solving any other conditions in this room
+# True by default, will need to be set false by whatever else handles the solved condition
+var room_solved = true
 
 # If room is locked or not
 var is_locked = false
@@ -59,8 +60,8 @@ func _process(delta):
 		is_locked = true
 		room_cleared = false
 	
-	# Unlock room portals once condition is met
-	if is_locked and room_cleared:
+	# Unlock room portals once conditions are met
+	if is_locked and room_cleared and room_solved:
 		unlock_portals()
 
 # Assigns all valid portal properties based on map gen
@@ -73,7 +74,7 @@ func assign_portals():
 		
 		# If this is room is the starting room, enable portals in this room
 		# Portal's enable should enable it's destination portal
-		if room_id == STARTING_ID:
+		if room_id == STARTING_ID and not is_locked:
 			up.enable_portal()
 	if has_down:
 		# Assign portal destination location and room id
@@ -83,7 +84,7 @@ func assign_portals():
 		
 		# If this is room is the starting room, enable portals in this room
 		# Portal's enable should enable it's destination portal
-		if room_id == STARTING_ID:
+		if room_id == STARTING_ID and not is_locked:
 			down.enable_portal()
 	if has_left:
 		# Assign portal destination location and room id
@@ -93,7 +94,7 @@ func assign_portals():
 		
 		# If this is room is the starting room, enable portals in this room
 		# Portal's enable should enable it's destination portal
-		if room_id == STARTING_ID:
+		if room_id == STARTING_ID and not is_locked:
 			left.enable_portal()
 	if has_right:
 		# Assign portal destination location and room id
@@ -103,7 +104,7 @@ func assign_portals():
 		
 		# If this is room is the starting room, enable portals in this room
 		# Portal's enable should enable it's destination portal
-		if room_id == STARTING_ID:
+		if room_id == STARTING_ID and not is_locked:
 			right.enable_portal()
 
 # Creates portals and disables them immediately
