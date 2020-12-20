@@ -5,6 +5,7 @@ const OFFSET = 16
 
 onready var enter_area = $EnterArea/CollisionShape2D
 onready var anim = $AnimationPlayer
+onready var anim_tree = $AnimationTree
 var camera = null
 
 var dest_portal = null
@@ -50,10 +51,12 @@ func disable_portal():
 
 # Enables self and destination portal
 func enable_portal():
+	anim_tree.active = true
 	self.visible = true
 	enter_area.disabled = false
 	anim.play("start")
 	
+	dest_portal.anim_tree.active = true
 	dest_portal.visible = true
 	dest_portal.enter_area.disabled = false
 	dest_portal.anim.play("start")
@@ -62,4 +65,5 @@ func enable_portal():
 func disable_with_anim():
 	enter_area.call_deferred("set_disabled", true)
 	anim.play("lock")
+	anim_tree.active = false
 	

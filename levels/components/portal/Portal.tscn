@@ -129,11 +129,13 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -31 )
+scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 2 )
 hframes = 4
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, -31 )
+scale = Vector2( 0.4, 1 )
 z_index = -1
 texture = ExtResource( 1 )
 
@@ -148,7 +150,6 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "start"
 anims/lock = SubResource( 2 )
 anims/loop = SubResource( 3 )
 anims/start = SubResource( 4 )
@@ -156,6 +157,5 @@ anims/start = SubResource( 4 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 8 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 9 )
 [connection signal="area_entered" from="EnterArea" to="." method="_on_EnterArea_area_entered"]

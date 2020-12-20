@@ -1,7 +1,7 @@
 extends Control
 class_name DialogBox
 
-const CHAR_DELAY = .06
+const CHAR_DELAY = .03
 
 # The series of messages to be shown through this dialog box
 export var messages: Array
@@ -17,6 +17,8 @@ var is_active = false
 var _msg_index = 0	# Current message of messages
 var _curr_msg = ""	# The entire message that is currently written
 var _curr_char = 0	# The curr char of the message to be written
+
+signal dialog_finished()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,6 +44,7 @@ func _input(event):
 				is_active = false
 				self.visible = false
 				get_tree().paused = false
+				emit_signal("dialog_finished")
 			else:	# Else, go to next message
 				_dialog.text = ""
 				_curr_msg = ""

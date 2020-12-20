@@ -142,18 +142,24 @@ func _input(event):
 				
 				if weapon_curr == weapon_primary:
 					weapon_primary = new_weapon
-					emit_signal("primary_swapped", weapon_primary.weapon_props.icon_path)
 					
 					# Update current save data and save new equipped weapon
+					save_data = SaveLoadManager.load_data()
 					save_data["primary_weapon_id"] = new_weapon.weapon_props.weapon_id
 					SaveLoadManager.save_data(save_data)
+					
+					# Emit signal AFTER updating save
+					emit_signal("primary_swapped", weapon_primary.weapon_props.icon_path)
 				else:
 					weapon_secondary = new_weapon
-					emit_signal("secondary_swapped", weapon_secondary.weapon_props.icon_path)
 					
 					# Update current save data and save new equipped weapon
+					save_data = SaveLoadManager.load_data()
 					save_data["secondary_weapon_id"] = new_weapon.weapon_props.weapon_id
 					SaveLoadManager.save_data(save_data)
+					
+					# Emit signal AFTER updating save
+					emit_signal("secondary_swapped", weapon_secondary.weapon_props.icon_path)
 				weapon_curr = new_weapon
 				
 				weapon_curr.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/wand/WandPickup.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://levels/level0/yoak.png" type="Texture" id=8]
 [ext_resource path="res://DialogBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://levels/level0/tutorial_manager.gd" type="Script" id=10]
+[ext_resource path="res://TrainingDummy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/level0/table_pickups.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 21 )
@@ -36,6 +38,7 @@ tracks/0/keys = {
 
 [node name="Table" type="StaticBody2D" parent="." index="4"]
 position = Vector2( 0, -64 )
+script = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="Table" index="0"]
 texture = ExtResource( 5 )
@@ -78,13 +81,26 @@ anims/idle = SubResource( 2 )
 script = ExtResource( 10 )
 
 [node name="DialogContainer" type="Control" parent="TutorialManager" index="0"]
-margin_left = -160.0
+margin_left = -158.0
 margin_top = 96.0
-margin_right = -120.0
-margin_bottom = 136.0
+margin_right = 158.0
+margin_bottom = 165.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DialogBox" parent="TutorialManager/DialogContainer" index="0" instance=ExtResource( 9 )]
-img_path = "res://weapons/base_pickup/pickup_shadow.png"
+[node name="DialogBoxStart" parent="TutorialManager/DialogContainer" index="0" instance=ExtResource( 9 )]
+messages = [ "Greetings adventurer, my name is Professor Yoak! You must be here to save the Princess.", "But first, let's go over the basics.", "You can carry two weapons that you can switch between by pressing SPACE.", "All weapons have a NORMAL ATTACK that can be used by pressing LEFT CLICK. Weapons also have an EMPOWERED ATTACK that can be used by pressing RIGHT CLICK, but these attacks will cost METER.", "To build METER, all you have to do is hit enemies with your NORMAL ATTACK.", "Now go ahead and pick 2 starter weapons from this table. Press E to pick up a weapon, and then press SPACE to swap to your next weapon slot, and pick up another." ]
+img_path = "res://yoak_icon.png"
+
+[node name="DialogBoxFinish" parent="TutorialManager/DialogContainer" index="1" instance=ExtResource( 9 )]
+messages = [ "Looks like you're ready! Go through the portals and save the Princess!" ]
+img_path = "res://yoak_icon.png"
+
+[node name="TrainingDummy" parent="." index="7" instance=ExtResource( 11 )]
+position = Vector2( 88, -56 )
+collision_layer = 4
+
+[node name="TrainingDummy2" parent="." index="8" instance=ExtResource( 11 )]
+position = Vector2( 136, -56 )
+collision_layer = 4
