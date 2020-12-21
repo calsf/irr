@@ -13,8 +13,10 @@ var move_speed = BASE_SPEED
 var input_vector = Vector2()
 var curr_interactable = null
 var curr_room_id = 0	# rooom id player is currently in, starts in room 0
+var can_act = false
 
 onready var _sprite = $Sprite
+onready var _shadow = $Shadow
 onready var _anim = $AnimationPlayer
 onready var _interact_area = $InteractArea
 onready var _hurtbox = $PlayerHurtbox
@@ -23,11 +25,19 @@ onready var weapon_primary : Weapon
 onready var weapon_secondary : Weapon
 onready var weapon_curr : Weapon
 
+# Load saved data - need for equipped weapons
+# MAY NEED TO RELOAD IN CASE SOMETHING ELSE UPDATES SAVE_DATA
+# weapons should be ordered such that the index of child is same as the weapon's id
+onready var save_data = SaveLoadManager.load_data()
+
 # Signals to update HUD
 signal primary_selected()
 signal secondary_selected()
 signal primary_swapped()
 signal secondary_swapped()
+
+# Signal emitted after player's entrance animation
+signal has_started()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,10 +50,11 @@ func _ready():
 	# Player hurtbox should send signal when player invuln time is over
 	_hurtbox.connect("invuln_finished", self, "_reset_alpha")
 	
-	weapon_primary = weapons[0]
-	weapon_secondary = weapons[1]
+	_anim.connect("animation_finished", self, "_has_started")
+	
+	weapon_primary = weapons[save_data["primary_weapon_id"]]
+	weapon_secondary = weapons[save_data["secondary_weapon_id"]]
 	weapon_curr = weapon_primary
-	weapon_curr.visible = true
 	
 	emit_signal("primary_selected")
 	# Make sure to emit swapped signals with swapped weapon's icon path
@@ -52,6 +63,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not can_act:
+		return
+	
 	# Movement
 	input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -72,10 +86,12 @@ func _process(delta):
 	if mouse_dir.x < 0:
 		_sprite.texture = Texture_Left
 		if (_sprite.scale.x < 0):
+			_shadow.scale.x *= -1
 			_sprite.scale.x *= -1
 	else:
 		_sprite.texture = Texture_Right
 		if (_sprite.scale.x > 0):
+			_shadow.scale.x *= -1
 			_sprite.scale.x *= -1
 	
 	# Normal attack input for current weapon, can be held down
@@ -84,6 +100,9 @@ func _process(delta):
 
 # Check input events when they are dispatched
 func _input(event):
+	if not can_act:
+		return
+	
 	# Empowered attack inputs CANNOT be held down
 	if event.is_action_pressed("empowered_attack"):
 		weapon_curr.empowered_attack()
@@ -117,14 +136,29 @@ func _input(event):
 				if weapon_curr.weapon_props.pickup_path != "":
 					# Replace pickup with the replaced weapon's pickup
 					var replaced_pickup = load(weapon_curr.weapon_props.pickup_path).instance()
-					get_tree().current_scene.add_child(replaced_pickup)
+					var par = curr_interactable.get_parent()
+					par.add_child(replaced_pickup)
 					replaced_pickup.global_position = curr_interactable.global_position
 				
 				if weapon_curr == weapon_primary:
 					weapon_primary = new_weapon
+					
+					# Update current save data and save new equipped weapon
+					save_data = SaveLoadManager.load_data()
+					save_data["primary_weapon_id"] = new_weapon.weapon_props.weapon_id
+					SaveLoadManager.save_data(save_data)
+					
+					# Emit signal AFTER updating save
 					emit_signal("primary_swapped", weapon_primary.weapon_props.icon_path)
 				else:
 					weapon_secondary = new_weapon
+					
+					# Update current save data and save new equipped weapon
+					save_data = SaveLoadManager.load_data()
+					save_data["secondary_weapon_id"] = new_weapon.weapon_props.weapon_id
+					SaveLoadManager.save_data(save_data)
+					
+					# Emit signal AFTER updating save
 					emit_signal("secondary_swapped", weapon_secondary.weapon_props.icon_path)
 				weapon_curr = new_weapon
 				
@@ -159,3 +193,10 @@ func _flash_damaged():
 # Reset transparency
 func _reset_alpha():
 	_sprite.set_modulate(Color(1, 1, 1, 1))
+
+# Once start animation is finished, allow player to act
+func _has_started(anim):
+	if anim == "Start":
+		weapon_curr.visible = true
+		can_act = true
+		emit_signal("has_started")

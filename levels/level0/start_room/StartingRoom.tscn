@@ -1,0 +1,114 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://levels/level0/start_room/table_pickups.gd" type="Script" id=1]
+[ext_resource path="res://levels/level0/start_room/tutorial_manager.gd" type="Script" id=2]
+[ext_resource path="res://levels/level0/start_room/yoak_shadow.png" type="Texture" id=3]
+[ext_resource path="res://levels/level0/start_room/yoak.png" type="Texture" id=4]
+[ext_resource path="res://levels/level0/start_room/table.png" type="Texture" id=5]
+[ext_resource path="res://levels/level0/start_room/table_shadow.png" type="Texture" id=6]
+[ext_resource path="res://levels/dialog/DialogBox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/training_dummy/TrainingDummy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://weapons/dagger/DaggerPickup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://weapons/shortbow/ShortbowPickup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://weapons/wand/WandPickup.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 21 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.6
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="StartingRoom" instance=ExtResource( 8 )]
+
+[node name="Table" type="StaticBody2D" parent="." index="4"]
+position = Vector2( 0, -64 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Table" index="0"]
+texture = ExtResource( 5 )
+
+[node name="Shadow" type="Sprite" parent="Table/Sprite" index="0"]
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table" index="1"]
+position = Vector2( 0, 7 )
+shape = SubResource( 1 )
+
+[node name="DaggerPickup" parent="Table" index="2" instance=ExtResource( 10 )]
+position = Vector2( -44, 0 )
+
+[node name="ShortbowPickup" parent="Table" index="3" instance=ExtResource( 11 )]
+
+[node name="WandPickup" parent="Table" index="4" instance=ExtResource( 12 )]
+position = Vector2( 44, 0 )
+
+[node name="ProfessorYoak" type="Node2D" parent="." index="5"]
+position = Vector2( -100, -40 )
+
+[node name="Sprite" type="Sprite" parent="ProfessorYoak" index="0"]
+position = Vector2( 0, -31 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 3
+
+[node name="Shadow" type="Sprite" parent="ProfessorYoak" index="1"]
+position = Vector2( 0, -31 )
+z_index = -1
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ProfessorYoak" index="2"]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+
+[node name="TutorialManager" type="Node" parent="." index="6"]
+script = ExtResource( 2 )
+
+[node name="DialogContainer" type="Control" parent="TutorialManager" index="0"]
+margin_left = -158.0
+margin_top = 96.0
+margin_right = 158.0
+margin_bottom = 165.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogBoxStart" parent="TutorialManager/DialogContainer" index="0" instance=ExtResource( 7 )]
+margin_left = 158.0
+margin_top = 21.0
+margin_right = 158.0
+margin_bottom = 21.0
+messages = [ "Greetings adventurer, my name is Professor Yoak! You must be here to save the Princess.", "But first, let's go over the basics.", "You can carry two weapons that you can switch between by pressing SPACE.", "All weapons have a NORMAL ATTACK that can be used by pressing LEFT CLICK. Weapons also have an EMPOWERED ATTACK that can be used by pressing RIGHT CLICK, but these attacks will cost METER.", "To build METER, all you have to do is hit enemies with your NORMAL ATTACK.", "Now go ahead and pick 2 starter weapons from this table. Press E to pick up a weapon, and then press SPACE to swap to your next weapon slot, and pick up another." ]
+img_path = "res://levels/level0/start_room/yoak_icon.png"
+
+[node name="DialogBoxFinish" parent="TutorialManager/DialogContainer" index="1" instance=ExtResource( 7 )]
+margin_left = 158.0
+margin_top = 21.0
+margin_right = 158.0
+margin_bottom = 21.0
+messages = [ "Looks like you're ready! Go through the portals and save the Princess!" ]
+img_path = "res://levels/level0/start_room/yoak_icon.png"
+
+[node name="TrainingDummy" parent="." index="7" instance=ExtResource( 9 )]
+position = Vector2( 88, -56 )
+collision_layer = 4
+
+[node name="TrainingDummy2" parent="." index="8" instance=ExtResource( 9 )]
+position = Vector2( 136, -56 )
+collision_layer = 4
