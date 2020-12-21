@@ -12,6 +12,7 @@ export var img_path : String
 onready var _dialog = $Dialog
 onready var _timer = $TextTimer
 onready var _img = $SpeakerTexture
+onready var _anim = $AnimationPlayer
 
 var is_active = false
 var _msg_index = 0	# Current message of messages
@@ -24,8 +25,13 @@ signal dialog_finished()
 func _ready():
 	pause_mode = PAUSE_MODE_PROCESS # Never pause dialog box functionality
 	
+	# Init scale to 0 so anim doesn't flicker when dialog is activated and open anim is played
+	self.rect_scale = Vector2.ZERO
+	
 	# When timer runs out, write the next character in the current message
 	_timer.connect("timeout", self, "_write_next_char")
+	
+	_anim.connect("animation_finished", self, "_on_anim_finish")
 	
 	# Initialize dialog box
 	_dialog.text = ""
@@ -42,9 +48,7 @@ func _input(event):
 			# If messages have all be shown, exit out of dialog box and unpause
 			if _msg_index + 1 > messages.size() - 1:
 				is_active = false
-				self.visible = false
-				get_tree().paused = false
-				emit_signal("dialog_finished")
+				_anim.play("close")
 			else:	# Else, go to next message
 				_dialog.text = ""
 				_curr_msg = ""
@@ -56,7 +60,7 @@ func activate_dialog():
 	is_active = true
 	self.visible = true
 	get_tree().paused = true
-	_timer.start(CHAR_DELAY)
+	_anim.play("open")
 
 # Writes the next character in current message
 func _write_next_char():
@@ -65,3 +69,13 @@ func _write_next_char():
 		_dialog.text = _curr_msg
 		_curr_char += 1
 		_timer.start(CHAR_DELAY)
+
+# Start writing after open anim, finish dialog after close anim
+func _on_anim_finish(anim):
+	if anim == "open":
+		_timer.start(CHAR_DELAY)
+	elif anim == "close":
+		self.visible = false
+		get_tree().paused = false
+		emit_signal("dialog_finished")
+	

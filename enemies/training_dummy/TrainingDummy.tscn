@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://training_dummy.png" type="Texture" id=1]
-[ext_resource path="res://training_dummy_shadow.png" type="Texture" id=2]
+[ext_resource path="res://enemies/training_dummy/training_dummy.png" type="Texture" id=1]
+[ext_resource path="res://enemies/training_dummy/training_dummy_shadow.png" type="Texture" id=2]
 [ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://enemies/base_enemy/enemy.gd" type="Script" id=4]
-[ext_resource path="res://training_dummy_props.tres" type="Resource" id=5]
+[ext_resource path="res://enemies/training_dummy/training_dummy_props.tres" type="Resource" id=5]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0

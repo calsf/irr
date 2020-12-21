@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/training_dummy_shadow.png-be8fa2eb7cbbfa69a028fa51a086aa75.stex"
+path="res://.import/yoak.png-291f6ed4735621c39a4783f43eeef742.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://training_dummy_shadow.png"
-dest_files=[ "res://.import/training_dummy_shadow.png-be8fa2eb7cbbfa69a028fa51a086aa75.stex" ]
+source_file="res://levels/level0/start_room/yoak.png"
+dest_files=[ "res://.import/yoak.png-291f6ed4735621c39a4783f43eeef742.stex" ]
 
 [params]
 

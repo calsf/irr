@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "DialogBox",
 "language": "GDScript",
-"path": "res://dialog_box.gd"
+"path": "res://levels/dialog/dialog_box.gd"
 }, {
 "base": "Resource",
 "class": "DmgEnemyProps",
