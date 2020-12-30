@@ -12,11 +12,13 @@ const RIGHT = Vector2(640, 0)
 var closed_loc = []	# Closed locations that already have a room
 var open_loc = []	# Open locations to choose from to add next room
 var curr_longest_path = 0	# Number of rooms currently in longest path
-var target_longest_path = 5	# Target number of rooms for longest path
 var next_room_id = 0 # id of next room, should be incremented after
 
 var created_rooms = [] # All created rooms
 var last_room = null	# Room that was previously added
+
+# Target number of rooms for longest path
+export var target_longest_path : int
 
 # Path of starting room scene
 export var start_room_path : String
