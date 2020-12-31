@@ -40,8 +40,6 @@ tracks/0/keys = {
 }
 
 [node name="DialogBox" type="Control"]
-margin_right = -322.0
-margin_bottom = -409.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

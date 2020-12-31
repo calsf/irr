@@ -39,6 +39,9 @@ signal secondary_swapped()
 # Signal emitted after player's entrance animation
 signal has_started()
 
+# Signal emitted after player enters new room, should send new room id
+signal entered_room()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_interact_area.connect("area_entered", self, "_enter_interact")
@@ -200,3 +203,15 @@ func _has_started(anim):
 		weapon_curr.visible = true
 		can_act = true
 		emit_signal("has_started")
+
+# Stop player from acting and pause movement and animation
+func stop_player():
+	can_act = false
+	input_vector = Vector2.ZERO
+	_anim.play("Idle")
+
+# Move player to new position and assign curr room id to the new room id
+func enter_room(new_pos, new_room_id):
+	global_position = new_pos
+	curr_room_id = new_room_id
+	emit_signal("entered_room", curr_room_id)

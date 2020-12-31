@@ -33,8 +33,9 @@ func _on_EnterArea_area_entered(area):
 	# Offset destination location by player's last moving direction multiplied by OFFSET
 	# Offset must be enough to avoid player looping back between portals upon teleporting
 	var dest_offset = move_dir.normalized() * OFFSET
-	player.global_position = dest_loc + dest_offset
-	player.curr_room_id = dest_room.room_id
+	
+	# Player enters room, use new destination and destination room id as args
+	player.enter_room(dest_loc + dest_offset, dest_room.room_id)
 	
 	# Disable the destination room portals upon entering if they should be locked
 	# The room should handle unlocking portals once a condition is met

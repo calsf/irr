@@ -2,6 +2,7 @@ extends Control
 class_name DialogBox
 
 const CHAR_DELAY = .03
+const POS_OFFSET =  Vector2(158, 21)
 
 # The series of messages to be shown through this dialog box
 export var messages: Array
@@ -18,12 +19,15 @@ var is_active = false
 var _msg_index = 0	# Current message of messages
 var _curr_msg = ""	# The entire message that is currently written
 var _curr_char = 0	# The curr char of the message to be written
+var cam = null
 
 signal dialog_finished()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pause_mode = PAUSE_MODE_PROCESS # Never pause dialog box functionality
+	
+	cam = get_tree().current_scene.get_node("Camera2D")
 	
 	# Init scale to 0 so anim doesn't flicker when dialog is activated and open anim is played
 	self.rect_scale = Vector2.ZERO
@@ -60,6 +64,8 @@ func activate_dialog():
 	is_active = true
 	self.visible = true
 	get_tree().paused = true
+	# Move dialog to camera position and offset by POS_OFFSET
+	rect_position = cam.global_position + POS_OFFSET
 	_anim.play("open")
 
 # Writes the next character in current message
