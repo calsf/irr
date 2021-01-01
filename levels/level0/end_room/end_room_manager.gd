@@ -4,6 +4,17 @@ var player = null
 var room_id = -1
 
 onready var _dialog_start = $DialogContainer/DialogBoxStart
+onready var _dialog_killed_monster = $DialogContainer/DialogBoxKilledMonster
+onready var _dialog_killed_princess = $DialogContainer/DialogBoxKilledPrincess
+
+onready var _princess = get_parent().get_node("Princess")
+onready var _monster = get_parent().get_node("Monster")
+onready var _self_destruct = get_parent().get_node("SelfDestruct")
+onready var _self_destruct_anim = get_parent().get_node("SelfDestruct/AnimationPlayer")
+onready var _princess_hurtbox = get_parent().get_node("Princess/Hurtbox/CollisionShape2D")
+onready var _monster_hurtbox = get_parent().get_node("Monster/Hurtbox/CollisionShape2D")
+
+var has_killed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,8 +24,33 @@ func _ready():
 	# Let player resume action after start dialog is finished
 	_dialog_start.connect("dialog_finished", self, "_resume_action")
 	
+	# After killing princess dialog is finished
+	_dialog_killed_princess.connect("dialog_finished", self, "_after_killed_princess_dialog")
+	
 	# Owner should be the room this object belongs to
 	room_id = get_owner().room_id
+	
+	# Hurtboxes should be disabled at start
+	_princess_hurtbox.disabled = true
+	_monster_hurtbox.disabled = true
+	
+	# Init self destruct
+	_self_destruct.scale = Vector2.ZERO
+	_self_destruct.visible = false
+
+func _physics_process(delta):
+	if not has_killed and (not _princess or not _monster):
+		has_killed = true
+		
+		if not _princess:	# Princess was killed
+			_monster_hurtbox.disabled = true
+			_show_killed_princess_dialog()
+		elif not _monster:	# Monster was killed
+			_princess_hurtbox.disabled = true
+			_show_killed_monster_dialog()
+		
+		# Disable player action
+		player.stop_player()
 
 # On entry, pause player action, let animations play, then prompt dialog
 # After dialog is finished, it should resume player action
@@ -26,7 +62,27 @@ func _on_entry(entered_room_id):
 		yield(get_tree().create_timer(2), "timeout")
 		_dialog_start.activate_dialog()
 
-# Allow player to act again
+# Allow player to act again after start animation and dialog is finished
 func _resume_action():
 	player.can_act = true
-		
+	_princess_hurtbox.disabled = false
+	_monster_hurtbox.disabled = false
+
+# Dialog after killing princess
+func _show_killed_princess_dialog():
+	yield(get_tree().create_timer(1), "timeout")
+	_dialog_killed_princess.activate_dialog()
+
+# Start self destruct anim after dialog finished
+func _after_killed_princess_dialog():
+	_self_destruct.visible = true
+	_self_destruct_anim.play("sd")
+
+# Kill player during self destruct anim
+func kill_player():
+	PlayerHealth.lose_health(3)
+
+# Dialog after killing monster
+func _show_killed_monster_dialog():
+	yield(get_tree().create_timer(1), "timeout")
+	_dialog_killed_monster.activate_dialog()

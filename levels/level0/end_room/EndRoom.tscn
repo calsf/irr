@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level0/end_room/FightExplo.tscn" type="PackedScene" id=2]
@@ -6,6 +6,49 @@
 [ext_resource path="res://levels/level0/end_room/Monster.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/dialog/DialogBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/level0/end_room/end_room_manager.gd" type="Script" id=6]
+[ext_resource path="res://levels/level0/end_room/monster_sd.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "sd"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../EndRoomManager")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "kill_player"
+} ]
+}
 
 [node name="EndRoom" instance=ExtResource( 1 )]
 
@@ -18,7 +61,20 @@
 [node name="FightExplo" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 0, -33 )
 
-[node name="EndRoomManager" type="Node" parent="." index="7"]
+[node name="SelfDestruct" type="Node2D" parent="." index="7"]
+position = Vector2( 160, 0 )
+scale = Vector2( 0.733336, 0.733336 )
+z_index = 1
+
+[node name="Sprite" type="Sprite" parent="SelfDestruct" index="0"]
+modulate = Color( 0.0833334, 0.0833334, 0.0833334, 1 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SelfDestruct" index="1"]
+anims/sd = SubResource( 1 )
+
+[node name="EndRoomManager" type="Node" parent="." index="8"]
 script = ExtResource( 6 )
 
 [node name="DialogContainer" type="Control" parent="EndRoomManager" index="0"]
@@ -37,4 +93,12 @@ margin_top = 21.0
 margin_right = 158.0
 margin_bottom = 21.0
 messages = [ "It's the Princess and...a monster? They're both weak!", "I have to finish off the monster and help the Princess!" ]
+img_path = "res://levels/level0/start_room/yoak_icon.png"
+
+[node name="DialogBoxKilledPrincess" parent="EndRoomManager/DialogContainer" index="1" instance=ExtResource( 5 )]
+messages = [ "Haha! Are you blind? You killed the Princess!", "It's too late now. I'll be taking you down with me. Farewell adventurer!" ]
+img_path = "res://levels/level0/start_room/yoak_icon.png"
+
+[node name="DialogBoxKilledMonster" parent="EndRoomManager/DialogContainer" index="2" instance=ExtResource( 5 )]
+messages = [ "Thank you adventurer, you saved me." ]
 img_path = "res://levels/level0/start_room/yoak_icon.png"

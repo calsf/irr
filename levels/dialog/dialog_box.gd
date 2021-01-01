@@ -19,6 +19,7 @@ var is_active = false
 var _msg_index = 0	# Current message of messages
 var _curr_msg = ""	# The entire message that is currently written
 var _curr_char = 0	# The curr char of the message to be written
+var _can_go_next = false # If player can go to next dialog/skip writing
 var cam = null
 
 signal dialog_finished()
@@ -44,7 +45,7 @@ func _ready():
 
 func _input(event):
 	# Only listen for input if this dialog box is activated
-	if is_active and Input.is_action_pressed("normal_attack"):
+	if _can_go_next and is_active and Input.is_action_pressed("normal_attack"):
 		# Load the entire current message if it is not written out entirely yet
 		if _dialog.text != messages[_msg_index]:
 				_dialog.text = messages[_msg_index]
@@ -77,10 +78,14 @@ func _write_next_char():
 		_timer.start(CHAR_DELAY)
 
 # Start writing after open anim, finish dialog after close anim
+# When open anim finished, allow player to go next/skip dialogue writing
+# When close anim finished, reset _can_go_next
 func _on_anim_finish(anim):
 	if anim == "open":
+		_can_go_next = true
 		_timer.start(CHAR_DELAY)
 	elif anim == "close":
+		_can_go_next = false
 		self.visible = false
 		get_tree().paused = false
 		emit_signal("dialog_finished")
