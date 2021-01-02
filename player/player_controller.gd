@@ -14,6 +14,7 @@ var input_vector = Vector2()
 var curr_interactable = null
 var curr_room_id = 0	# rooom id player is currently in, starts in room 0
 var can_act = false
+var is_dead = false
 
 onready var _sprite = $Sprite
 onready var _shadow = $Shadow
@@ -41,6 +42,9 @@ signal has_started()
 
 # Signal emitted after player enters new room, should send new room id
 signal entered_room()
+
+# Signal emitted after player dies/health reaches 0
+signal player_died()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -183,19 +187,31 @@ func _exit_interact(area):
 
 # Create flash effect by swapping material on sprites
 # Will also make player transparent to indicate invuln after being damaged
+# WILL NOT FLASH IF PLAYER SHOULD BE DEAD, INSTEAD WILL TRIGGER DEATH EVENT
 func _flash_damaged():
-	_sprite.material = Damaged
-	yield(get_tree().create_timer(.05), "timeout")
-	_sprite.material = null
-	yield(get_tree().create_timer(.05), "timeout")
-	_sprite.set_modulate(Color(1, 1, 1, .3))
-	_sprite.material = Damaged
-	yield(get_tree().create_timer(.1), "timeout")
-	_sprite.material = null
+	if PlayerHealth.curr_hp > 0:	# Only flash if player isn't dead
+		_sprite.material = Damaged
+		yield(get_tree().create_timer(.05), "timeout")
+		_sprite.material = null
+		yield(get_tree().create_timer(.05), "timeout")
+		_sprite.set_modulate(Color(1, 1, 1, .3))
+		_sprite.material = Damaged
+		yield(get_tree().create_timer(.1), "timeout")
+		_sprite.material = null
+	elif not is_dead:	# Player should be dead, don't flash
+		is_dead = true
+		_player_die()
 
 # Reset transparency
 func _reset_alpha():
 	_sprite.set_modulate(Color(1, 1, 1, 1))
+
+# Play death anim and stop player action
+func _player_die():
+	_anim.play("Dead")
+	can_act = false
+	weapon_curr.visible = false
+	emit_signal("player_died")
 
 # Once start animation is finished, allow player to act
 func _has_started(anim):

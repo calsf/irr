@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level0/end_room/FightExplo.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://levels/level0/end_room/monster_sd.png" type="Texture" id=7]
 [ext_resource path="res://levels/dialog/dialog_with_options.gd" type="Script" id=8]
 [ext_resource path="res://fonts/VT323-Regular_16.tres" type="DynamicFontData" id=9]
+[ext_resource path="res://levels/dialog/dialog_options_theme.tres" type="Theme" id=11]
+[ext_resource path="res://levels/dialog/dialog_option_normal.tres" type="StyleBox" id=12]
+[ext_resource path="res://levels/dialog/dialog_option_hover.tres" type="StyleBox" id=13]
+[ext_resource path="res://levels/dialog/dialog_option_pressed.tres" type="StyleBox" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "sd"
@@ -52,7 +56,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 outline_size = 1
 outline_color = Color( 0.447059, 0.376471, 0.309804, 1 )
 font_data = ExtResource( 9 )
@@ -118,23 +122,35 @@ img_path = "res://levels/level0/start_room/yoak_icon.png"
 speaker_name = "Princess"
 
 [node name="DialogOptions" type="VBoxContainer" parent="EndRoomManager/DialogContainer/DialogBoxKilledMonster" index="12"]
-margin_left = 124.0
-margin_top = -84.0
-margin_right = 157.0
+margin_left = 109.0
+margin_top = -90.0
+margin_right = 159.0
 margin_bottom = -34.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Ok1" type="Button" parent="EndRoomManager/DialogContainer/DialogBoxKilledMonster/DialogOptions" index="0"]
-margin_right = 33.0
-margin_bottom = 23.0
-custom_fonts/font = SubResource( 2 )
+margin_right = 50.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 50, 26 )
+theme = ExtResource( 11 )
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 14 )
+custom_styles/focus = ExtResource( 14 )
+custom_styles/normal = ExtResource( 12 )
+shortcut_in_tooltip = false
 text = "Ok."
 
 [node name="Ok2" type="Button" parent="EndRoomManager/DialogContainer/DialogBoxKilledMonster/DialogOptions" index="1"]
-margin_top = 27.0
-margin_right = 33.0
-margin_bottom = 50.0
-custom_fonts/font = SubResource( 2 )
+margin_top = 30.0
+margin_right = 50.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 50, 26 )
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 14 )
+custom_styles/focus = ExtResource( 14 )
+custom_styles/normal = ExtResource( 12 )
+custom_fonts/font = SubResource( 3 )
+shortcut_in_tooltip = false
 text = "Ok."

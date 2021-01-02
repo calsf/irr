@@ -3,7 +3,8 @@
 [ext_resource path="res://levels/components/map_generator.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/components/camera.gd" type="Script" id=3]
-[ext_resource path="res://levels/Fade.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/components/Fade.tscn" type="PackedScene" id=4]
+
 
 [node name="Level" type="YSort"]
 script = ExtResource( 1 )
