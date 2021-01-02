@@ -10,10 +10,15 @@ export var messages: Array
 # Path to texture for speaker icon
 export var img_path : String
 
+# Name of speaker
+export var speaker_name : String
+
 onready var _dialog = $Dialog
 onready var _timer = $TextTimer
 onready var _img = $SpeakerTexture
 onready var _anim = $AnimationPlayer
+onready var _name_label = $Name
+onready var _arrow = $Arrow
 
 var is_active = false
 var _msg_index = 0	# Current message of messages
@@ -33,10 +38,16 @@ func _ready():
 	# Init scale to 0 so anim doesn't flicker when dialog is activated and open anim is played
 	self.rect_scale = Vector2.ZERO
 	
+	self.rect_position = POS_OFFSET
+	
 	# When timer runs out, write the next character in the current message
 	_timer.connect("timeout", self, "_write_next_char")
 	
 	_anim.connect("animation_finished", self, "_on_anim_finish")
+	
+	_name_label.text = speaker_name
+	
+	_arrow.visible = false
 	
 	# Initialize dialog box
 	_dialog.text = ""
@@ -52,9 +63,9 @@ func _input(event):
 		else:
 			# If messages have all be shown, exit out of dialog box and unpause
 			if _msg_index + 1 > messages.size() - 1:
-				is_active = false
-				_anim.play("close")
+				_end_of_dialog()
 			else:	# Else, go to next message
+				_timer.start(CHAR_DELAY)
 				_dialog.text = ""
 				_curr_msg = ""
 				_curr_char = 0
@@ -65,8 +76,6 @@ func activate_dialog():
 	is_active = true
 	self.visible = true
 	get_tree().paused = true
-	# Move dialog to camera position and offset by POS_OFFSET
-	rect_position = cam.global_position + POS_OFFSET
 	_anim.play("open")
 
 # Writes the next character in current message
@@ -75,7 +84,11 @@ func _write_next_char():
 		_curr_msg = _curr_msg + messages[_msg_index][_curr_char]
 		_dialog.text = _curr_msg
 		_curr_char += 1
+		_arrow.visible = false
 		_timer.start(CHAR_DELAY)
+	else:
+		_timer.stop()
+		_arrow.visible = true
 
 # Start writing after open anim, finish dialog after close anim
 # When open anim finished, allow player to go next/skip dialogue writing
@@ -89,4 +102,12 @@ func _on_anim_finish(anim):
 		self.visible = false
 		get_tree().paused = false
 		emit_signal("dialog_finished")
-	
+
+# By default, exit dialog at end of dialog
+func _end_of_dialog():
+	_exit_dialog()
+
+# Exit dialog
+func _exit_dialog():
+	is_active = false
+	_anim.play("close")

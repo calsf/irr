@@ -1,4 +1,4 @@
-extends Node
+extends CanvasLayer
 
 var player = null
 var room_id = -1
@@ -6,6 +6,7 @@ var room_id = -1
 onready var _dialog_start = $DialogContainer/DialogBoxStart
 onready var _dialog_killed_monster = $DialogContainer/DialogBoxKilledMonster
 onready var _dialog_killed_princess = $DialogContainer/DialogBoxKilledPrincess
+onready var _fade = get_tree().current_scene.get_node("FadeCanvas/Fade")
 
 onready var _princess = get_parent().get_node("Princess")
 onready var _monster = get_parent().get_node("Monster")
@@ -26,6 +27,9 @@ func _ready():
 	
 	# After killing princess dialog is finished
 	_dialog_killed_princess.connect("dialog_finished", self, "_after_killed_princess_dialog")
+	
+	# After killing monster dialog is finished
+	_dialog_killed_monster.connect("dialog_finished", self, "_after_killed_monster_dialog")
 	
 	# Owner should be the room this object belongs to
 	room_id = get_owner().room_id
@@ -86,3 +90,16 @@ func kill_player():
 func _show_killed_monster_dialog():
 	yield(get_tree().create_timer(1), "timeout")
 	_dialog_killed_monster.activate_dialog()
+
+# Save and load level select scene after killed monster dialog finishes
+func _after_killed_monster_dialog():
+	# Save data
+	var save_data = SaveLoadManager.load_data()
+	save_data["finished_level0"] = true
+	SaveLoadManager.save_data(save_data)
+	
+	# Wait
+	yield(get_tree().create_timer(1), "timeout")
+	
+	# Load level select scene
+	_fade.go_to_scene("res://levels/level_select/LevelSelect.tscn")

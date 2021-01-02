@@ -77,16 +77,21 @@ texture = ExtResource( 3 )
 autoplay = "idle"
 anims/idle = SubResource( 2 )
 
-[node name="TutorialManager" type="Node" parent="." index="6"]
+[node name="TutorialManager" type="CanvasLayer" parent="." index="6"]
 script = ExtResource( 2 )
 
 [node name="DialogContainer" type="Control" parent="TutorialManager" index="0"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
 margin_left = -158.0
-margin_top = 96.0
+margin_top = -133.0
 margin_right = 158.0
-margin_bottom = 165.0
+margin_bottom = -64.0
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_editor_description_": ""
 }
 
 [node name="DialogBoxStart" parent="TutorialManager/DialogContainer" index="0" instance=ExtResource( 7 )]
@@ -96,6 +101,7 @@ margin_right = 158.0
 margin_bottom = 21.0
 messages = [ "Greetings adventurer, my name is Professor Yoak! You must be here to save the Princess.", "But first, let's go over the basics.", "You can carry two weapons that you can switch between by pressing SPACE.", "All weapons have a NORMAL ATTACK that can be used by pressing LEFT CLICK. Weapons also have an EMPOWERED ATTACK that can be used by pressing RIGHT CLICK, but these attacks will cost METER.", "To build METER, all you have to do is hit enemies with your NORMAL ATTACK.", "Now go ahead and pick 2 starter weapons from this table. Press E to pick up a weapon, and then press SPACE to swap to your next weapon slot, and pick up another." ]
 img_path = "res://levels/level0/start_room/yoak_icon.png"
+speaker_name = "PROFESSOR YOAK"
 
 [node name="DialogBoxFinish" parent="TutorialManager/DialogContainer" index="1" instance=ExtResource( 7 )]
 margin_left = 158.0
@@ -104,6 +110,7 @@ margin_right = 158.0
 margin_bottom = 21.0
 messages = [ "Looks like you're ready! Go through the portals and save the Princess!" ]
 img_path = "res://levels/level0/start_room/yoak_icon.png"
+speaker_name = "PROFESSOR YOAK"
 
 [node name="TrainingDummy" parent="." index="7" instance=ExtResource( 9 )]
 position = Vector2( 88, -56 )

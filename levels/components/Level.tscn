@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://levels/components/map_generator.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/components/camera.gd" type="Script" id=3]
+[ext_resource path="res://levels/Fade.tscn" type="PackedScene" id=4]
 
 [node name="Level" type="YSort"]
 script = ExtResource( 1 )
@@ -17,3 +18,7 @@ smoothing_speed = 4.0
 script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="FadeCanvas" type="CanvasLayer" parent="."]
+
+[node name="Fade" parent="FadeCanvas" instance=ExtResource( 4 )]
