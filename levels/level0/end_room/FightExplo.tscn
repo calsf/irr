@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level0/end_room/fight_explo.png" type="Texture" id=2]
+[ext_resource path="res://levels/level0/end_room/activate_on_enter.gd" type="Script" id=3]
+[ext_resource path="res://enemies/eyeball/eyeball_props.tres" type="Resource" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "activate"
+length = 0.5
+step = 0.075
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.45 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="FightExplo" instance=ExtResource( 1 )]
+z_index = 1
+script = ExtResource( 3 )
+_enemy_props = ExtResource( 4 )
+
+[node name="Body" parent="." index="0"]
+texture = ExtResource( 2 )
+hframes = 7
+
+[node name="Shadow" parent="." index="1"]
+texture = null
+
+[node name="AnimationPlayer" parent="." index="8"]
+anims/activate = SubResource( 1 )

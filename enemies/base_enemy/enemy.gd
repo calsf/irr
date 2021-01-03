@@ -64,11 +64,12 @@ func _ready():
 	room_id = get_owner().room_id
 	
 	# Get reference to player object
-	player_obj = get_tree().get_nodes_in_group("player")[0]
+	player_obj = get_tree().current_scene.get_node("Player")
+	
+	# Check aggro when player enters a room
+	player_obj.connect("entered_room", self, "_check_aggro")
 
 func _physics_process(delta):
-	_check_aggro()
-	
 	# Get push vector, is zero if nothing is overlapping
 	var push = _pushbox.check_push()
 	
@@ -101,8 +102,8 @@ func apply_knockback(knockback_vector, knockback_strength):
 		knockback = knockback_vector.normalized() * curr_knockback_strength
 
 # Check for aggro onto player
-func _check_aggro():
-	if not is_aggro and room_id == player_obj.curr_room_id:
+func _check_aggro(entered_room_id):
+	if not is_aggro and room_id == entered_room_id:
 		is_aggro = true
 		emit_signal("aggro_started")
 

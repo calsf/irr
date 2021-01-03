@@ -72,10 +72,10 @@ weapon_props = ExtResource( 4 )
 position = Vector2( 0, -2 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -13 )
-frame = 2
+frame = 1
 
 [node name="SpawnPos" parent="Sprite" index="0"]
-position = Vector2( -11, -14 )
+position = Vector2( -7, -14 )
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/empowered_attack = SubResource( 1 )

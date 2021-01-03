@@ -44,14 +44,12 @@ _damage_props = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, 13 )
-rotation = 6.28319
 texture = ExtResource( 2 )
 offset = Vector2( 0, -13 )
 hframes = 5
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2( 0, 13 )
-rotation = 6.28319
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( -1.5, -0.5 )
