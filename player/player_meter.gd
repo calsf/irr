@@ -11,3 +11,7 @@ func add_meter(meter_gain):
 # Subtract from meter, avoid going below 0
 func lose_meter(meter_loss):
 	curr_meter = max(curr_meter - meter_loss, 0)
+
+# Reset meter to 0
+func reset():
+	curr_meter = 0

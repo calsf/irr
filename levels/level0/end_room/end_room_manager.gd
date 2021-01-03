@@ -6,7 +6,7 @@ var room_id = -1
 onready var _dialog_start = $DialogContainer/DialogBoxStart
 onready var _dialog_killed_monster = $DialogContainer/DialogBoxKilledMonster
 onready var _dialog_killed_princess = $DialogContainer/DialogBoxKilledPrincess
-onready var _fade = get_tree().current_scene.get_node("FadeCanvas/Fade")
+onready var _fade = get_tree().current_scene.get_node("CanvasLayer/Fade")
 
 onready var _princess = get_parent().get_node("Princess")
 onready var _monster = get_parent().get_node("Monster")

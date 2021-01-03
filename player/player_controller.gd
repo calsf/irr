@@ -43,9 +43,6 @@ signal has_started()
 # Signal emitted after player enters new room, should send new room id
 signal entered_room()
 
-# Signal emitted after player dies/health reaches 0
-signal player_died()
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_interact_area.connect("area_entered", self, "_enter_interact")
@@ -67,6 +64,8 @@ func _ready():
 	# Make sure to emit swapped signals with swapped weapon's icon path
 	emit_signal("primary_swapped", weapon_primary.weapon_props.icon_path)
 	emit_signal("secondary_swapped", weapon_secondary.weapon_props.icon_path)
+	
+	PlayerHealth.connect("player_died", self, "_player_die")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -211,7 +210,7 @@ func _player_die():
 	_anim.play("Dead")
 	can_act = false
 	weapon_curr.visible = false
-	emit_signal("player_died")
+	_hurtbox.get_node("CollisionShape2D").disabled = true
 
 # Once start animation is finished, allow player to act
 func _has_started(anim):

@@ -25,8 +25,11 @@ func fade_out():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match (anim_name):
-		"FadeIn":
-			get_tree().change_scene(_next_scene)
+		"FadeIn":	# Reload current scene if no next scene specified
+			if _next_scene == "":
+				get_tree().reload_current_scene()
+			else:
+				get_tree().change_scene(_next_scene)
 			emit_signal("fade_in_finished")
 		"FadeOut": 
 			emit_signal("fade_out_finished")
