@@ -45,10 +45,12 @@ func normal_attack():
 # Play empowered attack animation
 func empowered_attack():
 	# Only trigger attack if enough meter and not already in middle of emp attack
-	if (PlayerMeter.curr_meter >= weapon_props.empow_cost and \
-	(not _anim.is_playing() or _anim.assigned_animation != "empowered_attack")):
-		PlayerMeter.lose_meter(weapon_props.empow_cost)
-		_anim.play("empowered_attack")
+	if not _anim.is_playing() or _anim.assigned_animation != "empowered_attack":
+		if PlayerMeter.curr_meter >= weapon_props.empow_cost:
+			PlayerMeter.lose_meter(weapon_props.empow_cost)
+			_anim.play("empowered_attack")
+		else:
+			PlayerMeter.lose_meter(0)	# Trigger overhead meter by updating meter by 0
 
 # Default behaviour for a basic ranged attack
 # Shoot projectile in direction of mouse

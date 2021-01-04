@@ -25,7 +25,9 @@ var _default_data = {
 	
 	# Other settings
 	"sound_muted" : false,
-	"show_overhead" : true
+	"show_overhead" : true,
+	
+	"death_count" : 0
 }
 
 func save_data(data):

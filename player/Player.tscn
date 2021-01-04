@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://player/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://player/player_left.png" type="Texture" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://weapons/base_weapon/EmptyWeapon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player/player_shadow.png" type="Texture" id=9]
 [ext_resource path="res://player/overhead_meter.gd" type="Script" id=10]
+[ext_resource path="res://player/player_hud/overhead_heart_off.png" type="Texture" id=11]
+[ext_resource path="res://player/player_hud/overhead_heart_on.png" type="Texture" id=12]
+[ext_resource path="res://player/overhead_hearts.gd" type="Script" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
@@ -130,7 +133,6 @@ script = ExtResource( 1 )
 position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 hframes = 8
-frame = 5
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, -14.5 )
@@ -192,43 +194,86 @@ shape = SubResource( 7 )
 
 [node name="PlayerHUD" parent="." instance=ExtResource( 7 )]
 
-[node name="MeterBar" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Overhead" type="VBoxContainer" parent="."]
+margin_left = -17.0
+margin_top = -46.0
+margin_right = 17.0
+margin_bottom = -34.0
+mouse_filter = 0
+custom_constants/separation = 8
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Hearts" type="Control" parent="Overhead"]
+margin_top = 4.0
+margin_right = 34.0
+margin_bottom = 4.0
+script = ExtResource( 13 )
+
+[node name="LostHearts" type="TextureRect" parent="Overhead/Hearts"]
+margin_left = -1.0
+margin_top = -4.0
+margin_right = 35.0
+margin_bottom = 8.0
+texture = ExtResource( 11 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="CurrHearts" type="TextureRect" parent="Overhead/Hearts"]
+margin_left = -1.0
+margin_top = -4.0
+margin_right = 35.0
+margin_bottom = 8.0
+texture = ExtResource( 12 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="HeartsTimer" type="Timer" parent="Overhead/Hearts"]
+
+[node name="MeterBar" type="Control" parent="Overhead"]
+margin_top = 12.0
+margin_right = 34.0
+margin_bottom = 12.0
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Outline" type="ColorRect" parent="MeterBar"]
-margin_left = -17.0
-margin_top = -33.0
-margin_right = 17.0
-margin_bottom = -27.0
+[node name="Outline" type="ColorRect" parent="Overhead/MeterBar"]
+margin_right = 34.0
+margin_bottom = 6.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MeterBG" type="ColorRect" parent="MeterBar"]
-margin_left = -16.0
-margin_top = -32.0
-margin_right = 16.0
-margin_bottom = -28.0
+[node name="MeterBG" type="ColorRect" parent="Overhead/MeterBar"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 33.0
+margin_bottom = 5.0
 color = Color( 0.207843, 0.207843, 0.207843, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MeterFill" type="ColorRect" parent="MeterBar"]
-margin_left = -16.0
-margin_top = -32.0
-margin_right = 16.0
-margin_bottom = -28.0
+[node name="MeterFill" type="ColorRect" parent="Overhead/MeterBar"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 33.0
+margin_bottom = 5.0
 color = Color( 0.403922, 0.454902, 0.968627, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MeterTimer" type="Timer" parent="MeterBar"]
+[node name="MeterTimer" type="Timer" parent="Overhead/MeterBar"]
 [connection signal="timeout" from="PlayerHurtbox/HurtTimer" to="PlayerHurtbox" method="_on_HurtTimer_timeout"]
-[connection signal="timeout" from="MeterBar/MeterTimer" to="MeterBar" method="_on_MeterTimer_timeout"]

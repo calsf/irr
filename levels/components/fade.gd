@@ -14,6 +14,7 @@ func go_to_scene(scene_name):
 	if not _in_transition:
 		_in_transition = true
 		_next_scene = scene_name
+		color.a = 0
 		show()
 		fade_in()
 

@@ -14,7 +14,6 @@ var input_vector = Vector2()
 var curr_interactable = null
 var curr_room_id = 0	# rooom id player is currently in, starts in room 0
 var can_act = false
-var is_dead = false
 
 onready var _sprite = $Sprite
 onready var _shadow = $Shadow
@@ -186,7 +185,7 @@ func _exit_interact(area):
 
 # Create flash effect by swapping material on sprites
 # Will also make player transparent to indicate invuln after being damaged
-# WILL NOT FLASH IF PLAYER SHOULD BE DEAD, INSTEAD WILL TRIGGER DEATH EVENT
+# WILL NOT FLASH IF PLAYER SHOULD BE DEAD
 func _flash_damaged():
 	if PlayerHealth.curr_hp > 0:	# Only flash if player isn't dead
 		_sprite.material = Damaged
@@ -197,9 +196,6 @@ func _flash_damaged():
 		_sprite.material = Damaged
 		yield(get_tree().create_timer(.1), "timeout")
 		_sprite.material = null
-	elif not is_dead:	# Player should be dead, don't flash
-		is_dead = true
-		_player_die()
 
 # Reset transparency
 func _reset_alpha():

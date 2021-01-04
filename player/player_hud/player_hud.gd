@@ -15,6 +15,7 @@ onready var selected_secondary = $HUD/SecondaryWeapon/Selected
 func _ready():
 	lost_hearts.rect_size.x = PlayerHealth.MAX_HP * HEART_SIZE	# Remains max
 	curr_hearts.rect_size.x = PlayerHealth.MAX_HP * HEART_SIZE	# Init to max
+	meter_fill.visible = false	# Meter should be 0 at start
 	
 	# Parent must have player_controller.gd
 	self.get_parent().connect("primary_selected", self, "_update_selected", [1])
@@ -23,15 +24,7 @@ func _ready():
 	self.get_parent().connect("secondary_swapped", self, "_update_secondary_icon")
 	
 	PlayerHealth.connect("health_updated", self, "_update_hearts")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# Update meter bar, could use signal but will likely be updated frequently
-	if PlayerMeter.curr_meter > 0:
-		meter_fill.visible = true
-		meter_fill.rect_size.x = PlayerMeter.curr_meter * METER_RATIO
-	else:
-		meter_fill.visible = false
+	PlayerMeter.connect("meter_updated", self, "_update_meter")
 
 # Update curr hearts when health_updated signal is emitted by PlayerHealth
 func _update_hearts():
@@ -40,6 +33,14 @@ func _update_hearts():
 	else:
 		curr_hearts.visible = true
 		curr_hearts.rect_size.x = PlayerHealth.curr_hp * HEART_SIZE
+
+# Update meter bar when meter_updated signal is emitted by PlayerMeter
+func _update_meter():
+	if PlayerMeter.curr_meter > 0:
+		meter_fill.visible = true
+		meter_fill.rect_size.x = PlayerMeter.curr_meter * METER_RATIO
+	else:
+		meter_fill.visible = false
 
 # Highlight selected weapon, 1 = primary selected, 2 = secondary selected
 func _update_selected(selected):
