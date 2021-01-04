@@ -53,3 +53,13 @@ func load_data():
 	save_file.close()
 
 	return data
+
+# Reset data
+func reset_data():
+	save_data(_default_data)
+
+# Check if save file exists
+func check_save():
+	var dir = Directory.new()
+	var save = dir.file_exists(SAVE_PATH)
+	return save
