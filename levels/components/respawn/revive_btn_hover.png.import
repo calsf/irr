@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/revive_btn_hover.png-19a20cc227f327f5379fa949a53a6bcc.stex"
+path="res://.import/revive_btn_hover.png-0613010d1dcbe4a61b5565279278feea.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/components/revive_btn_hover.png"
-dest_files=[ "res://.import/revive_btn_hover.png-19a20cc227f327f5379fa949a53a6bcc.stex" ]
+source_file="res://levels/components/respawn/revive_btn_hover.png"
+dest_files=[ "res://.import/revive_btn_hover.png-0613010d1dcbe4a61b5565279278feea.stex" ]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/components/map_layout/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level0/end_room/FightExplo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/level0/end_room/Princess.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/level0/end_room/Monster.tscn" type="PackedScene" id=4]
@@ -13,6 +13,7 @@
 [ext_resource path="res://levels/dialog/dialog_option_normal.tres" type="StyleBox" id=12]
 [ext_resource path="res://levels/dialog/dialog_option_hover.tres" type="StyleBox" id=13]
 [ext_resource path="res://levels/dialog/dialog_option_pressed.tres" type="StyleBox" id=14]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "sd"

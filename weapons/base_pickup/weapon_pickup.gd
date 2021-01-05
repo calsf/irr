@@ -44,13 +44,13 @@ func _ready():
 	# Info hidden at start
 	_hide_info(null)
 	
-func _show_info(area):
+func _show_info(_area):
 	_info_display.visible = true
 	_display_bg.visible = true
 	_name_bg.visible = true
 	_outline_bg.visible = true
 
-func _hide_info(area):
+func _hide_info(_area):
 	_info_display.visible = false
 	_display_bg.visible = false
 	_name_bg.visible = false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/revive_btn_pressed.png-08e0b4f4d68f3b1498303f8f824f429f.stex"
+path="res://.import/boss_door.png-555bf2f9b2daae8b6d78014808f1a4c8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/components/revive_btn_pressed.png"
-dest_files=[ "res://.import/revive_btn_pressed.png-08e0b4f4d68f3b1498303f8f824f429f.stex" ]
+source_file="res://levels/components/map_layout/boss_door.png"
+dest_files=[ "res://.import/boss_door.png-555bf2f9b2daae8b6d78014808f1a4c8.stex" ]
 
 [params]
 

@@ -42,6 +42,9 @@ signal has_started()
 # Signal emitted after player enters new room, should send new room id
 signal entered_room()
 
+# Signal emitted after player falls
+signal player_fell()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_interact_area.connect("area_entered", self, "_enter_interact")
@@ -125,7 +128,7 @@ func _input(event):
 	
 	# If in interactable area, listen for player input
 	if curr_interactable and event.is_action_pressed("interact"):
-		if curr_interactable.is_in_group("pickups"):
+		if curr_interactable.is_in_group("pickups"):	# Is a weapon pickup
 			# weapon_id should match the object's index in Weapons children
 			# NOTE: Empty weapon takes up index 0 and 1, weapons start at index 2
 			var new_weapon = weapons[curr_interactable.weapon_id]
@@ -171,7 +174,8 @@ func _input(event):
 				
 				# Remove pickup
 				curr_interactable.queue_free()
-			
+		else:	# Else, non weapon pick up, call the interactable's interact
+			curr_interactable.interact()		
 
 # Sets curr_interactable when entering an interactable area
 func _enter_interact(area):
@@ -220,6 +224,17 @@ func stop_player():
 	can_act = false
 	input_vector = Vector2.ZERO
 	_anim.play("Idle")
+
+# Play player falling animation
+func player_fall():
+	weapon_curr.visible = false
+	_hurtbox.get_node("CollisionShape2D").disabled = true
+	_shadow.visible = false
+	_anim.play("Fall")
+
+# Call in player fall animation
+func player_fall_finished():
+	emit_signal("player_fell")
 
 # Move player to new position and assign curr room id to the new room id
 func enter_room(new_pos, new_room_id):

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/revive_btn_normal.png-05ea3201e5ac4ebe5bed65a24460065f.stex"
+path="res://.import/revive_btn_pressed.png-e6013e99754eee4af9901c7454d81bd8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/components/revive_btn_normal.png"
-dest_files=[ "res://.import/revive_btn_normal.png-05ea3201e5ac4ebe5bed65a24460065f.stex" ]
+source_file="res://levels/components/respawn/revive_btn_pressed.png"
+dest_files=[ "res://.import/revive_btn_pressed.png-e6013e99754eee4af9901c7454d81bd8.stex" ]
 
 [params]
 
