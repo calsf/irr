@@ -13,7 +13,6 @@
 [ext_resource path="res://weapons/shortbow/ShortbowPickup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://weapons/wand/WandPickup.tscn" type="PackedScene" id=12]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 21 )
 

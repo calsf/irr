@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://levels/level0/end_room/activate_on_enter.gd"
 }, {
-"base": "Interactable",
-"class": "BossDoor",
-"language": "GDScript",
-"path": "res://boss_door.gd"
-}, {
 "base": "Weapon",
 "class": "Dagger",
 "language": "GDScript",
@@ -69,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemies/base_dmg_player/dmg_player_props.gd"
 }, {
+"base": "Interactable",
+"class": "Door",
+"language": "GDScript",
+"path": "res://levels/components/base_door/door.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -93,6 +93,11 @@ _global_script_classes=[ {
 "class": "MoveToPoints",
 "language": "GDScript",
 "path": "res://enemies/base_enemy/move_to_points.gd"
+}, {
+"base": "Interactable",
+"class": "PrincessInteractable",
+"language": "GDScript",
+"path": "res://levels/level_select/princess_interactable.gd"
 }, {
 "base": "Weapon",
 "class": "Shortbow",
@@ -121,7 +126,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ActivateOnEnter": "",
-"BossDoor": "",
 "Dagger": "",
 "DamageEnemy": "",
 "DamagePlayer": "",
@@ -132,11 +136,13 @@ _global_script_class_icons={
 "DialogWithOptions": "",
 "DmgEnemyProps": "",
 "DmgPlayerProps": "",
+"Door": "",
 "Enemy": "",
 "EnemyProps": "",
 "Interactable": "",
 "MoveToPlayer": "",
 "MoveToPoints": "",
+"PrincessInteractable": "",
 "Shortbow": "",
 "Wand": "",
 "Weapon": "",

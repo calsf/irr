@@ -1,9 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/components/base_interactable/interactable.gd" type="Script" id=1]
-[ext_resource path="res://levels/components/map_layout/boss_door.png" type="Texture" id=2]
+[ext_resource path="res://levels/level_select/door_wr.png" type="Texture" id=2]
 [ext_resource path="res://weapons/base_pickup/pickup_btn.png" type="Texture" id=3]
 [ext_resource path="res://fonts/VT323-Regular_16.tres" type="DynamicFontData" id=4]
+
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 10

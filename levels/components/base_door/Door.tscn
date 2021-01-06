@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/components/base_interactable/Interactable.tscn" type="PackedScene" id=1]
-[ext_resource path="res://boss_door.gd" type="Script" id=2]
+[ext_resource path="res://levels/components/base_door/door.png" type="Texture" id=2]
+[ext_resource path="res://levels/components/base_door/door.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 39, 56 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "open"
+[sub_resource type="Animation" id=2]
 length = 0.45
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -22,15 +22,23 @@ tracks/0/keys = {
 "values": [ 0, 2, 3 ]
 }
 
-[node name="BossDoor" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
-boss_path = "res://levels/level1/Level1.tscn"
+[node name="Door" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." index="2"]
-anims/open = SubResource( 1 )
+anims/open = SubResource( 2 )
+
+[node name="InteractLabel" parent="." index="3"]
+margin_left = -32.0
+margin_top = -96.0
+margin_right = 32.0
+margin_bottom = -80.0
 
 [node name="Label" parent="InteractLabel" index="3"]
 text = "Enter"

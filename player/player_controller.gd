@@ -87,7 +87,6 @@ func _process(delta):
 		
 	# Mouse facing direction
 	var mouse_dir = get_global_mouse_position() - global_position
-	var rot = rad2deg(atan2(mouse_dir.y, mouse_dir.x))
 		
 	# Player facing direction to match mouse facing direction
 	# Sprite texture changed depending on facing direction to maintain lighting

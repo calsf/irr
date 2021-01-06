@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://levels/components/base_interactable/Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level0/end_room/princess.png" type="Texture" id=2]
+[ext_resource path="res://levels/level_select/princess_interactable.gd" type="Script" id=3]
+[ext_resource path="res://levels/level0/end_room/princess_shadow.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 21.0
+height = 4.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="PrincessInteractable" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0, -23 )
+z_index = 0
+texture = ExtResource( 2 )
+hframes = 6
+
+[node name="InteractArea" parent="." index="1"]
+position = Vector2( 0, -23 )
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2( 0, 7 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+
+[node name="InteractLabel" parent="." index="3"]
+margin_left = -32.0
+margin_top = -70.0
+margin_right = 32.0
+margin_bottom = -54.0
+
+[node name="Label" parent="InteractLabel" index="3"]
+text = "Talk"
+
+[node name="Shadow" type="Sprite" parent="." index="4"]
+position = Vector2( 0, -23 )
+z_index = -1
+texture = ExtResource( 4 )

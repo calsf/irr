@@ -18,5 +18,5 @@ func _on_hit(other):
 	queue_free()
 
 # Transition from start up to loop animation
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	_anim.play("loop")

@@ -1,7 +1,7 @@
 extends Interactable
-class_name BossDoor
+class_name Door
 
-export var boss_path = ""
+export var scene_path = ""
 
 onready var _anim = $AnimationPlayer
 onready var _fade = get_tree().current_scene.get_node("CanvasLayer/Fade")
@@ -10,7 +10,7 @@ var player = null
 
 func _ready():
 	player = get_tree().current_scene.get_node("Player")
-	player.connect("player_fell", self, "_go_to_boss")
+	player.connect("player_fell", self, "_go_to_scene")
 	_anim.connect("animation_finished", self, "_player_fall")
 
 # Stop player and open door
@@ -19,8 +19,8 @@ func interact():
 	_anim.play("open")
 
 # Play player falling animation after door open animation
-func _player_fall(_anim):
+func _player_fall(_animation):
 	player.player_fall()
 
-func _go_to_boss():
-	_fade.go_to_scene(boss_path)
+func _go_to_scene():
+	_fade.go_to_scene(scene_path)

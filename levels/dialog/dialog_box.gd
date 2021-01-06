@@ -25,15 +25,12 @@ var _msg_index = 0	# Current message of messages
 var _curr_msg = ""	# The entire message that is currently written
 var _curr_char = 0	# The curr char of the message to be written
 var _can_go_next = false # If player can go to next dialog/skip writing
-var cam = null
 
 signal dialog_finished()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pause_mode = PAUSE_MODE_PROCESS # Never pause dialog box functionality
-	
-	cam = get_tree().current_scene.get_node("Camera2D")
 	
 	# Init scale to 0 so anim doesn't flicker when dialog is activated and open anim is played
 	self.rect_scale = Vector2.ZERO
@@ -107,7 +104,12 @@ func _on_anim_finish(anim):
 func _end_of_dialog():
 	_exit_dialog()
 
-# Exit dialog
+# Exit and reset dialog
 func _exit_dialog():
+	_dialog.text = ""
+	_curr_msg = ""
+	_curr_char = 0
+	_msg_index = 0
+	_arrow.visible = false
 	is_active = false
 	_anim.play("close")
