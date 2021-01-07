@@ -1,11 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://levels/components/base_interactable/interactable.gd" type="Script" id=1]
-[ext_resource path="res://levels/level_select/door_wr.png" type="Texture" id=2]
 [ext_resource path="res://weapons/base_pickup/pickup_btn.png" type="Texture" id=3]
 [ext_resource path="res://fonts/VT323-Regular_16.tres" type="DynamicFontData" id=4]
-
-
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -15,9 +12,10 @@ font_data = ExtResource( 4 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-z_index = -2
-texture = ExtResource( 2 )
 hframes = 4
+
+[node name="Shadow" type="Sprite" parent="."]
+z_index = -1
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_layer = 2147483680

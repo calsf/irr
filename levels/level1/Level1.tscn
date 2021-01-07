@@ -5,5 +5,5 @@
 [node name="Level1" instance=ExtResource( 1 )]
 target_longest_path = 2
 start_room_path = "res://levels/level0/start_room/StartingRoom.tscn"
-end_room_path = "res://levels/level1/EndRoom.tscn"
+end_room_path = "res://levels/components/base_end_room/BaseEndRoom.tscn"
 normal_rooms_path = [ "res://levels/level0/Room01.tscn", "res://levels/level0/Room01.tscn" ]

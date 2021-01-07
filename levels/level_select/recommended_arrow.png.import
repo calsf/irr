@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/princess_shadow.png-51210b48e8ab4439baf96d592025f0dd.stex"
+path="res://.import/recommended_arrow.png-cfadb18192b52bbcf410b7ba335dd74e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/level0/end_room/princess_shadow.png"
-dest_files=[ "res://.import/princess_shadow.png-51210b48e8ab4439baf96d592025f0dd.stex" ]
+source_file="res://levels/level_select/recommended_arrow.png"
+dest_files=[ "res://.import/recommended_arrow.png-cfadb18192b52bbcf410b7ba335dd74e.stex" ]
 
 [params]
 

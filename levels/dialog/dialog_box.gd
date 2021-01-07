@@ -113,3 +113,7 @@ func _exit_dialog():
 	_arrow.visible = false
 	is_active = false
 	_anim.play("close")
+
+# Set this dialog box's messages
+func set_messages(msgs):
+	messages = msgs

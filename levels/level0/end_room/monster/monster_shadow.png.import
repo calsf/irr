@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monster_shadow.png-a7fd69b4bec56ead96cbf643360d39d1.stex"
+path="res://.import/monster_shadow.png-25ad7be7589b9323f7bc3167be4589c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/level0/end_room/monster_shadow.png"
-dest_files=[ "res://.import/monster_shadow.png-a7fd69b4bec56ead96cbf643360d39d1.stex" ]
+source_file="res://levels/level0/end_room/monster/monster_shadow.png"
+dest_files=[ "res://.import/monster_shadow.png-25ad7be7589b9323f7bc3167be4589c9.stex" ]
 
 [params]
 

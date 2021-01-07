@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/princess.png-340c8f770ac16497890a731fae582509.stex"
+path="res://.import/monster_sd.png-2a78b053017849a43a71bc6736a7eca8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/level0/end_room/princess.png"
-dest_files=[ "res://.import/princess.png-340c8f770ac16497890a731fae582509.stex" ]
+source_file="res://levels/level0/end_room/monster/monster_sd.png"
+dest_files=[ "res://.import/monster_sd.png-2a78b053017849a43a71bc6736a7eca8.stex" ]
 
 [params]
 
