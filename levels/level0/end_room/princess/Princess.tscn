@@ -6,7 +6,6 @@
 [ext_resource path="res://levels/level0/end_room/activate_on_enter.gd" type="Script" id=4]
 [ext_resource path="res://levels/level0/end_room/one_hit_props.tres" type="Resource" id=5]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.0
 height = 0.0
@@ -83,7 +82,7 @@ tracks/0/keys = {
 position = Vector2( -160, 0 )
 script = ExtResource( 4 )
 _enemy_props = ExtResource( 5 )
-_death_path = "res://levels/level0/end_room/PrincessDeath.tscn"
+_death_path = "res://levels/level0/end_room/princess/PrincessDeath.tscn"
 
 [node name="Body" parent="." index="0"]
 position = Vector2( 0, -23 )

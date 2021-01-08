@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/room01.png-b976c9dabeed1a91071ac1a62ac1857f.stex"
+path="res://.import/potion_pickup_shadow.png-baa0789ff924f608a9e664230487dc32.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/level0/room01.png"
-dest_files=[ "res://.import/room01.png-b976c9dabeed1a91071ac1a62ac1857f.stex" ]
+source_file="res://walkover_pickups/potion_pickup_shadow.png"
+dest_files=[ "res://.import/potion_pickup_shadow.png-baa0789ff924f608a9e664230487dc32.stex" ]
 
 [params]
 

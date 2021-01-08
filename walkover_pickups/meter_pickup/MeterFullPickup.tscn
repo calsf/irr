@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://walkover_pickups/meter_pickup/meter_pickup.gd" type="Script" id=1]
+[ext_resource path="res://walkover_pickups/meter_pickup/meter_full_pickup.png" type="Texture" id=2]
+[ext_resource path="res://walkover_pickups/WalkoverPickup.tscn" type="PackedScene" id=3]
+
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.0
+height = 0.0
+
+[node name="MeterFullPickup" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+restore_amount = 100
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="PickupArea" index="0"]
+position = Vector2( 0, -5 )
+rotation = 1.5708
+shape = SubResource( 1 )
