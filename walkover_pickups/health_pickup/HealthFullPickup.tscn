@@ -3,9 +3,8 @@
 [ext_resource path="res://walkover_pickups/health_pickup/health_pickup.gd" type="Script" id=1]
 [ext_resource path="res://walkover_pickups/WalkoverPickup.tscn" type="PackedScene" id=2]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 6.0
+radius = 8.0
 height = 0.0
 
 [node name="HealthFullPickup" instance=ExtResource( 2 )]

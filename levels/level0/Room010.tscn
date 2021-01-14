@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://enemies/eyeball/Eyeball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/base_enemy/Positions.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/jaws/Jaws.tscn" type="PackedScene" id=4]
+
+[node name="Room" instance=ExtResource( 3 )]
+
+[node name="Eyeball" parent="Enemies" index="0" instance=ExtResource( 1 )]
+position = Vector2( 32, 0 )
+is_cycle = true
+
+[node name="Positions" parent="Enemies/Eyeball" index="10" instance=ExtResource( 2 )]
+
+[node name="A" type="Node2D" parent="Enemies/Eyeball/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/Eyeball/Positions" index="1"]
+position = Vector2( -32, -32 )
+
+[node name="C" type="Node2D" parent="Enemies/Eyeball/Positions" index="2"]
+position = Vector2( -64, 0 )
+
+[node name="D" type="Node2D" parent="Enemies/Eyeball/Positions" index="3"]
+position = Vector2( -32, 32 )
+
+[node name="Eyeball2" parent="Enemies" index="1" instance=ExtResource( 1 )]
+position = Vector2( 96, 0 )
+is_cycle = true
+
+[node name="Positions" parent="Enemies/Eyeball2" index="10" instance=ExtResource( 2 )]
+
+[node name="A" type="Node2D" parent="Enemies/Eyeball2/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/Eyeball2/Positions" index="1"]
+position = Vector2( -96, -96 )
+
+[node name="C" type="Node2D" parent="Enemies/Eyeball2/Positions" index="2"]
+position = Vector2( -192, 0 )
+
+[node name="D" type="Node2D" parent="Enemies/Eyeball2/Positions" index="3"]
+position = Vector2( -96, 96 )
+
+[node name="Eyeball3" parent="Enemies" index="2" instance=ExtResource( 1 )]
+position = Vector2( 64, 0 )
+is_cycle = true
+
+[node name="Positions" parent="Enemies/Eyeball3" index="10" instance=ExtResource( 2 )]
+
+[node name="A" type="Node2D" parent="Enemies/Eyeball3/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/Eyeball3/Positions" index="1"]
+position = Vector2( -64, 64 )
+
+[node name="C" type="Node2D" parent="Enemies/Eyeball3/Positions" index="2"]
+position = Vector2( -128, 0 )
+
+[node name="D" type="Node2D" parent="Enemies/Eyeball3/Positions" index="3"]
+position = Vector2( -64, -64 )
+
+[node name="Jaws" parent="Enemies" index="3" instance=ExtResource( 4 )]

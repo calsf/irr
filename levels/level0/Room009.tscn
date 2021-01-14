@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://enemies/eyeball/Eyeball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/base_enemy/Positions.tscn" type="PackedScene" id=2]
+[ext_resource path="res://walkover_pickups/health_pickup/HealthPartialPickup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/jaws/Jaws.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=5]
+
+[node name="Room" instance=ExtResource( 5 )]
+
+[node name="Jaws" parent="Enemies" index="0" instance=ExtResource( 4 )]
+position = Vector2( 224, -160 )
+
+[node name="Jaws2" parent="Enemies" index="1" instance=ExtResource( 4 )]
+position = Vector2( 224, 160 )
+
+[node name="Jaws3" parent="Enemies" index="2" instance=ExtResource( 4 )]
+position = Vector2( -224, 160 )
+
+[node name="Jaws4" parent="Enemies" index="3" instance=ExtResource( 4 )]
+position = Vector2( -224, -160 )
+
+[node name="Eyeball" parent="Enemies" index="4" instance=ExtResource( 1 )]
+position = Vector2( -32, -64 )
+
+[node name="Positions" parent="Enemies/Eyeball" index="10" instance=ExtResource( 2 )]
+
+[node name="A" type="Node2D" parent="Enemies/Eyeball/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/Eyeball/Positions" index="1"]
+position = Vector2( 96, 64 )
+
+[node name="Eyeball2" parent="Enemies" index="5" instance=ExtResource( 1 )]
+position = Vector2( 32, 64 )
+
+[node name="Positions" parent="Enemies/Eyeball2" index="10" instance=ExtResource( 2 )]
+
+[node name="A" type="Node2D" parent="Enemies/Eyeball2/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/Eyeball2/Positions" index="1"]
+position = Vector2( -96, -64 )
+
+[node name="HealthPartialPickup" parent="." index="4" instance=ExtResource( 3 )]
