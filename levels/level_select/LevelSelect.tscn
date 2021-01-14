@@ -113,7 +113,7 @@ script = ExtResource( 15 )
 
 [node name="DoorGL" parent="Room/DoorManager/Doors" instance=ExtResource( 4 )]
 position = Vector2( -128, -96 )
-scene_path = "res://levels/level1/Level1.tscn"
+scene_path = "res://levels/level1_gl/Level1.tscn"
 
 [node name="DoorGR" parent="Room/DoorManager/Doors" instance=ExtResource( 9 )]
 position = Vector2( -128, 96 )

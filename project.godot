@@ -171,7 +171,7 @@ _global_script_class_icons={
 [application]
 
 config/name="The Irregularity"
-run/main_scene="res://levels/level0/Level0.tscn"
+run/main_scene="res://levels/level1_gl/Level1.tscn"
 config/icon="res://icon.png"
 
 [autoload]

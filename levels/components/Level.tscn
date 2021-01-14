@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://levels/components/map_layout/map_generator.gd" type="Script" id=1]
+[ext_resource path="res://levels/components/map_generator.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/components/camera.gd" type="Script" id=3]
 [ext_resource path="res://levels/components/Fade.tscn" type="PackedScene" id=4]
@@ -9,8 +9,6 @@
 [ext_resource path="res://levels/components/respawn/revive_btn_normal.tres" type="StyleBox" id=7]
 [ext_resource path="res://levels/components/respawn/revive_btn_hover.tres" type="StyleBox" id=8]
 [ext_resource path="res://levels/components/respawn/respawn_manager.gd" type="Script" id=9]
-
-
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -51,9 +49,6 @@ tracks/1/keys = {
 
 [node name="Level" type="YSort"]
 script = ExtResource( 1 )
-start_room_path = "res://levels/level0/StartingRoom.tscn"
-end_room_path = "res://levels/level0/StartingRoom.tscn"
-normal_rooms_path = [ "res://levels/level0/StartingRoom.tscn", "res://levels/level0/StartingRoom.tscn" ]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
