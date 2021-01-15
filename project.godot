@@ -94,6 +94,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://levels/components/base_interactable/interactable.gd"
 }, {
+"base": "Weapon",
+"class": "Longbow",
+"language": "GDScript",
+"path": "res://weapons/longbow/longbow.gd"
+}, {
+"base": "DamageEnemy",
+"class": "LongbowEmp",
+"language": "GDScript",
+"path": "res://weapons/longbow/longbow_emp.gd"
+}, {
 "base": "Enemy",
 "class": "MoveToPlayer",
 "language": "GDScript",
@@ -113,6 +123,16 @@ _global_script_classes=[ {
 "class": "Shortbow",
 "language": "GDScript",
 "path": "res://weapons/shortbow/shortbow.gd"
+}, {
+"base": "Weapon",
+"class": "Staff",
+"language": "GDScript",
+"path": "res://weapons/staff/staff.gd"
+}, {
+"base": "DamageEnemy",
+"class": "StaffEmpowered",
+"language": "GDScript",
+"path": "res://weapons/staff/staff_empowered.gd"
 }, {
 "base": "Weapon",
 "class": "Wand",
@@ -157,10 +177,14 @@ _global_script_class_icons={
 "EnemyProps": "",
 "FinalDoor": "",
 "Interactable": "",
+"Longbow": "",
+"LongbowEmp": "",
 "MoveToPlayer": "",
 "MoveToPoints": "",
 "PrincessInteractable": "",
 "Shortbow": "",
+"Staff": "",
+"StaffEmpowered": "",
 "Wand": "",
 "WarningSignInteractable": "",
 "Weapon": "",
@@ -171,7 +195,7 @@ _global_script_class_icons={
 [application]
 
 config/name="The Irregularity"
-run/main_scene="res://levels/level1_gl/Level1.tscn"
+run/main_scene="res://levels/level0/Level0.tscn"
 config/icon="res://icon.png"
 
 [autoload]

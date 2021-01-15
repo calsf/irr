@@ -75,7 +75,7 @@ offset = Vector2( 0, -13 )
 frame = 1
 
 [node name="SpawnPos" parent="Sprite" index="0"]
-position = Vector2( -7, -14 )
+position = Vector2( 0, -14 )
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/empowered_attack = SubResource( 1 )

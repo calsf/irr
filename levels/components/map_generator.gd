@@ -114,7 +114,9 @@ func _remove_open_loc(last_open, curr_open):
 	# Will be the # of rooms to add, but these rooms are not part of main path
 	# Will not be added to curr_open as these new rooms are intended to be dead ends
 	randomize()
-	var num_to_add = randi() % last_open.size()
+	var num_to_add = 0
+	if last_open.size() != 0:
+		num_to_add = randi() % last_open.size()
 	
 	# Remove num_to_remove items from curr_open
 	while num_to_remove > 0:

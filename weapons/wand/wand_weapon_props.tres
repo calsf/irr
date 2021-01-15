@@ -6,8 +6,8 @@
 script = ExtResource( 1 )
 weapon_id = 3
 weapon_name = "Wand"
-normal_desc = "Throw a wand at enemies"
-empow_desc = "Throws a wand harder"
+normal_desc = "Quickly throws a wand"
+empow_desc = "Quickly throws a wand that deals increased damage."
 empow_cost = 20
 icon_path = "res://player/player_hud/weapon_icons/wand_ic.png"
 pickup_path = "res://weapons/wand/WandPickup.tscn"

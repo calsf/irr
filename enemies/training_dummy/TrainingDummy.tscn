@@ -6,7 +6,6 @@
 [ext_resource path="res://enemies/base_enemy/enemy.gd" type="Script" id=4]
 [ext_resource path="res://enemies/training_dummy/training_dummy_props.tres" type="Resource" id=5]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
 height = 0.0
@@ -18,7 +17,7 @@ height = 4.0
 [node name="TrainingDummy" instance=ExtResource( 3 )]
 script = ExtResource( 4 )
 _enemy_props = ExtResource( 5 )
-_death_path = "res://TrainingDummyDeath.tscn"
+_death_path = "res://enemies/training_dummy/TrainingDummyDeath.tscn"
 
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 1 )

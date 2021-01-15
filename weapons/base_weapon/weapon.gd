@@ -10,6 +10,7 @@ onready var _sprite = $Sprite
 var _mouse_dir = Vector2()
 var _rot = 0
 var _is_attacking = false
+var can_rot = true	# If true, will rotate weapon to face mouse pos
 
 func _ready():
 	_sprite.frame = 0
@@ -22,7 +23,7 @@ func _process(delta):
 	
 	# Weapon rotation
 	_sprite.rotation_degrees = _rot + 90
-	if _rot > -90 and _rot < 90:
+	if can_rot and _rot > -90 and _rot < 90:
 		if (_sprite.scale.x < 0):
 			_sprite.scale.x *= -1
 	else:
@@ -60,6 +61,7 @@ func spawn_range_basic(Projectile):
 	get_tree().current_scene.add_child(proj)
 	proj.global_position = _spawn_pos.global_position
 	proj.dir = _mouse_dir.normalized()
+	proj.rotation_degrees = _rot + 90
 
 # Default behaviour for a basic melee attack
 # Melee attack in direciton of mouse
@@ -68,3 +70,7 @@ func spawn_melee_basic(Melee):
 	add_child(melee)
 	melee.global_position = _spawn_pos.global_position
 	melee.rotation_degrees = _rot + 90
+
+# Set value of can_rot
+func set_rot(rot):
+	can_rot = rot
