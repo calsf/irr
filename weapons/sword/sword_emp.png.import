@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/staff_ic.png-46af9c29b82f6e10b802c1915f5eecc6.stex"
+path="res://.import/sword_emp.png-8ecf6de1ae9f19922a4e05350222ca04.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/player_hud/weapon_icons/staff_ic.png"
-dest_files=[ "res://.import/staff_ic.png-46af9c29b82f6e10b802c1915f5eecc6.stex" ]
+source_file="res://weapons/sword/sword_emp.png"
+dest_files=[ "res://.import/sword_emp.png-8ecf6de1ae9f19922a4e05350222ca04.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/empty_ic.png-70d6f0a9a427593e3ce938f85fa84065.stex"
+path="res://.import/dagger_ic.png-ec1f13dede41bc1e8f688a44084604e0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/player_hud/weapon_icons/empty_ic.png"
-dest_files=[ "res://.import/empty_ic.png-70d6f0a9a427593e3ce938f85fa84065.stex" ]
+source_file="res://weapons/weapon_icons/dagger_ic.png"
+dest_files=[ "res://.import/dagger_ic.png-ec1f13dede41bc1e8f688a44084604e0.stex" ]
 
 [params]
 

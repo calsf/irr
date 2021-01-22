@@ -9,5 +9,5 @@ weapon_name = "Longbow"
 normal_desc = "Swing the longbow, dealing damage and knockback"
 empow_desc = "Perform a spin attack with the longbow, dealing increased damage and knockback. The attack will also destroy any projectiles."
 empow_cost = 20
-icon_path = "res://player/player_hud/weapon_icons/longbow_ic.png"
+icon_path = "res://weapons/weapon_icons/longbow_ic.png"
 pickup_path = "res://weapons/longbow/LongbowPickup.tscn"

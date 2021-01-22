@@ -9,5 +9,5 @@ weapon_name = "Dagger"
 normal_desc = "Casts a ball of water"
 empow_desc = "Cast a stronger ball of water, dealing increased damage."
 empow_cost = 20
-icon_path = "res://player/player_hud/weapon_icons/dagger_ic.png"
+icon_path = "res://weapons/weapon_icons/dagger_ic.png"
 pickup_path = "res://weapons/dagger/DaggerPickup.tscn"

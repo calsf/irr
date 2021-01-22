@@ -9,5 +9,5 @@ weapon_name = "Staff"
 normal_desc = "Throws a staff dealing damage and slight knockback"
 empow_desc = "Throws a staff with great force. Increased projectile speed and punches through enemies, dealing increased damage and knockback."
 empow_cost = 15
-icon_path = "res://player/player_hud/weapon_icons/staff_ic.png"
+icon_path = "res://weapons/weapon_icons/staff_ic.png"
 pickup_path = "res://weapons/staff/StaffPickup.tscn"

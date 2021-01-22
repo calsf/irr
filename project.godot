@@ -135,6 +135,11 @@ _global_script_classes=[ {
 "path": "res://weapons/staff/staff_empowered.gd"
 }, {
 "base": "Weapon",
+"class": "Sword",
+"language": "GDScript",
+"path": "res://weapons/sword/sword.gd"
+}, {
+"base": "Weapon",
 "class": "Wand",
 "language": "GDScript",
 "path": "res://weapons/wand/wand.gd"
@@ -185,6 +190,7 @@ _global_script_class_icons={
 "Shortbow": "",
 "Staff": "",
 "StaffEmpowered": "",
+"Sword": "",
 "Wand": "",
 "WarningSignInteractable": "",
 "Weapon": "",

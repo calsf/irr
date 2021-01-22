@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://weapons/base_dmg_enemy/dmg_enemy_props.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+base_speed = 300
+base_damage = 25
+knockback = 0
+meter_gain = 15

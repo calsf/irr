@@ -9,5 +9,5 @@ weapon_name = "Wand"
 normal_desc = "Quickly throws a wand"
 empow_desc = "Quickly throws a wand that deals increased damage."
 empow_cost = 20
-icon_path = "res://player/player_hud/weapon_icons/wand_ic.png"
+icon_path = "res://weapons/weapon_icons/wand_ic.png"
 pickup_path = "res://weapons/wand/WandPickup.tscn"

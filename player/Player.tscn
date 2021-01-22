@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://player/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://player/player_left.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://player/player_hud/overhead_hearts.gd" type="Script" id=13]
 [ext_resource path="res://weapons/longbow/Longbow.tscn" type="PackedScene" id=14]
 [ext_resource path="res://weapons/staff/Staff.tscn" type="PackedScene" id=15]
+[ext_resource path="res://weapons/sword/Sword.tscn" type="PackedScene" id=16]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
@@ -212,6 +213,10 @@ position = Vector2( 0, -6 )
 [node name="Staff" parent="Weapons" instance=ExtResource( 15 )]
 visible = false
 position = Vector2( -1, -11 )
+
+[node name="Sword" parent="Weapons" instance=ExtResource( 16 )]
+visible = false
+position = Vector2( 0, -5 )
 
 [node name="PlayerHurtbox" type="Area2D" parent="."]
 collision_layer = 2

@@ -5,9 +5,10 @@
 [ext_resource path="res://player/player_hud/heart_on.png" type="Texture" id=3]
 [ext_resource path="res://player/player_hud/meter_bg.png" type="Texture" id=4]
 [ext_resource path="res://player/player_hud/meter_fill.png" type="Texture" id=5]
-[ext_resource path="res://player/player_hud/weapon_icons/dagger_ic.png" type="Texture" id=6]
+[ext_resource path="res://weapons/weapon_icons/dagger_ic.png" type="Texture" id=6]
 [ext_resource path="res://player/player_hud/selected_highlight.png" type="Texture" id=7]
 [ext_resource path="res://fonts/VT323-Regular_8.tres" type="DynamicFontData" id=8]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
