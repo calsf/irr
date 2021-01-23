@@ -15,6 +15,16 @@ _global_script_classes=[ {
 "path": "res://levels/level0/end_room/activate_on_enter.gd"
 }, {
 "base": "Weapon",
+"class": "Book",
+"language": "GDScript",
+"path": "res://book.gd"
+}, {
+"base": "DamageEnemy",
+"class": "BookEmpowered",
+"language": "GDScript",
+"path": "res://weapons/book/book_empowered.gd"
+}, {
+"base": "Weapon",
 "class": "Dagger",
 "language": "GDScript",
 "path": "res://weapons/dagger/dagger.gd"
@@ -166,6 +176,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ActivateOnEnter": "",
+"Book": "",
+"BookEmpowered": "",
 "Dagger": "",
 "DamageEnemy": "",
 "DamagePlayer": "",
