@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://weapons/base_weapon/weapon_props.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+weapon_id = 10
+weapon_name = "Arrow"
+normal_desc = "?"
+empow_desc = "?"
+empow_cost = 0
+icon_path = ""
+pickup_path = ""

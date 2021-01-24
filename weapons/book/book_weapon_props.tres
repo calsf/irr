@@ -8,6 +8,6 @@ weapon_id = 8
 weapon_name = "Book"
 normal_desc = "Quickly throws a book"
 empow_desc = "Quickly throws a book that will scatter pages in multiple directions. Pages will deal damage."
-empow_cost = 15
+empow_cost = 20
 icon_path = "res://weapons/weapon_icons/book_ic.png"
 pickup_path = "res://weapons/book/BookPickup.tscn"

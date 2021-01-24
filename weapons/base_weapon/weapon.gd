@@ -30,12 +30,7 @@ func _process(delta):
 		if (_sprite.scale.x > 0):
 			_sprite.scale.x *= -1
 	
-	# Weapon z rendering, should always be child of player
-	# Need to set parent, all weapons are children of a Weapons node in Player
-	if _mouse_dir.y > 0:
-		get_parent().show_behind_parent = false
-	else:
-		get_parent().show_behind_parent = true
+	#set_z_render()
 
 # Play normal attack animation
 func normal_attack():
@@ -74,3 +69,11 @@ func spawn_melee_basic(Melee):
 # Set value of can_rot
 func set_rot(rot):
 	can_rot = rot
+
+#func set_z_render():
+#	# Weapon z rendering, should always be child of player
+#	# Need to set parent, all weapons are children of a Weapons node in Player
+#	if _mouse_dir.y > 0:
+#		get_parent().show_behind_parent = false
+#	else:
+#		get_parent().show_behind_parent = true

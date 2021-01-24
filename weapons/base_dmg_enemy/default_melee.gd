@@ -25,3 +25,7 @@ func _on_hit(other):
 		
 		# Melees will apply knockback
 		other.get_owner().apply_knockback(initial_dir, _knockback)
+
+# Reset list of hit objects
+func _reset_obj_hit():
+	_obj_hit.clear()

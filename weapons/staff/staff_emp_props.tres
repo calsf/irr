@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 base_speed = 400
-base_damage = 20
-knockback = 200
+base_damage = 25
+knockback = 225
 meter_gain = 0

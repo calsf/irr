@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Weapon",
 "class": "Book",
 "language": "GDScript",
-"path": "res://book.gd"
+"path": "res://weapons/book/book.gd"
 }, {
 "base": "DamageEnemy",
 "class": "BookEmpowered",
@@ -130,6 +130,11 @@ _global_script_classes=[ {
 "path": "res://levels/level_select/princess_interactable.gd"
 }, {
 "base": "Weapon",
+"class": "Shield",
+"language": "GDScript",
+"path": "res://weapons/shield/shield.gd"
+}, {
+"base": "Weapon",
 "class": "Shortbow",
 "language": "GDScript",
 "path": "res://weapons/shortbow/shortbow.gd"
@@ -199,6 +204,7 @@ _global_script_class_icons={
 "MoveToPlayer": "",
 "MoveToPoints": "",
 "PrincessInteractable": "",
+"Shield": "",
 "Shortbow": "",
 "Staff": "",
 "StaffEmpowered": "",

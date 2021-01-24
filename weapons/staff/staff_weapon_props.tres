@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 weapon_id = 6
 weapon_name = "Staff"
-normal_desc = "Throws a staff dealing damage and slight knockback"
+normal_desc = "Throws a staff dealing damage and knockback"
 empow_desc = "Throws a staff with great force. Increased projectile speed and punches through enemies, dealing increased damage and knockback."
 empow_cost = 15
 icon_path = "res://weapons/weapon_icons/staff_ic.png"

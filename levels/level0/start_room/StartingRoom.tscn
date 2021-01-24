@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://levels/level0/start_room/table_pickups.gd" type="Script" id=1]
 [ext_resource path="res://levels/level0/start_room/tutorial_manager.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://weapons/staff/StaffPickup.tscn" type="PackedScene" id=14]
 [ext_resource path="res://weapons/sword/SwordPickup.tscn" type="PackedScene" id=15]
 [ext_resource path="res://weapons/book/BookPickup.tscn" type="PackedScene" id=16]
+[ext_resource path="res://weapons/shield/ShieldPickup.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 21 )
@@ -135,3 +136,6 @@ position = Vector2( 23, 77 )
 
 [node name="BookPickup" parent="." index="12" instance=ExtResource( 16 )]
 position = Vector2( -118, 77 )
+
+[node name="ShieldPickup" parent="." index="13" instance=ExtResource( 17 )]
+position = Vector2( -167, 78 )
