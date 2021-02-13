@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 weapon_id = 8
 weapon_name = "Book"
-normal_desc = "Quickly throws a book."
+normal_desc = "Quickly throws a book that deals damage."
 empow_desc = "Quickly throws a book that will scatter pages in multiple directions. Each page deals damage."
 empow_cost = 20
 icon_path = "res://weapons/weapon_icons/book_ic.png"

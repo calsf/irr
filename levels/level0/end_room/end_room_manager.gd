@@ -46,6 +46,11 @@ func _physics_process(delta):
 	if not has_killed and (not _princess or not _monster):
 		has_killed = true
 		
+		# Special case of both dying at same time, activate the princess SD
+		if not _princess and not _monster:
+			_after_killed_princess_dialog()
+			return
+		
 		if not _princess:	# Princess was killed
 			_monster_hurtbox.disabled = true
 			_show_killed_princess_dialog()
