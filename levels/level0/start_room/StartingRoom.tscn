@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://levels/level0/start_room/table_pickups.gd" type="Script" id=1]
 [ext_resource path="res://levels/level0/start_room/tutorial_manager.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://weapons/sword/SwordPickup.tscn" type="PackedScene" id=15]
 [ext_resource path="res://weapons/book/BookPickup.tscn" type="PackedScene" id=16]
 [ext_resource path="res://weapons/shield/ShieldPickup.tscn" type="PackedScene" id=17]
+[ext_resource path="res://weapons/arrow/ArrowPickup.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 21 )
@@ -113,7 +114,7 @@ margin_left = 158.0
 margin_top = 21.0
 margin_right = 158.0
 margin_bottom = 21.0
-messages = [ "Looks like you're ready! Go through the portals and save the Princess!" ]
+messages = [ "Good choice of weapons! You can always hover over the weapon icons on the top left corner of your screen if you forget what your weapons do.", "Now go through the portals and save the Princess!" ]
 img_path = "res://levels/level0/start_room/yoak_icon.png"
 speaker_name = "PROFESSOR YOAK"
 
@@ -139,3 +140,6 @@ position = Vector2( -118, 77 )
 
 [node name="ShieldPickup" parent="." index="13" instance=ExtResource( 17 )]
 position = Vector2( -167, 78 )
+
+[node name="ArrowPickup" parent="." index="14" instance=ExtResource( 18 )]
+position = Vector2( -227, 80 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://levels/components/map_generator.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://levels/components/respawn/revive_btn_normal.tres" type="StyleBox" id=7]
 [ext_resource path="res://levels/components/respawn/revive_btn_hover.tres" type="StyleBox" id=8]
 [ext_resource path="res://levels/components/respawn/respawn_manager.gd" type="Script" id=9]
+[ext_resource path="res://player/player_hud/PlayerHUD.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -60,6 +61,8 @@ script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 10 )]
+
 [node name="DeathScreen" type="Control" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
@@ -83,8 +86,10 @@ margin_left = -320.0
 margin_top = -240.0
 margin_right = 320.0
 margin_bottom = 240.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
+"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://weapons/sword/sword.png" type="Texture" id=1]
 [ext_resource path="res://weapons/sword/sword.gd" type="Script" id=2]
 [ext_resource path="res://weapons/base_weapon/BaseWeapon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://weapons/sword/sword_weapon_props.tres" type="Resource" id=4]
+[ext_resource path="res://weapons/sword/sword_projectile_props.tres" type="Resource" id=5]
+[ext_resource path="res://weapons/sword/sword_emp_props.tres" type="Resource" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "empowered_attack"
@@ -68,6 +70,8 @@ tracks/1/keys = {
 [node name="Sword" instance=ExtResource( 3 )]
 script = ExtResource( 2 )
 weapon_props = ExtResource( 4 )
+normal_damage_props = ExtResource( 5 )
+emp_damage_props = ExtResource( 6 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )

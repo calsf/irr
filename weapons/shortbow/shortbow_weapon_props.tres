@@ -6,8 +6,8 @@
 script = ExtResource( 1 )
 weapon_id = 4
 weapon_name = "Shortbow"
-normal_desc = "Swing the shortbow, dealing damage and knockback"
-empow_desc = "Swing the shortbow, dealing increased damage and knockback"
+normal_desc = "Swing the shortbow, dealing damage and knockback."
+empow_desc = "Swing the shortbow, dealing increased damage and knockback."
 empow_cost = 15
 icon_path = "res://weapons/weapon_icons/shortbow_ic.png"
 pickup_path = "res://weapons/shortbow/ShortbowPickup.tscn"

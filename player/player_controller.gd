@@ -62,6 +62,8 @@ func _ready():
 	weapon_secondary = weapons[save_data["secondary_weapon_id"]]
 	weapon_curr = weapon_primary
 	
+	# Wait until PlayerHUD is ready and connected to player_controller before emitting signal
+	yield(get_tree().current_scene.get_node("CanvasLayer/PlayerHUD"), "ready")
 	emit_signal("primary_selected")
 	# Make sure to emit swapped signals with swapped weapon's icon path
 	emit_signal("primary_swapped", weapon_primary.weapon_props.icon_path)

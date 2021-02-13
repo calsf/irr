@@ -3,6 +3,8 @@ extends Node2D
 class_name Weapon
 
 export var weapon_props : Resource
+export var normal_damage_props : Resource
+export var emp_damage_props : Resource
 onready var _spawn_pos = $Sprite/SpawnPos
 onready var _anim = $AnimationPlayer
 onready var _sprite = $Sprite

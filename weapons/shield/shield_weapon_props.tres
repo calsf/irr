@@ -6,8 +6,8 @@
 script = ExtResource( 1 )
 weapon_id = 9
 weapon_name = "Shield"
-normal_desc = "Quickly casts a lightning strike at target location"
-empow_desc = "Casts a lightning storm at target location. The storm lingers for a short period of time."
+normal_desc = "Quickly casts a lightning strike at the target location."
+empow_desc = "Casts a lightning storm at the target location. The storm will periodically deal damage for the duration it is active."
 empow_cost = 15
 icon_path = "res://weapons/weapon_icons/shield_ic.png"
 pickup_path = "res://weapons/shield/ShieldPickup.tscn"

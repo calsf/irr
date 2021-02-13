@@ -6,8 +6,8 @@
 script = ExtResource( 1 )
 weapon_id = 10
 weapon_name = "Arrow"
-normal_desc = "?"
-empow_desc = "?"
-empow_cost = 0
-icon_path = ""
-pickup_path = ""
+normal_desc = "Quickly stab with the arrow, dealing damage and knockback."
+empow_desc = "Perform three quick stabs, each one dealing damage and knockback. The range of each stab is increased."
+empow_cost = 10
+icon_path = "res://weapons/weapon_icons/arrow_ic.png"
+pickup_path = "res://weapons/arrow/ArrowPickup.tscn"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://player/player_hud/player_hud.gd" type="Script" id=1]
 [ext_resource path="res://player/player_hud/heart_off.png" type="Texture" id=2]
@@ -8,14 +8,211 @@
 [ext_resource path="res://weapons/weapon_icons/dagger_ic.png" type="Texture" id=6]
 [ext_resource path="res://player/player_hud/selected_highlight.png" type="Texture" id=7]
 [ext_resource path="res://fonts/VT323-Regular_8.tres" type="DynamicFontData" id=8]
+[ext_resource path="res://player/player_hud/weapon_info.gd" type="Script" id=9]
+[ext_resource path="res://fonts/VT323-Regular_16.tres" type="DynamicFontData" id=10]
 
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 10
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 10
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
 font_data = ExtResource( 8 )
 
-[node name="PlayerHUD" type="CanvasLayer"]
+[node name="PlayerHUD" type="Control"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrimaryInfo" type="Control" parent="."]
+margin_right = 208.0
+margin_bottom = 111.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OutlineBG" type="ColorRect" parent="PrimaryInfo"]
+margin_left = 25.0
+margin_top = 33.0
+margin_right = 203.0
+margin_bottom = 89.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameBG" type="ColorRect" parent="PrimaryInfo"]
+margin_left = 26.0
+margin_top = 34.0
+margin_right = 202.0
+margin_bottom = 55.0
+color = Color( 0.286275, 0.231373, 0.317647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeaponName" type="Label" parent="PrimaryInfo/NameBG"]
+margin_left = 8.0
+margin_top = 1.0
+margin_right = 168.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+text = "Dagger"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DisplayBG" type="ColorRect" parent="PrimaryInfo"]
+margin_left = 26.0
+margin_top = 55.0
+margin_right = 202.0
+margin_bottom = 90.0
+color = Color( 0.188235, 0.133333, 0.2, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoDisplay" type="VBoxContainer" parent="PrimaryInfo"]
+margin_left = 34.0
+margin_top = 57.0
+margin_right = 194.0
+margin_bottom = 107.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NormalAttack" type="Label" parent="PrimaryInfo/InfoDisplay"]
+margin_right = 160.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 4 )
+text = "Normal"
+
+[node name="WeaponNormal" type="Label" parent="PrimaryInfo/InfoDisplay"]
+margin_top = 14.0
+margin_right = 160.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 5 )
+text = "Casts a pathetic ball of water at enemies"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EmpoweredAttack" type="Label" parent="PrimaryInfo/InfoDisplay"]
+margin_top = 27.0
+margin_right = 160.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 6 )
+text = "Empowered"
+
+[node name="WeaponEmpowered" type="Label" parent="PrimaryInfo/InfoDisplay"]
+margin_top = 41.0
+margin_right = 160.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 5 )
+text = "Casts a less pathetic ball of water at enemies"
+autowrap = true
+
+[node name="SecondaryInfo" type="Control" parent="."]
+margin_right = 208.0
+margin_bottom = 111.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OutlineBG" type="ColorRect" parent="SecondaryInfo"]
+margin_left = 25.0
+margin_top = 33.0
+margin_right = 203.0
+margin_bottom = 89.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameBG" type="ColorRect" parent="SecondaryInfo"]
+margin_left = 26.0
+margin_top = 34.0
+margin_right = 202.0
+margin_bottom = 55.0
+color = Color( 0.286275, 0.231373, 0.317647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeaponName" type="Label" parent="SecondaryInfo/NameBG"]
+margin_left = 8.0
+margin_top = 1.0
+margin_right = 168.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+text = "Dagger"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DisplayBG" type="ColorRect" parent="SecondaryInfo"]
+margin_left = 26.0
+margin_top = 55.0
+margin_right = 202.0
+margin_bottom = 90.0
+color = Color( 0.188235, 0.133333, 0.2, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoDisplay" type="VBoxContainer" parent="SecondaryInfo"]
+margin_left = 34.0
+margin_top = 57.0
+margin_right = 194.0
+margin_bottom = 107.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NormalAttack" type="Label" parent="SecondaryInfo/InfoDisplay"]
+margin_right = 160.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 4 )
+text = "Normal"
+
+[node name="WeaponNormal" type="Label" parent="SecondaryInfo/InfoDisplay"]
+margin_top = 14.0
+margin_right = 160.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 5 )
+text = "Casts a pathetic ball of water at enemies"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EmpoweredAttack" type="Label" parent="SecondaryInfo/InfoDisplay"]
+margin_top = 27.0
+margin_right = 160.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 6 )
+text = "Empowered"
+
+[node name="WeaponEmpowered" type="Label" parent="SecondaryInfo/InfoDisplay"]
+margin_top = 41.0
+margin_right = 160.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 5 )
+text = "Casts a less pathetic ball of water at enemies"
+autowrap = true
 
 [node name="HUD" type="Control" parent="."]
 anchor_right = 1.0
@@ -92,6 +289,9 @@ __meta__ = {
 margin_right = 24.0
 margin_bottom = 24.0
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SecondaryWeapon" type="TextureRect" parent="HUD"]
 margin_left = 27.0
