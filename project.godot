@@ -233,6 +233,7 @@ config/icon="res://icon.png"
 PlayerMeter="*res://player/player_meter.gd"
 PlayerHealth="*res://player/player_health.gd"
 SaveLoadManager="*res://save_load/save_load_manager.gd"
+GlobalSounds="*res://sounds/components/GlobalSounds.tscn"
 
 [display]
 

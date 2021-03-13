@@ -30,6 +30,9 @@ onready var weapon_curr : Weapon
 # weapons should be ordered such that the index of child is same as the weapon's id
 onready var save_data = SaveLoadManager.load_data()
 
+# Scene sounds
+onready var _sounds = $Sounds
+
 # Signals to update HUD
 signal primary_selected()
 signal secondary_selected()
@@ -193,6 +196,8 @@ func _exit_interact(area):
 # WILL NOT FLASH IF PLAYER SHOULD BE DEAD
 func _flash_damaged():
 	if PlayerHealth.curr_hp > 0:	# Only flash if player isn't dead
+		_sounds.play("PlayerHurt")	# Hurt sound, does not play if player dies
+		
 		_sprite.material = Damaged
 		yield(get_tree().create_timer(.05), "timeout")
 		_sprite.material = null
@@ -212,6 +217,9 @@ func _player_die():
 	can_act = false
 	weapon_curr.visible = false
 	_hurtbox.get_node("CollisionShape2D").disabled = true
+	
+	# Player death sound
+	_sounds.play("PlayerDeath")
 
 # Once start animation is finished, allow player to act
 func _has_started(anim):

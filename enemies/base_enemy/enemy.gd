@@ -137,6 +137,10 @@ func update_health(change):
 
 # Create flash effect by swapping material on sprites
 func _damaged_flash():
+	# Player random hurt sound
+	randomize()
+	GlobalSounds.play("EnemyHurt" + str(randi() % 3 + 1))
+	
 	_body_sprite.material = Damaged
 	_attack_sprite.material = Damaged
 	_flash_timer.start(FLASH_TIME)

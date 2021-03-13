@@ -1,6 +1,7 @@
 extends Node2D
 
 export var restore_amount = 0
+export var sound_name = ""
 onready var _pickup_area = $PickupArea
 
 func _physics_process(delta):
@@ -10,3 +11,5 @@ func _physics_process(delta):
 	if overlapping_areas and PlayerMeter.curr_meter < PlayerMeter.MAX_METER:
 		PlayerMeter.add_meter(restore_amount)
 		queue_free()
+		
+		GlobalSounds.play(sound_name)

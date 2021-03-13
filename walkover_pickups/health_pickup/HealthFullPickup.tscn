@@ -10,6 +10,7 @@ height = 0.0
 [node name="HealthFullPickup" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 restore_amount = 3
+sound_name = "HealthPickupFull"
 
 [node name="CollisionShape2D" parent="PickupArea" index="0"]
 position = Vector2( 0, -5 )

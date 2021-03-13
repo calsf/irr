@@ -9,6 +9,9 @@ onready var _spawn_pos = $Sprite/SpawnPos
 onready var _anim = $AnimationPlayer
 onready var _sprite = $Sprite
 
+# Scene sounds
+onready var _sounds = $Sounds
+
 var _mouse_dir = Vector2()
 var _rot = 0
 var _is_attacking = false
@@ -49,6 +52,8 @@ func empowered_attack():
 			_anim.play("empowered_attack")
 		else:
 			PlayerMeter.lose_meter(0)	# Trigger overhead meter by updating meter by 0
+			
+			GlobalSounds.play("MeterEmpty")
 
 # Default behaviour for a basic ranged attack
 # Shoot projectile in direction of mouse

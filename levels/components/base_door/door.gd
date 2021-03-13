@@ -6,6 +6,9 @@ export var scene_path = ""
 onready var _anim = $AnimationPlayer
 onready var _fade = get_tree().current_scene.get_node("CanvasLayer/Fade")
 
+# Scene sounds
+onready var _sounds = $Sounds
+
 var player = null
 
 func _ready():
@@ -17,6 +20,8 @@ func _ready():
 func interact():
 	player.stop_player()
 	_anim.play("open")
+	
+	_sounds.play("DoorOpen")
 
 # Play player falling animation after door open animation
 func _player_fall(_animation):
