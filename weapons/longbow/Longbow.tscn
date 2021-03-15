@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://weapons/base_weapon/BaseWeapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/longbow/longbow.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://weapons/longbow/longbow_weapon_props.tres" type="Resource" id=4]
 [ext_resource path="res://weapons/longbow/longbow_emp_props.tres" type="Resource" id=5]
 [ext_resource path="res://weapons/longbow/longbow_melee_props.tres" type="Resource" id=6]
+[ext_resource path="res://sounds/weapon_sounds/longbow_normal.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/weapon_sounds/longbow_empowered.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "empowered_attack"
@@ -37,6 +39,20 @@ tracks/1/keys = {
 "method": "spawn_empow"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Sounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "EmpoweredAttack" ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.4
@@ -66,6 +82,20 @@ tracks/1/keys = {
 "method": "spawn_normal"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Sounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "NormalAttack" ],
+"method": "play"
+} ]
+}
 
 [node name="Longbow" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -77,6 +107,7 @@ emp_damage_props = ExtResource( 5 )
 texture = ExtResource( 3 )
 offset = Vector2( -3, 2 )
 hframes = 13
+frame = 1
 
 [node name="SpawnPos" parent="Sprite" index="0"]
 position = Vector2( 0, -24 )
@@ -86,3 +117,9 @@ position = Vector2( 0, -24 )
 [node name="AnimationPlayer" parent="." index="1"]
 anims/empowered_attack = SubResource( 1 )
 anims/normal_attack = SubResource( 2 )
+
+[node name="NormalAttack" parent="Sounds" index="0"]
+stream = ExtResource( 7 )
+
+[node name="EmpoweredAttack" parent="Sounds" index="1"]
+stream = ExtResource( 8 )

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shield_empowered_object.wav-3ccc0864c03fe1cb73ca65a9c89a47bf.sample"
+
+[deps]
+
+source_file="res://sounds/weapon_sounds/shield_empowered_object.wav"
+dest_files=[ "res://.import/shield_empowered_object.wav-3ccc0864c03fe1cb73ca65a9c89a47bf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

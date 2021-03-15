@@ -1,0 +1,24 @@
+extends Node
+
+var enemy_hurt_sounds = []
+var curr = 0
+
+func _ready():
+	enemy_hurt_sounds = [
+		get_node("EnemyHurt1"), 
+		get_node("EnemyHurt2"), 
+		get_node("EnemyHurt3")
+		]
+
+func play(sound):
+	if (!SaveLoadManager.load_data()["sound_muted"]):
+		get_node(sound).play()
+
+# Loop/cycle through enemy hurt sounds sequentially
+func play_enemy_hurt():
+	if (!SaveLoadManager.load_data()["sound_muted"]):
+		enemy_hurt_sounds[curr].play()
+		curr += 0
+		
+		if curr > enemy_hurt_sounds.size() - 1:
+			curr = 0

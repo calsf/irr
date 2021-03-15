@@ -50,6 +50,10 @@ signal player_fell()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Initialize values
+	PlayerMeter.curr_meter = 0
+	PlayerHealth.curr_hp = PlayerHealth.MAX_HP
+	
 	_interact_area.connect("area_entered", self, "_enter_interact")
 	_interact_area.connect("area_exited", self, "_exit_interact")
 	

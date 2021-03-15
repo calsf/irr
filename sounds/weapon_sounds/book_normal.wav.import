@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/book_normal.wav-24132823df62c3050c5d5915cade244f.sample"
+
+[deps]
+
+source_file="res://sounds/weapon_sounds/book_normal.wav"
+dest_files=[ "res://.import/book_normal.wav-24132823df62c3050c5d5915cade244f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sword_empowered_object.wav-53ff50b0782d3b828ac2d05908b60dab.sample"
+
+[deps]
+
+source_file="res://sounds/weapon_sounds/sword_empowered_object.wav"
+dest_files=[ "res://.import/sword_empowered_object.wav-53ff50b0782d3b828ac2d05908b60dab.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

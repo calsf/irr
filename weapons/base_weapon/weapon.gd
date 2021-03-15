@@ -9,9 +9,6 @@ onready var _spawn_pos = $Sprite/SpawnPos
 onready var _anim = $AnimationPlayer
 onready var _sprite = $Sprite
 
-# Scene sounds
-onready var _sounds = $Sounds
-
 var _mouse_dir = Vector2()
 var _rot = 0
 var _is_attacking = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://weapons/base_weapon/BaseWeapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/staff/staff.png" type="Texture" id=2]
@@ -6,10 +6,13 @@
 [ext_resource path="res://weapons/staff/staff_weapon_props.tres" type="Resource" id=4]
 [ext_resource path="res://weapons/staff/staff_projectile_props.tres" type="Resource" id=5]
 [ext_resource path="res://weapons/staff/staff_emp_props.tres" type="Resource" id=6]
+[ext_resource path="res://sounds/weapon_sounds/staff_empowered.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/weapon_sounds/staff_normal.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "empowered_attack"
 length = 0.6
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -17,7 +20,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5, 0.6 ),
+"times": PoolRealArray( 0, 0.1, 0.25, 0.35, 0.45, 0.55 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 5, 6, 4, 7, 8, 0 ]
@@ -29,16 +32,31 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.45 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "spawn_empow"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Sounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.025 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "EmpoweredAttack" ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -65,6 +83,20 @@ tracks/1/keys = {
 "method": "spawn_normal"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("Sounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "NormalAttack" ],
+"method": "play"
+} ]
+}
 
 [node name="Staff" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -77,6 +109,7 @@ position = Vector2( 0, 2 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -3 )
 hframes = 9
+frame = 7
 
 [node name="SpawnPos" parent="Sprite" index="0"]
 position = Vector2( 0, -16 )
@@ -84,3 +117,9 @@ position = Vector2( 0, -16 )
 [node name="AnimationPlayer" parent="." index="1"]
 anims/empowered_attack = SubResource( 1 )
 anims/normal_attack = SubResource( 2 )
+
+[node name="NormalAttack" parent="Sounds" index="0"]
+stream = ExtResource( 8 )
+
+[node name="EmpoweredAttack" parent="Sounds" index="1"]
+stream = ExtResource( 7 )

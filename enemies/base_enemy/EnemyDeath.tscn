@@ -2,7 +2,7 @@
 
 [ext_resource path="res://enemies/base_enemy/enemy_death_32.png" type="Texture" id=1]
 [ext_resource path="res://enemies/eyeball/eyeball_shadow.png" type="Texture" id=2]
-[ext_resource path="res://enemies/base_enemy/destroyed_explo.gd" type="Script" id=3]
+[ext_resource path="res://sounds/components/play_global_sound.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "death"
@@ -36,6 +36,7 @@ tracks/1/keys = {
 
 [node name="EnemyDeath" type="Node2D"]
 script = ExtResource( 3 )
+sound_name = "DestroyedExplo"
 
 [node name="Death" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
