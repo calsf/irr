@@ -12,7 +12,6 @@ var Damaged = preload("res://player/player_damaged_shader.tres")
 var move_speed = BASE_SPEED
 var input_vector = Vector2()
 var curr_interactable = null
-var curr_room_id = 0	# rooom id player is currently in, starts in room 0
 var can_act = false
 
 onready var _sprite = $Sprite
@@ -252,5 +251,7 @@ func player_fall_finished():
 # Move player to new position and assign curr room id to the new room id
 func enter_room(new_pos, new_room_id):
 	global_position = new_pos
-	curr_room_id = new_room_id
-	emit_signal("entered_room", curr_room_id)
+	PlayerRoom.curr_room_id = new_room_id
+	
+	# Objects in rooms (i.e enemies) need to listen for when player enters a room
+	emit_signal("entered_room", PlayerRoom.curr_room_id)
