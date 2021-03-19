@@ -6,7 +6,7 @@ var curr_meter = 0
 
 signal meter_updated()
 
-# Add to meter, avoid going over
+# Add to meter, avoid going over max meter
 func add_meter(meter_gain):
 	curr_meter = min(curr_meter + meter_gain, MAX_METER)
 	emit_signal("meter_updated")

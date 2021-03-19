@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/destroyed_explo.wav-a7d24aca67fe43fa02bc82c5fe9c0d85.sample"
+
+[deps]
+
+source_file="res://sounds/destroyed_explo.wav"
+dest_files=[ "res://.import/destroyed_explo.wav-a7d24aca67fe43fa02bc82c5fe9c0d85.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/meter_pickup_full.wav-9481278a1b4407c9de708f1e1e019b6e.sample"
+
+[deps]
+
+source_file="res://sounds/meter_pickup_full.wav"
+dest_files=[ "res://.import/meter_pickup_full.wav-9481278a1b4407c9de708f1e1e019b6e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

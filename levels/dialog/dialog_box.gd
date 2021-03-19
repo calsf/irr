@@ -20,6 +20,10 @@ onready var _anim = $AnimationPlayer
 onready var _name_label = $Name
 onready var _arrow = $Arrow
 
+# Scene sounds
+onready var _sounds = $Sounds
+var play_blip = true	# For delaying blip sound
+
 var is_active = false
 var _msg_index = 0	# Current message of messages
 var _curr_msg = ""	# The entire message that is currently written
@@ -67,6 +71,8 @@ func _input(event):
 				_curr_msg = ""
 				_curr_char = 0
 				_msg_index += 1
+			
+			_sounds.play("ButtonPressed")
 
 # Show dialog box and start going through series of messages
 func activate_dialog():
@@ -78,6 +84,13 @@ func activate_dialog():
 # Writes the next character in current message
 func _write_next_char():
 	if is_active and _dialog.text != messages[_msg_index] and _curr_msg.length() < messages[_msg_index].length():
+		# Alternate between playing/not playing blip with each NON SPACE CHARACTER
+		if play_blip and messages[_msg_index][_curr_char] != " ":
+			_sounds.play("TextBlip")
+			play_blip = false
+		elif messages[_msg_index][_curr_char] != " ":
+			play_blip = true
+		
 		_curr_msg = _curr_msg + messages[_msg_index][_curr_char]
 		_dialog.text = _curr_msg
 		_curr_char += 1

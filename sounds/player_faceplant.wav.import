@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/player_faceplant.wav-875e7168a72aafc7e0a96fab17d3ce45.sample"
+
+[deps]
+
+source_file="res://sounds/player_faceplant.wav"
+dest_files=[ "res://.import/player_faceplant.wav-875e7168a72aafc7e0a96fab17d3ce45.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

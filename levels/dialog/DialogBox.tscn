@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://levels/dialog/dialog_box.gd" type="Script" id=1]
 [ext_resource path="res://fonts/VT323-Regular_16.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://levels/level0/start_room/yoak_icon.png" type="Texture" id=3]
 [ext_resource path="res://fonts/VT323-Regular_8.tres" type="DynamicFontData" id=4]
 [ext_resource path="res://levels/dialog/dialog_arrow.png" type="Texture" id=5]
+[ext_resource path="res://sounds/text_blip.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/button_pressed.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/components/Sounds.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -213,3 +216,13 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Arrow"]
 autoplay = "arrow"
 anims/arrow = SubResource( 5 )
+
+[node name="Sounds" parent="." instance=ExtResource( 8 )]
+
+[node name="TextBlip" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 6 )
+volume_db = -8.0
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 7 )
+volume_db = -3.0

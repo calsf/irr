@@ -49,6 +49,8 @@ func empowered_attack():
 			_anim.play("empowered_attack")
 		else:
 			PlayerMeter.lose_meter(0)	# Trigger overhead meter by updating meter by 0
+			
+			GlobalSounds.play("MeterEmpty")
 
 # Default behaviour for a basic ranged attack
 # Shoot projectile in direction of mouse

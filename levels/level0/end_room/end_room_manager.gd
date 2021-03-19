@@ -46,7 +46,7 @@ func _physics_process(delta):
 	if not has_killed and (not _princess or not _monster):
 		has_killed = true
 		
-		# Special case of both dying at same time, activate the princess SD
+		# Special case of both dying at same time, activate the monster SD
 		if not _princess and not _monster:
 			_after_killed_princess_dialog()
 			return
@@ -66,6 +66,8 @@ func _physics_process(delta):
 func _on_entry(entered_room_id):
 	if entered_room_id == room_id:
 		player.stop_player()
+		
+		GlobalSounds.play("BigExplo")
 		
 		# Wait for end room animations to finish then activate start dialog
 		yield(get_tree().create_timer(2), "timeout")

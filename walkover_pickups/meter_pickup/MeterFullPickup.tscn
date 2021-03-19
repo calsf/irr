@@ -11,6 +11,7 @@ height = 0.0
 [node name="MeterFullPickup" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 restore_amount = 100
+sound_name = "MeterPickupFull"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )

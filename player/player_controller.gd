@@ -12,7 +12,6 @@ var Damaged = preload("res://player/player_damaged_shader.tres")
 var move_speed = BASE_SPEED
 var input_vector = Vector2()
 var curr_interactable = null
-var curr_room_id = 0	# rooom id player is currently in, starts in room 0
 var can_act = false
 
 onready var _sprite = $Sprite
@@ -29,6 +28,9 @@ onready var weapon_curr : Weapon
 # MAY NEED TO RELOAD IN CASE SOMETHING ELSE UPDATES SAVE_DATA
 # weapons should be ordered such that the index of child is same as the weapon's id
 onready var save_data = SaveLoadManager.load_data()
+
+# Scene sounds
+onready var _sounds = $Sounds
 
 # Signals to update HUD
 signal primary_selected()
@@ -47,6 +49,10 @@ signal player_fell()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Initialize values
+	PlayerMeter.curr_meter = 0
+	PlayerHealth.curr_hp = PlayerHealth.MAX_HP
+	
 	_interact_area.connect("area_entered", self, "_enter_interact")
 	_interact_area.connect("area_exited", self, "_exit_interact")
 	
@@ -193,6 +199,8 @@ func _exit_interact(area):
 # WILL NOT FLASH IF PLAYER SHOULD BE DEAD
 func _flash_damaged():
 	if PlayerHealth.curr_hp > 0:	# Only flash if player isn't dead
+		_sounds.play("PlayerHurt")	# Hurt sound, does not play if player dies
+		
 		_sprite.material = Damaged
 		yield(get_tree().create_timer(.05), "timeout")
 		_sprite.material = null
@@ -212,6 +220,9 @@ func _player_die():
 	can_act = false
 	weapon_curr.visible = false
 	_hurtbox.get_node("CollisionShape2D").disabled = true
+	
+	# Player death sound
+	_sounds.play("PlayerDeath")
 
 # Once start animation is finished, allow player to act
 func _has_started(anim):
@@ -240,5 +251,7 @@ func player_fall_finished():
 # Move player to new position and assign curr room id to the new room id
 func enter_room(new_pos, new_room_id):
 	global_position = new_pos
-	curr_room_id = new_room_id
-	emit_signal("entered_room", curr_room_id)
+	PlayerRoom.curr_room_id = new_room_id
+	
+	# Objects in rooms (i.e enemies) need to listen for when player enters a room
+	emit_signal("entered_room", PlayerRoom.curr_room_id)

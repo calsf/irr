@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sounds/components/Sounds.tscn" type="PackedScene" id=2]
 
 [node name="BaseWeapon" type="Node2D"]
 
@@ -10,3 +12,9 @@ hframes = 5
 position = Vector2( 0, -15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sounds" parent="." instance=ExtResource( 2 )]
+
+[node name="NormalAttack" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="EmpoweredAttack" type="AudioStreamPlayer" parent="Sounds"]
