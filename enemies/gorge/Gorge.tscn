@@ -10,6 +10,7 @@
 [sub_resource type="Animation" id=1]
 resource_name = "attack"
 length = 1.2
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("..:frame")
 tracks/0/interp = 1
@@ -29,14 +30,20 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.45, 0.55, 0.65, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "_stop_moving"
 }, {
-"args": [ [ Vector2( 1, 0 ), Vector2( -1, 0 ) ] ],
-"method": "_attack_fixed"
+"args": [  ],
+"method": "_attack_player"
+}, {
+"args": [  ],
+"method": "_attack_player"
+}, {
+"args": [  ],
+"method": "_attack_player"
 }, {
 "args": [  ],
 "method": "_start_moving"
@@ -131,7 +138,7 @@ _face_player = true
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 1 )
 hframes = 13
-frame = 10
+frame = 11
 
 [node name="Attack" parent="Body" index="0"]
 script = ExtResource( 4 )

@@ -56,20 +56,19 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 3.0
 height = 14.0
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 5.0
 height = 12.0
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 6.99998
 height = 12.0
 
-[sub_resource type="Animation" id=2]
-resource_name = "move"
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -122,16 +121,16 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0, -3 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -5 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 8 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="HealthDisplay" parent="." index="7"]
 margin_top = -34.0
@@ -139,4 +138,4 @@ margin_bottom = -31.0
 
 [node name="AnimationPlayer" parent="." index="9"]
 autoplay = "move"
-anims/move = SubResource( 2 )
+anims/move = SubResource( 5 )
