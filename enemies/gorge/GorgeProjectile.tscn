@@ -7,7 +7,7 @@
 _damage_props = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
-frame = 2
+frame = 3
 
 [node name="Shadow" parent="." index="1"]
 position = Vector2( 0, 7 )

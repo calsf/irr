@@ -1,5 +1,6 @@
 # Should be attached to the Attack component of an enemy
 # Owner should be main enemy
+# Basic attacks to shoot projectile in fixed direction(s) or shoot at player
 extends Node
 
 export var proj_path : String

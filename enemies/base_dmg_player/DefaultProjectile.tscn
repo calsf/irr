@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://enemies/base_dmg_player/01_enemy_proj.png" type="Texture" id=1]
+[ext_resource path="res://enemies/eyeball/eyeball_proj_props.tres" type="Resource" id=2]
+[ext_resource path="res://enemies/base_dmg_player/default_projectile.gd" type="Script" id=3]
+[ext_resource path="res://enemies/base_dmg_player/DamagePlayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemies/base_dmg_player/01_enemy_proj_shadow.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.0
+height = 6.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "loop"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "startup"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[node name="DefaultProjectile" instance=ExtResource( 4 )]
+script = ExtResource( 3 )
+_damage_props = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="Shadow" parent="." index="1"]
+position = Vector2( 0, 10 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 0, 13 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="3"]
+autoplay = "startup"
+anims/loop = SubResource( 2 )
+anims/startup = SubResource( 3 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

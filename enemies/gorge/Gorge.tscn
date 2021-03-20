@@ -131,7 +131,7 @@ _face_player = true
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 1 )
 hframes = 13
-frame = 4
+frame = 10
 
 [node name="Attack" parent="Body" index="0"]
 script = ExtResource( 4 )
@@ -166,7 +166,7 @@ position = Vector2( 0, -5 )
 rotation = 1.5708
 shape = SubResource( 5 )
 
-[node name="AnimationPlayer" parent="." index="8"]
+[node name="AnimationPlayer" parent="." index="9"]
 autoplay = "idle"
 anims/activate = SubResource( 6 )
 anims/idle = SubResource( 7 )

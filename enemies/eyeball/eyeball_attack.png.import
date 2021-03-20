@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/eyeball_eye.png-cd5e548348e7494298d7c0527d8b09c0.stex"
+path="res://.import/eyeball_attack.png-ea9eff8e8f59c615b649459ac610d328.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/eyeball/eyeball_eye.png"
-dest_files=[ "res://.import/eyeball_eye.png-cd5e548348e7494298d7c0527d8b09c0.stex" ]
+source_file="res://enemies/eyeball/eyeball_attack.png"
+dest_files=[ "res://.import/eyeball_attack.png-ea9eff8e8f59c615b649459ac610d328.stex" ]
 
 [params]
 

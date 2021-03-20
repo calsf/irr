@@ -51,6 +51,12 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pushbox"]
 
+[node name="Detectbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detectbox"]
+
 [node name="HealthDisplay" type="Control" parent="."]
 margin_left = -16.0
 margin_top = -38.0
