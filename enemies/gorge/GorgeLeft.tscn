@@ -10,6 +10,7 @@
 [sub_resource type="Animation" id=1]
 resource_name = "attack"
 length = 1.2
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("..:frame")
 tracks/0/interp = 1
@@ -29,14 +30,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1.2 ),
+"times": PoolRealArray( 0, 0.55, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "_stop_moving"
 }, {
-"args": [ [ Vector2( 1, 0 ), Vector2( -1, 0 ) ] ],
-"method": "_attack_fixed"
+"args": [  ],
+"method": "_attack_player"
 }, {
 "args": [  ],
 "method": "_start_moving"
@@ -120,7 +121,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 7, 8 ]
 }
 
-[node name="Gorge" instance=ExtResource( 3 )]
+[node name="GorgeLeft" instance=ExtResource( 3 )]
 script = ExtResource( 5 )
 _enemy_props = ExtResource( 6 )
 _death_path = "res://enemies/gorge/GorgeDeath.tscn"
@@ -131,7 +132,7 @@ _face_player = true
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 1 )
 hframes = 13
-frame = 4
+frame = 9
 
 [node name="Attack" parent="Body" index="0"]
 script = ExtResource( 4 )
@@ -166,7 +167,7 @@ position = Vector2( 0, -5 )
 rotation = 1.5708
 shape = SubResource( 5 )
 
-[node name="AnimationPlayer" parent="." index="8"]
+[node name="AnimationPlayer" parent="." index="9"]
 autoplay = "idle"
 anims/activate = SubResource( 6 )
 anims/idle = SubResource( 7 )

@@ -7,8 +7,11 @@
 [ext_resource path="res://weapons/wand/WandPickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemies/base_enemy/Positions.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemies/jaws/Jaws.tscn" type="PackedScene" id=7]
-[ext_resource path="res://enemies/gorge/Gorge.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/gorge/GorgeLeft.tscn" type="PackedScene" id=8]
 [ext_resource path="res://levels/level0/room_01.png" type="Texture" id=9]
+
+
+
 
 
 [sub_resource type="RectangleShape2D" id=1]

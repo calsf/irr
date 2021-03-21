@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://enemies/base_enemy/enemy_props.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+max_hp = 15
+move_speed = 0
