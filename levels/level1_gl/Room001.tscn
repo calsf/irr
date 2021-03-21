@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level1_gl/room_gl_01.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://enemies/gorge/Gorge.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemies/bulb/Bulb.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemies/base_enemy/Positions.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/lard/LardLeft.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/lard/LardRight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/level1_gl/terrain/Terrain001.tscn" type="PackedScene" id=10]
+[ext_resource path="res://levels/level1_gl/terrain/Terrain002.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/level1_gl/terrain/Terrain003.tscn" type="PackedScene" id=12]
 
 [node name="Room001" instance=ExtResource( 1 )]
 
@@ -33,3 +38,21 @@ position = Vector2( 58, 60 )
 
 [node name="B" type="Node2D" parent="Enemies/Bulb/Positions" index="1"]
 position = Vector2( 150, 0 )
+
+[node name="LardRight" parent="Enemies" index="5" instance=ExtResource( 9 )]
+position = Vector2( -69, 90 )
+
+[node name="LardLeft" parent="Enemies" index="6" groups=[
+"enemies",
+] instance=ExtResource( 8 )]
+position = Vector2( 92, 91 )
+collision_layer = 0
+
+[node name="Terrain001" parent="." index="4" instance=ExtResource( 10 )]
+position = Vector2( 83, -50 )
+
+[node name="Terrain002" parent="." index="5" instance=ExtResource( 11 )]
+position = Vector2( -125, 23 )
+
+[node name="Terrain003" parent="." index="6" instance=ExtResource( 12 )]
+position = Vector2( 11, 122 )

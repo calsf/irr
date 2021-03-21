@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/lard/lard_right.png" type="Texture" id=2]
+[ext_resource path="res://enemies/base_enemy/enemy.gd" type="Script" id=3]
+[ext_resource path="res://enemies/lard/lard_props.tres" type="Resource" id=4]
+[ext_resource path="res://enemies/lard/lard_smoke.png" type="Texture" id=5]
+[ext_resource path="res://enemies/lard/lard_shadow.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 4, 4.1, 4.2, 4.3, 4.4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 15, 5, 6, 7, 8, 9, 15, 10, 11, 12, 13, 14, 15 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 5.0
+height = 68.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 5.0
+height = 70.0
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 7.99988
+height = 68.0002
+
+[sub_resource type="Animation" id=5]
+length = 1.5
+loop = true
+step = 0.75
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="LardRight" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+_enemy_props = ExtResource( 4 )
+_death_path = "res://enemies/lard/LardDeath.tscn"
+
+[node name="Body" parent="." index="0"]
+position = Vector2( 0, -23 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="Attack" parent="Body" index="0"]
+texture = ExtResource( 5 )
+hframes = 16
+frame = 15
+
+[node name="AttackAnimation" parent="Body/Attack" index="1"]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+
+[node name="Shadow" parent="." index="1"]
+position = Vector2( 0, -21 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( -1, -5 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Hitbox" parent="." index="3"]
+position = Vector2( 0, -6 )
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( -1, 1 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Hurtbox" parent="." index="4"]
+position = Vector2( 0, -21 )
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( -2, 13 )
+shape = SubResource( 4 )
+
+[node name="Pushbox" parent="." index="5"]
+position = Vector2( 0, -6 )
+
+[node name="Detectbox" parent="." index="6"]
+position = Vector2( 0, -6 )
+
+[node name="HealthDisplay" parent="." index="7"]
+margin_top = -44.0
+margin_bottom = -41.0
+
+[node name="AnimationPlayer" parent="." index="9"]
+autoplay = "idle"
+anims/idle = SubResource( 5 )
