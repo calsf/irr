@@ -6,7 +6,10 @@
 target_longest_path = 6
 start_room_path = "res://levels/level0/start_room/StartingRoom.tscn"
 end_room_path = "res://levels/level0/end_room/EndRoom.tscn"
-normal_rooms_path = [ "res://levels/level0/Room001.tscn", "res://levels/level0/Room002.tscn", "res://levels/level0/Room003.tscn", "res://levels/level0/Room004.tscn", "res://levels/level0/Room005.tscn", "res://levels/level0/Room006.tscn", "res://levels/level0/Room007.tscn", "res://levels/level0/Room008.tscn", "res://levels/level0/Room009.tscn", "res://levels/level0/Room010.tscn", "res://levels/level0/Room011.tscn", "res://levels/level0/Room012.tscn" ]
+low_rooms_path = [ "res://levels/level0/low_threat/Room001.tscn", "res://levels/level0/low_threat/Room002.tscn", "res://levels/level0/low_threat/Room003.tscn", "res://levels/level0/low_threat/Room004.tscn", "res://levels/level0/low_threat/Room005.tscn", "res://levels/level0/low_threat/Room006.tscn", "res://levels/level0/low_threat/Room007.tscn", "res://levels/level0/low_threat/Room008.tscn" ]
+med_rooms_path = [ "res://levels/level0/med_threat/Room001.tscn", "res://levels/level0/med_threat/Room002.tscn", "res://levels/level0/med_threat/Room003.tscn", "res://levels/level0/med_threat/Room004.tscn" ]
+low_num = 2
+med_num = 2
 
 [node name="Fade" parent="CanvasLayer" index="2"]
 visible = true

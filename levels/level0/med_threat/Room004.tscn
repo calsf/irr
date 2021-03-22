@@ -58,4 +58,21 @@ position = Vector2( -128, 0 )
 [node name="D" type="Node2D" parent="Enemies/Eyeball3/Positions" index="3"]
 position = Vector2( -64, -64 )
 
-[node name="Jaws" parent="Enemies" index="3" instance=ExtResource( 4 )]
+[node name="Eyeball4" parent="Enemies" index="3" instance=ExtResource( 1 )]
+position = Vector2( 128, 0 )
+is_cycle = true
+
+[node name="Positions" parent="Enemies/Eyeball4" index="10" instance=ExtResource( 2 )]
+
+[node name="A" type="Node2D" parent="Enemies/Eyeball4/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/Eyeball4/Positions" index="1"]
+position = Vector2( -128, 128 )
+
+[node name="C" type="Node2D" parent="Enemies/Eyeball4/Positions" index="2"]
+position = Vector2( -256, 0 )
+
+[node name="D" type="Node2D" parent="Enemies/Eyeball4/Positions" index="3"]
+position = Vector2( -128, -128 )
+
+[node name="Jaws" parent="Enemies" index="4" instance=ExtResource( 4 )]

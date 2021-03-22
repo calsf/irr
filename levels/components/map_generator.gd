@@ -17,7 +17,7 @@ var next_room_id = 0 # id of next room, should be incremented after
 var created_rooms = [] # All created rooms
 var last_room = null	# Room that was previously added
 
-# Target number of rooms for longest path
+# Target number of rooms for longest path (includes END AND START ROOM)
 export var target_longest_path : int
 
 # Path of starting room scene
@@ -27,7 +27,23 @@ export var start_room_path : String
 export var end_room_path : String
 
 # Paths of all intermediate room scenes to be randomly picked from
-export var normal_rooms_path : Array
+# Categorized based on the threat level of each room
+export var low_rooms_path : Array
+export var med_rooms_path : Array
+export var high_rooms_path : Array
+
+# Number of rooms of each threat level to be added in the longest path
+# Total of all nums should be equal to (target_longest_path - 2) because of start and end room
+# Starts choosing rooms starting from low threat -> med threat -> high threat
+export var low_num = 0
+export var med_num = 0
+export var high_num = 0
+
+
+# Current threat level of room in main path
+# For dead end rooms so they choose from the threat level of main room in longest path
+enum { LOW_THREAT, MED_THREAT, HIGH_THREAT }
+var curr_threat = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -56,7 +72,21 @@ func _ready():
 		if curr_longest_path == target_longest_path - 1:
 			next_room = _add_new_room(loc, end_room_path)
 		else:
-			next_room = _add_new_room(loc, normal_rooms_path[randi() % normal_rooms_path.size()])
+			# Choose a room based on threat level
+			var chosen= null
+			if low_num > 0:
+				chosen = low_rooms_path[randi() % low_rooms_path.size()]
+				curr_threat = LOW_THREAT
+				low_num -= 1
+			elif med_num > 0:
+				chosen = med_rooms_path[randi() % med_rooms_path.size()]
+				curr_threat = MED_THREAT
+				med_num -= 1
+			elif high_num > 0:
+				chosen = high_rooms_path[randi() % high_rooms_path.size()]
+				curr_threat = HIGH_THREAT
+				high_num -= 1
+			next_room = _add_new_room(loc, chosen)
 		
 		curr_longest_path += 1	# Increment path since this new room is part of the main path
 		
@@ -129,7 +159,15 @@ func _remove_open_loc(last_open, curr_open):
 			
 			# If we need to add rooms, add room at this random loc
 			if num_to_add > 0:
-				var next_room = _add_new_room(loc, normal_rooms_path[randi() % normal_rooms_path.size()])
+				# Choose room based on current threat level of the main longest path rooms
+				var chosen= null
+				if curr_threat == LOW_THREAT:
+					chosen = low_rooms_path[randi() % low_rooms_path.size()]
+				elif curr_threat == MED_THREAT:
+					chosen = med_rooms_path[randi() % med_rooms_path.size()]
+				elif curr_threat == HIGH_THREAT:
+					chosen = high_rooms_path[randi() % high_rooms_path.size()]
+				var next_room = _add_new_room(loc, chosen)
 				
 				# Init last and next rooms next portals based on loc of new room
 				call_deferred("_init_room_portals", last_room, next_room, loc)
