@@ -24,14 +24,14 @@ position = Vector2( -96, -72 )
 [node name="EyeMimic5" parent="Enemies" index="4" instance=ExtResource( 3 )]
 position = Vector2( 96, 72 )
 
-[node name="Terrain001" parent="Enemies" index="5" instance=ExtResource( 4 )]
+[node name="Terrain001" parent="." index="4" instance=ExtResource( 4 )]
 position = Vector2( -96, 0 )
 
-[node name="Terrain002" parent="Enemies" index="6" instance=ExtResource( 4 )]
+[node name="Terrain002" parent="." index="5" instance=ExtResource( 4 )]
 position = Vector2( 96, 0 )
 
-[node name="Terrain003" parent="Enemies" index="7" instance=ExtResource( 4 )]
+[node name="Terrain003" parent="." index="6" instance=ExtResource( 4 )]
 position = Vector2( 0, 112 )
 
-[node name="Terrain004" parent="Enemies" index="8" instance=ExtResource( 4 )]
+[node name="Terrain004" parent="." index="7" instance=ExtResource( 4 )]
 position = Vector2( 0, -112 )

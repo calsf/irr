@@ -5,5 +5,10 @@
 [node name="Level1" instance=ExtResource( 1 )]
 target_longest_path = 8
 start_room_path = "res://levels/level1_gl/StartRoom.tscn"
-end_room_path = "res://levels/level1_gl/StartRoom.tscn"
-normal_rooms_path = [ "res://levels/level1_gl/Room020.tscn" ]
+end_room_path = "res://levels/level1_gl/EndRoom.tscn"
+low_rooms_path = [ "res://levels/level1_gl/low_threat/Room001.tscn", "res://levels/level1_gl/low_threat/Room002.tscn", "res://levels/level1_gl/low_threat/Room003.tscn", "res://levels/level1_gl/low_threat/Room004.tscn", "res://levels/level1_gl/low_threat/Room005.tscn", "res://levels/level1_gl/low_threat/Room006.tscn", "res://levels/level1_gl/low_threat/Room007.tscn" ]
+med_rooms_path = [ "res://levels/level1_gl/med_threat/Room001.tscn", "res://levels/level1_gl/med_threat/Room002.tscn", "res://levels/level1_gl/med_threat/Room003.tscn", "res://levels/level1_gl/med_threat/Room004.tscn", "res://levels/level1_gl/med_threat/Room005.tscn", "res://levels/level1_gl/med_threat/Room006.tscn", "res://levels/level1_gl/med_threat/Room007.tscn", "res://levels/level1_gl/med_threat/Room008.tscn", "res://levels/level1_gl/med_threat/Room009.tscn", "res://levels/level1_gl/med_threat/Room010.tscn" ]
+high_rooms_path = [ "res://levels/level1_gl/high_threat/Room001.tscn", "res://levels/level1_gl/high_threat/Room002.tscn", "res://levels/level1_gl/high_threat/Room003.tscn", "res://levels/level1_gl/high_threat/Room004.tscn" ]
+low_num = 2
+med_num = 3
+high_num = 1

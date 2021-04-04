@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level1_gl/room_gl_01.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://enemies/gorge/GorgeRight.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/level1_gl/terrain/Terrain002.tscn" type="PackedScene" id=7]
 [ext_resource path="res://levels/level1_gl/terrain/Terrain001.tscn" type="PackedScene" id=8]
+[ext_resource path="res://walkover_pickups/health_pickup/HealthPartialPickup.tscn" type="PackedScene" id=9]
 
 [node name="Room017" instance=ExtResource( 1 )]
 
@@ -51,3 +52,12 @@ position = Vector2( 176, 153 )
 
 [node name="Terrain004" parent="." index="7" instance=ExtResource( 8 )]
 position = Vector2( -192, 128 )
+
+[node name="HealthPartialPickup" parent="." index="8" instance=ExtResource( 9 )]
+position = Vector2( -64, 96 )
+
+[node name="HealthPartialPickup2" parent="." index="9" instance=ExtResource( 9 )]
+position = Vector2( 103, -129 )
+
+[node name="HealthPartialPickup3" parent="." index="10" instance=ExtResource( 9 )]
+position = Vector2( -208, -96 )

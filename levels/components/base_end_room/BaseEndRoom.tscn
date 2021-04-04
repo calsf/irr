@@ -2,8 +2,9 @@
 
 [ext_resource path="res://levels/components/base_door/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/dialog/DialogBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://levels/components/map_layout/Room.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/components/base_end_room/WarningSign.tscn" type="PackedScene" id=4]
+
 
 [node name="Room" instance=ExtResource( 3 )]
 
