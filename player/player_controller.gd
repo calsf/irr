@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 #const BASE_SPEED = 32 * 10
 const BASE_SPEED = 32 * 5
+const BASE_DODGE_SPEED = 32 * 10
 
 # Player sprite textures with lighting on opposite sides for when player flips
 var Texture_Left = preload("res://player/player_left.png")
@@ -13,6 +14,8 @@ var move_speed = BASE_SPEED
 var input_vector = Vector2()
 var curr_interactable = null
 var can_act = false
+var is_dodge_moving = false	# If player is locked in dodge/invuln part of dodge
+var is_dodging = false	# If player is still in dodge anim at all
 
 onready var _sprite = $Sprite
 onready var _shadow = $Shadow
@@ -82,16 +85,26 @@ func _process(delta):
 	if not can_act:
 		return
 	
-	# Movement
-	input_vector = Vector2.ZERO
-	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	input_vector = input_vector.normalized()
-	input_vector = move_and_slide(input_vector.normalized() * move_speed)
-	if input_vector == Vector2.ZERO:
-		_anim.play("Idle")
+	# Normal movement
+	if not is_dodge_moving:	# Not locked in dodge movement, move via input
+		input_vector = Vector2.ZERO
+		input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+		input_vector = input_vector.normalized()
+		input_vector = move_and_slide(input_vector.normalized() * move_speed)
+	else:	# Player is locked in dodge movement
+		input_vector = move_and_slide(input_vector.normalized() * BASE_DODGE_SPEED)
+	
+	if not is_dodging: 	# If not dodging, is either walking or idle
+		if input_vector == Vector2.ZERO:
+			_anim.play("Idle")
+		else:
+			_anim.play("Walk")
+		
+		weapon_curr.visible = true
 	else:
-		_anim.play("Walk")
+		weapon_curr.visible = false
+		return # TERMINATE EXECUTION IF PLAYER CURRENTLY IS DODGING
 		
 	# Mouse facing direction
 	var mouse_dir = get_global_mouse_position() - global_position
@@ -118,9 +131,12 @@ func _input(event):
 	if not can_act:
 		return
 	
-	# Empowered attack inputs CANNOT be held down
-	if event.is_action_pressed("empowered_attack"):
-		weapon_curr.empowered_attack()
+	# Dodge input, player must dodge in a direction and cannot be already dodging
+	if event.is_action_pressed("dodge") and input_vector != Vector2.ZERO and not is_dodging:
+		_anim.play("Dodge")
+		is_dodging = true
+		is_dodge_moving = true
+		_sprite.set_modulate(Color(1, 1, 1, .3))
 	
 	# Switch selected weapons
 	if event.is_action_pressed("toggle_weapon"):
@@ -132,6 +148,15 @@ func _input(event):
 			weapon_curr = weapon_primary
 			emit_signal("primary_selected")
 		weapon_curr.visible = true
+	
+	# If still locked in the movement portion of dodge, do not allow attack/interact
+	# NOTE: Can still switch selected weapons
+	if is_dodge_moving:
+		return
+	
+	# Empowered attack inputs CANNOT be held down
+	if event.is_action_pressed("empowered_attack"):
+		weapon_curr.empowered_attack()
 	
 	# If in interactable area, listen for player input
 	if curr_interactable and event.is_action_pressed("interact"):
@@ -212,7 +237,8 @@ func _flash_damaged():
 
 # Reset transparency
 func _reset_alpha():
-	_sprite.set_modulate(Color(1, 1, 1, 1))
+	if not is_dodge_moving: # If player is in dodge movement, let it handle restoring alpha
+		_sprite.set_modulate(Color(1, 1, 1, 1))
 
 # Play death anim and stop player action
 func _player_die():
@@ -223,6 +249,16 @@ func _player_die():
 	
 	# Player death sound
 	_sounds.play("PlayerDeath")
+
+# Movement portion of dodge is finished
+# MOVEMENT PORTION IS ALSO THE INVULNERABLE PORTION OF DODGE
+func _finish_dodge_movement():
+	is_dodge_moving = false
+	_sprite.set_modulate(Color(1, 1, 1, 1))
+
+# The entire dodge animation is finished
+func _finish_dodge():
+	is_dodging = false
 
 # Once start animation is finished, allow player to act
 func _has_started(anim):
