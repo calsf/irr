@@ -2,7 +2,7 @@
 
 [ext_resource path="res://weapons/base_dmg_enemy/DamageEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/staff/staff.png" type="Texture" id=2]
-[ext_resource path="res://weapons/staff/staff_empowered.gd" type="Script" id=3]
+[ext_resource path="res://weapons/staff/staff_projectile.gd" type="Script" id=3]
 [ext_resource path="res://weapons/staff/staff_emp_props.tres" type="Resource" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]

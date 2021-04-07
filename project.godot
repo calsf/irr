@@ -150,9 +150,9 @@ _global_script_classes=[ {
 "path": "res://weapons/staff/staff.gd"
 }, {
 "base": "DamageEnemy",
-"class": "StaffEmpowered",
+"class": "StaffProjectile",
 "language": "GDScript",
-"path": "res://weapons/staff/staff_empowered.gd"
+"path": "res://weapons/staff/staff_projectile.gd"
 }, {
 "base": "Weapon",
 "class": "Sword",
@@ -213,7 +213,7 @@ _global_script_class_icons={
 "Shield": "",
 "Shortbow": "",
 "Staff": "",
-"StaffEmpowered": "",
+"StaffProjectile": "",
 "Sword": "",
 "Wand": "",
 "WarningSignInteractable": "",
@@ -302,6 +302,7 @@ dodge={
 2d_physics/layer_5="DamagePlayer"
 2d_physics/layer_6="Interactable"
 2d_physics/layer_7="Flock"
+2d_physics/layer_8="PlayerMisc"
 
 [rendering]
 

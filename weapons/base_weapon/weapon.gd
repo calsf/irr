@@ -74,6 +74,14 @@ func spawn_melee_basic(Melee):
 func set_rot(rot):
 	can_rot = rot
 
+# Show weapon behind player
+func show_behind_par():
+	get_parent().show_behind_parent = true
+
+# Show weapon in front of player
+func show_front_par():
+	get_parent().show_behind_parent = false
+
 #func set_z_render():
 #	# Weapon z rendering, should always be child of player
 #	# Need to set parent, all weapons are children of a Weapons node in Player

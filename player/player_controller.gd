@@ -101,10 +101,9 @@ func _process(delta):
 		else:
 			_anim.play("Walk")
 		
-		weapon_curr.visible = true
+		weapon_curr.show_front_par()
 	else:
-		weapon_curr.visible = false
-		return # TERMINATE EXECUTION IF PLAYER CURRENTLY IS DODGING
+		weapon_curr.show_behind_par()
 		
 	# Mouse facing direction
 	var mouse_dir = get_global_mouse_position() - global_position
@@ -148,11 +147,6 @@ func _input(event):
 			weapon_curr = weapon_primary
 			emit_signal("primary_selected")
 		weapon_curr.visible = true
-	
-	# If still locked in the movement portion of dodge, do not allow attack/interact
-	# NOTE: Can still switch selected weapons
-	if is_dodge_moving:
-		return
 	
 	# Empowered attack inputs CANNOT be held down
 	if event.is_action_pressed("empowered_attack"):
@@ -216,7 +210,7 @@ func _enter_interact(area):
 # Resets curr_interactable when leaving an interactable area
 func _exit_interact(area):
 	# Only set to null if exiting the same interactable area as the curr
-	if area == curr_interactable:
+	if area.get_owner() == curr_interactable:
 		curr_interactable = null
 
 # Create flash effect by swapping material on sprites

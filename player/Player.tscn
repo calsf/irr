@@ -231,10 +231,10 @@ collision_layer = 0
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -15 )
+position = Vector2( 0, -654 )
 texture = ExtResource( 2 )
 hframes = 16
-frame = 13
+frame = 8
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 2, -14.5 )
@@ -311,6 +311,15 @@ rotation = 1.5708
 shape = SubResource( 8 )
 
 [node name="HurtTimer" type="Timer" parent="PlayerHurtbox"]
+
+[node name="PlayerMiscbox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMiscbox"]
+position = Vector2( -0.5, -3 )
+rotation = 1.5708
+shape = SubResource( 8 )
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_layer = 0
