@@ -133,6 +133,7 @@ func _input(event):
 	# Dodge input, player must dodge in a direction and cannot be already dodging
 	if event.is_action_pressed("dodge") and input_vector != Vector2.ZERO and not is_dodging:
 		_anim.play("Dodge")
+		_sounds.play_one_of("PlayerDodge")
 		is_dodging = true
 		is_dodge_moving = true
 		_sprite.set_modulate(Color(1, 1, 1, .3))

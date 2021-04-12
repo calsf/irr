@@ -23,6 +23,7 @@ func _show_death_screen():
 # Revive player, resetting values
 func _revive():
 	if not reviving:
+		GlobalSounds.play("ButtonPressed")
 		reviving = true
 		PlayerHealth.revive()
 		PlayerMeter.reset()

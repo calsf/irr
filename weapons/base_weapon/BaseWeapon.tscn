@@ -15,6 +15,10 @@ position = Vector2( 0, -15 )
 
 [node name="Sounds" parent="." instance=ExtResource( 2 )]
 
-[node name="NormalAttack" type="AudioStreamPlayer" parent="Sounds"]
+[node name="NormalAttack1" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="NormalAttack2" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="NormalAttack3" type="AudioStreamPlayer" parent="Sounds"]
 
 [node name="EmpoweredAttack" type="AudioStreamPlayer" parent="Sounds"]

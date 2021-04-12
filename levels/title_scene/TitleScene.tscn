@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://levels/title_scene/title_scene.gd" type="Script" id=1]
 [ext_resource path="res://levels/components/Fade.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sounds/button_pressed.wav" type="AudioStream" id=3]
-[ext_resource path="res://sounds/components/Sounds.tscn" type="PackedScene" id=4]
 
 [node name="TitleScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -55,8 +53,3 @@ margin_bottom = 62.0
 text = "NO"
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 2 )]
-
-[node name="Sounds" parent="." instance=ExtResource( 4 )]
-
-[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource( 3 )

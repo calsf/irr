@@ -18,7 +18,7 @@ func play(sound):
 func play_enemy_hurt():
 	if (!SaveLoadManager.load_data()["sound_muted"]):
 		enemy_hurt_sounds[curr].play()
-		curr += 0
+		curr += 1
 		
 		if curr > enemy_hurt_sounds.size() - 1:
 			curr = 0

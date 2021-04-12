@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://player/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://player/player_left.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://sounds/components/Sounds.tscn" type="PackedScene" id=21]
 [ext_resource path="res://sounds/player_death.wav" type="AudioStream" id=22]
 [ext_resource path="res://sounds/player_hurt.wav" type="AudioStream" id=23]
+[ext_resource path="res://sounds/player_dodge.wav" type="AudioStream" id=24]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
@@ -429,4 +430,18 @@ volume_db = -3.0
 
 [node name="PlayerDeath" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 22 )
+
+[node name="PlayerDodge1" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 24 )
+volume_db = -3.0
+
+[node name="PlayerDodge2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 24 )
+volume_db = -3.0
+pitch_scale = 1.1
+
+[node name="PlayerDodge3" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 24 )
+volume_db = -3.0
+pitch_scale = 1.05
 [connection signal="timeout" from="PlayerHurtbox/HurtTimer" to="PlayerHurtbox" method="_on_HurtTimer_timeout"]

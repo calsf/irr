@@ -92,7 +92,7 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "NormalAttack" ],
-"method": "play"
+"method": "play_one_of"
 } ]
 }
 
@@ -105,14 +105,22 @@ emp_damage_props = ExtResource( 6 )
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
 hframes = 13
-frame = 7
+frame = 1
 
 [node name="AnimationPlayer" parent="." index="1"]
 anims/empowered_attack = SubResource( 1 )
 anims/normal_attack = SubResource( 2 )
 
-[node name="NormalAttack" parent="Sounds" index="0"]
+[node name="NormalAttack1" parent="Sounds" index="0"]
 stream = ExtResource( 7 )
 
-[node name="EmpoweredAttack" parent="Sounds" index="1"]
+[node name="NormalAttack2" parent="Sounds" index="1"]
+stream = ExtResource( 7 )
+pitch_scale = 1.1
+
+[node name="NormalAttack3" parent="Sounds" index="2"]
+stream = ExtResource( 7 )
+pitch_scale = 0.8
+
+[node name="EmpoweredAttack" parent="Sounds" index="3"]
 stream = ExtResource( 8 )

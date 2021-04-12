@@ -10,9 +10,6 @@ onready var _warning_prompt = $CanvasLayer/WarningPrompt
 onready var _confirm_btn = $CanvasLayer/WarningPrompt/Confirm
 onready var _cancel_btn = $CanvasLayer/WarningPrompt/Cancel
 
-# Scene sounds
-onready var _sounds = $Sounds
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Disable continue btn if no save file exists
@@ -35,7 +32,7 @@ func _on_continue():
 	else:
 		_fade.go_to_scene(LEVEL0)
 	
-	_sounds.play("ButtonPressed")
+	GlobalSounds.play("ButtonPressed")
 
 # Show warning prompt, disable options from being able to be clicked on
 func _on_new_game():
@@ -43,7 +40,7 @@ func _on_new_game():
 	_new_game_btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_warning_prompt.visible = true
 	
-	_sounds.play("ButtonPressed")
+	GlobalSounds.play("ButtonPressed")
 
 # Confirm new game
 func _on_confirm():
@@ -52,7 +49,7 @@ func _on_confirm():
 	SaveLoadManager.reset_data()
 	_fade.go_to_scene(LEVEL0)
 	
-	_sounds.play("ButtonPressed")
+	GlobalSounds.play("ButtonPressed")
 
 # Cancel new game, hide prompt and allow options to be clicked on again
 func _on_cancel():
@@ -60,4 +57,4 @@ func _on_cancel():
 	_new_game_btn.mouse_filter = Control.MOUSE_FILTER_STOP
 	_warning_prompt.visible = false
 	
-	_sounds.play("ButtonPressed")
+	GlobalSounds.play("ButtonPressed")
