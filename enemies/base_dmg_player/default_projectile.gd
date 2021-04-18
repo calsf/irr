@@ -7,6 +7,9 @@ var Explo = preload("res://enemies/base_dmg_player/ProjectileExplo.tscn")
 
 onready var shadow = $Shadow
 
+# Signal emitted before this projectile gets destroyed
+signal destroyed()
+
 # If hits with anything in layer mask, destroys this projectile
 func _on_hit(other):
 	# Create explo effect, effect's shadow inherits this projectile's shadow pos
@@ -15,6 +18,7 @@ func _on_hit(other):
 	explo.get_node("Shadow").position = shadow.position
 	explo.global_position = global_position
 	
+	emit_signal("destroyed")
 	queue_free()
 
 # Transition from start up to loop animation

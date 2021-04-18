@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://enemies/base_dmg_player/DefaultProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level1_gl/boss/boss_gl_proj_props.tres" type="Resource" id=2]
+
+[node name="BossGLProjectile" instance=ExtResource( 1 )]
+_damage_props = ExtResource( 2 )
