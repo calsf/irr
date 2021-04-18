@@ -23,6 +23,11 @@ var _default_data = {
 	"primary_weapon_id" : 0,
 	"secondary_weapon_id" : 1,
 	
+	# Array of weapons that have been dropped for player
+	# Use when randomizing weapon drops to ensure player will get all drops at least once
+	# Should NOT have weapon ids 2, 3, and 4 since they're starter weapons
+	"dropped_weapons": [],
+	
 	# Other settings
 	"sound_muted" : false,
 	"show_overhead" : true,

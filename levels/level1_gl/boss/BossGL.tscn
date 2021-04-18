@@ -12,7 +12,7 @@ height = 22.0
 [sub_resource type="CapsuleShape2D" id=2]
 height = 22.0
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "absorb_attack"
 length = 0.5
 loop = true
@@ -29,7 +29,7 @@ tracks/0/keys = {
 "values": [ 21, 22, 23, 24, 25 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "absorb_start"
 length = 0.2
 tracks/0/type = "value"
@@ -59,8 +59,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "activate"
+[sub_resource type="Animation" id=5]
 length = 4.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -113,7 +112,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "burrow"
 length = 1.2
 tracks/0/type = "value"
@@ -167,8 +166,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "normal_attack"
+[sub_resource type="Animation" id=7]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -257,6 +255,7 @@ tracks/3/keys = {
 [node name="BossGL" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 _enemy_props = ExtResource( 4 )
+_death_path = "res://levels/level1_gl/boss/BossGLDeath.tscn"
 proj_path = "res://levels/level1_gl/boss/BossGLProjectile.tscn"
 
 [node name="Body" parent="." index="0"]
@@ -305,9 +304,9 @@ rect_scale = Vector2( 2, 1 )
 
 [node name="AnimationPlayer" parent="." index="9"]
 autoplay = "activate"
-anims/absorb_attack = SubResource( 5 )
-anims/absorb_start = SubResource( 6 )
-anims/activate = SubResource( 3 )
-anims/burrow = SubResource( 7 )
-anims/normal_attack = SubResource( 4 )
+anims/absorb_attack = SubResource( 3 )
+anims/absorb_start = SubResource( 4 )
+anims/activate = SubResource( 5 )
+anims/burrow = SubResource( 6 )
+anims/normal_attack = SubResource( 7 )
 anims/reappear = SubResource( 8 )

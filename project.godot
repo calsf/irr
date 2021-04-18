@@ -159,6 +159,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://weapons/sword/sword.gd"
 }, {
+"base": "WeaponPickup",
+"class": "TablePickup",
+"language": "GDScript",
+"path": "res://weapons/base_pickup/table_pickup.gd"
+}, {
 "base": "Weapon",
 "class": "Wand",
 "language": "GDScript",
@@ -215,6 +220,7 @@ _global_script_class_icons={
 "Staff": "",
 "StaffProjectile": "",
 "Sword": "",
+"TablePickup": "",
 "Wand": "",
 "WarningSignInteractable": "",
 "Weapon": "",
