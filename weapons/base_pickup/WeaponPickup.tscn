@@ -30,7 +30,7 @@ font_data = ExtResource( 4 )
 size = 10
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -52,10 +52,9 @@ tracks/0/keys = {
 script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -16 )
+position = Vector2( 0, -24 )
 texture = ExtResource( 2 )
 hframes = 2
-frame = 1
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
@@ -176,4 +175,4 @@ autowrap = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "pickup"
-anims/pickup = SubResource( 7 )
+anims/pickup = SubResource( 8 )

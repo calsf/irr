@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://walkover_pickups/meter_pickup/meter_pickup.gd" type="Script" id=1]
 [ext_resource path="res://walkover_pickups/meter_pickup/meter_full_pickup.png" type="Texture" id=2]
@@ -8,15 +8,49 @@
 radius = 8.0
 height = 0.0
 
+[sub_resource type="Animation" id=2]
+resource_name = "drop"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -20 ), Vector2( 0, -36 ), Vector2( 0, -12 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_enter_idle"
+} ]
+}
+
 [node name="MeterFullPickup" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 restore_amount = 100
 sound_name = "MeterPickupFull"
 
 [node name="Sprite" parent="." index="0"]
+position = Vector2( 0, -20 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="PickupArea" index="0"]
 position = Vector2( 0, -5 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="3"]
+anims/drop = SubResource( 2 )

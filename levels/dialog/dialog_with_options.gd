@@ -17,3 +17,15 @@ func _ready():
 func _end_of_dialog():
 	_dialog_options.visible = true
 	_arrow.visible = false
+	_can_go_next = false	# To disable button press sound, only play when press option
+
+# Override _exit_dialog, exit and reset dialog and play button pressed sound
+func _exit_dialog():
+	_dialog.text = ""
+	_curr_msg = ""
+	_curr_char = 0
+	_msg_index = 0
+	_arrow.visible = false
+	is_active = false
+	_anim.play("close")
+	_sounds.play("ButtonPressed")

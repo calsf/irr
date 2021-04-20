@@ -3,6 +3,7 @@ class_name WeaponPickup
 
 const OFFSET = 40
 const BG_PADDING = 8
+const SPEED = 64	# Speed of movement for 'dropping' from chest
 
 export var _weapon_props : Resource
 export var _normal_damage_props : Resource
@@ -15,6 +16,11 @@ onready var _info_display = $InfoDisplay
 onready var _display_bg = $DisplayBG
 onready var _name_bg = $NameBG
 onready var _outline_bg = $OutlineBG
+onready var anim = $AnimationPlayer
+
+# For 'drop' from chest movement
+var target_pos = null
+var dir = Vector2.ZERO
 
 func _ready():
 	# Get info from weapon props and display
@@ -43,6 +49,16 @@ func _ready():
 	
 	# Info hidden at start
 	_hide_info(null)
+
+func _physics_process(delta):
+	# For 'drop' from chest movement
+	if target_pos != null:
+		if global_position.distance_to(target_pos) < 10:
+			target_pos = null
+			return
+		else:
+			global_position += (dir * SPEED) * delta
+		
 	
 func _show_info(_area):
 	_info_display.visible = true
@@ -55,3 +71,13 @@ func _hide_info(_area):
 	_display_bg.visible = false
 	_name_bg.visible = false
 	_outline_bg.visible = false
+
+# 'Drop' the weapon pickup, disabled interact until finished
+func drop():
+	_interact_area.get_node("CollisionShape2D").disabled = true
+	anim.play("drop")
+
+# Enter idle state, enable interact area
+func _enter_idle():
+	_interact_area.get_node("CollisionShape2D").disabled = false
+	anim.play("pickup")
