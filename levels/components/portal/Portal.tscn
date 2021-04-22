@@ -132,10 +132,11 @@ position = Vector2( 0, -31 )
 scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, -31 )
-scale = Vector2( 0.4, 1 )
+scale = Vector2( 1e-05, 1 )
 z_index = -1
 texture = ExtResource( 1 )
 

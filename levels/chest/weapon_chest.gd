@@ -22,7 +22,7 @@ var meter_pickup = "res://walkover_pickups/meter_pickup/MeterFullPickup.tscn"
 func interact():
 	# Only allow open/interact once
 	if _has_opened:
-		pass
+		return
 	else:	# Set has opened to true and also disonnect label on area enter/exit
 		_has_opened = true
 		_interact_area.disconnect("area_entered", self, "_show_label")
