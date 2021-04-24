@@ -11,5 +11,20 @@ med_rooms_path = [ "res://levels/level0/med_threat/Room001.tscn", "res://levels/
 low_num = 2
 med_num = 2
 
-[node name="Fade" parent="CanvasLayer" index="2"]
+[node name="PauseMenu" parent="CanvasLayer" index="2"]
+quit_to_scene = "res://levels/title_scene/TitleScene.tscn"
+
+[node name="Resume" parent="CanvasLayer/PauseMenu/Buttons" index="0"]
+margin_right = 128.0
+
+[node name="Sound" parent="CanvasLayer/PauseMenu/Buttons" index="1"]
+margin_right = 128.0
+
+[node name="Quit" parent="CanvasLayer/PauseMenu/Buttons" index="2"]
+margin_right = 128.0
+text = "Quit to Menu"
+
+[node name="Fade" parent="CanvasLayer" index="3"]
 visible = true
+
+[editable path="CanvasLayer/PauseMenu"]

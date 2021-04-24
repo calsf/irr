@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/components/map_generator.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://levels/components/respawn/revive_btn_hover.tres" type="StyleBox" id=8]
 [ext_resource path="res://levels/components/respawn/respawn_manager.gd" type="Script" id=9]
 [ext_resource path="res://player/player_hud/PlayerHUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://levels/components/menus/PauseMenu.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -18,7 +19,6 @@ outline_color = Color( 0.811765, 0.811765, 0.811765, 1 )
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 24
 font_data = ExtResource( 5 )
 
 [sub_resource type="Animation" id=3]
@@ -131,8 +131,12 @@ enabled_focus_mode = 0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DeathScreen"]
 anims/FadeIn = SubResource( 3 )
 
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 11 )]
+
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false
 
 [node name="RespawnManager" type="Node" parent="."]
 script = ExtResource( 9 )
+
+[editable path="CanvasLayer/PauseMenu"]

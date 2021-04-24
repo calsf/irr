@@ -12,6 +12,7 @@ var _in_transition = false
 var _next_scene = ""
 
 func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS	# This will never pause
 	hide()
 
 # Sets next scene to go to and play fade in animation
@@ -45,6 +46,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			else:
 				_remove_root_nodes()
 				get_tree().change_scene(_next_scene)
+			
+			# Make sure to unpause after loading new scene if was paused previously
+			if get_tree().paused:
+				get_tree().paused = false
 			emit_signal("fade_in_finished")
 		"FadeOut": 
 			emit_signal("fade_out_finished")
