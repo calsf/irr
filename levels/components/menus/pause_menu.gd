@@ -44,10 +44,13 @@ func _input(event):
 
 # Unpause, for when button is pressed
 func _resume():
+	# NOTE:
+	# The sound must be in proccess pause mode or else it won't play due to pause
+	GlobalSounds.play("ButtonPressed")
+	
 	menu_paused = false
 	get_tree().paused = false
 	visible = false
-	GlobalSounds.play("ButtonPressed")
 
 # Toggle sound on/off
 func _toggle_sound():
@@ -55,13 +58,15 @@ func _toggle_sound():
 	if _save_data["sound_muted"]:
 		_save_data["sound_muted"] = false
 		_sound_btn.text = "Sound: ON"
+		SaveLoadManager.save_data(_save_data)
+		GlobalSounds.play("ButtonPressed")
 	else:
 		_save_data["sound_muted"] = true
 		_sound_btn.text = "Sound: OFF"
-	SaveLoadManager.save_data(_save_data)
+		SaveLoadManager.save_data(_save_data)
 
 # Go to scene as specified by the quit_to_scene path
 func _quit():
+	GlobalSounds.play("ButtonPressed")
 	visible = false
 	_fade.go_to_scene(quit_to_scene)
-	GlobalSounds.play("ButtonPressed")

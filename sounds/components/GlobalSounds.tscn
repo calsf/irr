@@ -80,4 +80,5 @@ volume_db = -3.0
 pitch_scale = 1.1
 
 [node name="ButtonPressed" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 16 )

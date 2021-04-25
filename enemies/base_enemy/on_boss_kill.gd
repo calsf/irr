@@ -15,7 +15,10 @@ func spawn_chest(position):
 	obj.global_position = position
 
 # Spawns exit portal at position
-func spawn_exit_portal():
+# Exit portal is responsible for marking level as completed and saving
+# level_completed is name of the setting to set as true in SaveLoadManager
+func spawn_exit_portal(level_completed):
 	var obj = ExitObject.instance()
 	get_tree().current_scene.add_child(obj)
 	obj.global_position = EXIT_POSITION
+	obj.level_completed = level_completed

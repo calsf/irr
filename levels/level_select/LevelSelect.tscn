@@ -20,7 +20,6 @@
 [ext_resource path="res://player/player_hud/PlayerHUD.tscn" type="PackedScene" id=18]
 [ext_resource path="res://levels/components/menus/PauseMenu.tscn" type="PackedScene" id=19]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 544, 24 )
 
@@ -120,6 +119,7 @@ scene_path = "res://levels/level1_gl/Level1.tscn"
 
 [node name="DoorGR" parent="Room/DoorManager/Doors" instance=ExtResource( 9 )]
 position = Vector2( -128, 96 )
+scene_path = "res://levels/level2_gr/Level2.tscn"
 
 [node name="DoorLU" parent="Room/DoorManager/Doors" instance=ExtResource( 10 )]
 position = Vector2( 128, -96 )

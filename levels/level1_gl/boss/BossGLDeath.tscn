@@ -46,7 +46,7 @@ tracks/2/keys = {
 "args": [ Vector2( 0, 0 ) ],
 "method": "spawn_chest"
 }, {
-"args": [  ],
+"args": [ "level1_completed" ],
 "method": "spawn_exit_portal"
 } ]
 }
