@@ -6,6 +6,7 @@ export var _damage_props : Resource
 onready var _speed = _damage_props.base_speed
 onready var _anim = $AnimationPlayer
 
+var speed_multiplier = 1 # Multiplier should be 1 by default
 var dir = Vector2()
 
 func _ready():
@@ -21,4 +22,4 @@ func _on_hit(other):
 	print("Default on hit")
 
 func _move(delta):
-	position += (dir * _speed) * delta
+	position += (dir * (_speed * speed_multiplier)) * delta

@@ -14,7 +14,7 @@ const ABSORB_PER_ATTACK_PHASE_ONE = 10
 const ABSORB_PER_ATTACK_PHASE_TWO = 3
 
 # Health or below to trigger phase two behavior
-const PHASE_TWO_THRESHOLD = 1000
+const PHASE_TWO_THRESHOLD = 400
 
 # Max X and Y boundaries that boss can reappear at
 const X_RIGHT_BOUND = 244
@@ -33,36 +33,46 @@ var _attack_counter = 0
 var _active_projectiles = []
 var _possible_dir = [
 	[Vector2(1, 0), Vector2(-1, 0), Vector2(0, -1), Vector2(0, 1), 
-		Vector2(.5, .5), Vector2(-.5, .5), Vector2(-.5, -.5), Vector2(.5, -.5)],
-	
-	[Vector2(1, 0), Vector2(-1, 0), Vector2(0, -1), Vector2(0, 1), 
-		Vector2(.65, .65), Vector2(-.65, .65), Vector2(-.65, -.65), Vector2(.65, -.65),
-		Vector2(1, .5), Vector2(-1, .5), Vector2(1, -.5), Vector2(-1, -.5)],
-	
-	[Vector2(.4, .3), Vector2(.4, -.3), Vector2(-.4, .3), Vector2(-.4, -.3), 
-		Vector2(.65, .65), Vector2(-.65, .65), Vector2(-.65, -.65), Vector2(.65, -.65),
-		Vector2(.75, .5), Vector2(-.75, .5), Vector2(.75, -.5), Vector2(-.75, -.5)],
+		Vector2(1, 1), Vector2(-1, 1), Vector2(-1, -1), Vector2(1, -1),
+		Vector2(1, 5), Vector2(-1, 5), Vector2(-1, -5), Vector2(1, -5), 
+		Vector2(5, 1), Vector2(-5, 1), Vector2(-5, -1), Vector2(5, -1)],
 		
-	[Vector2(.75, 0), Vector2(-.75, 0), Vector2(0, -1), Vector2(0, 1), 
-		Vector2(.5, .75), Vector2(-.5, .75), Vector2(-.5, -.75), Vector2(.5, -.75)],
+	[Vector2(1, 0), Vector2(-1, 0), Vector2(0, -1), Vector2(0, 1), 
+		Vector2(1, 1), Vector2(-1, 1), Vector2(-1, -1), Vector2(1, -1),
+		Vector2(1, 2.5), Vector2(-1, 2.5), Vector2(-1, -2.5), Vector2(1, -2.5), 
+		Vector2(2.5, 1), Vector2(-2.5, 1), Vector2(-2.5, -1), Vector2(2.5, -1)],
 	
-	[Vector2(.75, .25), Vector2(-.75, .25), Vector2(.75, -.25), Vector2(-.75, -.25), 
-		Vector2(0, -1), Vector2(0, 1), 
-		Vector2(.25, .75), Vector2(-.25, .75), Vector2(-.25, -.75), Vector2(.25, -.75)],
+	[Vector2(1, 2), Vector2(-1, 2), Vector2(-1, -2), Vector2(1, -2), 
+		Vector2(2, 1), Vector2(-2, 1), Vector2(-2, -1), Vector2(2, -1),
+		Vector2(1, 6), Vector2(-1, 6), Vector2(-1, -6), Vector2(1, -6), 
+		Vector2(6, 1), Vector2(-6, 1), Vector2(-6, -1), Vector2(6, -1)],
 	
-	[Vector2(.5, .1), Vector2(-.5, .1), Vector2(.5, -.1), Vector2(-.5, -.1), 
-		Vector2(.25, -.5), Vector2(.25, .5), Vector2(-.25, -.5), Vector2(-.25, .5), 
-		Vector2(.5, .5), Vector2(-.5, .5), Vector2(-.5, -.5), Vector2(.5, -.5)],
+	[Vector2(1.5, 2), Vector2(-1.5, 2), Vector2(-1.5, -2), Vector2(1.5, -2), 
+		Vector2(2, 1.5), Vector2(-2, 1.5), Vector2(-2, -1.5), Vector2(2, -1.5),
+		Vector2(1, 2.5), Vector2(-1, 2.5), Vector2(-1, -2.5), Vector2(1, -2.5), 
+		Vector2(2.5, 1), Vector2(-2.5, 1), Vector2(-2.5, -1), Vector2(2.5, -1)],
 	
-	[Vector2(.5, .1), Vector2(-.5, .1), Vector2(.5, -.1), Vector2(-.5, -.1), 
-		Vector2(.1, -.5), Vector2(.1, .5), Vector2(-.1, -.5), Vector2(-.1, .5), 
-		Vector2(.25, .25), Vector2(-.25, .25), Vector2(-.25, -.25), Vector2(.25, -.25)],
+	[Vector2(1, 4), Vector2(-1, 4), Vector2(-1, -4), Vector2(1, -4), 
+		Vector2(4, 1), Vector2(-4, 1), Vector2(-4, -1), Vector2(4, -1),
+		Vector2(1, 1), Vector2(-1, 1), Vector2(-1, -1), Vector2(1, -1),
+		Vector2(1, 0), Vector2(-1, 0), Vector2(0, -1), Vector2(0, 1)],
 	
-	[Vector2(.2, .35), Vector2(-.2, .35), Vector2(.2, -.35), Vector2(-.2, -.35), 
-		Vector2(.1, -.25), Vector2(.1, .25), Vector2(-.1, -.25), Vector2(-.1, .25), 
-		Vector2(.25, .1), Vector2(-.25, .1), Vector2(-.25, -.1), Vector2(.25, -.1),
-		Vector2(.35, .2), Vector2(-.35, .2), Vector2(.35, -.2), Vector2(-.35, -.2),
-		Vector2(.4, 0), Vector2(-.4, 0), Vector2(0, -.4), Vector2(0, .4), ],
+	[Vector2(1, 1), Vector2(-1, 1), Vector2(-1, -1), Vector2(1, -1), 
+		Vector2(1, 1.5), Vector2(-1, 1.5), Vector2(-1, -1.5), Vector2(1, -1.5),
+		Vector2(1.5, 1), Vector2(-1.5, 1), Vector2(-1.5, -1), Vector2(1.5, -1),
+		Vector2(1, 2), Vector2(-1, 2), Vector2(-1, -2), Vector2(1, -2)],
+	
+	[Vector2(1, 0), Vector2(-1, 0), Vector2(8, 1), Vector2(-8, 1), 
+		Vector2(2, 1), Vector2(-2, 1), Vector2(-2, -1), Vector2(2, -1),
+		Vector2(6, 1), Vector2(-6, 1), Vector2(-6, -1), Vector2(6, -1),
+		Vector2(4, 1), Vector2(-4, 1), Vector2(-4, -1), Vector2(4, -1)],
+	
+	[Vector2(0, 1), Vector2(0, -1), Vector2(0, -8), Vector2(0, 8), 
+		Vector2(1, 2), Vector2(-1, 2), Vector2(-1, -2), Vector2(1, -2),
+		Vector2(1, 6), Vector2(-1, 6), Vector2(-1, -6), Vector2(1, -6),
+		Vector2(1, 4), Vector2(-1, 4), Vector2(-1, -4), Vector2(1, -4)],
+	
+	
 ]
 
 func _physics_process(delta):
@@ -81,7 +91,7 @@ func _physics_process(delta):
 		# Also check if projectile is close to spawn position, if so, destroy projectile
 		for proj in _active_projectiles:
 			proj.dir = proj.dir * 1.02
-			if proj.global_position.distance_to(_spawn_pos.global_position) < 15:
+			if proj.global_position.distance_to(_spawn_pos.global_position) < 20:
 				_remove_projectile(proj)
 				proj.queue_free()
 
@@ -120,12 +130,12 @@ func _attack_fixed():
 		var obj = DamageObject.instance()
 		get_tree().get_root().add_child(obj)
 		obj.global_position = _spawn_pos.global_position
-		obj.dir = dir # No normalization
+		obj.dir = dir.normalized()
 		
 		obj.connect("destroyed", self, "_remove_projectile", [obj])
 		_active_projectiles.append(obj)
 	
-	# Shoot extra projectiles if in phase two
+	# Shoot extra projectiles if in phase two (2 more set of directions with diff speeds)
 	if _curr_hp <= PHASE_TWO_THRESHOLD:
 		# Randomly select A DIFFERENT set of possible directions
 		var extra_selected_dir = selected_dir
@@ -137,7 +147,24 @@ func _attack_fixed():
 			var obj = DamageObject.instance()
 			get_tree().get_root().add_child(obj)
 			obj.global_position = _spawn_pos.global_position
-			obj.dir = dir # No normalization
+			obj.dir = dir.normalized()
+			obj.speed_multiplier = 1.5 # MAKE THESE PROJECTILES FASTER
+			
+			obj.connect("destroyed", self, "_remove_projectile", [obj])
+			_active_projectiles.append(obj)
+		
+		# Randomly select A DIFFERENT set of possible directions from the last 2 set
+		var extra_selected_dir_final = selected_dir
+		while extra_selected_dir_final == selected_dir or extra_selected_dir_final == extra_selected_dir:
+			randomize()
+			extra_selected_dir_final = _possible_dir[randi() % _possible_dir.size()]
+		
+		for dir in extra_selected_dir_final:
+			var obj = DamageObject.instance()
+			get_tree().get_root().add_child(obj)
+			obj.global_position = _spawn_pos.global_position
+			obj.dir = dir.normalized()
+			obj.speed_multiplier = .5 # MAKE THESE PROJECTILES SLOW
 			
 			obj.connect("destroyed", self, "_remove_projectile", [obj])
 			_active_projectiles.append(obj)

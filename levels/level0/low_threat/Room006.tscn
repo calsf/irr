@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://enemies/eyeball/Eyeball.tscn" type="PackedScene" id=1]
-[ext_resource path="res://enemies/jaws/Jaws.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/level0_enemies/eyeball/Eyeball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/level0_enemies/jaws/Jaws.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=3]
 [ext_resource path="res://enemies/base_enemy/Positions.tscn" type="PackedScene" id=4]
+
 
 [node name="Room" instance=ExtResource( 3 )]
 

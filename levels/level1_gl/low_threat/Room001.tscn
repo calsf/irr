@@ -2,8 +2,9 @@
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level1_gl/room_gl_01.png" type="Texture" id=2]
-[ext_resource path="res://enemies/bulb/Bulb.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/level1_enemies/bulb/Bulb.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemies/base_enemy/Positions.tscn" type="PackedScene" id=7]
+
 
 [node name="Room001" instance=ExtResource( 1 )]
 

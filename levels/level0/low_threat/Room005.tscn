@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
-[ext_resource path="res://enemies/jaws/Jaws.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/level0_enemies/jaws/Jaws.tscn" type="PackedScene" id=2]
 [ext_resource path="res://walkover_pickups/meter_pickup/MeterFullPickup.tscn" type="PackedScene" id=3]
+
 
 [node name="Room" instance=ExtResource( 1 )]
 

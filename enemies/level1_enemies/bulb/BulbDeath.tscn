@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://enemies/level1_enemies/eye_mimic/eye_mimic_shadow.png" type="Texture" id=1]
+[ext_resource path="res://enemies/base_enemy/EnemyDeath.tscn" type="PackedScene" id=2]
+
+
+[node name="BulbDeath" instance=ExtResource( 2 )]
+
+[node name="Death" parent="." index="0"]
+frame = 1
+
+[node name="Shadow" parent="." index="1"]
+texture = ExtResource( 1 )

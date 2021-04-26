@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://enemies/level0_enemies/eyeball/EyeballProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/level1_enemies/gorge/gorge_proj_props.tres" type="Resource" id=2]
+
+
+
+[node name="GorgeProjectile" instance=ExtResource( 1 )]
+_damage_props = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+frame = 3
+
+[node name="Shadow" parent="." index="1"]
+position = Vector2( 0, 7 )
+
+[node name="Hitbox" parent="." index="2"]
+position = Vector2( 0, -3 )

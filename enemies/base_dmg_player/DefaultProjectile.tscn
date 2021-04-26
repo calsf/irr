@@ -1,10 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://enemies/base_dmg_player/01_enemy_proj.png" type="Texture" id=1]
-[ext_resource path="res://enemies/eyeball/eyeball_proj_props.tres" type="Resource" id=2]
+[ext_resource path="res://enemies/level0_enemies/eyeball/eyeball_proj_props.tres" type="Resource" id=2]
 [ext_resource path="res://enemies/base_dmg_player/default_projectile.gd" type="Script" id=3]
 [ext_resource path="res://enemies/base_dmg_player/DamagePlayer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemies/base_dmg_player/01_enemy_proj_shadow.png" type="Texture" id=5]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0

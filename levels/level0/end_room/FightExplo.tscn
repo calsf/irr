@@ -3,7 +3,8 @@
 [ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level0/end_room/fight_explo.png" type="Texture" id=2]
 [ext_resource path="res://levels/level0/end_room/activate_on_enter.gd" type="Script" id=3]
-[ext_resource path="res://enemies/eyeball/eyeball_props.tres" type="Resource" id=4]
+[ext_resource path="res://enemies/level0_enemies/eyeball/eyeball_props.tres" type="Resource" id=4]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "activate"

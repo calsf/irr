@@ -2,8 +2,9 @@
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level1_gl/room_gl_01.png" type="Texture" id=2]
-[ext_resource path="res://enemies/eye_mimic/EyeMimic.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/level1_enemies/eye_mimic/EyeMimic.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/level1_gl/terrain/Terrain001.tscn" type="PackedScene" id=4]
+
 
 [node name="Room006" instance=ExtResource( 1 )]
 
