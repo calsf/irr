@@ -7,6 +7,10 @@ export var proj_path : String
 export var atk_rate : float			# The normal time between attacks
 export var first_atk_delay : float	# Time to delay first attack by
 
+# If not timed attack, attack won't auto trigger (ex: may only need atk functions)
+# True by default
+export var timed_atk = true 	
+
 onready var DamageObject = load(proj_path)
 onready var _spawn_pos = $SpawnPos
 onready var _atk_timer = $AttackTimer
@@ -37,6 +41,9 @@ func _attack_player():
 
 # Attack when timer runs out
 func _start_atk():
+	if not timed_atk:
+		return
+		
 	_atk_anim.play("attack")
 	
 	# Attack delay starts at START OF ANIMATION, so consider anim time into delay
@@ -44,6 +51,9 @@ func _start_atk():
 
 # Delays first attack by first_atk_delaytime
 func _delay_first_atk():
+	if not timed_atk:
+		return
+	
 	_atk_timer.start(first_atk_delay)
 
 # Make enemy enter move state - should be called at end of attack anim if needed

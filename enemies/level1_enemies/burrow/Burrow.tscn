@@ -172,7 +172,6 @@ _death_path = "res://enemies/level1_enemies/burrow/BurrowDeath.tscn"
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 2 )
 hframes = 15
-frame = 14
 
 [node name="Attack" parent="Body" index="0"]
 script = ExtResource( 5 )
@@ -191,10 +190,12 @@ rotation = 1.5708
 position = Vector2( 0, -3 )
 rotation = 1.5708
 shape = SubResource( 2 )
+disabled = true
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 11 )
 shape = SubResource( 3 )
+disabled = true
 
 [node name="CollisionShape2D" parent="Pushbox" index="0"]
 position = Vector2( 0, -1 )
