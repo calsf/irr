@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level2_gr/room_gr_01.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://enemies/level2_enemies/mimic_chest/MimicChest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://walkover_pickups/health_pickup/HealthFullPickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemies/level2_enemies/mimic_health_pickup/MimicHealthPickup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/level2_enemies/crystal_formation/CrystalFormation.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/base_enemy/Positions.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/level2_enemies/chest_random/ChestRandom.tscn" type="PackedScene" id=9]
 
 [node name="StartRoom" instance=ExtResource( 1 )]
 
@@ -21,5 +24,17 @@ position = Vector2( 95, -56 )
 [node name="MimicHealthPickup" parent="Enemies" index="2" instance=ExtResource( 6 )]
 position = Vector2( 152, -56 )
 
+[node name="CrystalFormation" parent="Enemies" index="3" instance=ExtResource( 7 )]
+
+[node name="Positions" parent="Enemies/CrystalFormation" index="11" instance=ExtResource( 8 )]
+
+[node name="A" type="Node2D" parent="Enemies/CrystalFormation/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/CrystalFormation/Positions" index="1"]
+position = Vector2( 96, 0 )
+
 [node name="HealthFullPickup" parent="." index="4" instance=ExtResource( 5 )]
 position = Vector2( 168, -56 )
+
+[node name="ChestRandom" parent="." index="5" instance=ExtResource( 9 )]
+position = Vector2( -135, 82 )

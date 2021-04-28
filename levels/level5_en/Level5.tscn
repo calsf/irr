@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://levels/components/Level.tscn" type="PackedScene" id=1]
+
+[node name="Level5" instance=ExtResource( 1 )]
+target_longest_path = 1
+start_room_path = "res://levels/level5_en/StartRoom.tscn"
+
+[node name="Resume" parent="CanvasLayer/PauseMenu/Buttons" index="0"]
+margin_right = 128.0
+
+[node name="Sound" parent="CanvasLayer/PauseMenu/Buttons" index="1"]
+margin_right = 128.0
+
+[node name="Quit" parent="CanvasLayer/PauseMenu/Buttons" index="2"]
+margin_right = 128.0
+
+[editable path="CanvasLayer/PauseMenu"]

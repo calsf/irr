@@ -18,6 +18,9 @@ onready var _atk_anim = $AttackAnimation
 onready var _enemy = get_owner()
 
 func _ready():
+	if not timed_atk:
+		return
+	
 	# When timer runs out, attack
 	_atk_timer.connect("timeout", self, "_start_atk")
 	
@@ -41,9 +44,6 @@ func _attack_player():
 
 # Attack when timer runs out
 func _start_atk():
-	if not timed_atk:
-		return
-		
 	_atk_anim.play("attack")
 	
 	# Attack delay starts at START OF ANIMATION, so consider anim time into delay
@@ -51,9 +51,6 @@ func _start_atk():
 
 # Delays first attack by first_atk_delaytime
 func _delay_first_atk():
-	if not timed_atk:
-		return
-	
 	_atk_timer.start(first_atk_delay)
 
 # Make enemy enter move state - should be called at end of attack anim if needed
