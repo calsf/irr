@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mimic_health_pickup.png-45e2176c8274780a3a9a9021d93ec7ca.stex"
+path="res://.import/mimic_pickup_shadow.png-9398459b4a74c9c7e2964e27d51ab008.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/level2_enemies/mimic_health_pickup/mimic_health_pickup.png"
-dest_files=[ "res://.import/mimic_health_pickup.png-45e2176c8274780a3a9a9021d93ec7ca.stex" ]
+source_file="res://enemies/level2_enemies/mimic_pickups/mimic_pickup_shadow.png"
+dest_files=[ "res://.import/mimic_pickup_shadow.png-9398459b4a74c9c7e2964e27d51ab008.stex" ]
 
 [params]
 

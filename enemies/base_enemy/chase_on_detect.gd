@@ -10,8 +10,9 @@ func _ready():
 
 func _physics_process(delta):
 	# Check if player is in detect area and start chase if true by entering activate state
+	# Also make sure player is in same room as enemy
 	var areas = _detect_area.get_overlapping_areas()
-	if not activated and areas:
+	if room_id == PlayerRoom.curr_room_id and not activated and areas:
 		activated = true
 		enter_activate_state()
 
