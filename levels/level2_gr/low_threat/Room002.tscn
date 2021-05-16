@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://levels/level2_gr/room_gr_01.png" type="Texture" id=1]
+[ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/base_enemy/Positions.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/level2_gr/terrain/Terrain002.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemies/level2_enemies/crystal_formation/CrystalFormation.tscn" type="PackedScene" id=5]
+[ext_resource path="res://walkover_pickups/meter_pickup/MeterFullPickup.tscn" type="PackedScene" id=6]
+
+[node name="Room002" instance=ExtResource( 2 )]
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 1 )
+
+[node name="CrystalFormation" parent="Enemies" index="0" instance=ExtResource( 5 )]
+position = Vector2( -64, -64 )
+is_cycle = true
+
+[node name="Positions" parent="Enemies/CrystalFormation" index="11" instance=ExtResource( 3 )]
+
+[node name="A" type="Node2D" parent="Enemies/CrystalFormation/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/CrystalFormation/Positions" index="1"]
+position = Vector2( 128, 0 )
+
+[node name="C" type="Node2D" parent="Enemies/CrystalFormation/Positions" index="2"]
+position = Vector2( 128, 128 )
+
+[node name="D" type="Node2D" parent="Enemies/CrystalFormation/Positions" index="3"]
+position = Vector2( 0, 128 )
+
+[node name="CrystalFormation2" parent="Enemies" index="1" instance=ExtResource( 5 )]
+position = Vector2( -112, -64 )
+
+[node name="Positions" parent="Enemies/CrystalFormation2" index="11" instance=ExtResource( 3 )]
+
+[node name="A" type="Node2D" parent="Enemies/CrystalFormation2/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/CrystalFormation2/Positions" index="1"]
+position = Vector2( 0, 128 )
+
+[node name="CrystalFormation3" parent="Enemies" index="2" instance=ExtResource( 5 )]
+position = Vector2( 96, 64 )
+
+[node name="Positions" parent="Enemies/CrystalFormation3" index="11" instance=ExtResource( 3 )]
+
+[node name="A" type="Node2D" parent="Enemies/CrystalFormation3/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/CrystalFormation3/Positions" index="1"]
+position = Vector2( 0, -128 )
+
+[node name="CrystalFormation4" parent="Enemies" index="3" instance=ExtResource( 5 )]
+position = Vector2( -64, -104 )
+
+[node name="Positions" parent="Enemies/CrystalFormation4" index="11" instance=ExtResource( 3 )]
+
+[node name="A" type="Node2D" parent="Enemies/CrystalFormation4/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/CrystalFormation4/Positions" index="1"]
+position = Vector2( 128, 0 )
+
+[node name="CrystalFormation5" parent="Enemies" index="4" instance=ExtResource( 5 )]
+position = Vector2( 64, 104 )
+
+[node name="Positions" parent="Enemies/CrystalFormation5" index="11" instance=ExtResource( 3 )]
+
+[node name="A" type="Node2D" parent="Enemies/CrystalFormation5/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/CrystalFormation5/Positions" index="1"]
+position = Vector2( -128, 0 )
+
+[node name="CrystalFormation6" parent="Enemies" index="5" instance=ExtResource( 5 )]
+position = Vector2( 80, -80 )
+is_cycle = true
+
+[node name="Positions" parent="Enemies/CrystalFormation6" index="11" instance=ExtResource( 3 )]
+
+[node name="A" type="Node2D" parent="Enemies/CrystalFormation6/Positions" index="0"]
+
+[node name="B" type="Node2D" parent="Enemies/CrystalFormation6/Positions" index="1"]
+position = Vector2( 0, 160 )
+
+[node name="C" type="Node2D" parent="Enemies/CrystalFormation6/Positions" index="2"]
+position = Vector2( -168, 168 )
+
+[node name="D" type="Node2D" parent="Enemies/CrystalFormation6/Positions" index="3"]
+position = Vector2( -168, 0 )
+
+[node name="Terrain002" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( 0, 1 )
+
+[node name="MeterFullPickup" parent="." index="5" instance=ExtResource( 6 )]
+position = Vector2( 0, -32 )
+
+[node name="MeterFullPickup2" parent="." index="6" instance=ExtResource( 6 )]
+position = Vector2( 0, 32 )

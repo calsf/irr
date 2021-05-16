@@ -7,3 +7,6 @@
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
+
+[node name="Door" parent="." index="4"]
+scene_path = "res://levels/level2_gr/boss/Level2Boss.tscn"

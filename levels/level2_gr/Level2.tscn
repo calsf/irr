@@ -3,13 +3,15 @@
 [ext_resource path="res://levels/components/Level.tscn" type="PackedScene" id=1]
 
 [node name="Level2" instance=ExtResource( 1 )]
-target_longest_path = 2
+target_longest_path = 10
 start_room_path = "res://levels/level2_gr/StartRoom.tscn"
 end_room_path = "res://levels/level2_gr/EndRoom.tscn"
-low_rooms_path = [ "res://levels/level2_gr/StartRoom.tscn" ]
-med_rooms_path = [ null ]
-high_rooms_path = [ null ]
-low_num = 1
+low_rooms_path = [ "res://levels/level2_gr/low_threat/Room001.tscn", "res://levels/level2_gr/low_threat/Room002.tscn", "res://levels/level2_gr/low_threat/Room003.tscn", "res://levels/level2_gr/low_threat/Room004.tscn", "res://levels/level2_gr/low_threat/Room005.tscn", "res://levels/level2_gr/low_threat/Room006.tscn", "res://levels/level2_gr/low_threat/Room007.tscn", "res://levels/level2_gr/low_threat/Room008.tscn" ]
+med_rooms_path = [ "res://levels/level2_gr/med_threat/Room001.tscn", "res://levels/level2_gr/med_threat/Room002.tscn", "res://levels/level2_gr/med_threat/Room003.tscn", "res://levels/level2_gr/med_threat/Room004.tscn", "res://levels/level2_gr/med_threat/Room005.tscn", "res://levels/level2_gr/med_threat/Room006.tscn", "res://levels/level2_gr/med_threat/Room007.tscn", "res://levels/level2_gr/med_threat/Room008.tscn", "res://levels/level2_gr/med_threat/Room009.tscn", "res://levels/level2_gr/med_threat/Room010.tscn", "res://levels/level2_gr/med_threat/Room011.tscn", "res://levels/level2_gr/med_threat/Room012.tscn", "res://levels/level2_gr/med_threat/Room013.tscn", "res://levels/level2_gr/med_threat/Room014.tscn" ]
+high_rooms_path = [ "res://levels/level2_gr/high_threat/Room001.tscn", "res://levels/level2_gr/high_threat/Room002.tscn", "res://levels/level2_gr/high_threat/Room003.tscn", "res://levels/level2_gr/high_threat/Room004.tscn", "res://levels/level2_gr/high_threat/Room005.tscn", "res://levels/level2_gr/high_threat/Room006.tscn", "res://levels/level2_gr/high_threat/Room007.tscn", "res://levels/level2_gr/high_threat/Room008.tscn" ]
+low_num = 2
+med_num = 4
+high_num = 2
 
 [node name="Resume" parent="CanvasLayer/PauseMenu/Buttons" index="0"]
 margin_right = 128.0
