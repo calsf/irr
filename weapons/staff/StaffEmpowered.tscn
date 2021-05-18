@@ -1,14 +1,32 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://weapons/base_dmg_enemy/DamageEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/staff/staff.png" type="Texture" id=2]
-[ext_resource path="res://weapons/staff/staff_projectile.gd" type="Script" id=3]
+[ext_resource path="res://weapons/staff/staff_empowered.gd" type="Script" id=3]
 [ext_resource path="res://weapons/staff/staff_emp_props.tres" type="Resource" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.97383, 15.125 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "empowered"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
 [node name="StaffEmpowered" instance=ExtResource( 1 )]
+rotation = 3.14665
 script = ExtResource( 3 )
 _damage_props = ExtResource( 4 )
 
@@ -20,3 +38,7 @@ frame = 4
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -1.5 )
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "empowered"
+anims/empowered = SubResource( 2 )

@@ -160,6 +160,11 @@ _global_script_classes=[ {
 "path": "res://weapons/staff/staff.gd"
 }, {
 "base": "DamageEnemy",
+"class": "StaffEmpowered",
+"language": "GDScript",
+"path": "res://weapons/staff/staff_empowered.gd"
+}, {
+"base": "DamageEnemy",
 "class": "StaffProjectile",
 "language": "GDScript",
 "path": "res://weapons/staff/staff_projectile.gd"
@@ -230,6 +235,7 @@ _global_script_class_icons={
 "Shortbow": "",
 "SplitProjectile": "",
 "Staff": "",
+"StaffEmpowered": "",
 "StaffProjectile": "",
 "Sword": "",
 "TablePickup": "",
