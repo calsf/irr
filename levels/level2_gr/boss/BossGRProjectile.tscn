@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://enemies/base_dmg_player/DefaultProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level2_gr/boss/boss_gr_norm_proj_props.tres" type="Resource" id=2]
+
+[node name="BossGRProjectile" instance=ExtResource( 1 )]
+_damage_props = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+frame = 1

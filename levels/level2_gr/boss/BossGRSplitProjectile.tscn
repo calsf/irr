@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enemies/base_dmg_player/DefaultProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level2_gr/boss/split_projectile.gd" type="Script" id=2]
+[ext_resource path="res://levels/level2_gr/boss/boss_gr_norm_proj_props.tres" type="Resource" id=3]
+
+[node name="SplitProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+_damage_props = ExtResource( 3 )
+split_time = 1.0
+split_dir = [ Vector2( 1, 0 ), Vector2( -1, 0 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 1, 1 ), Vector2( -1, -1 ), Vector2( 1, -1 ), Vector2( -1, 1 ) ]
+proj_path = "res://levels/level2_gr/boss/BossGRProjectile.tscn"
+
+[node name="Sprite" parent="." index="0"]
+modulate = Color( 1, 0.670588, 0.615686, 1 )
+frame = 2
+
+[node name="Timer" type="Timer" parent="." index="4"]

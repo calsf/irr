@@ -149,6 +149,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://weapons/shortbow/shortbow.gd"
 }, {
+"base": "DamagePlayer",
+"class": "SplitProjectile",
+"language": "GDScript",
+"path": "res://levels/level2_gr/boss/split_projectile.gd"
+}, {
 "base": "Weapon",
 "class": "Staff",
 "language": "GDScript",
@@ -223,6 +228,7 @@ _global_script_class_icons={
 "PrincessInteractable": "",
 "Shield": "",
 "Shortbow": "",
+"SplitProjectile": "",
 "Staff": "",
 "StaffProjectile": "",
 "Sword": "",

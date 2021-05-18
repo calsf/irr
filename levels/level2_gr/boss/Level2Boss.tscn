@@ -6,6 +6,9 @@
 target_longest_path = 1
 start_room_path = "res://levels/level2_gr/boss/BossGRRoom.tscn"
 
+[node name="Player" parent="." index="1"]
+position = Vector2( 0, 96 )
+
 [node name="Resume" parent="CanvasLayer/PauseMenu/Buttons" index="0"]
 margin_right = 128.0
 
