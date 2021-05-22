@@ -132,7 +132,6 @@ _face_player = true
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 1 )
 hframes = 13
-frame = 9
 
 [node name="Attack" parent="Body" index="0"]
 script = ExtResource( 4 )

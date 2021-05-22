@@ -3,9 +3,11 @@
 [ext_resource path="res://levels/components/Level.tscn" type="PackedScene" id=1]
 
 [node name="Level3" instance=ExtResource( 1 )]
-target_longest_path = 1
+target_longest_path = 2
 start_room_path = "res://levels/level3_lu/StartRoom.tscn"
 end_room_path = "res://levels/level3_lu/EndRoom.tscn"
+low_rooms_path = [ "res://levels/level3_lu/StartRoom.tscn" ]
+low_num = 1
 
 [node name="Resume" parent="CanvasLayer/PauseMenu/Buttons" index="0"]
 margin_right = 128.0
