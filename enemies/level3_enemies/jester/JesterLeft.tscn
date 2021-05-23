@@ -6,24 +6,23 @@
 [ext_resource path="res://enemies/level3_enemies/jester/jester_left.png" type="Texture" id=4]
 [ext_resource path="res://enemies/level3_enemies/jester/jester_shadow.png" type="Texture" id=5]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
 height = 2.0
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 2.0
 height = 2.0
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 3.99999
 height = 6.00001
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 2.0
 height = 2.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "activate"
+[sub_resource type="Animation" id=5]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -52,8 +51,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
+[sub_resource type="Animation" id=6]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -68,8 +66,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "move"
+[sub_resource type="Animation" id=7]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -104,24 +101,24 @@ texture = ExtResource( 5 )
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0, -3 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -2 )
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 11 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="Pushbox" index="0"]
 position = Vector2( 0, -2 )
 rotation = 1.5708
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="AnimationPlayer" parent="." index="9"]
 autoplay = "idle"
-anims/activate = SubResource( 1 )
-anims/idle = SubResource( 2 )
-anims/move = SubResource( 3 )
+anims/activate = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/move = SubResource( 7 )

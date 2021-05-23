@@ -312,6 +312,7 @@ rotation = 1.5708
 shape = SubResource( 8 )
 
 [node name="HurtTimer" type="Timer" parent="PlayerHurtbox"]
+one_shot = true
 
 [node name="PlayerMiscbox" type="Area2D" parent="."]
 collision_layer = 128
@@ -375,6 +376,7 @@ __meta__ = {
 }
 
 [node name="HeartsTimer" type="Timer" parent="Overhead/Hearts"]
+one_shot = true
 
 [node name="MeterBar" type="Control" parent="Overhead"]
 margin_top = 12.0
@@ -413,6 +415,7 @@ __meta__ = {
 }
 
 [node name="MeterTimer" type="Timer" parent="Overhead/MeterBar"]
+one_shot = true
 
 [node name="Sounds" parent="." instance=ExtResource( 21 )]
 

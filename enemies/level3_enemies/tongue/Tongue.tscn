@@ -8,7 +8,7 @@
 [ext_resource path="res://enemies/base_enemy/move_to_points.gd" type="Script" id=6]
 [ext_resource path="res://enemies/level3_enemies/tongue/tongue_props.tres" type="Resource" id=7]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "attack"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -106,7 +106,7 @@ first_atk_delay = 1.5
 position = Vector2( 0, 7.75 )
 
 [node name="AttackAnimation" parent="Body/Attack" index="1"]
-anims/attack = SubResource( 6 )
+anims/attack = SubResource( 1 )
 
 [node name="Shadow" parent="." index="1"]
 position = Vector2( 0, -19 )

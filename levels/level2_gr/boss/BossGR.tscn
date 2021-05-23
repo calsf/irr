@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level2_gr/boss/boss_gr_body.png" type="Texture" id=2]
@@ -69,14 +69,18 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=3]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 5.0
 height = 12.0
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 6.99997
 height = 18.0001
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 3.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -117,7 +121,7 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -192,7 +196,9 @@ position = Vector2( 0, -30 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 0, -30 )
+position = Vector2( 0, -6 )
+rotation = 1.5708
+shape = SubResource( 3 )
 
 [node name="Hitbox" parent="." index="3"]
 position = Vector2( 0, -15 )
@@ -200,14 +206,14 @@ position = Vector2( 0, -15 )
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, 8 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Hurtbox" parent="." index="4"]
 position = Vector2( 0, -30 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 23 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Pushbox" parent="." index="5"]
 position = Vector2( 0, -15 )
@@ -221,7 +227,7 @@ margin_bottom = -50.0
 
 [node name="AnimationPlayer" parent="." index="9"]
 autoplay = "idle"
-anims/idle = SubResource( 5 )
-anims/move = SubResource( 6 )
+anims/idle = SubResource( 6 )
+anims/move = SubResource( 7 )
 
 [node name="MoveTimer" type="Timer" parent="." index="11"]
