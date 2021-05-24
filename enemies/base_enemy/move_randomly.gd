@@ -3,10 +3,10 @@ extends Enemy
 class_name MoveRandomly
 
 # How far from room origin bounds are
-const X_RIGHT = 244
-const X_LEFT = -244
-const Y_UP = -178
-const Y_DOWN = 188
+export var x_right : int
+export var x_left : int
+export var y_up : int
+export var y_down : int
 
 # Time in between finding new position to move to
 export var _move_time_min = 3
@@ -39,10 +39,10 @@ func _ready():
 	
 	# Set bounds based on rooms origin and get first position to move to
 	var origin = get_parent().get_owner().global_position
-	x_right_bound = origin.x + X_RIGHT
-	x_left_bound = origin.x + X_LEFT
-	y_up_bound = origin.y + Y_UP
-	y_down_bound = origin.y + Y_DOWN
+	x_right_bound = origin.x + x_right
+	x_left_bound = origin.x + x_left
+	y_up_bound = origin.y + y_up
+	y_down_bound = origin.y + y_down
 	_get_new_pos()
 	
 
