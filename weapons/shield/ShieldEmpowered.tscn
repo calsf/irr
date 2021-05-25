@@ -8,8 +8,8 @@
 [ext_resource path="res://sounds/components/play_global_sound.gd" type="Script" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 5.5
-height = 30.0
+radius = 7.99994
+height = 30.0001
 
 [sub_resource type="Animation" id=2]
 resource_name = "on_start"
@@ -179,7 +179,7 @@ _damage_props = ExtResource( 4 )
 position = Vector2( 0, -28 )
 texture = ExtResource( 2 )
 hframes = 8
-frame = 3
+frame = 4
 
 [node name="Shadow" type="Sprite" parent="." index="1"]
 position = Vector2( 0, -26 )
@@ -190,7 +190,7 @@ texture = ExtResource( 5 )
 position = Vector2( 0, -28 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 0, 27 )
+position = Vector2( 0, 25 )
 rotation = 1.5708
 shape = SubResource( 1 )
 

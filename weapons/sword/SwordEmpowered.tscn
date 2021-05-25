@@ -7,7 +7,7 @@
 [ext_resource path="res://sounds/components/play_global_sound.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 36.0
+radius = 38.0
 
 [sub_resource type="Animation" id=2]
 length = 0.45
@@ -40,6 +40,7 @@ tracks/1/keys = {
 }
 
 [node name="SwordEmpowered" instance=ExtResource( 1 )]
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 _damage_props = ExtResource( 3 )
 
@@ -47,7 +48,7 @@ _damage_props = ExtResource( 3 )
 z_index = 10
 texture = ExtResource( 4 )
 hframes = 7
-frame = 4
+frame = 6
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 1 )

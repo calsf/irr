@@ -26,7 +26,6 @@ tracks/0/keys = {
 }
 
 [node name="StaffEmpowered" instance=ExtResource( 1 )]
-rotation = 3.14665
 script = ExtResource( 3 )
 _damage_props = ExtResource( 4 )
 
