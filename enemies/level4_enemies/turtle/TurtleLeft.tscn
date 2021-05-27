@@ -1,0 +1,212 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://enemies/level4_enemies/turtle/turtle_left.png" type="Texture" id=1]
+[ext_resource path="res://enemies/level4_enemies/turtle/turtle_shadow.png" type="Texture" id=2]
+[ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/level4_enemies/turtle/turtle_props.tres" type="Resource" id=4]
+[ext_resource path="res://enemies/base_enemy/move_to_player.gd" type="Script" id=5]
+[ext_resource path="res://enemies/base_dmg_player/PermaProjectile.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 4.99996
+height = 20.0001
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 2.0
+height = 6.0
+
+[sub_resource type="Animation" id=5]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enter_move_state"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.6
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 4 ]
+}
+
+[node name="TurtleLeft" instance=ExtResource( 3 )]
+script = ExtResource( 5 )
+_enemy_props = ExtResource( 4 )
+_death_path = "res://enemies/level4_enemies/turtle/TurtleDeath.tscn"
+_left_path = "res://enemies/level4_enemies/turtle/turtle_left.png"
+_right_path = "res://enemies/level4_enemies/turtle/turtle_right.png"
+_face_player = true
+
+[node name="Body" parent="." index="0"]
+texture = ExtResource( 1 )
+hframes = 8
+
+[node name="Shadow" parent="." index="1"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( 0, -4 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 0, -5 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, 9 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D" parent="Pushbox" index="0"]
+position = Vector2( 0, -3 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" parent="." index="9"]
+autoplay = "idle"
+anims/activate = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/move = SubResource( 7 )
+
+[node name="Projectiles" type="YSort" parent="." index="11"]
+
+[node name="PermaProjectile" parent="Projectiles" index="0" instance=ExtResource( 6 )]
+position = Vector2( 0, 64 )
+
+[node name="PermaProjectile2" parent="Projectiles" index="1" instance=ExtResource( 6 )]
+position = Vector2( -17, 62 )
+
+[node name="PermaProjectile16" parent="Projectiles" index="2" instance=ExtResource( 6 )]
+position = Vector2( 17, 62 )
+
+[node name="PermaProjectile3" parent="Projectiles" index="3" instance=ExtResource( 6 )]
+position = Vector2( -34, 59 )
+
+[node name="PermaProjectile18" parent="Projectiles" index="4" instance=ExtResource( 6 )]
+position = Vector2( 34, 59 )
+
+[node name="PermaProjectile4" parent="Projectiles" index="5" instance=ExtResource( 6 )]
+position = Vector2( -50, 52 )
+
+[node name="PermaProjectile17" parent="Projectiles" index="6" instance=ExtResource( 6 )]
+position = Vector2( 50, 52 )
+
+[node name="PermaProjectile5" parent="Projectiles" index="7" instance=ExtResource( 6 )]
+position = Vector2( -63, 41 )
+
+[node name="PermaProjectile19" parent="Projectiles" index="8" instance=ExtResource( 6 )]
+position = Vector2( 63, 41 )
+
+[node name="PermaProjectile6" parent="Projectiles" index="9" instance=ExtResource( 6 )]
+position = Vector2( -74, 28 )
+
+[node name="PermaProjectile20" parent="Projectiles" index="10" instance=ExtResource( 6 )]
+position = Vector2( 74, 28 )
+
+[node name="PermaProjectile7" parent="Projectiles" index="11" instance=ExtResource( 6 )]
+position = Vector2( -82, 13 )
+
+[node name="PermaProjectile21" parent="Projectiles" index="12" instance=ExtResource( 6 )]
+position = Vector2( 82, 13 )
+
+[node name="PermaProjectile8" parent="Projectiles" index="13" instance=ExtResource( 6 )]
+position = Vector2( -84, -4 )
+
+[node name="PermaProjectile22" parent="Projectiles" index="14" instance=ExtResource( 6 )]
+position = Vector2( 84, -4 )
+
+[node name="PermaProjectile9" parent="Projectiles" index="15" instance=ExtResource( 6 )]
+position = Vector2( -83, -21 )
+
+[node name="PermaProjectile23" parent="Projectiles" index="16" instance=ExtResource( 6 )]
+position = Vector2( 83, -21 )
+
+[node name="PermaProjectile10" parent="Projectiles" index="17" instance=ExtResource( 6 )]
+position = Vector2( -74, -35 )
+
+[node name="PermaProjectile24" parent="Projectiles" index="18" instance=ExtResource( 6 )]
+position = Vector2( 74, -35 )
+
+[node name="PermaProjectile11" parent="Projectiles" index="19" instance=ExtResource( 6 )]
+position = Vector2( -63, -48 )
+
+[node name="PermaProjectile25" parent="Projectiles" index="20" instance=ExtResource( 6 )]
+position = Vector2( 63, -48 )
+
+[node name="PermaProjectile12" parent="Projectiles" index="21" instance=ExtResource( 6 )]
+position = Vector2( -50, -59 )
+
+[node name="PermaProjectile26" parent="Projectiles" index="22" instance=ExtResource( 6 )]
+position = Vector2( 50, -59 )
+
+[node name="PermaProjectile13" parent="Projectiles" index="23" instance=ExtResource( 6 )]
+position = Vector2( -34, -66 )
+
+[node name="PermaProjectile27" parent="Projectiles" index="24" instance=ExtResource( 6 )]
+position = Vector2( 34, -66 )
+
+[node name="PermaProjectile14" parent="Projectiles" index="25" instance=ExtResource( 6 )]
+position = Vector2( -17, -69 )
+
+[node name="PermaProjectile28" parent="Projectiles" index="26" instance=ExtResource( 6 )]
+position = Vector2( 17, -69 )
+
+[node name="PermaProjectile15" parent="Projectiles" index="27" instance=ExtResource( 6 )]
+position = Vector2( 0, -71 )

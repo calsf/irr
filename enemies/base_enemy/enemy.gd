@@ -133,6 +133,13 @@ func update_health(change):
 		get_tree().current_scene.add_child(death)
 		death.global_position = global_position
 		
+		# Check if has projectiles attached to self
+		# If so, call _on_hit to destroy projectiles before freeing this enemy
+		var projectiles = get_node_or_null("Projectiles")
+		if projectiles != null:
+			for p in projectiles.get_children():
+				p._on_hit(null)
+		
 		queue_free()
 
 # Create flash effect by swapping material on sprites

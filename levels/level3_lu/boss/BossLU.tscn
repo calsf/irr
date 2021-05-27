@@ -6,20 +6,19 @@
 [ext_resource path="res://levels/level3_lu/boss/boss_lu.gd" type="Script" id=4]
 [ext_resource path="res://levels/level3_lu/boss/boss_lu_props.tres" type="Resource" id=5]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 6.0
 height = 2.0
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 5.0
 height = 4.0
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 9.0
 height = 0.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
+[sub_resource type="Animation" id=4]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -48,8 +47,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "move"
+[sub_resource type="Animation" id=5]
 length = 2.4
 loop = true
 tracks/0/type = "value"
@@ -79,8 +77,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "move_alt"
+[sub_resource type="Animation" id=6]
 length = 1.1
 loop = true
 tracks/0/type = "value"
@@ -131,21 +128,21 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0, -7 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="Hitbox" parent="." index="3"]
 position = Vector2( 0, -8 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, 1 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Hurtbox" parent="." index="4"]
 position = Vector2( 0, -23 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 14 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="Pushbox" parent="." index="5"]
 position = Vector2( 0, -8 )
@@ -154,10 +151,13 @@ position = Vector2( 0, -8 )
 position = Vector2( 0, -8 )
 
 [node name="HealthDisplay" parent="." index="7"]
-margin_top = -46.0
-margin_bottom = -43.0
+margin_left = -32.0
+margin_top = -49.0
+margin_right = 0.0
+margin_bottom = -46.0
+rect_scale = Vector2( 2, 1 )
 
 [node name="AnimationPlayer" parent="." index="9"]
-anims/idle = SubResource( 1 )
-anims/move = SubResource( 2 )
-anims/move_alt = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/move = SubResource( 5 )
+anims/move_alt = SubResource( 6 )

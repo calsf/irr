@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enemies/base_dmg_player/DefaultProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/base_dmg_player/perma_projectile.gd" type="Script" id=2]
+[ext_resource path="res://enemies/base_dmg_player/stationary_proj_props.tres" type="Resource" id=3]
+
+[node name="PermaProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+_damage_props = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+frame = 2
+
+[node name="RespawnTimer" type="Timer" parent="." index="4"]
+one_shot = true

@@ -14,6 +14,7 @@ export var _move_time_max = 9
 export var _face_moving = false
 
 onready var _move_timer = $MoveTimer
+onready var _shadow_sprite = $Shadow
 
 # Movement bounds
 var x_right_bound = 0
@@ -54,10 +55,12 @@ func _physics_process(delta):
 					_body_sprite.texture = Texture_Left
 					if (_body_sprite.scale.x < 0):
 						_body_sprite.scale.x *= -1
+						_shadow_sprite.scale.x *= -1
 				else:
 					_body_sprite.texture = Texture_Right
 					if (_body_sprite.scale.x > 0):
 						_body_sprite.scale.x *= -1
+						_shadow_sprite.scale.x *= -1
 						
 	# If within range of target pos, find a new position
 	if is_move_state and global_position.distance_to(_curr_target_pos) < 20:

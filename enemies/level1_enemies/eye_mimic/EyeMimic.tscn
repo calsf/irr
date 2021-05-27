@@ -107,6 +107,7 @@ hframes = 2
 [node name="Attack" parent="Body" index="0"]
 texture = ExtResource( 3 )
 hframes = 5
+frame = 3
 script = ExtResource( 2 )
 proj_path = "res://enemies/level1_enemies/eye_mimic/EyeMimicProjectile.tscn"
 atk_rate = 2.0

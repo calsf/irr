@@ -43,8 +43,8 @@ _left_path = "res://enemies/level3_enemies/paper_bag/paper_bag_left.png"
 _right_path = "res://enemies/level3_enemies/paper_bag/paper_bag_right.png"
 x_right = 264
 x_left = -264
-y_up = 184
-y_down = -176
+y_up = -176
+y_down = 184
 _move_time_max = 8
 _face_moving = true
 

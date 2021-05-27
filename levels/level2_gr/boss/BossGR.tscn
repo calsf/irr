@@ -222,8 +222,11 @@ position = Vector2( 0, -15 )
 position = Vector2( 0, -15 )
 
 [node name="HealthDisplay" parent="." index="7"]
+margin_left = -32.0
 margin_top = -53.0
+margin_right = 0.0
 margin_bottom = -50.0
+rect_scale = Vector2( 2, 1 )
 
 [node name="AnimationPlayer" parent="." index="9"]
 autoplay = "idle"
