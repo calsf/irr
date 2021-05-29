@@ -26,6 +26,16 @@ func _on_hit(other):
 	
 	_deactivate()
 
+# Permanently destroy projectile
+func destroy():
+	# Create explo effect, effect's shadow inherits this projectile's shadow pos
+	var explo = Explo.instance()
+	get_tree().current_scene.add_child(explo)
+	explo.get_node("Shadow").position = shadow.position
+	explo.global_position = global_position
+	
+	queue_free()
+
 # Reactivates projectile
 func _reactivate():
 	_anim.play("startup")

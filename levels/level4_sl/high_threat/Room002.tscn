@@ -1,9 +1,69 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/level4_sl/room_sl_01.png" type="Texture" id=1]
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/level4_enemies/totem/Totem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/level4_sl/terrain/Terrain001.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/level4_sl/terrain/Terrain002.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/level4_enemies/snail/SnailRight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/level4_enemies/snail/SnailLeft.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/level4_enemies/turtle/TurtleLeft.tscn" type="PackedScene" id=8]
+[ext_resource path="res://walkover_pickups/meter_pickup/MeterPartialPickup.tscn" type="PackedScene" id=9]
 
 [node name="Room002" instance=ExtResource( 2 )]
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 1 )
+
+[node name="Totem" parent="Enemies" index="0" instance=ExtResource( 3 )]
+position = Vector2( -64, -24 )
+
+[node name="Totem2" parent="Enemies" index="1" instance=ExtResource( 3 )]
+position = Vector2( 48, 88 )
+
+[node name="Totem3" parent="Enemies" index="2" instance=ExtResource( 3 )]
+position = Vector2( 200, -120 )
+
+[node name="Totem4" parent="Enemies" index="3" instance=ExtResource( 3 )]
+position = Vector2( -192, 144 )
+
+[node name="Totem5" parent="Enemies" index="4" instance=ExtResource( 3 )]
+position = Vector2( -216, -120 )
+
+[node name="Totem6" parent="Enemies" index="5" instance=ExtResource( 3 )]
+position = Vector2( 216, 160 )
+
+[node name="Totem7" parent="Enemies" index="6" instance=ExtResource( 3 )]
+position = Vector2( 120, -48 )
+
+[node name="SnailLeft" parent="Enemies" index="7" instance=ExtResource( 7 )]
+position = Vector2( 40, -56 )
+
+[node name="SnailLeft2" parent="Enemies" index="8" instance=ExtResource( 7 )]
+position = Vector2( -136, 48 )
+
+[node name="SnailLeft3" parent="Enemies" index="9" instance=ExtResource( 7 )]
+position = Vector2( -120, 184 )
+
+[node name="SnailRight" parent="Enemies" index="10" instance=ExtResource( 6 )]
+position = Vector2( -168, -80 )
+
+[node name="SnailRight2" parent="Enemies" index="11" instance=ExtResource( 6 )]
+position = Vector2( 144, 96 )
+
+[node name="SnailRight3" parent="Enemies" index="12" instance=ExtResource( 6 )]
+position = Vector2( 88, -176 )
+
+[node name="TurtleLeft" parent="Enemies" index="13" instance=ExtResource( 8 )]
+
+[node name="Terrain001" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( -128, -72 )
+
+[node name="Terrain003" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( -72, 80 )
+
+[node name="Terrain002" parent="." index="6" instance=ExtResource( 5 )]
+position = Vector2( 104, 8 )
+
+[node name="MeterPartialPickup" parent="." index="7" instance=ExtResource( 9 )]
+position = Vector2( -32, 24 )

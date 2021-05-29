@@ -1,9 +1,115 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/level4_sl/room_sl_01.png" type="Texture" id=1]
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/level4_enemies/snail/SnailRight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/level4_enemies/snail/SnailLeft.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemies/level4_enemies/turtle/TurtleLeft.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/level4_enemies/turtle/TurtleRight.tscn" type="PackedScene" id=6]
 
 [node name="Room001" instance=ExtResource( 2 )]
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 1 )
+
+[node name="SnailRight" parent="Enemies" index="0" instance=ExtResource( 3 )]
+position = Vector2( -48, 88 )
+
+[node name="SnailRight2" parent="Enemies" index="1" instance=ExtResource( 3 )]
+position = Vector2( -24, 56 )
+
+[node name="SnailRight3" parent="Enemies" index="2" instance=ExtResource( 3 )]
+position = Vector2( -64, -80 )
+
+[node name="SnailRight4" parent="Enemies" index="3" instance=ExtResource( 3 )]
+position = Vector2( -128, 72 )
+
+[node name="SnailRight5" parent="Enemies" index="4" instance=ExtResource( 3 )]
+position = Vector2( -176, -64 )
+
+[node name="SnailRight6" parent="Enemies" index="5" instance=ExtResource( 3 )]
+position = Vector2( -112, -104 )
+
+[node name="SnailRight7" parent="Enemies" index="6" instance=ExtResource( 3 )]
+position = Vector2( 160, -64 )
+
+[node name="SnailRight8" parent="Enemies" index="7" instance=ExtResource( 3 )]
+position = Vector2( 208, 112 )
+
+[node name="SnailRight9" parent="Enemies" index="8" instance=ExtResource( 3 )]
+position = Vector2( 224, 168 )
+
+[node name="SnailRight10" parent="Enemies" index="9" instance=ExtResource( 3 )]
+position = Vector2( 128, 152 )
+
+[node name="SnailRight11" parent="Enemies" index="10" instance=ExtResource( 3 )]
+position = Vector2( 200, -128 )
+
+[node name="SnailRight12" parent="Enemies" index="11" instance=ExtResource( 3 )]
+position = Vector2( 120, -144 )
+
+[node name="SnailRight13" parent="Enemies" index="12" instance=ExtResource( 3 )]
+position = Vector2( -240, -72 )
+
+[node name="SnailRight14" parent="Enemies" index="13" instance=ExtResource( 3 )]
+position = Vector2( -168, 176 )
+
+[node name="SnailRight15" parent="Enemies" index="14" instance=ExtResource( 3 )]
+position = Vector2( 248, -80 )
+
+[node name="SnailRight16" parent="Enemies" index="15" instance=ExtResource( 3 )]
+position = Vector2( 176, -176 )
+
+[node name="SnailLeft" parent="Enemies" index="16" instance=ExtResource( 4 )]
+position = Vector2( 72, -96 )
+
+[node name="SnailLeft2" parent="Enemies" index="17" instance=ExtResource( 4 )]
+position = Vector2( -24, -56 )
+
+[node name="SnailLeft3" parent="Enemies" index="18" instance=ExtResource( 4 )]
+position = Vector2( 40, 8 )
+
+[node name="SnailLeft4" parent="Enemies" index="19" instance=ExtResource( 4 )]
+position = Vector2( -184, 104 )
+
+[node name="SnailLeft5" parent="Enemies" index="20" instance=ExtResource( 4 )]
+position = Vector2( 120, 32 )
+
+[node name="SnailLeft6" parent="Enemies" index="21" instance=ExtResource( 4 )]
+position = Vector2( 72, -48 )
+
+[node name="SnailLeft7" parent="Enemies" index="22" instance=ExtResource( 4 )]
+position = Vector2( 88, 96 )
+
+[node name="SnailLeft8" parent="Enemies" index="23" instance=ExtResource( 4 )]
+position = Vector2( -104, 152 )
+
+[node name="SnailLeft9" parent="Enemies" index="24" instance=ExtResource( 4 )]
+position = Vector2( -216, -136 )
+
+[node name="SnailLeft10" parent="Enemies" index="25" instance=ExtResource( 4 )]
+position = Vector2( -144, 16 )
+
+[node name="SnailLeft11" parent="Enemies" index="26" instance=ExtResource( 4 )]
+position = Vector2( -96, -16 )
+
+[node name="SnailLeft12" parent="Enemies" index="27" instance=ExtResource( 4 )]
+position = Vector2( 8, 120 )
+
+[node name="SnailLeft13" parent="Enemies" index="28" instance=ExtResource( 4 )]
+position = Vector2( 168, -8 )
+
+[node name="SnailLeft14" parent="Enemies" index="29" instance=ExtResource( 4 )]
+position = Vector2( -248, 168 )
+
+[node name="SnailLeft15" parent="Enemies" index="30" instance=ExtResource( 4 )]
+position = Vector2( -112, -168 )
+
+[node name="SnailLeft16" parent="Enemies" index="31" instance=ExtResource( 4 )]
+position = Vector2( 248, 72 )
+
+[node name="TurtleLeft" parent="Enemies" index="32" instance=ExtResource( 5 )]
+position = Vector2( -80, 40 )
+
+[node name="TurtleRight" parent="Enemies" index="33" instance=ExtResource( 6 )]
+position = Vector2( 80, -32 )
