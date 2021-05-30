@@ -1,8 +1,8 @@
 # LEVEL 4 BOSS BEHAVIOR
 # PHASE ONE:
-#
+# Continuously spawn temporary projectiles at player position, will predict ahead of player
 # PHASE TWO:
-#
+# Same as phase one but will also start shooting projectiles at player nonstop
 extends Enemy
 
 # Health or below to trigger phase two behavior
