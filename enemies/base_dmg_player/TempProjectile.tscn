@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://enemies/base_dmg_player/DefaultProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/base_dmg_player/temp_projectile.gd" type="Script" id=2]
+[ext_resource path="res://enemies/base_dmg_player/stationary_proj_props.tres" type="Resource" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "startup_alt"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="TempProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+_damage_props = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+visible = false
+frame = 2
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+disabled = true
+
+[node name="AnimationPlayer" parent="." index="3"]
+autoplay = "startup_alt"
+anims/startup_alt = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="." index="4"]
+one_shot = true

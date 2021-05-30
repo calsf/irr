@@ -1,3 +1,8 @@
+# LEVEL 3 BOSS BEHAVIOR
+# PHASE ONE:
+# Chase player while shooting projectiles in fixed direction
+# PHASE TWO:
+# Same as phase one but will move faster and shoot at a faster rate
 extends Enemy
 
 # Health or below to trigger phase two behavior

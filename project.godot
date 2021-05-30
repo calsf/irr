@@ -194,6 +194,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://weapons/base_pickup/table_pickup.gd"
 }, {
+"base": "DamagePlayer",
+"class": "TempProjectile",
+"language": "GDScript",
+"path": "res://enemies/base_dmg_player/temp_projectile.gd"
+}, {
 "base": "Weapon",
 "class": "Wand",
 "language": "GDScript",
@@ -257,6 +262,7 @@ _global_script_class_icons={
 "StaffProjectile": "",
 "Sword": "",
 "TablePickup": "",
+"TempProjectile": "",
 "Wand": "",
 "WarningSignInteractable": "",
 "Weapon": "",

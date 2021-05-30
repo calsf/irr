@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://enemies/base_dmg_player/TempProjectile.tscn" type="PackedScene" id=1]
+
+[node name="BossTempProjectile" instance=ExtResource( 1 )]
+time_alive = 20
