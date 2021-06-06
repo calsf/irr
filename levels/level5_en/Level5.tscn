@@ -6,8 +6,10 @@
 target_longest_path = 3
 start_room_path = "res://levels/level5_en/StartRoom.tscn"
 end_room_path = "res://levels/level5_en/EndRoom.tscn"
-low_rooms_path = [ "res://levels/level5_en/StartRoom.tscn" ]
-low_num = 1
+low_rooms_path = [ "res://levels/level5_en/low_threat/Room008.tscn" ]
+med_rooms_path = [ "res://levels/level5_en/med_threat/Room016.tscn" ]
+high_rooms_path = [ "res://levels/level5_en/high_threat/Room001.tscn" ]
+high_num = 1
 
 [node name="Resume" parent="CanvasLayer/PauseMenu/Buttons" index="0"]
 margin_right = 128.0

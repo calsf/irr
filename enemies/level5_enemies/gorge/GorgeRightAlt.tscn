@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://enemies/level1_enemies/gorge/GorgeRight.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/level5_enemies/gorge/gorge_right_alt.png" type="Texture" id=2]
+
+[node name="GorgeRightAlt" instance=ExtResource( 1 )]
+_left_path = "res://enemies/level5_enemies/gorge/gorge_left_alt.png"
+_right_path = "res://enemies/level5_enemies/gorge/gorge_right_alt.png"
+
+[node name="Body" parent="." index="0"]
+texture = ExtResource( 2 )
