@@ -1,9 +1,177 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/level5_en/room_en_01.png" type="Texture" id=1]
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://walkover_pickups/health_pickup/HealthPartialPickup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/level2_enemies/mimic_pickups/MimicHealthPickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://walkover_pickups/meter_pickup/MeterPartialPickup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/level2_enemies/chest_random/ChestRandom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/level2_enemies/mimic_pickups/MimicMeterPickup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/level5_enemies/snail/SnailLeftAlt.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/level5_enemies/snail/SnailRightAlt.tscn" type="PackedScene" id=9]
 
 [node name="Room011" instance=ExtResource( 2 )]
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 1 )
+
+[node name="MimicHealthPickup" parent="Enemies" index="0" instance=ExtResource( 4 )]
+position = Vector2( -232, -128 )
+
+[node name="MimicHealthPickup2" parent="Enemies" index="1" instance=ExtResource( 4 )]
+position = Vector2( -232, 112 )
+
+[node name="MimicHealthPickup3" parent="Enemies" index="2" instance=ExtResource( 4 )]
+position = Vector2( 208, 120 )
+
+[node name="MimicHealthPickup4" parent="Enemies" index="3" instance=ExtResource( 4 )]
+position = Vector2( 160, -16 )
+
+[node name="MimicHealthPickup5" parent="Enemies" index="4" instance=ExtResource( 4 )]
+position = Vector2( 40, -104 )
+
+[node name="MimicHealthPickup6" parent="Enemies" index="5" instance=ExtResource( 4 )]
+position = Vector2( -24, 112 )
+
+[node name="MimicHealthPickup7" parent="Enemies" index="6" instance=ExtResource( 4 )]
+position = Vector2( -160, -48 )
+
+[node name="MimicHealthPickup8" parent="Enemies" index="7" instance=ExtResource( 4 )]
+position = Vector2( 224, -112 )
+
+[node name="MimicMeterPickup" parent="Enemies" index="8" instance=ExtResource( 7 )]
+position = Vector2( -136, 8 )
+
+[node name="MimicMeterPickup2" parent="Enemies" index="9" instance=ExtResource( 7 )]
+position = Vector2( 128, -136 )
+
+[node name="MimicMeterPickup3" parent="Enemies" index="10" instance=ExtResource( 7 )]
+position = Vector2( 32, 48 )
+
+[node name="MimicMeterPickup4" parent="Enemies" index="11" instance=ExtResource( 7 )]
+position = Vector2( -56, 24 )
+
+[node name="MimicMeterPickup5" parent="Enemies" index="12" instance=ExtResource( 7 )]
+position = Vector2( -80, -128 )
+
+[node name="MimicMeterPickup6" parent="Enemies" index="13" instance=ExtResource( 7 )]
+position = Vector2( 120, 104 )
+
+[node name="MimicMeterPickup7" parent="Enemies" index="14" instance=ExtResource( 7 )]
+position = Vector2( -136, 136 )
+
+[node name="SnailLeftAlt" parent="Enemies" index="15" instance=ExtResource( 8 )]
+position = Vector2( 112, -40 )
+
+[node name="SnailLeftAlt2" parent="Enemies" index="16" instance=ExtResource( 8 )]
+position = Vector2( 48, -8 )
+
+[node name="SnailLeftAlt3" parent="Enemies" index="17" instance=ExtResource( 8 )]
+position = Vector2( 184, -88 )
+
+[node name="SnailLeftAlt4" parent="Enemies" index="18" instance=ExtResource( 8 )]
+position = Vector2( -96, 16 )
+
+[node name="SnailLeftAlt5" parent="Enemies" index="19" instance=ExtResource( 8 )]
+position = Vector2( -152, 80 )
+
+[node name="SnailLeftAlt6" parent="Enemies" index="20" instance=ExtResource( 8 )]
+position = Vector2( -80, 168 )
+
+[node name="SnailLeftAlt7" parent="Enemies" index="21" instance=ExtResource( 8 )]
+position = Vector2( -256, -80 )
+
+[node name="SnailLeftAlt8" parent="Enemies" index="22" instance=ExtResource( 8 )]
+position = Vector2( 232, 168 )
+
+[node name="SnailLeftAlt9" parent="Enemies" index="23" instance=ExtResource( 8 )]
+position = Vector2( -56, 64 )
+
+[node name="SnailLeftAlt10" parent="Enemies" index="24" instance=ExtResource( 8 )]
+position = Vector2( 80, -112 )
+
+[node name="SnailLeftAlt11" parent="Enemies" index="25" instance=ExtResource( 8 )]
+position = Vector2( -96, -176 )
+
+[node name="SnailLeftAlt12" parent="Enemies" index="26" instance=ExtResource( 8 )]
+position = Vector2( -256, 72 )
+
+[node name="SnailLeftAlt13" parent="Enemies" index="27" instance=ExtResource( 8 )]
+position = Vector2( 104, -176 )
+
+[node name="SnailLeftAlt14" parent="Enemies" index="28" instance=ExtResource( 8 )]
+position = Vector2( -96, -88 )
+
+[node name="SnailLeftAlt15" parent="Enemies" index="29" instance=ExtResource( 8 )]
+position = Vector2( 144, 16 )
+
+[node name="SnailLeftAlt16" parent="Enemies" index="30" instance=ExtResource( 8 )]
+position = Vector2( -208, -48 )
+
+[node name="SnailLeftAlt17" parent="Enemies" index="31" instance=ExtResource( 8 )]
+position = Vector2( 256, -176 )
+
+[node name="SnailRightAlt" parent="Enemies" index="32" instance=ExtResource( 9 )]
+position = Vector2( -16, -80 )
+
+[node name="SnailRightAlt2" parent="Enemies" index="33" instance=ExtResource( 9 )]
+position = Vector2( -112, -32 )
+
+[node name="SnailRightAlt3" parent="Enemies" index="34" instance=ExtResource( 9 )]
+position = Vector2( -144, -112 )
+
+[node name="SnailRightAlt4" parent="Enemies" index="35" instance=ExtResource( 9 )]
+position = Vector2( -216, -168 )
+
+[node name="SnailRightAlt5" parent="Enemies" index="36" instance=ExtResource( 9 )]
+position = Vector2( -168, 32 )
+
+[node name="SnailRightAlt6" parent="Enemies" index="37" instance=ExtResource( 9 )]
+position = Vector2( 104, 144 )
+
+[node name="SnailRightAlt7" parent="Enemies" index="38" instance=ExtResource( 9 )]
+position = Vector2( 40, 96 )
+
+[node name="SnailRightAlt8" parent="Enemies" index="39" instance=ExtResource( 9 )]
+position = Vector2( 192, 56 )
+
+[node name="SnailRightAlt9" parent="Enemies" index="40" instance=ExtResource( 9 )]
+position = Vector2( 200, -152 )
+
+[node name="SnailRightAlt10" parent="Enemies" index="41" instance=ExtResource( 9 )]
+position = Vector2( -224, 152 )
+
+[node name="SnailRightAlt11" parent="Enemies" index="42" instance=ExtResource( 9 )]
+position = Vector2( 96, 48 )
+
+[node name="SnailRightAlt12" parent="Enemies" index="43" instance=ExtResource( 9 )]
+position = Vector2( 256, -64 )
+
+[node name="SnailRightAlt13" parent="Enemies" index="44" instance=ExtResource( 9 )]
+position = Vector2( 160, 184 )
+
+[node name="SnailRightAlt14" parent="Enemies" index="45" instance=ExtResource( 9 )]
+position = Vector2( 256, 88 )
+
+[node name="SnailRightAlt15" parent="Enemies" index="46" instance=ExtResource( 9 )]
+position = Vector2( -176, 184 )
+
+[node name="SnailRightAlt16" parent="Enemies" index="47" instance=ExtResource( 9 )]
+position = Vector2( 0, 32 )
+
+[node name="SnailRightAlt17" parent="Enemies" index="48" instance=ExtResource( 9 )]
+position = Vector2( -256, 184 )
+
+[node name="MeterPartialPickup" parent="." index="4" instance=ExtResource( 5 )]
+position = Vector2( -56, -56 )
+
+[node name="MeterPartialPickup2" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( -96, 80 )
+
+[node name="MeterPartialPickup3" parent="." index="6" instance=ExtResource( 5 )]
+position = Vector2( 104, -72 )
+
+[node name="HealthPartialPickup" parent="." index="7" instance=ExtResource( 3 )]
+position = Vector2( 88, 16 )
+
+[node name="ChestRandom" parent="." index="8" instance=ExtResource( 6 )]

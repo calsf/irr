@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/level5_en/room_en_01.png" type="Texture" id=1]
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://enemies/level5_enemies/totem/TotemAlt.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemies/level5_enemies/pyramid/PyramidAlt.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemies/level5_enemies/burrow/BurrowAlt.tscn" type="PackedScene" id=6]
+[ext_resource path="res://walkover_pickups/health_pickup/HealthFullPickup.tscn" type="PackedScene" id=7]
 
 [node name="Room003" instance=ExtResource( 2 )]
 
@@ -47,3 +48,5 @@ position = Vector2( 0, -104 )
 
 [node name="Terrain004" parent="." index="7" instance=ExtResource( 3 )]
 position = Vector2( 0, 104 )
+
+[node name="HealthFullPickup" parent="." index="8" instance=ExtResource( 7 )]

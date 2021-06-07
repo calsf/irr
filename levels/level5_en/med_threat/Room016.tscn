@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/level5_en/room_en_01.png" type="Texture" id=1]
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://enemies/level5_enemies/foot/FootRightAlt.tscn" type="PackedScene" id=9]
 [ext_resource path="res://enemies/level5_enemies/turtle/TurtleLeftAlt.tscn" type="PackedScene" id=10]
 [ext_resource path="res://enemies/level5_enemies/pyramid/PyramidAlt.tscn" type="PackedScene" id=11]
+[ext_resource path="res://walkover_pickups/meter_pickup/MeterFullPickup.tscn" type="PackedScene" id=12]
 
 [node name="Room016" instance=ExtResource( 2 )]
 
@@ -48,3 +49,9 @@ position = Vector2( 184, -104 )
 position = Vector2( -184, -104 )
 
 [node name="PyramidAlt" parent="Enemies" index="10" instance=ExtResource( 11 )]
+
+[node name="MeterFullPickup" parent="." index="4" instance=ExtResource( 12 )]
+position = Vector2( 0, -104 )
+
+[node name="MeterFullPickup2" parent="." index="5" instance=ExtResource( 12 )]
+position = Vector2( 0, 104 )

@@ -13,10 +13,12 @@ func _ready():
 	_interact_label.visible = false
 
 func _show_label(_area):
-	_interact_label.visible = true
+	if _area.get_owner() != null and not _area.get_owner().is_in_group("enemies"):
+		_interact_label.visible = true
 
 func _hide_label(_area):
-	_interact_label.visible = false
+	if _area.get_owner() != null and not _area.get_owner().is_in_group("enemies"):
+		_interact_label.visible = false
 
 func interact():
 	pass

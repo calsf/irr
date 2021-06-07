@@ -9,3 +9,4 @@ _right_path = "res://enemies/level5_enemies/jester/jester_right_alt.png"
 
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 2 )
+frame = 2

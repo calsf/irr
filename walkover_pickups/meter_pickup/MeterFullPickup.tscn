@@ -44,7 +44,7 @@ restore_amount = 100
 sound_name = "MeterPickupFull"
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( 0, -20 )
+position = Vector2( 0, -12 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="PickupArea" index="0"]

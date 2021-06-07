@@ -37,21 +37,17 @@ position = Vector2( -56, -32 )
 position = Vector2( -16, 48 )
 
 [node name="PyramidAlt" parent="Enemies" index="7" instance=ExtResource( 9 )]
-position = Vector2( -152, -104 )
 
-[node name="PyramidAlt2" parent="Enemies" index="8" instance=ExtResource( 9 )]
-position = Vector2( 192, 136 )
-
-[node name="GorgeLeftAlt" parent="Enemies" index="9" instance=ExtResource( 5 )]
+[node name="GorgeLeftAlt" parent="Enemies" index="8" instance=ExtResource( 5 )]
 position = Vector2( -144, 128 )
 
-[node name="GorgeRightAlt" parent="Enemies" index="10" instance=ExtResource( 4 )]
+[node name="GorgeRightAlt" parent="Enemies" index="9" instance=ExtResource( 4 )]
 position = Vector2( -96, 128 )
 
-[node name="GorgeLeftAlt2" parent="Enemies" index="11" instance=ExtResource( 5 )]
+[node name="GorgeLeftAlt2" parent="Enemies" index="10" instance=ExtResource( 5 )]
 position = Vector2( 104, -88 )
 
-[node name="GorgeRightAlt2" parent="Enemies" index="12" instance=ExtResource( 4 )]
+[node name="GorgeRightAlt2" parent="Enemies" index="11" instance=ExtResource( 4 )]
 position = Vector2( 136, -88 )
 
 [node name="MeterFullPickup" parent="." index="4" instance=ExtResource( 3 )]
