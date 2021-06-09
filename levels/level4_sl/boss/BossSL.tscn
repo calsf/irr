@@ -25,19 +25,19 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 3.0
 height = 10.0
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 4.0
 height = 8.0
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 6.99998
 height = 10.0
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=5]
 length = 3.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -78,7 +78,7 @@ tracks/2/keys = {
 "values": [ 10 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=6]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -168,8 +168,8 @@ tracks/2/keys = {
 script = ExtResource( 4 )
 _enemy_props = ExtResource( 5 )
 _death_path = "res://levels/level4_sl/boss/BossSLDeath.tscn"
-proj_path_norm = "res://levels/level4_sl/boss/BossNormProjectile.tscn"
-proj_path_still = "res://levels/level4_sl/boss/BossTempProjectile.tscn"
+proj_path_norm = "res://levels/level4_sl/boss/BossSLNormProjectile.tscn"
+proj_path_still = "res://levels/level4_sl/boss/BossSLTempProjectile.tscn"
 x_ahead = 56
 y_ahead = 56
 norm_attack_rate = 0.75
@@ -198,7 +198,7 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0, -4 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Hitbox" parent="." index="3"]
 position = Vector2( 0, -4 )
@@ -206,14 +206,14 @@ position = Vector2( 0, -4 )
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -1 )
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Hurtbox" parent="." index="4"]
 position = Vector2( 0, -19 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 11 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="Pushbox" parent="." index="5"]
 position = Vector2( 0, -4 )
@@ -230,8 +230,8 @@ rect_scale = Vector2( 2, 1 )
 
 [node name="AnimationPlayer" parent="." index="9"]
 autoplay = "idle"
-anims/idle = SubResource( 2 )
-anims/move = SubResource( 3 )
+anims/idle = SubResource( 5 )
+anims/move = SubResource( 6 )
 anims/move_alt = SubResource( 7 )
 anims/phase_two_activate = SubResource( 8 )
 
