@@ -10,6 +10,7 @@ script = ExtResource( 1 )
 _damage_props = ExtResource( 4 )
 split_time = 1.25
 split_dir = [ Vector2( 1, 0 ), Vector2( -1, 0 ), Vector2( 0, 1 ), Vector2( 0, -1 ) ]
+proj_path = "res://levels/level5_en/boss/BossENNormProjectile.tscn"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )

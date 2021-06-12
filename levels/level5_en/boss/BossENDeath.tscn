@@ -68,7 +68,7 @@ tracks/3/keys = {
 
 [node name="Death" parent="." index="0"]
 texture = ExtResource( 4 )
-hframes = 29
+hframes = 34
 frame = 18
 
 [node name="Shadow" parent="." index="1"]

@@ -9,6 +9,9 @@ export var time_alive : int
 onready var shadow = $Shadow
 onready var timer = $Timer
 
+# Signal emitted before this projectile gets destroyed
+signal destroyed()
+
 # Start timer when projectile is created, will be destroyed after time_alive time
 func _ready():
 	timer.connect("timeout", self, "_on_hit", [null])
@@ -22,6 +25,7 @@ func _on_hit(other):
 	explo.get_node("Shadow").position = shadow.position
 	explo.global_position = global_position
 	
+	emit_signal("destroyed")
 	queue_free()
 
 # Transition from start up to loop animation

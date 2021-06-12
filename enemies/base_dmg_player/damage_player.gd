@@ -23,3 +23,7 @@ func _on_hit(other):
 
 func _move(delta):
 	position += (dir * (_speed * speed_multiplier)) * delta
+
+# Set speed
+func set_speed(new_speed):
+	_speed = new_speed
