@@ -14,9 +14,12 @@ proj_path = "res://levels/level5_en/boss/BossENNormProjectile.tscn"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
+frame = 3
 
 [node name="Shadow" parent="." index="1"]
 position = Vector2( 0, 5 )
 
 [node name="Hitbox" parent="." index="2"]
 position = Vector2( 0, -5 )
+
+[node name="Timer" type="Timer" parent="." index="4"]
