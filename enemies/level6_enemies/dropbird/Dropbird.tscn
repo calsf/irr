@@ -1,22 +1,25 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://enemies/level3_enemies/foot/foot_shadow.png" type="Texture" id=2]
-[ext_resource path="res://enemies/level3_enemies/foot/foot_left.png" type="Texture" id=3]
-[ext_resource path="res://enemies/base_enemy/jump_to_player.gd" type="Script" id=4]
-[ext_resource path="res://enemies/level3_enemies/foot/foot_props.tres" type="Resource" id=5]
+[ext_resource path="res://enemies/level6_enemies/dropbird/dropbird.png" type="Texture" id=2]
+[ext_resource path="res://enemies/base_enemy/jump_to_player.gd" type="Script" id=3]
+[ext_resource path="res://enemies/level6_enemies/dropbird/dropbird_props.tres" type="Resource" id=4]
+[ext_resource path="res://enemies/level6_enemies/dropbird/dropbird_shadow.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 3.0
+radius = 4.0
+height = 4.0
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 3.0
+radius = 5.0
+height = 6.0
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 3.99996
-height = 28.0001
+radius = 6.99999
+height = 4.00002
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
+resource_name = "disappear"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -52,7 +55,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.3, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -23 ), Vector2( 0, -23 ), Vector2( 0, -623 ), Vector2( 0, -623 ) ]
+"values": [ Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -623 ), Vector2( 0, -623 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Hitbox/CollisionShape2D:disabled")
@@ -96,7 +99,9 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 0.3
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -105,10 +110,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 0, 1, 2 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Shadow:visible")
@@ -129,10 +134,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -23 ), Vector2( 0, -23 ) ]
+"values": [ Vector2( 0, -15 ), Vector2( 0, -16 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Hitbox/CollisionShape2D:disabled")
@@ -160,7 +165,8 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-length = 0.7
+resource_name = "reappear"
+length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
 tracks/0/interp = 1
@@ -168,10 +174,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 0, 1, 2, 0, 1, 2, 0, 1, 2 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Shadow:visible")
@@ -192,10 +198,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -623 ), Vector2( 0, -23 ) ]
+"values": [ Vector2( 0, -623 ), Vector2( 0, -15 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Hurtbox/CollisionShape2D:disabled")
@@ -204,7 +210,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.7 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -216,7 +222,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.7 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -228,7 +234,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.7 ),
+"times": PoolRealArray( 0.6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -236,63 +242,42 @@ tracks/5/keys = {
 } ]
 }
 
-[node name="FootLeft" instance=ExtResource( 1 )]
-script = ExtResource( 4 )
-_enemy_props = ExtResource( 5 )
-_death_path = "res://enemies/level3_enemies/foot/FootDeath.tscn"
-jump_time_min = 1.5
-jump_time_max = 3.0
-x_ahead = 64
-y_ahead = 64
-x_left = -256
-x_right = 256
+[node name="Dropbird" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+_enemy_props = ExtResource( 4 )
+_death_path = "res://enemies/level6_enemies/dropbird/DropbirdDeath.tscn"
+jump_time_min = 2.0
+jump_time_max = 4.0
+x_ahead = 96
+y_ahead = 96
+x_left = -260
+x_right = 260
 y_down = 192
-y_up = -184
+y_up = -175
 
 [node name="Body" parent="." index="0"]
-position = Vector2( 0, -280.143 )
-texture = ExtResource( 3 )
-hframes = 5
-frame = 4
+texture = ExtResource( 2 )
+hframes = 9
+frame = 2
 
 [node name="Shadow" parent="." index="1"]
-position = Vector2( 0, -23 )
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0, -4 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="Hitbox" parent="." index="3"]
-position = Vector2( 0, -8 )
-
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 0, 4 )
+position = Vector2( 0, -5 )
 rotation = 1.5708
 shape = SubResource( 2 )
-disabled = true
-
-[node name="Hurtbox" parent="." index="4"]
-position = Vector2( 0, -23 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 0, 18 )
+position = Vector2( 0, 8 )
 shape = SubResource( 3 )
-disabled = true
-
-[node name="Pushbox" parent="." index="5"]
-position = Vector2( 0, -8 )
-
-[node name="Detectbox" parent="." index="6"]
-position = Vector2( 0, -8 )
-
-[node name="HealthDisplay" parent="." index="7"]
-margin_top = -36.0
-margin_bottom = -33.0
 
 [node name="AnimationPlayer" parent="." index="9"]
-autoplay = "idle"
-anims/disappear = SubResource( 4 )
-anims/idle = SubResource( 5 )
+anims/disappear = SubResource( 5 )
+anims/idle = SubResource( 4 )
 anims/reappear = SubResource( 6 )
