@@ -155,7 +155,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "move"
 length = 4.2
 loop = true
@@ -186,7 +186,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -225,7 +225,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -322,9 +322,9 @@ autoplay = "idle"
 anims/disappear = SubResource( 4 )
 anims/finish_absorb = SubResource( 5 )
 anims/idle = SubResource( 6 )
-anims/move = SubResource( 9 )
-anims/phase_one = SubResource( 7 )
-anims/reappear = SubResource( 8 )
+anims/move = SubResource( 7 )
+anims/phase_one = SubResource( 8 )
+anims/reappear = SubResource( 9 )
 
 [node name="AttackTimerAbsorb" type="Timer" parent="." index="11"]
 one_shot = true

@@ -6,20 +6,19 @@
 [ext_resource path="res://enemies/base_enemy/move_randomly.gd" type="Script" id=4]
 [ext_resource path="res://enemies/level4_enemies/snail/snail_props.tres" type="Resource" id=5]
 
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.0
+height = 8.0
+
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 3.0
 height = 8.0
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 3.0
-height = 8.0
-
-[sub_resource type="CapsuleShape2D" id=4]
 radius = 3.99998
 height = 14.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "move"
+[sub_resource type="Animation" id=4]
 length = 1.2
 loop = true
 step = 0.2
@@ -60,15 +59,15 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 2, -4 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 2, -4 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="HealthDisplay" parent="." index="7"]
 margin_top = -28.0
@@ -76,6 +75,7 @@ margin_bottom = -25.0
 
 [node name="AnimationPlayer" parent="." index="9"]
 autoplay = "move"
-anims/move = SubResource( 1 )
+anims/move = SubResource( 4 )
 
 [node name="MoveTimer" type="Timer" parent="." index="11"]
+one_shot = true

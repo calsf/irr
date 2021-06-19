@@ -77,3 +77,4 @@ autoplay = "move"
 anims/move = SubResource( 4 )
 
 [node name="MoveTimer" type="Timer" parent="." index="11"]
+one_shot = true

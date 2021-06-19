@@ -234,3 +234,4 @@ anims/idle = SubResource( 6 )
 anims/move = SubResource( 7 )
 
 [node name="MoveTimer" type="Timer" parent="." index="11"]
+one_shot = true

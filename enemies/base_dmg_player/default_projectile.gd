@@ -12,6 +12,11 @@ signal destroyed()
 
 # If hits with anything in layer mask, destroys this projectile
 func _on_hit(other):
+	# Don't destroy if hit another enemy (e.g like enemy_reflect)
+	if other != null and other.get_owner() != null \
+			and other.get_owner().is_in_group("enemies"):
+		return
+	
 	# Create explo effect, effect's shadow inherits this projectile's shadow pos
 	var explo = Explo.instance()
 	get_tree().current_scene.add_child(explo)

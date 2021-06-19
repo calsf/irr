@@ -27,3 +27,7 @@ func _move(delta):
 # Set speed
 func set_speed(new_speed):
 	_speed = new_speed
+
+# Get speed
+func get_speed():
+	return _speed
