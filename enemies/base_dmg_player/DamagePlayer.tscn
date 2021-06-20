@@ -14,3 +14,6 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

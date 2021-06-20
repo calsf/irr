@@ -6,7 +6,7 @@
 [ext_resource path="res://enemies/level6_enemies/mirror/enemy_reflect.gd" type="Script" id=4]
 [ext_resource path="res://enemies/level6_enemies/mirror/mirror_props.tres" type="Resource" id=5]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "attack"
 length = 0.2
 step = 0.05
@@ -34,8 +34,7 @@ height = 0.0
 [sub_resource type="CapsuleShape2D" id=4]
 height = 6.00001
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
@@ -61,7 +60,7 @@ texture = ExtResource( 3 )
 hframes = 4
 
 [node name="AttackAnimation" parent="Body/Attack" index="1"]
-anims/attack = SubResource( 5 )
+anims/attack = SubResource( 1 )
 
 [node name="Shadow" parent="." index="1"]
 position = Vector2( 0, -19 )
@@ -98,4 +97,4 @@ margin_bottom = -41.0
 
 [node name="AnimationPlayer" parent="." index="9"]
 autoplay = "idle"
-anims/idle = SubResource( 1 )
+anims/idle = SubResource( 5 )

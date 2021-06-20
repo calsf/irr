@@ -1,9 +1,67 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level6_pr/room_pr_01.png" type="Texture" id=2]
+[ext_resource path="res://enemies/level6_enemies/mirror/Mirror.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/level6_enemies/goat/Goat.tscn" type="PackedScene" id=4]
+[ext_resource path="res://walkover_pickups/meter_pickup/MeterFullPickup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/level6_enemies/dropbird/Dropbird.tscn" type="PackedScene" id=7]
 
 [node name="Room009" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
+
+[node name="Goat" parent="Enemies" index="0" instance=ExtResource( 4 )]
+position = Vector2( 96, 0 )
+
+[node name="Goat2" parent="Enemies" index="1" instance=ExtResource( 4 )]
+position = Vector2( -136, 64 )
+
+[node name="Goat3" parent="Enemies" index="2" instance=ExtResource( 4 )]
+position = Vector2( -64, -88 )
+
+[node name="Goat4" parent="Enemies" index="3" instance=ExtResource( 4 )]
+position = Vector2( 192, -128 )
+
+[node name="Goat5" parent="Enemies" index="4" instance=ExtResource( 4 )]
+position = Vector2( -224, 144 )
+
+[node name="Mirror2" parent="Enemies" index="5" instance=ExtResource( 3 )]
+position = Vector2( 32, -132 )
+
+[node name="Mirror8" parent="Enemies" index="6" instance=ExtResource( 3 )]
+position = Vector2( 108, -172 )
+
+[node name="Mirror4" parent="Enemies" index="7" instance=ExtResource( 3 )]
+position = Vector2( -124, 160 )
+
+[node name="Mirror5" parent="Enemies" index="8" instance=ExtResource( 3 )]
+position = Vector2( 160, 140 )
+
+[node name="Mirror6" parent="Enemies" index="9" instance=ExtResource( 3 )]
+position = Vector2( 16, 8 )
+
+[node name="Mirror7" parent="Enemies" index="10" instance=ExtResource( 3 )]
+position = Vector2( -68, -12 )
+
+[node name="Dropbird" parent="Enemies" index="11" instance=ExtResource( 7 )]
+position = Vector2( -52, 28 )
+
+[node name="Dropbird2" parent="Enemies" index="12" instance=ExtResource( 7 )]
+position = Vector2( -132, -76 )
+
+[node name="Dropbird3" parent="Enemies" index="13" instance=ExtResource( 7 )]
+position = Vector2( 140, -76 )
+
+[node name="Dropbird4" parent="Enemies" index="14" instance=ExtResource( 7 )]
+position = Vector2( 152, 104 )
+
+[node name="Dropbird5" parent="Enemies" index="15" instance=ExtResource( 7 )]
+position = Vector2( 20, 84 )
+
+[node name="MeterFullPickup" parent="." index="4" instance=ExtResource( 5 )]
+position = Vector2( -136, 112 )
+
+[node name="MeterFullPickup2" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( 96, -80 )
