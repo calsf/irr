@@ -1,9 +1,74 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level6_pr/room_pr_01.png" type="Texture" id=2]
+[ext_resource path="res://walkover_pickups/health_pickup/HealthPartialPickup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/level6_enemies/winged_ball/WingedBall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/level6_pr/terrain/Terrain001.tscn" type="PackedScene" id=6]
 
 [node name="Room003" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
+
+[node name="WingedBall" parent="Enemies" index="0" instance=ExtResource( 4 )]
+position = Vector2( -104, -32 )
+
+[node name="WingedBall2" parent="Enemies" index="1" instance=ExtResource( 4 )]
+position = Vector2( -200, 152 )
+
+[node name="WingedBall3" parent="Enemies" index="2" instance=ExtResource( 4 )]
+position = Vector2( -176, 64 )
+
+[node name="WingedBall4" parent="Enemies" index="3" instance=ExtResource( 4 )]
+position = Vector2( -88, 152 )
+
+[node name="WingedBall5" parent="Enemies" index="4" instance=ExtResource( 4 )]
+position = Vector2( -184, -96 )
+
+[node name="WingedBall6" parent="Enemies" index="5" instance=ExtResource( 4 )]
+position = Vector2( -232, -152 )
+
+[node name="WingedBall7" parent="Enemies" index="6" instance=ExtResource( 4 )]
+position = Vector2( -80, -136 )
+
+[node name="WingedBall8" parent="Enemies" index="7" instance=ExtResource( 4 )]
+position = Vector2( -64, -72 )
+
+[node name="WingedBall9" parent="Enemies" index="8" instance=ExtResource( 4 )]
+position = Vector2( 96, -104 )
+
+[node name="WingedBall10" parent="Enemies" index="9" instance=ExtResource( 4 )]
+position = Vector2( 160, -152 )
+
+[node name="WingedBall11" parent="Enemies" index="10" instance=ExtResource( 4 )]
+position = Vector2( 96, -24 )
+
+[node name="WingedBall12" parent="Enemies" index="11" instance=ExtResource( 4 )]
+position = Vector2( 200, -80 )
+
+[node name="WingedBall13" parent="Enemies" index="12" instance=ExtResource( 4 )]
+position = Vector2( 176, 56 )
+
+[node name="WingedBall14" parent="Enemies" index="13" instance=ExtResource( 4 )]
+position = Vector2( 80, 96 )
+
+[node name="WingedBall15" parent="Enemies" index="14" instance=ExtResource( 4 )]
+position = Vector2( -16, 80 )
+
+[node name="WingedBall16" parent="Enemies" index="15" instance=ExtResource( 4 )]
+position = Vector2( 192, 168 )
+
+[node name="WingedBall17" parent="Enemies" index="16" instance=ExtResource( 4 )]
+position = Vector2( 240, 96 )
+
+[node name="HealthPartialPickup" parent="." index="4" instance=ExtResource( 3 )]
+
+[node name="Terrain001" parent="." index="5" instance=ExtResource( 6 )]
+position = Vector2( 144, -80 )
+
+[node name="Terrain002" parent="." index="6" instance=ExtResource( 6 )]
+position = Vector2( -128, 104 )
+
+[node name="Terrain003" parent="." index="7" instance=ExtResource( 6 )]
+position = Vector2( 0, -32 )

@@ -1,9 +1,211 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level6_pr/room_pr_01.png" type="Texture" id=2]
+[ext_resource path="res://enemies/level6_enemies/mirror/Mirror.tscn" type="PackedScene" id=3]
+[ext_resource path="res://walkover_pickups/health_pickup/HealthPartialPickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemies/level6_enemies/bird/BirdLeft.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/level6_enemies/bird/BirdRight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/level6_enemies/winged_ball/WingedBall.tscn" type="PackedScene" id=7]
 
 [node name="Room010" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
+
+[node name="Mirror" parent="Enemies" index="0" instance=ExtResource( 3 )]
+position = Vector2( -256, -32 )
+
+[node name="Mirror2" parent="Enemies" index="1" instance=ExtResource( 3 )]
+position = Vector2( -232, -32 )
+
+[node name="Mirror3" parent="Enemies" index="2" instance=ExtResource( 3 )]
+position = Vector2( -208, -32 )
+
+[node name="Mirror10" parent="Enemies" index="3" instance=ExtResource( 3 )]
+position = Vector2( -256, 64 )
+
+[node name="Mirror11" parent="Enemies" index="4" instance=ExtResource( 3 )]
+position = Vector2( -232, 64 )
+
+[node name="Mirror12" parent="Enemies" index="5" instance=ExtResource( 3 )]
+position = Vector2( -208, 64 )
+
+[node name="Mirror4" parent="Enemies" index="6" instance=ExtResource( 3 )]
+position = Vector2( -192, -24 )
+
+[node name="Mirror5" parent="Enemies" index="7" instance=ExtResource( 3 )]
+position = Vector2( -184, -8 )
+
+[node name="Mirror6" parent="Enemies" index="8" instance=ExtResource( 3 )]
+position = Vector2( -176, 8 )
+
+[node name="Mirror7" parent="Enemies" index="9" instance=ExtResource( 3 )]
+position = Vector2( -168, 24 )
+
+[node name="Mirror8" parent="Enemies" index="10" instance=ExtResource( 3 )]
+position = Vector2( -176, 40 )
+
+[node name="Mirror9" parent="Enemies" index="11" instance=ExtResource( 3 )]
+position = Vector2( -192, 56 )
+
+[node name="Mirror13" parent="Enemies" index="12" instance=ExtResource( 3 )]
+position = Vector2( 208, -32 )
+
+[node name="Mirror14" parent="Enemies" index="13" instance=ExtResource( 3 )]
+position = Vector2( 232, -32 )
+
+[node name="Mirror15" parent="Enemies" index="14" instance=ExtResource( 3 )]
+position = Vector2( 256, -32 )
+
+[node name="Mirror16" parent="Enemies" index="15" instance=ExtResource( 3 )]
+position = Vector2( 208, 64 )
+
+[node name="Mirror17" parent="Enemies" index="16" instance=ExtResource( 3 )]
+position = Vector2( 232, 64 )
+
+[node name="Mirror18" parent="Enemies" index="17" instance=ExtResource( 3 )]
+position = Vector2( 256, 64 )
+
+[node name="Mirror19" parent="Enemies" index="18" instance=ExtResource( 3 )]
+position = Vector2( 192, -24 )
+
+[node name="Mirror20" parent="Enemies" index="19" instance=ExtResource( 3 )]
+position = Vector2( 184, -8 )
+
+[node name="Mirror21" parent="Enemies" index="20" instance=ExtResource( 3 )]
+position = Vector2( 176, 8 )
+
+[node name="Mirror22" parent="Enemies" index="21" instance=ExtResource( 3 )]
+position = Vector2( 168, 24 )
+
+[node name="Mirror23" parent="Enemies" index="22" instance=ExtResource( 3 )]
+position = Vector2( 176, 40 )
+
+[node name="Mirror24" parent="Enemies" index="23" instance=ExtResource( 3 )]
+position = Vector2( 192, 56 )
+
+[node name="Mirror25" parent="Enemies" index="24" instance=ExtResource( 3 )]
+position = Vector2( 88, -176 )
+
+[node name="Mirror26" parent="Enemies" index="25" instance=ExtResource( 3 )]
+position = Vector2( 80, -160 )
+
+[node name="Mirror27" parent="Enemies" index="26" instance=ExtResource( 3 )]
+position = Vector2( 72, -144 )
+
+[node name="Mirror28" parent="Enemies" index="27" instance=ExtResource( 3 )]
+position = Vector2( 64, -128 )
+
+[node name="Mirror29" parent="Enemies" index="28" instance=ExtResource( 3 )]
+position = Vector2( 60, -112 )
+
+[node name="Mirror30" parent="Enemies" index="29" instance=ExtResource( 3 )]
+position = Vector2( 36, -112 )
+
+[node name="Mirror31" parent="Enemies" index="30" instance=ExtResource( 3 )]
+position = Vector2( 12, -112 )
+
+[node name="Mirror32" parent="Enemies" index="31" instance=ExtResource( 3 )]
+position = Vector2( -12, -112 )
+
+[node name="Mirror33" parent="Enemies" index="32" instance=ExtResource( 3 )]
+position = Vector2( -36, -112 )
+
+[node name="Mirror34" parent="Enemies" index="33" instance=ExtResource( 3 )]
+position = Vector2( -60, -112 )
+
+[node name="Mirror35" parent="Enemies" index="34" instance=ExtResource( 3 )]
+position = Vector2( -64, -128 )
+
+[node name="Mirror36" parent="Enemies" index="35" instance=ExtResource( 3 )]
+position = Vector2( -72, -144 )
+
+[node name="Mirror37" parent="Enemies" index="36" instance=ExtResource( 3 )]
+position = Vector2( -80, -160 )
+
+[node name="Mirror38" parent="Enemies" index="37" instance=ExtResource( 3 )]
+position = Vector2( -88, -176 )
+
+[node name="Mirror39" parent="Enemies" index="38" instance=ExtResource( 3 )]
+position = Vector2( 60, 128 )
+
+[node name="Mirror40" parent="Enemies" index="39" instance=ExtResource( 3 )]
+position = Vector2( 64, 144 )
+
+[node name="Mirror41" parent="Enemies" index="40" instance=ExtResource( 3 )]
+position = Vector2( 72, 160 )
+
+[node name="Mirror42" parent="Enemies" index="41" instance=ExtResource( 3 )]
+position = Vector2( 80, 176 )
+
+[node name="Mirror43" parent="Enemies" index="42" instance=ExtResource( 3 )]
+position = Vector2( 88, 192 )
+
+[node name="Mirror44" parent="Enemies" index="43" instance=ExtResource( 3 )]
+position = Vector2( 36, 128 )
+
+[node name="Mirror45" parent="Enemies" index="44" instance=ExtResource( 3 )]
+position = Vector2( 12, 128 )
+
+[node name="Mirror46" parent="Enemies" index="45" instance=ExtResource( 3 )]
+position = Vector2( -12, 128 )
+
+[node name="Mirror47" parent="Enemies" index="46" instance=ExtResource( 3 )]
+position = Vector2( -36, 128 )
+
+[node name="Mirror48" parent="Enemies" index="47" instance=ExtResource( 3 )]
+position = Vector2( -88, 192 )
+
+[node name="Mirror49" parent="Enemies" index="48" instance=ExtResource( 3 )]
+position = Vector2( -80, 176 )
+
+[node name="Mirror50" parent="Enemies" index="49" instance=ExtResource( 3 )]
+position = Vector2( -72, 160 )
+
+[node name="Mirror51" parent="Enemies" index="50" instance=ExtResource( 3 )]
+position = Vector2( -64, 144 )
+
+[node name="Mirror52" parent="Enemies" index="51" instance=ExtResource( 3 )]
+position = Vector2( -60, 128 )
+
+[node name="WingedBall" parent="Enemies" index="52" instance=ExtResource( 7 )]
+position = Vector2( -88, -40 )
+
+[node name="WingedBall2" parent="Enemies" index="53" instance=ExtResource( 7 )]
+position = Vector2( -164, 136 )
+
+[node name="WingedBall3" parent="Enemies" index="54" instance=ExtResource( 7 )]
+position = Vector2( 100, -40 )
+
+[node name="WingedBall4" parent="Enemies" index="55" instance=ExtResource( 7 )]
+position = Vector2( 140, 104 )
+
+[node name="WingedBall5" parent="Enemies" index="56" instance=ExtResource( 7 )]
+position = Vector2( -184, -136 )
+
+[node name="BirdLeft" parent="Enemies" index="57" instance=ExtResource( 5 )]
+position = Vector2( -100, -128 )
+
+[node name="BirdLeft2" parent="Enemies" index="58" instance=ExtResource( 5 )]
+position = Vector2( -236, 88 )
+
+[node name="BirdLeft3" parent="Enemies" index="59" instance=ExtResource( 5 )]
+position = Vector2( -96, 160 )
+
+[node name="BirdLeft4" parent="Enemies" index="60" instance=ExtResource( 5 )]
+position = Vector2( 92, 96 )
+
+[node name="BirdRight" parent="Enemies" index="61" instance=ExtResource( 6 )]
+position = Vector2( 192, 88 )
+
+[node name="BirdRight2" parent="Enemies" index="62" instance=ExtResource( 6 )]
+position = Vector2( 92, -96 )
+
+[node name="BirdRight3" parent="Enemies" index="63" instance=ExtResource( 6 )]
+position = Vector2( 232, -72 )
+
+[node name="BirdRight4" parent="Enemies" index="64" instance=ExtResource( 6 )]
+position = Vector2( -248, -64 )
+
+[node name="HealthPartialPickup" parent="." index="4" instance=ExtResource( 4 )]
