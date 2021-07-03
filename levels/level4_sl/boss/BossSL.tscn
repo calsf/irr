@@ -179,6 +179,7 @@ alt_attack_rate = 0.1
 position = Vector2( 0, -19 )
 texture = ExtResource( 3 )
 hframes = 20
+frame = 1
 
 [node name="Attack" parent="Body" index="0"]
 texture = ExtResource( 6 )
