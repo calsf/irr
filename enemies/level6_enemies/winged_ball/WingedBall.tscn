@@ -8,7 +8,7 @@
 [ext_resource path="res://enemies/level6_enemies/winged_ball/winged_ball_props.tres" type="Resource" id=6]
 [ext_resource path="res://enemies/base_enemy/attack.gd" type="Script" id=7]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "attack"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -49,8 +49,7 @@ height = 6.0
 radius = 8.0
 height = 2.00001
 
-[sub_resource type="Animation" id=1]
-resource_name = "move"
+[sub_resource type="Animation" id=5]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -117,7 +116,7 @@ first_atk_delay = 1.0
 position = Vector2( 0, -1 )
 
 [node name="AttackAnimation" parent="Body/Attack" index="1"]
-anims/attack = SubResource( 5 )
+anims/attack = SubResource( 1 )
 
 [node name="Shadow" parent="." index="1"]
 texture = ExtResource( 4 )
@@ -140,7 +139,7 @@ margin_bottom = -33.0
 
 [node name="AnimationPlayer" parent="." index="9"]
 autoplay = "move"
-anims/move = SubResource( 1 )
+anims/move = SubResource( 5 )
 
 [node name="MoveTimer" type="Timer" parent="." index="11"]
 one_shot = true

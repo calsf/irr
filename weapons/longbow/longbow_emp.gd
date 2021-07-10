@@ -24,4 +24,9 @@ func _on_hit(other):
 			other.get_owner().update_health(-_damage)
 			
 			# Melees will apply knockback
-			other.get_owner().apply_knockback(initial_dir, _knockback)
+			# Since longbow emp is a circular motion, should always knock away from center
+			if (initial_dir.x > 0 and other.global_position.x < global_position.x) \
+					or (initial_dir.x < 0 and other.global_position.x > global_position.x):
+				other.get_owner().apply_knockback(initial_dir * Vector2(-1, 0), _knockback)
+			else:
+				other.get_owner().apply_knockback(initial_dir, _knockback)

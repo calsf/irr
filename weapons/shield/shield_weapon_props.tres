@@ -8,6 +8,6 @@ weapon_id = 9
 weapon_name = "Shield"
 normal_desc = "Quickly casts a lightning strike that deals damage at the target location. Cannot be cast on top of terrain."
 empow_desc = "Casts a lightning storm at the target location. The storm will periodically deal damage for the duration it is active. Cannot be cast on top of terrain and cannot be cast if there is not enough room for the lightning storm."
-empow_cost = 15
+empow_cost = 20
 icon_path = "res://weapons/weapon_icons/shield_ic.png"
 pickup_path = "res://weapons/shield/ShieldPickup.tscn"

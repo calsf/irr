@@ -61,13 +61,16 @@ func _ready():
 		Texture_Right = load(_right_path)
 	
 	# Owner should be the room this enemy belongs to
-	room_id = get_owner().room_id
+	if get_owner() != null:
+		room_id = get_owner().room_id
+	else:
+		room_id = -1
 	
 	# Get reference to player object
 	player_obj = get_tree().current_scene.get_node("Player")
 	
 	# Check aggro when player enters a room
-	player_obj.connect("entered_room", self, "_check_aggro")
+	player_obj.connect("entered_room", self, "check_aggro")
 
 func _physics_process(delta):
 	# Get push vector, is zero if nothing is overlapping
@@ -102,7 +105,7 @@ func apply_knockback(knockback_vector, knockback_strength):
 		knockback = knockback_vector.normalized() * curr_knockback_strength
 
 # Check for aggro onto player
-func _check_aggro(entered_room_id):
+func check_aggro(entered_room_id):
 	if not is_aggro and room_id == entered_room_id:
 		is_aggro = true
 		emit_signal("aggro_started")
@@ -177,3 +180,7 @@ func enter_move_state():
 func enter_stop_state():
 	_anim.stop()
 	is_move_state = false
+
+# Set this enemy room id
+func set_room_id(id):
+	room_id = id
