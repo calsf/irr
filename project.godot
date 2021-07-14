@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://weapons/arrow/arrow_emp.gd"
 }, {
+"base": "Enemy",
+"class": "Berserker",
+"language": "GDScript",
+"path": "res://enemies/level7_enemies/berserker/berserker.gd"
+}, {
 "base": "Weapon",
 "class": "Book",
 "language": "GDScript",
@@ -118,6 +123,11 @@ _global_script_classes=[ {
 "class": "FinalDoor",
 "language": "GDScript",
 "path": "res://levels/level_select/final_door.gd"
+}, {
+"base": "Enemy",
+"class": "FlamingSkull",
+"language": "GDScript",
+"path": "res://enemies/level7_enemies/flaming_skull/flaming_skull.gd"
 }, {
 "base": "Node2D",
 "class": "Interactable",
@@ -233,11 +243,17 @@ _global_script_classes=[ {
 "class": "WeaponProps",
 "language": "GDScript",
 "path": "res://weapons/base_weapon/weapon_props.gd"
+}, {
+"base": "Enemy",
+"class": "Zombie",
+"language": "GDScript",
+"path": "res://enemies/level7_enemies/zombie/zombie.gd"
 } ]
 _global_script_class_icons={
 "ActivateOnEnter": "",
 "Arrow": "",
 "ArrowEmp": "",
+"Berserker": "",
 "Book": "",
 "BookEmpowered": "",
 "Dagger": "",
@@ -257,6 +273,7 @@ _global_script_class_icons={
 "EnemyReflect": "",
 "ExitPortal": "",
 "FinalDoor": "",
+"FlamingSkull": "",
 "Interactable": "",
 "JumpToPlayer": "",
 "Longbow": "",
@@ -279,7 +296,8 @@ _global_script_class_icons={
 "WarningSignInteractable": "",
 "Weapon": "",
 "WeaponPickup": "",
-"WeaponProps": ""
+"WeaponProps": "",
+"Zombie": ""
 }
 
 [application]
