@@ -123,5 +123,5 @@ func update_atk_rate():
 	if _curr_hp < (_enemy_props.max_hp / 5):
 		return
 	
-	var health_multiplier = (float(_enemy_props.max_hp) / float(_curr_hp)) * 2
+	var health_multiplier = (float(_enemy_props.max_hp) / float(_curr_hp)) * 3
 	_attack_sprite.atk_rate = float(base_atk_rate) / health_multiplier

@@ -1,0 +1,273 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://levels/level7_wr/room_wr_01.png" type="Texture" id=1]
+[ext_resource path="res://levels/components/Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/level7_enemies/flaming_skull/FlamingSkullLeft.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/level7_enemies/flaming_skull/FlamingSkullRight.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemies/level7_enemies/pulsing_heart/PulsingHeart.tscn" type="PackedScene" id=5]
+[ext_resource path="res://walkover_pickups/health_pickup/HealthPartialPickup.tscn" type="PackedScene" id=6]
+
+[node name="Room004" instance=ExtResource( 2 )]
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 1 )
+
+[node name="PulsingHeart" parent="Enemies" index="0" instance=ExtResource( 5 )]
+position = Vector2( -264, -48 )
+
+[node name="PulsingHeart2" parent="Enemies" index="1" instance=ExtResource( 5 )]
+position = Vector2( -248, -48 )
+
+[node name="PulsingHeart3" parent="Enemies" index="2" instance=ExtResource( 5 )]
+position = Vector2( -232, -48 )
+
+[node name="PulsingHeart4" parent="Enemies" index="3" instance=ExtResource( 5 )]
+position = Vector2( -216, -48 )
+
+[node name="PulsingHeart5" parent="Enemies" index="4" instance=ExtResource( 5 )]
+position = Vector2( -200, -48 )
+
+[node name="PulsingHeart6" parent="Enemies" index="5" instance=ExtResource( 5 )]
+position = Vector2( -184, -48 )
+
+[node name="PulsingHeart7" parent="Enemies" index="6" instance=ExtResource( 5 )]
+position = Vector2( -264, 64 )
+
+[node name="PulsingHeart8" parent="Enemies" index="7" instance=ExtResource( 5 )]
+position = Vector2( -248, 64 )
+
+[node name="PulsingHeart9" parent="Enemies" index="8" instance=ExtResource( 5 )]
+position = Vector2( -232, 64 )
+
+[node name="PulsingHeart10" parent="Enemies" index="9" instance=ExtResource( 5 )]
+position = Vector2( -216, 64 )
+
+[node name="PulsingHeart11" parent="Enemies" index="10" instance=ExtResource( 5 )]
+position = Vector2( -200, 64 )
+
+[node name="PulsingHeart12" parent="Enemies" index="11" instance=ExtResource( 5 )]
+position = Vector2( -184, 64 )
+
+[node name="PulsingHeart20" parent="Enemies" index="12" instance=ExtResource( 5 )]
+position = Vector2( 184, -48 )
+
+[node name="PulsingHeart21" parent="Enemies" index="13" instance=ExtResource( 5 )]
+position = Vector2( 200, -48 )
+
+[node name="PulsingHeart22" parent="Enemies" index="14" instance=ExtResource( 5 )]
+position = Vector2( 216, -48 )
+
+[node name="PulsingHeart23" parent="Enemies" index="15" instance=ExtResource( 5 )]
+position = Vector2( 232, -48 )
+
+[node name="PulsingHeart24" parent="Enemies" index="16" instance=ExtResource( 5 )]
+position = Vector2( 248, -48 )
+
+[node name="PulsingHeart25" parent="Enemies" index="17" instance=ExtResource( 5 )]
+position = Vector2( 264, -48 )
+
+[node name="PulsingHeart26" parent="Enemies" index="18" instance=ExtResource( 5 )]
+position = Vector2( 184, 64 )
+
+[node name="PulsingHeart27" parent="Enemies" index="19" instance=ExtResource( 5 )]
+position = Vector2( 200, 64 )
+
+[node name="PulsingHeart28" parent="Enemies" index="20" instance=ExtResource( 5 )]
+position = Vector2( 216, 64 )
+
+[node name="PulsingHeart29" parent="Enemies" index="21" instance=ExtResource( 5 )]
+position = Vector2( 232, 64 )
+
+[node name="PulsingHeart30" parent="Enemies" index="22" instance=ExtResource( 5 )]
+position = Vector2( 248, 64 )
+
+[node name="PulsingHeart31" parent="Enemies" index="23" instance=ExtResource( 5 )]
+position = Vector2( 264, 64 )
+
+[node name="PulsingHeart13" parent="Enemies" index="24" instance=ExtResource( 5 )]
+position = Vector2( -168, -40 )
+
+[node name="PulsingHeart14" parent="Enemies" index="25" instance=ExtResource( 5 )]
+position = Vector2( -168, -24 )
+
+[node name="PulsingHeart15" parent="Enemies" index="26" instance=ExtResource( 5 )]
+position = Vector2( -168, -8 )
+
+[node name="PulsingHeart16" parent="Enemies" index="27" instance=ExtResource( 5 )]
+position = Vector2( -168, 8 )
+
+[node name="PulsingHeart17" parent="Enemies" index="28" instance=ExtResource( 5 )]
+position = Vector2( -168, 24 )
+
+[node name="PulsingHeart18" parent="Enemies" index="29" instance=ExtResource( 5 )]
+position = Vector2( -168, 40 )
+
+[node name="PulsingHeart19" parent="Enemies" index="30" instance=ExtResource( 5 )]
+position = Vector2( -168, 56 )
+
+[node name="PulsingHeart32" parent="Enemies" index="31" instance=ExtResource( 5 )]
+position = Vector2( 168, -40 )
+
+[node name="PulsingHeart33" parent="Enemies" index="32" instance=ExtResource( 5 )]
+position = Vector2( 168, -24 )
+
+[node name="PulsingHeart34" parent="Enemies" index="33" instance=ExtResource( 5 )]
+position = Vector2( 168, -8 )
+
+[node name="PulsingHeart35" parent="Enemies" index="34" instance=ExtResource( 5 )]
+position = Vector2( 168, 8 )
+
+[node name="PulsingHeart36" parent="Enemies" index="35" instance=ExtResource( 5 )]
+position = Vector2( 168, 24 )
+
+[node name="PulsingHeart37" parent="Enemies" index="36" instance=ExtResource( 5 )]
+position = Vector2( 168, 40 )
+
+[node name="PulsingHeart38" parent="Enemies" index="37" instance=ExtResource( 5 )]
+position = Vector2( 168, 56 )
+
+[node name="PulsingHeart39" parent="Enemies" index="38" instance=ExtResource( 5 )]
+position = Vector2( -72, -176 )
+
+[node name="PulsingHeart40" parent="Enemies" index="39" instance=ExtResource( 5 )]
+position = Vector2( -72, -160 )
+
+[node name="PulsingHeart41" parent="Enemies" index="40" instance=ExtResource( 5 )]
+position = Vector2( -72, -144 )
+
+[node name="PulsingHeart42" parent="Enemies" index="41" instance=ExtResource( 5 )]
+position = Vector2( -72, -128 )
+
+[node name="PulsingHeart43" parent="Enemies" index="42" instance=ExtResource( 5 )]
+position = Vector2( -72, -112 )
+
+[node name="PulsingHeart44" parent="Enemies" index="43" instance=ExtResource( 5 )]
+position = Vector2( -72, -96 )
+
+[node name="PulsingHeart53" parent="Enemies" index="44" instance=ExtResource( 5 )]
+position = Vector2( 72, -176 )
+
+[node name="PulsingHeart54" parent="Enemies" index="45" instance=ExtResource( 5 )]
+position = Vector2( 72, -160 )
+
+[node name="PulsingHeart55" parent="Enemies" index="46" instance=ExtResource( 5 )]
+position = Vector2( 72, -144 )
+
+[node name="PulsingHeart56" parent="Enemies" index="47" instance=ExtResource( 5 )]
+position = Vector2( 72, -128 )
+
+[node name="PulsingHeart57" parent="Enemies" index="48" instance=ExtResource( 5 )]
+position = Vector2( 72, -112 )
+
+[node name="PulsingHeart58" parent="Enemies" index="49" instance=ExtResource( 5 )]
+position = Vector2( 72, -96 )
+
+[node name="PulsingHeart45" parent="Enemies" index="50" instance=ExtResource( 5 )]
+position = Vector2( -56, -96 )
+
+[node name="PulsingHeart46" parent="Enemies" index="51" instance=ExtResource( 5 )]
+position = Vector2( -40, -96 )
+
+[node name="PulsingHeart47" parent="Enemies" index="52" instance=ExtResource( 5 )]
+position = Vector2( -24, -96 )
+
+[node name="PulsingHeart48" parent="Enemies" index="53" instance=ExtResource( 5 )]
+position = Vector2( -8, -96 )
+
+[node name="PulsingHeart49" parent="Enemies" index="54" instance=ExtResource( 5 )]
+position = Vector2( 8, -96 )
+
+[node name="PulsingHeart50" parent="Enemies" index="55" instance=ExtResource( 5 )]
+position = Vector2( 24, -96 )
+
+[node name="PulsingHeart51" parent="Enemies" index="56" instance=ExtResource( 5 )]
+position = Vector2( 40, -96 )
+
+[node name="PulsingHeart52" parent="Enemies" index="57" instance=ExtResource( 5 )]
+position = Vector2( 56, -96 )
+
+[node name="PulsingHeart59" parent="Enemies" index="58" instance=ExtResource( 5 )]
+position = Vector2( -72, 104 )
+
+[node name="PulsingHeart60" parent="Enemies" index="59" instance=ExtResource( 5 )]
+position = Vector2( -72, 120 )
+
+[node name="PulsingHeart61" parent="Enemies" index="60" instance=ExtResource( 5 )]
+position = Vector2( -72, 136 )
+
+[node name="PulsingHeart62" parent="Enemies" index="61" instance=ExtResource( 5 )]
+position = Vector2( -72, 152 )
+
+[node name="PulsingHeart63" parent="Enemies" index="62" instance=ExtResource( 5 )]
+position = Vector2( -72, 168 )
+
+[node name="PulsingHeart64" parent="Enemies" index="63" instance=ExtResource( 5 )]
+position = Vector2( -72, 184 )
+
+[node name="PulsingHeart65" parent="Enemies" index="64" instance=ExtResource( 5 )]
+position = Vector2( 72, 104 )
+
+[node name="PulsingHeart66" parent="Enemies" index="65" instance=ExtResource( 5 )]
+position = Vector2( 72, 120 )
+
+[node name="PulsingHeart67" parent="Enemies" index="66" instance=ExtResource( 5 )]
+position = Vector2( 72, 136 )
+
+[node name="PulsingHeart68" parent="Enemies" index="67" instance=ExtResource( 5 )]
+position = Vector2( 72, 152 )
+
+[node name="PulsingHeart69" parent="Enemies" index="68" instance=ExtResource( 5 )]
+position = Vector2( 72, 168 )
+
+[node name="PulsingHeart70" parent="Enemies" index="69" instance=ExtResource( 5 )]
+position = Vector2( 72, 184 )
+
+[node name="PulsingHeart71" parent="Enemies" index="70" instance=ExtResource( 5 )]
+position = Vector2( -56, 96 )
+
+[node name="PulsingHeart72" parent="Enemies" index="71" instance=ExtResource( 5 )]
+position = Vector2( -40, 96 )
+
+[node name="PulsingHeart73" parent="Enemies" index="72" instance=ExtResource( 5 )]
+position = Vector2( -24, 96 )
+
+[node name="PulsingHeart74" parent="Enemies" index="73" instance=ExtResource( 5 )]
+position = Vector2( -8, 96 )
+
+[node name="PulsingHeart75" parent="Enemies" index="74" instance=ExtResource( 5 )]
+position = Vector2( 8, 96 )
+
+[node name="PulsingHeart76" parent="Enemies" index="75" instance=ExtResource( 5 )]
+position = Vector2( 24, 96 )
+
+[node name="PulsingHeart77" parent="Enemies" index="76" instance=ExtResource( 5 )]
+position = Vector2( 40, 96 )
+
+[node name="PulsingHeart78" parent="Enemies" index="77" instance=ExtResource( 5 )]
+position = Vector2( 56, 96 )
+
+[node name="FlamingSkullLeft" parent="Enemies" index="78" instance=ExtResource( 3 )]
+position = Vector2( -32, 0 )
+
+[node name="FlamingSkullLeft2" parent="Enemies" index="79" instance=ExtResource( 3 )]
+position = Vector2( 0, -24 )
+
+[node name="FlamingSkullLeft4" parent="Enemies" index="80" instance=ExtResource( 3 )]
+position = Vector2( -128, 48 )
+
+[node name="FlamingSkullLeft3" parent="Enemies" index="81" instance=ExtResource( 3 )]
+position = Vector2( -64, -64 )
+
+[node name="FlamingSkullRight" parent="Enemies" index="82" instance=ExtResource( 4 )]
+position = Vector2( 32, 0 )
+
+[node name="FlamingSkullRight3" parent="Enemies" index="83" instance=ExtResource( 4 )]
+position = Vector2( 64, 48 )
+
+[node name="FlamingSkullRight4" parent="Enemies" index="84" instance=ExtResource( 4 )]
+position = Vector2( 128, -64 )
+
+[node name="FlamingSkullRight2" parent="Enemies" index="85" instance=ExtResource( 4 )]
+position = Vector2( 0, 32 )
+
+[node name="HealthPartialPickup" parent="." index="4" instance=ExtResource( 6 )]

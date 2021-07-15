@@ -128,18 +128,18 @@ margin_top = 21.0
 margin_right = 158.0
 margin_bottom = 21.0
 messages = [ "It's the Princess and...a monster? They're both weak!", "I have to finish off the monster and help the Princess!" ]
-img_path = "res://levels/level0/start_room/yoak_icon.png"
+img_path = "res://player/player_icon.png"
 speaker_name = "ADVENTURER"
 
 [node name="DialogBoxKilledPrincess" parent="EndRoomManager/DialogContainer" index="1" instance=ExtResource( 5 )]
 messages = [ "Haha! Are you blind? You killed the Princess!", "It's too late now. I'll be taking you down with me. Farewell adventurer!" ]
-img_path = "res://levels/level0/start_room/yoak_icon.png"
+img_path = "res://levels/level0/end_room/monster/monster_icon.png"
 speaker_name = "???"
 
 [node name="DialogBoxKilledMonster" parent="EndRoomManager/DialogContainer" index="2" instance=ExtResource( 5 )]
 script = ExtResource( 8 )
 messages = [ "Thank you adventurer, you saved me.", "I had locked up several evil monsters but they've grown too powerful recently. I won't be able to keep fighting them in my current state.", "Please help me eliminate them before it's too late!" ]
-img_path = "res://levels/level0/start_room/yoak_icon.png"
+img_path = "res://levels/level0/end_room/princess/princess_weak_icon.png"
 speaker_name = "Princess"
 
 [node name="DialogOptions" type="VBoxContainer" parent="EndRoomManager/DialogContainer/DialogBoxKilledMonster" index="12"]

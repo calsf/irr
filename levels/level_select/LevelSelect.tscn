@@ -163,7 +163,7 @@ margin_top = 347.0
 margin_right = 162.0
 margin_bottom = 347.0
 messages = [ "Sorry adventurer, but this one is too dangerous for you right now.", "I'll let you go once you've had more experience fighting the other monsters." ]
-img_path = "res://levels/dialog/dialog_arrow.png"
+img_path = "res://levels/level0/end_room/princess/princess_icon.png"
 speaker_name = "Princess"
 
 [node name="RecommendedLabel" type="Node2D" parent="Room/DoorManager"]
@@ -218,12 +218,12 @@ __meta__ = {
 
 [node name="DialogBoxTalk" parent="Room/CanvasLayer/DialogContainer" instance=ExtResource( 11 )]
 messages = [ "These doors will take you the dungeon where each monster is held. Good luck!" ]
-img_path = "res://levels/level0/start_room/yoak_icon.png"
+img_path = "res://levels/level0/end_room/princess/princess_icon.png"
 speaker_name = "PRINCESS"
 
 [node name="DialogBoxSign" parent="Room/CanvasLayer/DialogContainer" instance=ExtResource( 11 )]
 messages = [  ]
-img_path = "res://levels/level_select/death_count_sign.png"
+img_path = "res://levels/level_select/death_count_sign_icon.png"
 speaker_name = "SIGN"
 
 [node name="DeathCountSign" parent="Room" instance=ExtResource( 13 )]
