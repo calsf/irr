@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level7_wr/ending/baby.png" type="Texture" id=2]
+[ext_resource path="res://levels/level7_wr/ending/baby_shadow.png" type="Texture" id=3]
+[ext_resource path="res://enemies/base_enemy/enemy.gd" type="Script" id=4]
+[ext_resource path="res://levels/level7_wr/ending/baby_props.tres" type="Resource" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 1.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="Baby" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+_enemy_props = ExtResource( 5 )
+_death_path = "res://levels/level7_wr/ending/BabyDeath.tscn"
+
+[node name="Body" parent="." index="0"]
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="Shadow" parent="." index="1"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( 0, -2 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, 12 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="HealthDisplay" parent="." index="7"]
+margin_top = -24.0
+margin_bottom = -21.0
+
+[node name="AnimationPlayer" parent="." index="9"]
+autoplay = "idle"
+anims/idle = SubResource( 3 )
