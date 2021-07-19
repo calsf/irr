@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level7_wr/ending/final_boss/final_boss.png" type="Texture" id=2]
@@ -18,7 +18,37 @@ height = 2.0
 [sub_resource type="CapsuleShape2D" id=3]
 height = 2.0
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
+resource_name = "activate_phase_two"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 35, 36, 37, 38, 39 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_phase_two_idle"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
 resource_name = "attack_landing_final"
 step = 0.025
 tracks/0/type = "value"
@@ -69,7 +99,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "attack_landing_normal"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -107,7 +137,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 resource_name = "attack_middle"
 length = 4.5
 tracks/0/type = "value"
@@ -179,8 +209,7 @@ tracks/4/keys = {
 "values": [ Vector2( -11, -48 ), Vector2( -11, -47 ), Vector2( -11, -48 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "disappear"
+[sub_resource type="Animation" id=7]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -245,8 +274,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle"
+[sub_resource type="Animation" id=8]
 length = 3.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -323,8 +351,39 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "reappear"
+[sub_resource type="Animation" id=11]
+resource_name = "phase_two_idle"
+length = 0.6
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 39, 40, 41, 40, 39 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_attack_random"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -396,6 +455,7 @@ _death_path = "res://levels/level7_wr/ending/final_boss/BossFinalDeath.tscn"
 proj_path_split = "res://levels/level7_wr/ending/final_boss/BossFinalSplitProjectile.tscn"
 proj_path_norm = "res://levels/level7_wr/ending/final_boss/BossFinalNormProjectile.tscn"
 proj_path_temp = "res://levels/level7_wr/ending/final_boss/BossFinalTempProjectile.tscn"
+clone_path = "res://levels/level7_wr/ending/final_boss/BossFinalClone.tscn"
 
 [node name="ProjSprite" type="Sprite" parent="." index="0"]
 visible = false
@@ -409,7 +469,7 @@ frame = 2
 position = Vector2( 0, -27 )
 texture = ExtResource( 2 )
 hframes = 62
-frame = 18
+frame = 39
 
 [node name="Attack" parent="Body" index="0"]
 hframes = 4
@@ -454,9 +514,11 @@ rect_scale = Vector2( 2, 1 )
 
 [node name="AnimationPlayer" parent="." index="10"]
 autoplay = "idle"
-anims/attack_landing_final = SubResource( 9 )
-anims/attack_landing_normal = SubResource( 7 )
-anims/attack_middle = SubResource( 8 )
-anims/disappear = SubResource( 6 )
-anims/idle = SubResource( 4 )
-anims/reappear = SubResource( 5 )
+anims/activate_phase_two = SubResource( 10 )
+anims/attack_landing_final = SubResource( 4 )
+anims/attack_landing_normal = SubResource( 5 )
+anims/attack_middle = SubResource( 6 )
+anims/disappear = SubResource( 7 )
+anims/idle = SubResource( 8 )
+anims/phase_two_idle = SubResource( 11 )
+anims/reappear = SubResource( 9 )

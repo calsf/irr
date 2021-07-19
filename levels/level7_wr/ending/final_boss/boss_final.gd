@@ -1,7 +1,7 @@
 extends Enemy
 
 # Health or below to trigger phase two behavior
-const PHASE_TWO_THRESHOLD = 1000
+const PHASE_TWO_THRESHOLD = 2900
 
 # Movement bounds
 const X_RIGHT_BOUND = 260
@@ -24,12 +24,22 @@ const NUM_TEMP_PROJ = 20
 # Speed of a temp projectile
 const TEMP_PROJ_SPEED = 250
 
+const CLONE_POS = [
+	Vector2(160, -112),
+	Vector2(-160, -112),
+	Vector2(160, 112),
+	Vector2(-160, 112)
+]
+
 export var proj_path_split : String
 export var proj_path_norm : String
 export var proj_path_temp : String
 onready var SplitProj = load(proj_path_split)
 onready var NormProj = load(proj_path_norm)
 onready var TempProj = load(proj_path_temp)
+
+export var clone_path : String
+onready var Clone = load(clone_path)
 
 onready var _spawn_pos = $Body/Attack/SpawnPos
 
@@ -63,7 +73,8 @@ func _reappear():
 	
 	# Land in middle if finished landing attacks
 	# Else land predictively on/ahead of the player
-	if _landing_count >= LANDING_REPEAT:
+	if _landing_count >= LANDING_REPEAT or \
+		(not _phase_two_active and _curr_hp <= PHASE_TWO_THRESHOLD):
 			target_pos = Vector2.ZERO
 	else:
 		# Adjust appearance to 'predict' and appear ahead of player
@@ -93,6 +104,10 @@ func _reappear():
 
 # Start landing attack animation
 func _start_attack_landing():
+	if not _phase_two_active and _curr_hp <= PHASE_TWO_THRESHOLD:
+		_activate_phase_two()
+		return
+		
 	# Perform landing attack based on landing count
 	if _landing_count < LANDING_REPEAT:
 		# Perform attack landing based on number of jumps/landings so far
@@ -106,6 +121,7 @@ func _start_attack_landing():
 		_landing_count = 0
 		_anim.play("attack_middle")
 
+# Spawn temp projectiles at random locations
 func _attack_middle_start():
 	for i in NUM_TEMP_PROJ:
 		_random.randomize()
@@ -118,6 +134,7 @@ func _attack_middle_start():
 		obj.connect("destroyed", self, "_remove_projectile", [obj])
 		_active_projectiles.append(obj)
 
+# Have all active temp projectiles shoot at player
 func _attack_middle_finish():
 	for obj in _active_projectiles:
 		obj.set_speed(TEMP_PROJ_SPEED)
@@ -149,3 +166,29 @@ func _attack_landing_final():
 # Remove projectile from array of active projectiles once it gets destroyed
 func _remove_projectile(obj):
 	_active_projectiles.erase(obj)
+
+# Activate phase two and start animation
+func _activate_phase_two():
+	_phase_two_active = true
+	_anim.play("activate_phase_two")
+	
+	# Spawn clones
+	for pos in CLONE_POS:
+		var clone = Clone.instance()
+		get_tree().get_root().add_child(clone)
+		clone.global_position = pos
+
+# Play phase two idle anim
+func _phase_two_idle():
+	_anim.play("phase_two_idle")
+
+# Shoot projectile in random direction
+func _attack_random():
+	_random.randomize()
+	var x = _random.randf_range(-10, 10)
+	var y = _random.randf_range(-10, 10)
+	
+	var obj = NormProj.instance()
+	get_tree().get_root().add_child(obj)
+	obj.global_position = _spawn_pos.global_position
+	obj.dir = Vector2(x, y).normalized()
