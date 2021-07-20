@@ -14,6 +14,8 @@ var _levels = [
 	"level6_completed"
 ]
 
+var game_completed = "level7_completed"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Doors should be ordered from levels 1 to 7
@@ -34,14 +36,16 @@ func _ready():
 	else:
 		_recommended_door = _doors[6]
 	
-	# If level is completed, shut off player access to the door to level
-	for i in range(0, _levels.size()):
-		if _save_data[_levels[i]]:
-			_doors[i].get_node("InteractArea/CollisionShape2D").disabled = true
+	# If game not completed, don't allow re-entry to completed levels
+	if !_save_data[game_completed]:
+		# If level is completed, shut off player access to the door to level
+		for i in range(0, _levels.size()):
+			if _save_data[_levels[i]]:
+				_doors[i].get_node("InteractArea/CollisionShape2D").disabled = true
+		
+		# Only show recommended door when player has not completed game
+		_recommended.global_position = _recommended_door.global_position
+	else:	# Do not disable doors if game has been completed
+		# Also remove recommended if game completed
+		_recommended.queue_free()
 	
-	_recommended.global_position = _recommended_door.global_position
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

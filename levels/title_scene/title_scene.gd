@@ -36,6 +36,11 @@ func _on_continue():
 
 # Show warning prompt, disable options from being able to be clicked on
 func _on_new_game():
+	# Skip warning if no existing save to overwrite
+	if not SaveLoadManager.check_save():
+		_on_confirm()
+		return
+
 	_continue_btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_new_game_btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_warning_prompt.visible = true

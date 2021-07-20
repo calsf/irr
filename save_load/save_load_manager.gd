@@ -18,6 +18,7 @@ var _default_data = {
 	"level4_completed" : false,
 	"level5_completed" : false,
 	"level6_completed" : false,
+	"level7_completed" : false,
 	
 	# Equipped weapons id, should both be empty by default
 	"primary_weapon_id" : 0,

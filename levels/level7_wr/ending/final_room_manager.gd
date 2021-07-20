@@ -2,6 +2,8 @@ extends CanvasLayer
 
 const SPARE_TIME = 6
 
+const END_SPARED_SCENE_PATH = "res://levels/end_scenes/EndOnKill.tscn"
+
 export var boss_final_path : String
 onready var BossFinal = load(boss_final_path)
 
@@ -13,6 +15,7 @@ onready var _dialog_start = $DialogContainer/DialogBoxStart
 onready var _dialog_killed = $DialogContainer/DialogBoxKilledBaby
 onready var _dialog_spared = $DialogContainer/DialogBoxSpareBaby
 onready var _spare_timer = $SpareTimer
+onready var _fade = get_tree().current_scene.get_node("CanvasLayer/Fade")
 
 func _ready():
 	player = get_tree().current_scene.get_node("Player")
@@ -59,5 +62,5 @@ func _after_killed_dialog():
 	boss.global_position = Vector2.ZERO
 
 func _after_spared_dialog():
-	# TODO: go to end scene for spare scenario
-	pass
+	yield(get_tree().create_timer(2), "timeout")
+	_fade.go_to_scene(END_SPARED_SCENE_PATH)

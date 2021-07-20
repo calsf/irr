@@ -1,7 +1,7 @@
 extends Enemy
 
 # Health or below to trigger phase two behavior
-const PHASE_TWO_THRESHOLD = 2900
+const PHASE_TWO_THRESHOLD = 1750
 
 # Movement bounds
 const X_RIGHT_BOUND = 260
@@ -44,6 +44,7 @@ onready var Clone = load(clone_path)
 onready var _spawn_pos = $Body/Attack/SpawnPos
 
 var _active_projectiles = []
+var _active_clones = []
 var _phase_two_active = false
 var _random = RandomNumberGenerator.new()
 var _landing_count = 0
@@ -177,6 +178,7 @@ func _activate_phase_two():
 		var clone = Clone.instance()
 		get_tree().get_root().add_child(clone)
 		clone.global_position = pos
+		_active_clones.append(clone)
 
 # Play phase two idle anim
 func _phase_two_idle():
@@ -192,3 +194,40 @@ func _attack_random():
 	get_tree().get_root().add_child(obj)
 	obj.global_position = _spawn_pos.global_position
 	obj.dir = Vector2(x, y).normalized()
+
+# Override knockback to apply knockback in phase one, do not apply knockback in phase two
+func apply_knockback(knockback_vector, knockback_strength):
+	if _phase_two_active or _curr_hp <= PHASE_TWO_THRESHOLD:
+		return
+	
+	# Only applies knockback if it is greater knockback than enemy's curr knockback
+	if knockback_strength > curr_knockback_strength:
+		curr_knockback_strength = knockback_strength
+		knockback = knockback_vector.normalized() * curr_knockback_strength
+
+# Override update_health to remove clones on death
+func update_health(change):
+	_curr_hp += change
+	
+	# If change was negative, then enemy was damaged
+	if change < 0:
+		_damaged_flash()
+	
+	# Update health fill
+	_health_fill.rect_size.x += change / _health_ratio
+	
+	# Reset health display timer, shows health display for 3 secs after health update
+	_health_timer.start(DISPLAY_TIME)
+	_health_display.visible = true
+	
+	# If health reaches 0 or below, enemy is dead
+	if _curr_hp <= 0:
+		for clone in _active_clones:
+			clone.queue_free()
+		
+		# Instance death effect before removing enemy
+		var death = load(_death_path).instance()
+		get_tree().current_scene.add_child(death)
+		death.global_position = global_position
+		
+		queue_free()

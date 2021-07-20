@@ -115,11 +115,6 @@ _global_script_classes=[ {
 "path": "res://enemies/level6_enemies/mirror/enemy_reflect.gd"
 }, {
 "base": "Interactable",
-"class": "ExitPortal",
-"language": "GDScript",
-"path": "res://levels/components/exit_portal/exit_portal.gd"
-}, {
-"base": "Interactable",
 "class": "FinalDoor",
 "language": "GDScript",
 "path": "res://levels/level_select/final_door.gd"
@@ -133,6 +128,11 @@ _global_script_classes=[ {
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://levels/components/base_interactable/interactable.gd"
+}, {
+"base": "Interactable",
+"class": "InteractablePortal",
+"language": "GDScript",
+"path": "res://levels/components/interactable_portals/interactable_portal.gd"
 }, {
 "base": "Enemy",
 "class": "JumpToPlayer",
@@ -271,10 +271,10 @@ _global_script_class_icons={
 "Enemy": "",
 "EnemyProps": "",
 "EnemyReflect": "",
-"ExitPortal": "",
 "FinalDoor": "",
 "FlamingSkull": "",
 "Interactable": "",
+"InteractablePortal": "",
 "JumpToPlayer": "",
 "Longbow": "",
 "LongbowEmp": "",
