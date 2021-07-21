@@ -15,6 +15,8 @@ func _ready():
 	
 	PlayerHealth.connect("health_updated", self, "_show_hearts")
 	_hearts_timer.connect("timeout", self, "_hide_hearts")
+	
+	_set_heart_position()
 
 # Reset hearts timer whenever health gets updated
 func _show_hearts():
@@ -30,3 +32,17 @@ func _show_hearts():
 # Hide hearts after timer runs out
 func _hide_hearts():
 	self.visible = false
+
+# Set heart position based on difficulty/max hp
+func _set_heart_position():
+	var save_data = SaveLoadManager.load_data()
+	
+	if save_data["difficulty"] == SaveLoadManager.DIFFICULTY.EASY:
+		_curr_hearts.rect_position = Vector2(-13, -4)
+		_lost_hearts.rect_position = Vector2(-13, -4)
+	elif save_data["difficulty"] == SaveLoadManager.DIFFICULTY.NORMAL:
+		_curr_hearts.rect_position = Vector2(-1, -4)
+		_lost_hearts.rect_position = Vector2(-1, -4)
+	elif save_data["difficulty"] == SaveLoadManager.DIFFICULTY.HARD:
+		_curr_hearts.rect_position = Vector2(11, -4)
+		_lost_hearts.rect_position = Vector2(11, -4)

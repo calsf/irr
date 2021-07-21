@@ -235,7 +235,6 @@ script = ExtResource( 1 )
 position = Vector2( 0, -654 )
 texture = ExtResource( 2 )
 hframes = 16
-frame = 4
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 2, -14.5 )

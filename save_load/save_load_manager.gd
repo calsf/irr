@@ -3,6 +3,8 @@ extends Node
 
 const SAVE_PATH = "user://sav.json"
 
+enum DIFFICULTY {EASY, NORMAL, HARD}
+
 # Default data to be saved with new save file
 var _default_data = {
 	# Load level 0 by default, once finished, load level select
@@ -33,7 +35,8 @@ var _default_data = {
 	"sound_muted" : false,
 	"show_overhead" : true,
 	
-	"death_count" : 0
+	"death_count" : 0,
+	"difficulty" : DIFFICULTY.NORMAL
 }
 
 func save_data(data):
