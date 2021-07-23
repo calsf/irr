@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://levels/components/interactable_portals/ExitPortal.tscn" type="PackedScene" id=1]
+
+[node name="EndOnKillPortal" instance=ExtResource( 1 )]
+to_scene = "res://levels/end_scenes/EndOnKill.tscn"

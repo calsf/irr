@@ -2,6 +2,9 @@ extends Node
 
 const DELAY = 2	# Delay before showing death screen
 
+# Default empty to reload current scene
+export var _reload_scene = ""
+
 onready var _death_screen = get_tree().current_scene.get_node("CanvasLayer/DeathScreen")
 onready var _death_screen_anim = get_tree().current_scene.get_node("CanvasLayer/DeathScreen/AnimationPlayer")
 onready var _revive_btn = get_tree().current_scene.get_node("CanvasLayer/DeathScreen/ReviveButton")
@@ -27,4 +30,4 @@ func _revive():
 		reviving = true
 		PlayerHealth.revive()
 		PlayerMeter.reset()
-		_fade.go_to_scene("")	# Reload current scene
+		_fade.go_to_scene(_reload_scene)	# Reload current scene

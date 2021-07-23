@@ -5,7 +5,7 @@ const EXIT_POSITION = Vector2(0, -96)
 var chest_path = "res://levels/chest/WeaponChest.tscn"
 onready var ChestObject = load(chest_path)
 
-var exit_path = "res://levels/components/exit_portal/ExitPortal.tscn"
+export var exit_path = "res://levels/components/interactable_portals/ExitPortal.tscn"
 onready var ExitObject = load(exit_path)
 
 # Spawns chest object at position

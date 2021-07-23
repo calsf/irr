@@ -46,7 +46,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Dodge"
-length = 0.6
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -66,7 +66,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2, 0.6 ),
+"times": PoolRealArray( 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -235,7 +235,6 @@ script = ExtResource( 1 )
 position = Vector2( 0, -654 )
 texture = ExtResource( 2 )
 hframes = 16
-frame = 8
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 2, -14.5 )

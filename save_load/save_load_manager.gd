@@ -3,6 +3,8 @@ extends Node
 
 const SAVE_PATH = "user://sav.json"
 
+enum DIFFICULTY {EASY, NORMAL, HARD}
+
 # Default data to be saved with new save file
 var _default_data = {
 	# Load level 0 by default, once finished, load level select
@@ -18,6 +20,7 @@ var _default_data = {
 	"level4_completed" : false,
 	"level5_completed" : false,
 	"level6_completed" : false,
+	"level7_completed" : false,
 	
 	# Equipped weapons id, should both be empty by default
 	"primary_weapon_id" : 0,
@@ -32,7 +35,8 @@ var _default_data = {
 	"sound_muted" : false,
 	"show_overhead" : true,
 	
-	"death_count" : 0
+	"death_count" : 0,
+	"difficulty" : DIFFICULTY.NORMAL
 }
 
 func save_data(data):
