@@ -62,5 +62,10 @@ func _after_killed_dialog():
 	boss.global_position = Vector2.ZERO
 
 func _after_spared_dialog():
+	# Save as level completed
+	var save_data = SaveLoadManager.load_data()
+	save_data["level7_completed"] = true
+	SaveLoadManager.save_data(save_data)
+	
 	yield(get_tree().create_timer(2), "timeout")
 	_fade.go_to_scene(END_SPARED_SCENE_PATH)

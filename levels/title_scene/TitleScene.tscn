@@ -98,7 +98,7 @@ __meta__ = {
 
 [node name="Confirm" type="Button" parent="CanvasLayer/DifficultyPrompt/DifficultyConfirm"]
 margin_right = 62.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 text = "Confirm"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -107,7 +107,7 @@ __meta__ = {
 [node name="Cancel" type="Button" parent="CanvasLayer/DifficultyPrompt/DifficultyConfirm"]
 margin_left = 66.0
 margin_right = 120.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 text = "Cancel"
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 2 )]
