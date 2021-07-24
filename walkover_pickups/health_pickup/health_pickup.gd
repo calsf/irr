@@ -16,7 +16,10 @@ func _physics_process(delta):
 	
 	# Use health pickup if player overlapping and has lost health
 	if overlapping_areas and PlayerHealth.curr_hp < PlayerHealth.MAX_HP:
-		PlayerHealth.add_health(restore_amount)
+		if restore_amount > 1:
+			PlayerHealth.add_health(PlayerHealth.MAX_HP)
+		else:
+			PlayerHealth.add_health(restore_amount)
 		queue_free()
 		
 		GlobalSounds.play(sound_name)

@@ -19,6 +19,14 @@ func interact():
 		save_data[level_completed] = true
 		SaveLoadManager.save_data(save_data)
 	
+	# Re-parent camera to keep it at position if it is child of player
+	# Most cases camera is not child of player
+	if player_obj.has_node("Camera2D"):
+		var cam = player_obj.get_node("Camera2D")
+		player_obj.remove_child(cam)
+		get_tree().get_root().add_child(cam)
+		cam.set_owner(get_tree().get_root())
+	
 	player_obj.queue_free()
 	_fade.go_to_scene(to_scene)
 

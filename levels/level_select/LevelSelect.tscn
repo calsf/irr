@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level_select/PrincessInteractable.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://levels/level_select/recommended_arrow.png" type="Texture" id=17]
 [ext_resource path="res://player/player_hud/PlayerHUD.tscn" type="PackedScene" id=18]
 [ext_resource path="res://levels/components/menus/PauseMenu.tscn" type="PackedScene" id=19]
+[ext_resource path="res://levels/level_select/armory_room/ArmoryPortal.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 544, 24 )
@@ -227,7 +228,10 @@ img_path = "res://levels/level_select/death_count_sign_icon.png"
 speaker_name = "SIGN"
 
 [node name="DeathCountSign" parent="Room" instance=ExtResource( 13 )]
-position = Vector2( 0, 104 )
+position = Vector2( 32, 104 )
+
+[node name="ArmoryPortal" parent="Room" instance=ExtResource( 20 )]
+position = Vector2( -32, 104 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
