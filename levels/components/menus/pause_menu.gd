@@ -5,7 +5,10 @@ export var quit_to_scene : String
 
 onready var _resume_btn = $Buttons/Resume
 onready var _sound_btn = $Buttons/Sound
+onready var _help_btn = $Buttons/Help
 onready var _quit_btn = $Buttons/Quit
+onready var _help = $Help
+onready var _help_close_btn = $Help/Close
 onready var _fade = get_tree().current_scene.get_node("CanvasLayer/Fade")
 
 var player_obj = null
@@ -20,10 +23,14 @@ func _ready():
 	# Init as crosshair upon loading
 	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
 	
+	_help.visible = false
+	
 	pause_mode = Node.PAUSE_MODE_PROCESS	# This will never pause
 	_resume_btn.connect("pressed", self, "_resume")
 	_sound_btn.connect("pressed", self, "_toggle_sound")
+	_help_btn.connect("pressed", self, "_toggle_help")
 	_quit_btn.connect("pressed", self, "_quit")
+	_help_close_btn.connect("pressed", self, "_toggle_help")
 	
 	# Get reference to player object
 	player_obj = get_tree().current_scene.get_node("Player")
@@ -48,12 +55,16 @@ func _input(event):
 			get_tree().paused = true
 			visible = true
 			
+			_help.visible = false
+			
 			# Set cursor when paused
 			Input.set_custom_mouse_cursor(_cursor, 0, Vector2.ZERO)
 		elif menu_paused and get_tree().paused:
 			menu_paused = false
 			get_tree().paused = false
 			visible = false
+			
+			_help.visible = false
 			
 			# Set crosshair when unpaused, image hotspot should be middle of img
 			Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
@@ -83,6 +94,13 @@ func _toggle_sound():
 		_save_data["sound_muted"] = true
 		_sound_btn.text = "Sound: OFF"
 		SaveLoadManager.save_data(_save_data)
+
+# Toggle help screen on/off
+func _toggle_help():
+	if _help.visible:
+		_help.visible = false
+	else:
+		_help.visible = true
 
 # Go to scene as specified by the quit_to_scene path
 func _quit():

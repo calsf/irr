@@ -1,22 +1,67 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://levels/components/menus/pause_menu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/VT323-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://levels/components/menus/menu_btn_normal.tres" type="StyleBox" id=3]
 [ext_resource path="res://levels/components/menus/menu_btn_hover.tres" type="StyleBox" id=4]
+[ext_resource path="res://fonts/VT323-Regular_8.tres" type="DynamicFontData" id=5]
+[ext_resource path="res://levels/components/menus/mouse.png" type="Texture" id=6]
+[ext_resource path="res://levels/components/menus/space.png" type="Texture" id=7]
+[ext_resource path="res://levels/components/menus/shift.png" type="Texture" id=8]
+[ext_resource path="res://player/player_hud/meter_bg.png" type="Texture" id=9]
+[ext_resource path="res://player/player_hud/meter_fill.png" type="Texture" id=10]
+[ext_resource path="res://levels/components/menus/wasd.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 10
+extra_spacing_char = 1
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 10
+extra_spacing_char = 2
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 8
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 8
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 8
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 10
+font_data = ExtResource( 5 )
 
 [node name="PauseMenu" type="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_left = -320.0
+margin_top = -240.0
+margin_right = 320.0
+margin_bottom = 240.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -64,6 +109,7 @@ custom_styles/focus = ExtResource( 3 )
 custom_styles/disabled = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
+shortcut_in_tooltip = false
 enabled_focus_mode = 0
 text = "Resume"
 __meta__ = {
@@ -82,13 +128,14 @@ custom_styles/focus = ExtResource( 3 )
 custom_styles/disabled = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
+shortcut_in_tooltip = false
 enabled_focus_mode = 0
 text = "Sound: ON"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="Button" parent="Buttons"]
+[node name="Help" type="Button" parent="Buttons"]
 margin_top = 64.0
 margin_right = 128.0
 margin_bottom = 88.0
@@ -100,8 +147,288 @@ custom_styles/focus = ExtResource( 3 )
 custom_styles/disabled = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "Help"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="Buttons"]
+margin_top = 96.0
+margin_right = 128.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 128, 24 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+shortcut_in_tooltip = false
 enabled_focus_mode = 0
 text = "Quit Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -210.0
+margin_top = -160.0
+margin_right = 210.0
+margin_bottom = 160.0
+color = Color( 0.72549, 0.776471, 0.901961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpColor" type="ColorRect" parent="Help"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -208.0
+margin_top = -158.0
+margin_right = 208.0
+margin_bottom = 158.0
+color = Color( 0.227451, 0.290196, 0.360784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 16.0
+margin_right = -3.99997
+margin_bottom = -279.0
+custom_fonts/font = SubResource( 2 )
+text = "PROFESSOR YOAK'S HELP NOTES"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpNotes" type="Label" parent="Help"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = -99.0
+margin_right = 201.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 3 )
+text = "Move with WASD
+
+You can dodge in the direction you are moving by pressing SHIFT.
+
+You can carry two weapons that you can switch between by pressing SPACE.
+
+All weapons have a NORMAL ATTACK that can be used by pressing LEFT CLICK. Weapons also have an EMPOWERED ATTACK that can be used by pressing RIGHT CLICK, but these attacks will cost METER.
+
+To build METER, all you have to do is hit enemies with your NORMAL ATTACK."
+valign = 1
+autowrap = true
+
+[node name="Shift" type="TextureRect" parent="Help"]
+margin_left = 18.0
+margin_top = 91.0
+margin_right = 66.0
+margin_bottom = 115.0
+texture = ExtResource( 8 )
+
+[node name="Shift" type="Label" parent="Help/Shift"]
+margin_left = 12.0
+margin_top = 7.0
+margin_right = 36.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 4 )
+text = "SHIFT"
+
+[node name="ShiftAction" type="Label" parent="Help/Shift"]
+margin_left = 11.0
+margin_top = -2.0
+margin_right = 37.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 5 )
+text = "Dodge"
+align = 1
+
+[node name="Space" type="TextureRect" parent="Help"]
+margin_left = 18.0
+margin_top = 130.0
+margin_right = 66.0
+margin_bottom = 154.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="Label" parent="Help/Space"]
+margin_left = 10.0
+margin_top = 7.0
+margin_right = 38.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 6 )
+text = "SPACE"
+
+[node name="SpaceAction" type="Label" parent="Help/Space"]
+margin_left = 3.0
+margin_top = -2.0
+margin_right = 45.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 7 )
+text = "Switch Weapons"
+align = 1
+
+[node name="Mouse" type="TextureRect" parent="Help"]
+margin_left = 27.0
+margin_top = 186.0
+margin_right = 59.0
+margin_bottom = 218.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="L" type="Label" parent="Help/Mouse"]
+margin_left = 8.0
+margin_top = 2.0
+margin_right = 12.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 8 )
+text = "L"
+
+[node name="LAction" type="Label" parent="Help/Mouse"]
+margin_left = -12.0
+margin_top = -17.0
+margin_right = 12.0
+margin_bottom = 6.0
+custom_fonts/font = SubResource( 8 )
+text = "Normal
+Attack"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="R" type="Label" parent="Help/Mouse"]
+margin_left = 21.0
+margin_top = 2.0
+margin_right = 25.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 8 )
+text = "R"
+
+[node name="RAction" type="Label" parent="Help/Mouse"]
+margin_left = 18.0
+margin_top = -17.0
+margin_right = 45.0
+margin_bottom = 6.0
+custom_fonts/font = SubResource( 8 )
+text = "Empowered
+Attack"
+align = 1
+
+[node name="MeterLabel" type="Label" parent="Help"]
+margin_left = 35.0
+margin_top = 226.0
+margin_right = 51.0
+margin_bottom = 235.0
+custom_fonts/font = SubResource( 9 )
+text = "Meter"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Meter" type="TextureRect" parent="Help"]
+margin_left = 38.5
+margin_top = 260.0
+margin_right = 86.5
+margin_bottom = 276.0
+rect_rotation = -90.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="MeterFill" type="TextureRect" parent="Help/Meter"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 30.0
+margin_bottom = 15.0
+texture = ExtResource( 10 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WASD" type="TextureRect" parent="Help"]
+margin_left = 16.0
+margin_top = 43.0
+margin_right = 68.0
+margin_bottom = 83.0
+texture = ExtResource( 11 )
+
+[node name="W" type="Label" parent="Help/WASD"]
+margin_left = 24.0
+margin_top = 6.0
+margin_right = 29.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 10 )
+text = "W"
+
+[node name="A" type="Label" parent="Help/WASD"]
+margin_left = 11.0
+margin_top = 18.0
+margin_right = 16.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 10 )
+text = "A"
+
+[node name="S" type="Label" parent="Help/WASD"]
+margin_left = 24.0
+margin_top = 18.0
+margin_right = 29.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 10 )
+text = "S"
+
+[node name="D" type="Label" parent="Help/WASD"]
+margin_left = 37.0
+margin_top = 18.0
+margin_right = 42.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 10 )
+text = "D"
+
+[node name="Close" type="Button" parent="Help"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = -40.0
+margin_right = 64.0
+margin_bottom = -16.0
+rect_min_size = Vector2( 128, 24 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "Close"
 __meta__ = {
 "_edit_use_anchors_": false
 }
