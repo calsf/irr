@@ -1,113 +1,453 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://levels/title_scene/title_scene.gd" type="Script" id=1]
 [ext_resource path="res://levels/components/Fade.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/title_scene/title.png" type="Texture" id=3]
+[ext_resource path="res://fonts/VT323-Regular_8.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://player/player_hud/overhead_heart_on.png" type="Texture" id=5]
+[ext_resource path="res://levels/title_scene/difficulty_button_selected.tres" type="StyleBox" id=6]
+[ext_resource path="res://levels/title_scene/difficulty_button_unselected.tres" type="StyleBox" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 2
+outline_color = Color( 0.494118, 0.494118, 0.54902, 1 )
+extra_spacing_char = 4
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_size = 2
+outline_color = Color( 0.494118, 0.494118, 0.54902, 1 )
+extra_spacing_char = 4
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+outline_size = 2
+outline_color = Color( 0.494118, 0.494118, 0.54902, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+outline_size = 2
+outline_color = Color( 0.494118, 0.494118, 0.54902, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=13]
+outline_size = 2
+outline_color = Color( 0.494118, 0.494118, 0.54902, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=14]
+outline_size = 2
+outline_color = Color( 0.494118, 0.494118, 0.54902, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=11]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/AltFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [node name="TitleScene" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Title" type="TextureRect" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -240.0
+margin_right = 320.0
+margin_bottom = 240.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Options" type="VBoxContainer" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = 32.0
+margin_right = 60.0
+margin_bottom = 110.0
+custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Continue" type="Button" parent="CanvasLayer/Options"]
-margin_right = 82.0
-margin_bottom = 20.0
-text = "Continue"
+margin_right = 120.0
+margin_bottom = 31.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_hover = Color( 0.631373, 0.905882, 1, 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "CONTINUE"
+flat = true
 
 [node name="NewGame" type="Button" parent="CanvasLayer/Options"]
-margin_top = 24.0
-margin_right = 82.0
-margin_bottom = 44.0
-text = "New Game"
+margin_top = 47.0
+margin_right = 120.0
+margin_bottom = 78.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_hover = Color( 0.631373, 0.905882, 1, 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "NEW GAME"
+flat = true
 
-[node name="WarningPrompt" type="VBoxContainer" parent="CanvasLayer"]
-margin_left = 1.0
-margin_top = 51.0
-margin_right = 443.0
-margin_bottom = 113.0
+[node name="DifficultyPrompt" type="ColorRect" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = 16.0
+margin_right = 135.0
+margin_bottom = 136.0
+color = Color( 0.607843, 0.607843, 0.745098, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WarningText" type="Label" parent="CanvasLayer/WarningPrompt"]
-margin_right = 442.0
-margin_bottom = 14.0
-text = "Are you sure you want to create a new game? This cannot be undone."
-
-[node name="Confirm" type="Button" parent="CanvasLayer/WarningPrompt"]
-margin_top = 18.0
-margin_right = 442.0
-margin_bottom = 38.0
-text = "YES"
-
-[node name="Cancel" type="Button" parent="CanvasLayer/WarningPrompt"]
-margin_top = 42.0
-margin_right = 442.0
-margin_bottom = 62.0
-text = "NO"
-
-[node name="DifficultyPrompt" type="Control" parent="CanvasLayer"]
-margin_top = 122.0
-margin_right = 320.0
-margin_bottom = 232.0
+[node name="Color" type="ColorRect" parent="CanvasLayer/DifficultyPrompt"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -133.0
+margin_top = -58.0
+margin_right = 133.0
+margin_bottom = 58.0
+color = Color( 0.214233, 0.214233, 0.304688, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DifficultySelect" type="HBoxContainer" parent="CanvasLayer/DifficultyPrompt"]
-margin_right = 149.0
-margin_bottom = 40.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = -36.0
+margin_right = 135.0
+margin_bottom = 4.0
+custom_constants/separation = 8
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Easy" type="Button" parent="CanvasLayer/DifficultyPrompt/DifficultySelect"]
-margin_right = 40.0
+margin_left = 11.0
+margin_right = 88.0
 margin_bottom = 40.0
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = SubResource( 3 )
 toggle_mode = true
-text = "Easy"
+shortcut_in_tooltip = false
+text = "           "
+
+[node name="Hearts" type="TextureRect" parent="CanvasLayer/DifficultyPrompt/DifficultySelect/Easy"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_right = 30.0
+margin_bottom = 12.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="CanvasLayer/DifficultyPrompt/DifficultySelect/Easy"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.0
+margin_top = -16.0
+margin_right = 33.0
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+text = "EASY"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Normal" type="Button" parent="CanvasLayer/DifficultyPrompt/DifficultySelect"]
-margin_left = 44.0
-margin_right = 103.0
+margin_left = 96.0
+margin_right = 173.0
 margin_bottom = 40.0
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = SubResource( 5 )
 toggle_mode = true
-text = "Normal"
+shortcut_in_tooltip = false
+text = "           "
+
+[node name="Hearts" type="TextureRect" parent="CanvasLayer/DifficultyPrompt/DifficultySelect/Normal"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -18.0
+margin_right = 18.0
+margin_bottom = 12.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="CanvasLayer/DifficultyPrompt/DifficultySelect/Normal"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -16.0
+margin_right = 33.5
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 6 )
+text = "NORMAL"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Hard" type="Button" parent="CanvasLayer/DifficultyPrompt/DifficultySelect"]
-margin_left = 107.0
-margin_right = 149.0
+margin_left = 181.0
+margin_right = 258.0
 margin_bottom = 40.0
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = SubResource( 7 )
 toggle_mode = true
-text = "Hard"
+shortcut_in_tooltip = false
+text = "           "
+
+[node name="Hearts" type="TextureRect" parent="CanvasLayer/DifficultyPrompt/DifficultySelect/Hard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_right = 6.0
+margin_bottom = 12.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="CanvasLayer/DifficultyPrompt/DifficultySelect/Hard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.0
+margin_top = -16.0
+margin_right = 33.0
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 8 )
+text = "HARD"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DifficultyConfirm" type="HBoxContainer" parent="CanvasLayer/DifficultyPrompt"]
-margin_left = 16.0
-margin_top = 48.0
-margin_right = 136.0
-margin_bottom = 80.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -66.0
+margin_top = 16.0
+margin_right = 66.0
+margin_bottom = 48.0
+custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Confirm" type="Button" parent="CanvasLayer/DifficultyPrompt/DifficultyConfirm"]
-margin_right = 62.0
+margin_right = 61.0
 margin_bottom = 32.0
-text = "Confirm"
+focus_mode = 0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color_hover = Color( 0.631373, 0.905882, 1, 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "CONFIRM"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cancel" type="Button" parent="CanvasLayer/DifficultyPrompt/DifficultyConfirm"]
-margin_left = 66.0
-margin_right = 120.0
+margin_left = 77.0
+margin_right = 131.0
 margin_bottom = 32.0
-text = "Cancel"
+focus_mode = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_hover = Color( 0.631373, 0.905882, 1, 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "CANCEL"
+flat = true
+
+[node name="WarningPrompt" type="ColorRect" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = 16.0
+margin_right = 135.0
+margin_bottom = 136.0
+color = Color( 0.607843, 0.607843, 0.745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="CanvasLayer/WarningPrompt"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -133.0
+margin_top = -58.0
+margin_right = 133.0
+margin_bottom = 58.0
+color = Color( 0.214233, 0.214233, 0.304688, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WarningText" type="Label" parent="CanvasLayer/WarningPrompt"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -133.0
+margin_top = -50.0
+margin_right = 133.0
+margin_bottom = -13.0
+custom_fonts/font = SubResource( 12 )
+text = "Are you sure you want to create a new game? This cannot be undone."
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WarningSelect" type="VBoxContainer" parent="CanvasLayer/WarningPrompt"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.5
+margin_top = -2.0
+margin_right = 16.5
+margin_bottom = 52.0
+custom_constants/separation = 8
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirm" type="Button" parent="CanvasLayer/WarningPrompt/WarningSelect"]
+margin_right = 33.0
+margin_bottom = 23.0
+focus_mode = 0
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color_hover = Color( 0.631373, 0.905882, 1, 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "YES"
+flat = true
+
+[node name="Cancel" type="Button" parent="CanvasLayer/WarningPrompt/WarningSelect"]
+margin_top = 31.0
+margin_right = 33.0
+margin_bottom = 54.0
+focus_mode = 0
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color_hover = Color( 0.631373, 0.905882, 1, 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "NO"
+flat = true
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 2 )]
+
+[node name="AltFade" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+anims/start = SubResource( 11 )

@@ -12,9 +12,14 @@ var player_obj = null
 var menu_paused = false	# If pause menu is what triggered pause
 
 var _save_data = SaveLoadManager.load_data()
+var _cursor = load("res://cursor.png")
+var _crosshair = load("res://crosshair.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Init as crosshair upon loading
+	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
+	
 	pause_mode = Node.PAUSE_MODE_PROCESS	# This will never pause
 	_resume_btn.connect("pressed", self, "_resume")
 	_sound_btn.connect("pressed", self, "_toggle_sound")
@@ -30,6 +35,11 @@ func _ready():
 		_sound_btn.text = "Sound: ON"
 	visible = false
 
+func _process(delta):
+	if menu_paused:
+		# Set cursor when paused
+		Input.set_custom_mouse_cursor(_cursor, 0, Vector2.ZERO)
+
 func _input(event):
 	# Pause/unpause input
 	if event.is_action_pressed("pause") and player_obj.can_act:
@@ -37,10 +47,16 @@ func _input(event):
 			menu_paused = true
 			get_tree().paused = true
 			visible = true
+			
+			# Set cursor when paused
+			Input.set_custom_mouse_cursor(_cursor, 0, Vector2.ZERO)
 		elif menu_paused and get_tree().paused:
 			menu_paused = false
 			get_tree().paused = false
 			visible = false
+			
+			# Set crosshair when unpaused, image hotspot should be middle of img
+			Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
 
 # Unpause, for when button is pressed
 func _resume():
@@ -51,6 +67,9 @@ func _resume():
 	menu_paused = false
 	get_tree().paused = false
 	visible = false
+	
+	# Set crosshair when unpaused
+	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
 
 # Toggle sound on/off
 func _toggle_sound():

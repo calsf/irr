@@ -5,7 +5,7 @@
 [ext_resource path="res://levels/components/menus/menu_btn_normal.tres" type="StyleBox" id=3]
 [ext_resource path="res://levels/components/menus/menu_btn_hover.tres" type="StyleBox" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
 
 [node name="PauseMenu" type="Control"]
@@ -54,7 +54,7 @@ __meta__ = {
 }
 
 [node name="Resume" type="Button" parent="Buttons"]
-margin_right = 152.0
+margin_right = 128.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 128, 24 )
 focus_mode = 0
@@ -63,7 +63,7 @@ custom_styles/pressed = ExtResource( 3 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/disabled = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 enabled_focus_mode = 0
 text = "Resume"
 __meta__ = {
@@ -72,7 +72,7 @@ __meta__ = {
 
 [node name="Sound" type="Button" parent="Buttons"]
 margin_top = 32.0
-margin_right = 152.0
+margin_right = 128.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 128, 24 )
 focus_mode = 0
@@ -81,7 +81,7 @@ custom_styles/pressed = ExtResource( 3 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/disabled = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 enabled_focus_mode = 0
 text = "Sound: ON"
 __meta__ = {
@@ -90,7 +90,7 @@ __meta__ = {
 
 [node name="Quit" type="Button" parent="Buttons"]
 margin_top = 64.0
-margin_right = 152.0
+margin_right = 128.0
 margin_bottom = 88.0
 rect_min_size = Vector2( 128, 24 )
 focus_mode = 0
@@ -99,7 +99,7 @@ custom_styles/pressed = ExtResource( 3 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/disabled = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 enabled_focus_mode = 0
 text = "Quit Level"
 __meta__ = {

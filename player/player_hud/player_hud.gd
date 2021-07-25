@@ -14,6 +14,8 @@ onready var info_primary = $PrimaryInfo
 onready var info_secondary = $SecondaryInfo
 
 onready var player = get_tree().current_scene.get_node("Player")
+var _cursor = load("res://cursor.png")
+var _crosshair = load("res://crosshair.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -85,10 +87,12 @@ func _show_primary_info():
 	
 	info_primary.resize()
 	info_primary.visible = true
+	Input.set_custom_mouse_cursor(_cursor, 0, Vector2.ZERO)
 
 # Hide primary weap info
 func _hide_primary_info():
 	info_primary.visible = false
+	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
 
 # Show secondary weap info, resizes before showing
 func _show_secondary_info():
@@ -97,8 +101,10 @@ func _show_secondary_info():
 		
 	info_secondary.resize()
 	info_secondary.visible = true
+	Input.set_custom_mouse_cursor(_cursor, 0, Vector2.ZERO)
 
 # Hide secondary weap info
 func _hide_secondary_info():
 	info_secondary.visible = false
+	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
 	

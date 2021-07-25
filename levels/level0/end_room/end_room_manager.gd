@@ -15,7 +15,11 @@ onready var _self_destruct_anim = get_parent().get_node("SelfDestruct/AnimationP
 onready var _princess_hurtbox = get_parent().get_node("Princess/Hurtbox/CollisionShape2D")
 onready var _monster_hurtbox = get_parent().get_node("Monster/Hurtbox/CollisionShape2D")
 
+onready var _dialog_options = get_node("DialogContainer/DialogBoxKilledMonster/DialogOptions").get_children()
+
 var has_killed = false
+var _cursor = load("res://cursor.png")
+var _crosshair = load("res://crosshair.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +34,11 @@ func _ready():
 	
 	# After killing monster dialog is finished
 	_dialog_killed_monster.connect("dialog_finished", self, "_after_killed_monster_dialog")
+	
+	# Change cursor for dialog options
+	for option in _dialog_options:
+		option.connect("mouse_entered", self, "_on_mouse_enter")
+		option.connect("mouse_exited", self, "_on_mouse_exited")
 	
 	# Owner should be the room this object belongs to
 	room_id = get_owner().room_id
@@ -91,7 +100,7 @@ func _after_killed_princess_dialog():
 
 # Kill player during self destruct anim
 func kill_player():
-	PlayerHealth.lose_health(3)
+	PlayerHealth.lose_health(5)
 
 # Dialog after killing monster
 func _show_killed_monster_dialog():
@@ -110,3 +119,11 @@ func _after_killed_monster_dialog():
 	
 	# Load level select scene
 	_fade.go_to_scene("res://levels/level_select/LevelSelect.tscn")
+
+# Set to cursor on mouse enter
+func _on_mouse_enter():
+	Input.set_custom_mouse_cursor(_cursor, 0, Vector2.ZERO)
+
+# Set to crosshair on mouse exit
+func _on_mouse_exited():
+	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
