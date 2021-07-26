@@ -44,7 +44,7 @@ margin_left = 158.0
 margin_top = 21.0
 margin_right = 158.0
 margin_bottom = 21.0
-messages = [ "Child dead" ]
+messages = [ "I'm sorry adventurer. You had already killed the monster that was locked in here when you first saved me.", "After seeing you kill the other six, I was worried that you were some kind of monster yourself...", "And you are.", "You've done well, adventurer. But I cannot let you leave this place anymore." ]
 img_path = "res://levels/level0/end_room/princess/princess_icon.png"
 speaker_name = "Princess"
 
@@ -53,7 +53,7 @@ margin_left = 158.0
 margin_top = 21.0
 margin_right = 158.0
 margin_bottom = 21.0
-messages = [ "Child alive" ]
+messages = [ "I'm sorry adventurer. You had already killed the monster that was locked in here when you first saved me.", "After seeing you kill the other six, I was worried that you were some kind of monster yourself...", "But I was wrong.", "You've done well, adventurer. Thank you." ]
 img_path = "res://levels/level0/end_room/princess/princess_icon.png"
 speaker_name = "Princess"
 

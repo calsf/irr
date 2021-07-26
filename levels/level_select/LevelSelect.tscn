@@ -240,14 +240,7 @@ position = Vector2( -32, 104 )
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 19 )]
 quit_to_scene = "res://levels/title_scene/TitleScene.tscn"
 
-[node name="Resume" parent="CanvasLayer/PauseMenu/Buttons" index="0"]
-margin_right = 128.0
-
-[node name="Sound" parent="CanvasLayer/PauseMenu/Buttons" index="1"]
-margin_right = 128.0
-
-[node name="Quit" parent="CanvasLayer/PauseMenu/Buttons" index="2"]
-margin_right = 128.0
+[node name="Quit" parent="CanvasLayer/PauseMenu/Buttons" index="3"]
 text = "Quit to Menu"
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 12 )]

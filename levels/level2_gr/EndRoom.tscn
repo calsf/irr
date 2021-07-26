@@ -10,3 +10,6 @@ texture = ExtResource( 2 )
 
 [node name="Door" parent="." index="4"]
 scene_path = "res://levels/level2_gr/boss/Level2Boss.tscn"
+
+[node name="DialogBoxSign" parent="CanvasLayer/DialogContainer" index="0"]
+messages = [ "It seems this one has an excessive load. Stay alert." ]

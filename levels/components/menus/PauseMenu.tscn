@@ -210,7 +210,7 @@ margin_left = -200.0
 margin_top = -136.0
 margin_right = 200.0
 margin_bottom = 137.0
-custom_constants/separation = 10
+custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -227,9 +227,9 @@ __meta__ = {
 }
 
 [node name="HelpImg" type="Control" parent="Help/HelpContainer"]
-margin_top = 35.0
+margin_top = 41.0
 margin_right = 400.0
-margin_bottom = 275.0
+margin_bottom = 281.0
 rect_min_size = Vector2( 72, 240 )
 __meta__ = {
 "_edit_use_anchors_": false

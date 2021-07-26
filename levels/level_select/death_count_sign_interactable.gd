@@ -7,7 +7,10 @@ var message = ""
 
 func _ready():
 	var save_data = SaveLoadManager.load_data()
-	message = [ "Death count: " + str(save_data["death_count"]) ]
+	if save_data["death_count"] == 1:
+		message = [ "You have died " + str(save_data["death_count"]) + " time." ]
+	else:
+		message = [ "You have died " + str(save_data["death_count"]) + " times." ]
 
 func interact():
 	_dialog.set_messages(message)
