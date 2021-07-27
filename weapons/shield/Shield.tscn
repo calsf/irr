@@ -115,14 +115,18 @@ anims/normal_attack = SubResource( 2 )
 
 [node name="NormalAttack1" parent="Sounds" index="0"]
 stream = ExtResource( 7 )
+volume_db = -2.0
 
 [node name="NormalAttack2" parent="Sounds" index="1"]
 stream = ExtResource( 7 )
+volume_db = -2.0
 pitch_scale = 1.1
 
 [node name="NormalAttack3" parent="Sounds" index="2"]
 stream = ExtResource( 7 )
+volume_db = -2.0
 pitch_scale = 0.9
 
 [node name="EmpoweredAttack" parent="Sounds" index="3"]
 stream = ExtResource( 8 )
+volume_db = -1.0

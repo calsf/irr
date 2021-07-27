@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://sounds/destroyed_explo.wav" type="AudioStream" id=1]
 [ext_resource path="res://sounds/components/global_sounds.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://sounds/weapon_sounds/shield_empowered_object.wav" type="AudioStream" id=14]
 [ext_resource path="res://sounds/weapon_sounds/shield_empowered_dmg.wav" type="AudioStream" id=15]
 [ext_resource path="res://sounds/button_pressed.wav" type="AudioStream" id=16]
+[ext_resource path="res://sounds/enemy_spawn.wav" type="AudioStream" id=17]
 
 [node name="GlobalSounds" type="Node"]
 script = ExtResource( 2 )
@@ -65,6 +66,7 @@ stream = ExtResource( 12 )
 
 [node name="ShieldNormalObject" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+volume_db = -0.5
 
 [node name="ShieldEmpoweredObject" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
@@ -82,3 +84,17 @@ pitch_scale = 1.1
 [node name="ButtonPressed" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 16 )
+
+[node name="EnemySpawn1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -3.0
+
+[node name="EnemySpawn2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -3.0
+pitch_scale = 0.9
+
+[node name="EnemySpawn3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -3.0
+pitch_scale = 1.1

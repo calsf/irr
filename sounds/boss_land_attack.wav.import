@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/boss_land_attack.wav-a5adcca0d581a15a0dbc73eb49078b99.sample"
+
+[deps]
+
+source_file="res://sounds/boss_land_attack.wav"
+dest_files=[ "res://.import/boss_land_attack.wav-a5adcca0d581a15a0dbc73eb49078b99.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -66,10 +66,9 @@ enemies = [ "res://enemies/level6_enemies/winged_ball/WingedBall.tscn", "res://e
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -23 )
-scale = Vector2( 0.800002, 0.800002 )
 texture = ExtResource( 2 )
 hframes = 7
-frame = 1
+frame = 2
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, -15 )

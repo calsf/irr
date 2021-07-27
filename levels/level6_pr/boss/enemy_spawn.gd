@@ -4,6 +4,9 @@ extends Node2D
 export var enemies : Array
 var enemy = null
 
+func _ready():
+	GlobalSounds.play_enemy_spawn()
+
 # Spawn enemy at this position under the room's Enemies node
 # Assumes EnemySpawn object is in the Enemies node and the Room is its owner
 func _spawn_enemy():
