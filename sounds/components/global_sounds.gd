@@ -20,7 +20,7 @@ func _ready():
 		]
 
 func play(sound):
-	if (!SaveLoadManager.load_data()["sound_muted"]):
+	if (not SaveLoadManager.check_save() or !SaveLoadManager.load_data()["sound_muted"]):
 		get_node(sound).play()
 
 # Loop/cycle through enemy hurt sounds sequentially
