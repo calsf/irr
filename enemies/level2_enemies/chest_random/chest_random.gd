@@ -44,6 +44,8 @@ func interact():
 		_drop_pickups()
 	else:	# Shoot projectiles, no drop
 		_attack()
+	
+	GlobalSounds.play("OpenChest")
 
 # Shoot projectiles in multiple directions
 func _attack():

@@ -9,13 +9,4 @@ start_room_path = "res://levels/level3_lu/boss/BossLURoom.tscn"
 [node name="Player" parent="." index="1"]
 position = Vector2( 0, 96 )
 
-[node name="Resume" parent="CanvasLayer/PauseMenu/Buttons" index="0"]
-margin_right = 128.0
-
-[node name="Sound" parent="CanvasLayer/PauseMenu/Buttons" index="1"]
-margin_right = 128.0
-
-[node name="Quit" parent="CanvasLayer/PauseMenu/Buttons" index="2"]
-margin_right = 128.0
-
 [editable path="CanvasLayer/PauseMenu"]

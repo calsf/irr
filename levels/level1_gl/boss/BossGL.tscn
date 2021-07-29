@@ -1,9 +1,13 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://levels/level1_gl/boss/boss_gl.png" type="Texture" id=1]
 [ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/level1_gl/boss/boss_gl.gd" type="Script" id=3]
 [ext_resource path="res://levels/level1_gl/boss/boss_gl_props.tres" type="Resource" id=4]
+[ext_resource path="res://sounds/components/Sounds.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sounds/boss_gl_suck.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/boss_gl_disappear.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/boss_gl_reappear.wav" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
@@ -56,6 +60,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [  ],
 "method": "_attack_absorb"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Sounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Suck" ],
+"method": "play"
 } ]
 }
 
@@ -111,6 +129,20 @@ tracks/3/keys = {
 "method": "_start_normal_attack"
 } ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("Sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Reappear1" ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "burrow"
@@ -164,6 +196,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("Sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Disappear" ],
+"method": "play_one_of"
+} ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -251,6 +297,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("Sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Reappear" ],
+"method": "play_one_of"
+} ]
+}
 
 [node name="BossGL" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
@@ -262,7 +322,7 @@ proj_path = "res://levels/level1_gl/boss/BossGLProjectile.tscn"
 position = Vector2( 0, -42 )
 texture = ExtResource( 1 )
 hframes = 46
-frame = 8
+frame = 45
 
 [node name="ShootSpawn" type="Node2D" parent="Body" index="1"]
 position = Vector2( 0, -9 )
@@ -281,6 +341,7 @@ position = Vector2( 0, -27 )
 position = Vector2( 0, 22 )
 rotation = 1.5708
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Hurtbox" parent="." index="4"]
 position = Vector2( 0, -42 )
@@ -288,6 +349,7 @@ position = Vector2( 0, -42 )
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 33 )
 shape = SubResource( 2 )
+disabled = true
 
 [node name="Pushbox" parent="." index="5"]
 position = Vector2( 0, -27 )
@@ -310,3 +372,30 @@ anims/activate = SubResource( 5 )
 anims/burrow = SubResource( 6 )
 anims/normal_attack = SubResource( 7 )
 anims/reappear = SubResource( 8 )
+
+[node name="Sounds" parent="." index="11" instance=ExtResource( 5 )]
+
+[node name="Reappear1" type="AudioStreamPlayer" parent="Sounds" index="0"]
+stream = ExtResource( 8 )
+
+[node name="Reappear2" type="AudioStreamPlayer" parent="Sounds" index="1"]
+stream = ExtResource( 8 )
+pitch_scale = 1.05
+
+[node name="Reappear3" type="AudioStreamPlayer" parent="Sounds" index="2"]
+stream = ExtResource( 8 )
+pitch_scale = 0.95
+
+[node name="Disappear1" type="AudioStreamPlayer" parent="Sounds" index="3"]
+stream = ExtResource( 7 )
+
+[node name="Disappear2" type="AudioStreamPlayer" parent="Sounds" index="4"]
+stream = ExtResource( 7 )
+pitch_scale = 1.05
+
+[node name="Disappear3" type="AudioStreamPlayer" parent="Sounds" index="5"]
+stream = ExtResource( 7 )
+pitch_scale = 0.95
+
+[node name="Suck" type="AudioStreamPlayer" parent="Sounds" index="6"]
+stream = ExtResource( 6 )

@@ -9,7 +9,8 @@
 [ext_resource path="res://sounds/components/Sounds.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sounds/boss_final_land.wav" type="AudioStream" id=8]
 [ext_resource path="res://sounds/boss_final_middle_attack.wav" type="AudioStream" id=9]
-[ext_resource path="res://sounds/boss_land_attack.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/boss_final_land_attack.wav" type="AudioStream" id=10]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.0

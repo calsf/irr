@@ -1,10 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level5_en/boss/boss_en_shadow.png" type="Texture" id=2]
 [ext_resource path="res://levels/level5_en/boss/boss_en_left.png" type="Texture" id=3]
 [ext_resource path="res://levels/level5_en/boss/boss_en.gd" type="Script" id=4]
 [ext_resource path="res://levels/level5_en/boss/boss_en_props.tres" type="Resource" id=5]
+[ext_resource path="res://sounds/components/Sounds.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/boss_en_teleport.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/boss_gl_suck.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/boss_lu_atk.wav" type="AudioStream" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.0
@@ -70,6 +74,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("Sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Teleport" ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -154,6 +172,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("Sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Teleport" ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "move"
@@ -183,6 +215,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [  ],
 "method": "_split_attack"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Sounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Attack" ],
+"method": "play_one_of"
 } ]
 }
 
@@ -277,6 +323,23 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("Sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "Teleport" ],
+"method": "play"
+}, {
+"args": [ "Suck" ],
+"method": "play"
+} ]
+}
 
 [node name="BossEN" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
@@ -290,7 +353,7 @@ proj_path_split = "res://levels/level5_en/boss/BossENSplitProjectile.tscn"
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 3 )
 hframes = 34
-frame = 33
+frame = 10
 
 [node name="SpawnPos" parent="Body/Attack" index="0"]
 position = Vector2( 0, 3 )
@@ -331,3 +394,22 @@ one_shot = true
 
 [node name="MoveTimer" type="Timer" parent="." index="12"]
 one_shot = true
+
+[node name="Sounds" parent="." index="13" instance=ExtResource( 6 )]
+
+[node name="Teleport" type="AudioStreamPlayer" parent="Sounds" index="0"]
+stream = ExtResource( 7 )
+
+[node name="Suck" type="AudioStreamPlayer" parent="Sounds" index="1"]
+stream = ExtResource( 8 )
+
+[node name="Attack1" type="AudioStreamPlayer" parent="Sounds" index="2"]
+stream = ExtResource( 9 )
+
+[node name="Attack2" type="AudioStreamPlayer" parent="Sounds" index="3"]
+stream = ExtResource( 9 )
+pitch_scale = 1.1
+
+[node name="Attack3" type="AudioStreamPlayer" parent="Sounds" index="4"]
+stream = ExtResource( 9 )
+pitch_scale = 0.9

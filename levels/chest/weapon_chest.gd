@@ -78,3 +78,4 @@ func interact():
 	meter_drop.drop()
 
 	_anim.play("open")
+	GlobalSounds.play("OpenChest")

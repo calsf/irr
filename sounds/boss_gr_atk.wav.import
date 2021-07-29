@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/boss_gr_atk.wav-489dd7985844882fc56640e52f981e8f.sample"
+
+[deps]
+
+source_file="res://sounds/boss_gr_atk.wav"
+dest_files=[ "res://.import/boss_gr_atk.wav-489dd7985844882fc56640e52f981e8f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

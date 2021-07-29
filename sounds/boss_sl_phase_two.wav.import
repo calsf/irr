@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/boss_sl_phase_two.wav-a7ea5ef9b552acc6edfc42663d849520.sample"
+
+[deps]
+
+source_file="res://sounds/boss_sl_phase_two.wav"
+dest_files=[ "res://.import/boss_sl_phase_two.wav-a7ea5ef9b552acc6edfc42663d849520.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

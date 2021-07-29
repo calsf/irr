@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level2_gr/boss/boss_gr_body.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://levels/level2_gr/boss/boss_gr_attack.png" type="Texture" id=4]
 [ext_resource path="res://levels/level2_gr/boss/boss_gr.gd" type="Script" id=5]
 [ext_resource path="res://levels/level2_gr/boss/boss_gr_props.tres" type="Resource" id=6]
+[ext_resource path="res://sounds/components/Sounds.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sounds/boss_gr_atk.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "normal_attack"
@@ -37,6 +39,20 @@ tracks/1/keys = {
 "method": "_attack"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../Sounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Attack" ],
+"method": "play_one_of"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "split_attack"
@@ -65,6 +81,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [  ],
 "method": "_attack"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../Sounds")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Attack" ],
+"method": "play_one_of"
 } ]
 }
 
@@ -159,8 +189,10 @@ proj_path_split = "res://levels/level2_gr/boss/BossGRSplitProjectile.tscn"
 position = Vector2( 0, -30 )
 texture = ExtResource( 2 )
 hframes = 30
+frame = 27
 
 [node name="Attack" parent="Body" index="0"]
+visible = false
 texture = ExtResource( 4 )
 hframes = 8
 
@@ -235,3 +267,19 @@ anims/move = SubResource( 7 )
 
 [node name="MoveTimer" type="Timer" parent="." index="11"]
 one_shot = true
+
+[node name="Sounds" parent="." index="12" instance=ExtResource( 7 )]
+
+[node name="Attack1" type="AudioStreamPlayer" parent="Sounds" index="0"]
+stream = ExtResource( 8 )
+volume_db = -3.0
+pitch_scale = 0.9
+
+[node name="Attack2" type="AudioStreamPlayer" parent="Sounds" index="1"]
+stream = ExtResource( 8 )
+volume_db = -3.0
+pitch_scale = 1.1
+
+[node name="Attack3" type="AudioStreamPlayer" parent="Sounds" index="2"]
+stream = ExtResource( 8 )
+volume_db = -3.0

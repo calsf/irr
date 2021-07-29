@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://enemies/base_enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level4_sl/boss/boss_sl_shadow.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://levels/level4_sl/boss/boss_sl.gd" type="Script" id=4]
 [ext_resource path="res://levels/level4_sl/boss/boss_sl_props.tres" type="Resource" id=5]
 [ext_resource path="res://levels/level4_sl/boss/boss_sl_attack.png" type="Texture" id=6]
+[ext_resource path="res://sounds/components/Sounds.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sounds/boss_sl_start.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/boss_sl_phase_two.wav" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "norm_attack"
@@ -76,6 +79,20 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 10 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Sounds")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Start" ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -163,6 +180,20 @@ tracks/2/keys = {
 "method": "_start_phase_two"
 } ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("Sounds")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "PhaseTwo" ],
+"method": "play"
+} ]
+}
 
 [node name="BossSL" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
@@ -179,7 +210,6 @@ alt_attack_rate = 0.1
 position = Vector2( 0, -19 )
 texture = ExtResource( 3 )
 hframes = 20
-frame = 1
 
 [node name="Attack" parent="Body" index="0"]
 texture = ExtResource( 6 )
@@ -238,3 +268,13 @@ anims/phase_two_activate = SubResource( 8 )
 
 [node name="AttackTimerAlt" type="Timer" parent="." index="11"]
 one_shot = true
+
+[node name="Sounds" parent="." index="12" instance=ExtResource( 7 )]
+
+[node name="Start" type="AudioStreamPlayer" parent="Sounds" index="0"]
+stream = ExtResource( 8 )
+volume_db = -5.0
+
+[node name="PhaseTwo" type="AudioStreamPlayer" parent="Sounds" index="1"]
+stream = ExtResource( 9 )
+volume_db = -4.0
