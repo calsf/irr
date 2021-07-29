@@ -188,7 +188,6 @@ _death_path = "res://enemies/level2_enemies/mimic_pickups/MimicPickupDeath.tscn"
 position = Vector2( 0, -20 )
 texture = ExtResource( 3 )
 hframes = 13
-frame = 6
 
 [node name="Shadow" parent="." index="1"]
 texture = ExtResource( 2 )
@@ -201,14 +200,17 @@ shape = SubResource( 1 )
 position = Vector2( 0, -4 )
 rotation = 1.5708
 shape = SubResource( 2 )
+disabled = true
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 3 )
+disabled = true
 
 [node name="CollisionShape2D" parent="Pushbox" index="0"]
 position = Vector2( 0, -3 )
 rotation = 1.5708
 shape = SubResource( 4 )
+disabled = true
 
 [node name="CollisionShape2D" parent="Detectbox" index="0"]
 shape = SubResource( 5 )

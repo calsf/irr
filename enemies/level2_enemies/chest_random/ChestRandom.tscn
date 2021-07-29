@@ -8,7 +8,7 @@ script = ExtResource( 2 )
 proj_path = "res://enemies/level2_enemies/chest_random/ChestRandomProjectile.tscn"
 
 [node name="Sprite" parent="." index="0"]
-frame = 7
+frame = 0
 
 [node name="SpawnPos" type="Node2D" parent="." index="2"]
 position = Vector2( 0, -16 )

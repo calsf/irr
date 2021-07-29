@@ -172,7 +172,6 @@ _death_path = "res://enemies/level1_enemies/burrow/BurrowDeath.tscn"
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 2 )
 hframes = 15
-frame = 3
 
 [node name="Attack" parent="Body" index="0"]
 script = ExtResource( 5 )

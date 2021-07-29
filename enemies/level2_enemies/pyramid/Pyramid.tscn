@@ -138,7 +138,6 @@ _death_path = "res://enemies/level2_enemies/pyramid/PyramidDeath.tscn"
 position = Vector2( 0, -32 )
 texture = ExtResource( 2 )
 hframes = 7
-frame = 6
 
 [node name="Attack" parent="Body" index="0"]
 script = ExtResource( 6 )

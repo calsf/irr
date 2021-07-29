@@ -18,7 +18,7 @@ height = 6.0
 radius = 6.99999
 height = 4.00002
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "disappear"
 length = 2.0
 tracks/0/type = "value"
@@ -99,8 +99,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle"
+[sub_resource type="Animation" id=5]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -278,6 +277,6 @@ position = Vector2( 0, 8 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" parent="." index="9"]
-anims/disappear = SubResource( 5 )
-anims/idle = SubResource( 4 )
+anims/disappear = SubResource( 4 )
+anims/idle = SubResource( 5 )
 anims/reappear = SubResource( 6 )

@@ -7,7 +7,7 @@
 [ext_resource path="res://enemies/level7_enemies/berserker/berserker.gd" type="Script" id=5]
 [ext_resource path="res://enemies/level7_enemies/berserker/berserker_props.tres" type="Resource" id=6]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "attack"
 length = 0.1
 tracks/0/type = "method"
@@ -25,19 +25,19 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 5.0
 height = 0.0
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 5.0
 height = 2.0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 8.0
 height = 2.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -76,10 +76,8 @@ y_down = 192
 _move_time_max = 7
 
 [node name="Body" parent="." index="0"]
-position = Vector2( 0, -15.1766 )
 texture = ExtResource( 2 )
 hframes = 4
-frame = 2
 
 [node name="Attack" parent="Body" index="0"]
 script = ExtResource( 4 )
@@ -91,22 +89,22 @@ first_atk_delay = 1.5
 position = Vector2( 0, 2.17664 )
 
 [node name="AttackAnimation" parent="Body/Attack" index="1"]
-anims/attack = SubResource( 5 )
+anims/attack = SubResource( 1 )
 
 [node name="Shadow" parent="." index="1"]
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0, -5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -6 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 7 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="HealthDisplay" parent="." index="7"]
 margin_top = -40.0
@@ -114,7 +112,7 @@ margin_bottom = -37.0
 
 [node name="AnimationPlayer" parent="." index="9"]
 autoplay = "move"
-anims/move = SubResource( 4 )
+anims/move = SubResource( 5 )
 
 [node name="MoveTimer" type="Timer" parent="." index="11"]
 one_shot = true

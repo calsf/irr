@@ -89,10 +89,9 @@ _enemy_props = ExtResource( 7 )
 _death_path = "res://enemies/level3_enemies/tongue/TongueDeath.tscn"
 
 [node name="Body" parent="." index="0"]
-position = Vector2( 0, -18.75 )
+position = Vector2( 0, -19 )
 texture = ExtResource( 2 )
 hframes = 4
-frame = 1
 
 [node name="Attack" parent="Body" index="0"]
 texture = ExtResource( 3 )

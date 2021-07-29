@@ -8,3 +8,4 @@
 [node name="Body" parent="." index="0"]
 scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
+frame = 0
