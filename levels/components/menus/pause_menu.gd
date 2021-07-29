@@ -101,6 +101,8 @@ func _toggle_help():
 		_help.visible = false
 	else:
 		_help.visible = true
+	
+	GlobalSounds.play("ButtonPressed")
 
 # Go to scene as specified by the quit_to_scene path
 func _quit():

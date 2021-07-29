@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/level0/start_room/table_pickups.gd" type="Script" id=1]
 [ext_resource path="res://levels/level0/start_room/tutorial_manager.gd" type="Script" id=2]
@@ -12,12 +12,6 @@
 [ext_resource path="res://weapons/dagger/DaggerPickup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://weapons/shortbow/ShortbowPickup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://weapons/wand/WandPickup.tscn" type="PackedScene" id=12]
-[ext_resource path="res://weapons/longbow/LongbowPickup.tscn" type="PackedScene" id=13]
-[ext_resource path="res://weapons/staff/StaffPickup.tscn" type="PackedScene" id=14]
-[ext_resource path="res://weapons/sword/SwordPickup.tscn" type="PackedScene" id=15]
-[ext_resource path="res://weapons/book/BookPickup.tscn" type="PackedScene" id=16]
-[ext_resource path="res://weapons/shield/ShieldPickup.tscn" type="PackedScene" id=17]
-[ext_resource path="res://weapons/arrow/ArrowPickup.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 21 )
@@ -125,21 +119,3 @@ collision_layer = 4
 [node name="TrainingDummy2" parent="." index="8" instance=ExtResource( 9 )]
 position = Vector2( 136, -56 )
 collision_layer = 4
-
-[node name="LongbowPickup" parent="." index="9" instance=ExtResource( 13 )]
-position = Vector2( -35, 80 )
-
-[node name="StaffPickup" parent="." index="10" instance=ExtResource( 14 )]
-position = Vector2( 133, 75 )
-
-[node name="SwordPickup" parent="." index="11" instance=ExtResource( 15 )]
-position = Vector2( 23, 77 )
-
-[node name="BookPickup" parent="." index="12" instance=ExtResource( 16 )]
-position = Vector2( -118, 77 )
-
-[node name="ShieldPickup" parent="." index="13" instance=ExtResource( 17 )]
-position = Vector2( -167, 78 )
-
-[node name="ArrowPickup" parent="." index="14" instance=ExtResource( 18 )]
-position = Vector2( -227, 80 )
