@@ -29,7 +29,6 @@ func lose_health(loss):
 			var save_data = SaveLoadManager.load_data()
 			save_data["death_count"] += 1
 			SaveLoadManager.save_data(save_data)
-			print(save_data["death_count"])
 
 # Set max hp
 # Since player_health is autoloaded, need to call again when difficulty updated
