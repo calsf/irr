@@ -304,6 +304,7 @@ _global_script_class_icons={
 
 config/name="The Irregularity"
 run/main_scene="res://levels/title_scene/TitleScene.tscn"
+boot_splash/image="res://boot.png"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
