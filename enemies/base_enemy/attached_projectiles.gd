@@ -19,7 +19,7 @@ func _ready():
 # Always follow position of original parent enemy
 func _physics_process(delta):
 	# If enemy becomes null, destroy all projectiles and self
-	if _enemy == null:
+	if not is_instance_valid(_enemy):
 		for p in get_children():
 			p.destroy()
 		queue_free()
