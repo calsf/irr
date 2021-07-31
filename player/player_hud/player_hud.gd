@@ -92,7 +92,7 @@ func _show_primary_info():
 # Hide primary weap info
 func _hide_primary_info():
 	info_primary.visible = false
-	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
+	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(16, 16))
 
 # Show secondary weap info, resizes before showing
 func _show_secondary_info():
@@ -106,5 +106,5 @@ func _show_secondary_info():
 # Hide secondary weap info
 func _hide_secondary_info():
 	info_secondary.visible = false
-	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
+	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(16, 16))
 	

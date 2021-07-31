@@ -21,7 +21,7 @@ var _crosshair = load("res://crosshair.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Init as crosshair upon loading
-	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
+	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(16, 16))
 	
 	_help.visible = false
 	
@@ -67,7 +67,7 @@ func _input(event):
 			_help.visible = false
 			
 			# Set crosshair when unpaused, image hotspot should be middle of img
-			Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
+			Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(16, 16))
 
 # Unpause, for when button is pressed
 func _resume():
@@ -80,7 +80,7 @@ func _resume():
 	visible = false
 	
 	# Set crosshair when unpaused
-	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(12, 12))
+	Input.set_custom_mouse_cursor(_crosshair, 0, Vector2(16, 16))
 
 # Toggle sound on/off
 func _toggle_sound():
