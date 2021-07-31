@@ -250,10 +250,9 @@ y_down = 192
 y_up = -184
 
 [node name="Body" parent="." index="0"]
-position = Vector2( 0, -280.143 )
+position = Vector2( 0, -23 )
 texture = ExtResource( 3 )
 hframes = 5
-frame = 4
 
 [node name="Shadow" parent="." index="1"]
 position = Vector2( 0, -23 )
@@ -271,7 +270,6 @@ position = Vector2( 0, -8 )
 position = Vector2( 0, 4 )
 rotation = 1.5708
 shape = SubResource( 2 )
-disabled = true
 
 [node name="Hurtbox" parent="." index="4"]
 position = Vector2( 0, -23 )
@@ -279,7 +277,6 @@ position = Vector2( 0, -23 )
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 18 )
 shape = SubResource( 3 )
-disabled = true
 
 [node name="Pushbox" parent="." index="5"]
 position = Vector2( 0, -8 )
