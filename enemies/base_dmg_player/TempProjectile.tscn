@@ -6,7 +6,8 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "startup_alt"
-length = 0.3
+length = 0.35
+step = 0.025
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -14,7 +15,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 0.25, 0.3 ),
+"times": PoolRealArray( 0.2, 0.275, 0.35 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
@@ -26,7 +27,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.35 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -49,15 +50,8 @@ script = ExtResource( 2 )
 _damage_props = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
-visible = false
 frame = 2
-
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-disabled = true
 
 [node name="AnimationPlayer" parent="." index="3"]
 autoplay = "startup_alt"
 anims/startup_alt = SubResource( 1 )
-
-[node name="Timer" type="Timer" parent="." index="4"]
-one_shot = true

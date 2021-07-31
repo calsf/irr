@@ -3,7 +3,10 @@ extends CanvasLayer
 var player
 
 onready var _dialog_start = $DialogContainer/DialogBoxStart
+onready var _dialog_mid = $DialogContainer/DialogBoxMid
 onready var _dialog_finish = $DialogContainer/DialogBoxFinish
+onready var _help = $Help
+onready var _help_close_btn = $Help/Close
 onready var _room = get_parent()
 onready var save_data = SaveLoadManager.load_data()
 
@@ -19,8 +22,14 @@ func _ready():
 	player.connect("primary_swapped", self, "_check_weapons")
 	player.connect("secondary_swapped", self, "_check_weapons")
 	
+	# Show HELP after start dialog
+	_dialog_start.connect("dialog_finished", self, "_show_help")
+	
 	# Unlock room after last dialog
 	_dialog_finish.connect("dialog_finished", self, "_unlock_start_room")
+	
+	_help_close_btn.connect("pressed", self, "_close_help")
+	_help.visible = false
 	
 	# Lock starting room if tutorial has not been completed
 	if not save_data["finished_tutorial"]:
@@ -48,4 +57,19 @@ func _check_weapons(_pickup_icon):
 # Unlock start room after player picks up 2 weapons and last dialog finishes
 func _unlock_start_room():
 	_room.room_solved = true
+
+# Show help
+func _show_help():
+	get_tree().paused = true
+	_help.visible = true
+
+# Close help screen and activate dialog
+func _close_help():
+	if not _help.visible:
+		return
+	
+	_help.visible = false
+	
+	GlobalSounds.play("ButtonPressed")
+	_dialog_mid.activate_dialog()
 	

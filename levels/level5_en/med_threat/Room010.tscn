@@ -44,17 +44,7 @@ position = Vector2( 16, -56 )
 [node name="B" type="Node2D" parent="Enemies/TongueAlt/Positions" index="1"]
 position = Vector2( 64, 48 )
 
-[node name="TongueAlt2" parent="Enemies" index="7" instance=ExtResource( 4 )]
-position = Vector2( -64, 24 )
-
-[node name="Positions" parent="Enemies/TongueAlt2" index="11" instance=ExtResource( 8 )]
-
-[node name="A" type="Node2D" parent="Enemies/TongueAlt2/Positions" index="0"]
-
-[node name="B" type="Node2D" parent="Enemies/TongueAlt2/Positions" index="1"]
-position = Vector2( -64, -48 )
-
-[node name="TongueAlt3" parent="Enemies" index="8" instance=ExtResource( 4 )]
+[node name="TongueAlt3" parent="Enemies" index="7" instance=ExtResource( 4 )]
 position = Vector2( 216, 152 )
 
 [node name="Positions" parent="Enemies/TongueAlt3" index="11" instance=ExtResource( 8 )]
@@ -64,7 +54,7 @@ position = Vector2( 216, 152 )
 [node name="B" type="Node2D" parent="Enemies/TongueAlt3/Positions" index="1"]
 position = Vector2( -128, 0 )
 
-[node name="TongueAlt4" parent="Enemies" index="9" instance=ExtResource( 4 )]
+[node name="TongueAlt4" parent="Enemies" index="8" instance=ExtResource( 4 )]
 position = Vector2( -224, -136 )
 
 [node name="Positions" parent="Enemies/TongueAlt4" index="11" instance=ExtResource( 8 )]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shift.png-42ec1ed7adea93d1ecda41d48f4ffdb0.stex"
+path="res://.import/mouse_scroll.png-faf8b1f894392bdaa5d266a804e1aeac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/components/menus/shift.png"
-dest_files=[ "res://.import/shift.png-42ec1ed7adea93d1ecda41d48f4ffdb0.stex" ]
+source_file="res://levels/components/menus/mouse_scroll.png"
+dest_files=[ "res://.import/mouse_scroll.png-faf8b1f894392bdaa5d266a804e1aeac.stex" ]
 
 [params]
 

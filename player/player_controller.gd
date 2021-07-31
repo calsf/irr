@@ -149,6 +149,26 @@ func _input(event):
 			emit_signal("primary_selected")
 		weapon_curr.visible = true
 	
+	# Specifically primary weapon
+	if event.is_action_pressed("primary_weapon"):
+		if (weapon_curr == weapon_primary):
+			return
+		else:
+			weapon_curr.visible = false
+			weapon_curr = weapon_primary
+			emit_signal("primary_selected")
+			weapon_curr.visible = true
+	
+	# Specifically secondary weapon
+	if event.is_action_pressed("secondary_weapon"):
+		if (weapon_curr == weapon_secondary):
+			return
+		else:
+			weapon_curr.visible = false
+			weapon_curr = weapon_secondary
+			emit_signal("secondary_selected")
+			weapon_curr.visible = true
+	
 	# Empowered attack inputs CANNOT be held down
 	if event.is_action_pressed("empowered_attack"):
 		weapon_curr.empowered_attack()

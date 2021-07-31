@@ -42,4 +42,5 @@ func _on_continue_exit():
 # Go to scene when press continue button
 func _on_continue_pressed():
 	_continue_btn.disabled = true
+	GlobalSounds.play("ButtonPressed")
 	_fade.go_to_scene(NEXT_SCENE)

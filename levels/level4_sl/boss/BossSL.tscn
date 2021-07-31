@@ -201,9 +201,9 @@ _enemy_props = ExtResource( 5 )
 _death_path = "res://levels/level4_sl/boss/BossSLDeath.tscn"
 proj_path_norm = "res://levels/level4_sl/boss/BossSLNormProjectile.tscn"
 proj_path_still = "res://levels/level4_sl/boss/BossSLTempProjectile.tscn"
-x_ahead = 56
-y_ahead = 56
-norm_attack_rate = 0.75
+x_ahead = 72
+y_ahead = 72
+norm_attack_rate = 0.85
 alt_attack_rate = 0.1
 
 [node name="Body" parent="." index="0"]

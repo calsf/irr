@@ -2,13 +2,14 @@ extends CanvasLayer
 
 const SPARE_TIME = 6
 
-const END_SPARED_SCENE_PATH = "res://levels/end_scenes/EndOnKill.tscn"
+const END_SPARED_SCENE_PATH = "res://levels/end_scenes/EndOnSpare.tscn"
 
 export var boss_final_path : String
 onready var BossFinal = load(boss_final_path)
 
 var player
 var baby
+var baby_alive
 var has_killed = false
 
 onready var _dialog_start = $DialogContainer/DialogBoxStart
@@ -19,6 +20,7 @@ onready var _fade = get_tree().current_scene.get_node("CanvasLayer/Fade")
 
 func _ready():
 	player = get_tree().current_scene.get_node("Player")
+	baby_alive = get_owner().has_node("Enemies/Baby")
 	baby = get_owner().get_node("Enemies/Baby")
 	baby.get_node("Hurtbox/CollisionShape2D").disabled = true
 	
@@ -31,7 +33,8 @@ func _ready():
 
 func _physics_process(delta):
 	# If killed baby, stop spare timer and activate dialog
-	if not has_killed and not baby:
+	baby_alive = get_owner().has_node("Enemies/Baby")
+	if not has_killed and not baby_alive:
 		has_killed = true
 		_killed_dialog()
 
@@ -41,7 +44,8 @@ func _start_dialog():
 
 # Activate dialog for sparing baby
 func _spared_dialog():
-	if baby:
+	baby_alive = get_owner().has_node("Enemies/Baby")
+	if baby_alive:
 		baby.get_node("Hurtbox/CollisionShape2D").disabled = true
 		_dialog_spared.activate_dialog()
 

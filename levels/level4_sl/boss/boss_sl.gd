@@ -12,7 +12,7 @@ const PHASE_TWO_THRESHOLD = 750
 const X_RIGHT_BOUND = 264
 const X_LEFT_BOUND = -264
 const Y_UP_BOUND = -200
-const Y_DOWN_BOUND = 174
+const Y_DOWN_BOUND = 186
 
 # Offset position of projectile spawn
 const OFFSET = Vector2(0, -14)

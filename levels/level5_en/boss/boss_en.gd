@@ -23,14 +23,14 @@ const MOVE_TIME_MIN = 3
 const MOVE_TIME_MAX = 9
 
 # Attack rates
-const STILL_ATK_RATE = .45
+const STILL_ATK_RATE = .7
 const ABSORB_RATE = 15
 
 # Offset position of still projectile spawn
 const OFFSET = Vector2(0, -14)
 
 # Dist to spawn projectile ahead of player
-const AHEAD = 56
+const AHEAD = 72
 
 # Base speed of projectiles to be absorbed
 const ABSORB_PROJ_SPEED = 100
