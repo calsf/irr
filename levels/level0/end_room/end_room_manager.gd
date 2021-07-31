@@ -8,8 +8,8 @@ onready var _dialog_killed_monster = $DialogContainer/DialogBoxKilledMonster
 onready var _dialog_killed_princess = $DialogContainer/DialogBoxKilledPrincess
 onready var _fade = get_tree().current_scene.get_node("CanvasLayer/Fade")
 
-onready var _princess = get_parent().get_node("Princess")
-onready var _monster = get_parent().get_node("Monster")
+onready var _princess = get_parent().has_node("Princess")
+onready var _monster = get_parent().has_node("Monster")
 onready var _self_destruct = get_parent().get_node("SelfDestruct")
 onready var _self_destruct_anim = get_parent().get_node("SelfDestruct/AnimationPlayer")
 onready var _princess_hurtbox = get_parent().get_node("Princess/Hurtbox/CollisionShape2D")
@@ -52,6 +52,8 @@ func _ready():
 	_self_destruct.visible = false
 
 func _physics_process(delta):
+	_princess = get_parent().has_node("Princess")
+	_monster = get_parent().has_node("Monster")
 	if not has_killed and (not _princess or not _monster):
 		has_killed = true
 		
