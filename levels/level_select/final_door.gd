@@ -8,6 +8,9 @@ onready var _fade = get_tree().current_scene.get_node("CanvasLayer/Fade")
 onready var _save_data = SaveLoadManager.load_data()
 onready var _dialog = $CanvasLayer/DialogContainer/DialogBoxFinalDoor
 
+# Scene sounds
+onready var _sounds = $Sounds
+
 var player = null
 
 func _ready():
@@ -23,6 +26,7 @@ func interact():
 			_save_data["level5_completed"] and _save_data["level6_completed"]:
 		player.stop_player()
 		_anim.play("open")
+		_sounds.play("DoorOpen")
 	else:
 		_dialog.activate_dialog()
 

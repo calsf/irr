@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-max_hp = 100
+max_hp = 80
 move_speed = 0

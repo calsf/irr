@@ -34,7 +34,7 @@ func _attack():
 	if phase_two_active:
 		_spawn_enemy_spawn()
 		_spawn_enemy_spawn()
-		_atk_timer.start(ATTACK_RATE - .5)
+		_atk_timer.start(ATTACK_RATE - .8)
 	else:
 		_spawn_enemy_spawn()
 		_atk_timer.start(ATTACK_RATE)

@@ -1,7 +1,7 @@
 extends Enemy
 
 # Health or below to trigger phase two behavior
-const PHASE_TWO_THRESHOLD = 1750
+const PHASE_TWO_THRESHOLD = 2000
 
 # Movement bounds
 const X_RIGHT_BOUND = 260
