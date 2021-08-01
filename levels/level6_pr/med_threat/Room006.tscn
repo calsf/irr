@@ -69,14 +69,8 @@ position = Vector2( 104, -144 )
 [node name="WingedBall8" parent="Enemies" index="18" instance=ExtResource( 4 )]
 position = Vector2( -232, -152 )
 
-[node name="WingedBall9" parent="Enemies" index="19" instance=ExtResource( 4 )]
-position = Vector2( -216, -80 )
-
-[node name="WingedBall10" parent="Enemies" index="20" instance=ExtResource( 4 )]
-position = Vector2( 128, -32 )
-
-[node name="WingedBall11" parent="Enemies" index="21" instance=ExtResource( 4 )]
-position = Vector2( 16, 24 )
+[node name="WingedBall10" parent="Enemies" index="19" instance=ExtResource( 4 )]
+position = Vector2( 24, 8 )
 
 [node name="HealthPartialPickup" parent="." index="4" instance=ExtResource( 5 )]
 position = Vector2( 96, -104 )

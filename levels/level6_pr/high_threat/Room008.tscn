@@ -47,25 +47,19 @@ position = Vector2( -48, 88 )
 [node name="Mirror" parent="Enemies" index="10" instance=ExtResource( 4 )]
 position = Vector2( -184, -168 )
 
-[node name="Mirror2" parent="Enemies" index="11" instance=ExtResource( 4 )]
-position = Vector2( -40, 184 )
-
-[node name="Mirror3" parent="Enemies" index="12" instance=ExtResource( 4 )]
-position = Vector2( 40, -168 )
-
-[node name="Mirror4" parent="Enemies" index="13" instance=ExtResource( 4 )]
+[node name="Mirror4" parent="Enemies" index="11" instance=ExtResource( 4 )]
 position = Vector2( 192, 184 )
 
-[node name="BirdRight" parent="Enemies" index="14" instance=ExtResource( 7 )]
+[node name="BirdRight" parent="Enemies" index="12" instance=ExtResource( 7 )]
 position = Vector2( 240, -152 )
 
-[node name="BirdRight2" parent="Enemies" index="15" instance=ExtResource( 7 )]
+[node name="BirdRight2" parent="Enemies" index="13" instance=ExtResource( 7 )]
 position = Vector2( -240, 168 )
 
-[node name="BirdLeft" parent="Enemies" index="16" instance=ExtResource( 8 )]
+[node name="BirdLeft" parent="Enemies" index="14" instance=ExtResource( 8 )]
 position = Vector2( -80, -72 )
 
-[node name="BirdLeft2" parent="Enemies" index="17" instance=ExtResource( 8 )]
+[node name="BirdLeft2" parent="Enemies" index="15" instance=ExtResource( 8 )]
 position = Vector2( 88, 112 )
 
 [node name="HealthPartialPickup" parent="." index="4" instance=ExtResource( 5 )]
