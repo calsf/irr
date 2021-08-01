@@ -106,7 +106,7 @@ func apply_knockback(knockback_vector, knockback_strength):
 
 # Check for aggro onto player
 func check_aggro(entered_room_id):
-	if not is_aggro and room_id == entered_room_id:
+	if (not is_aggro and room_id == entered_room_id) or entered_room_id == -1:
 		is_aggro = true
 		emit_signal("aggro_started")
 

@@ -16,9 +16,8 @@ func _spawn_enemy():
 	enemy = enemy_obj.instance()
 	get_parent().add_child(enemy)
 	enemy.global_position = global_position
-	enemy.set_room_id(get_owner().room_id)
 	_call_aggro_check()
 
 # Check for aggro
 func _call_aggro_check():
-	enemy.check_aggro(PlayerRoom.curr_room_id)
+	enemy.check_aggro(-1)

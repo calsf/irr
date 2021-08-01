@@ -141,6 +141,7 @@ scene_path = "res://levels/level6_pr/Level6.tscn"
 [node name="DoorWR" parent="Room/DoorManager/Doors" instance=ExtResource( 8 )]
 position = Vector2( 608, 0 )
 script = ExtResource( 14 )
+scene_path = "res://levels/level7_wr/Level7.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Room/DoorManager/Doors/DoorWR"]
 
